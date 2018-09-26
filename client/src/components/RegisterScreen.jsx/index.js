@@ -1,0 +1,2 @@
+export { RegisterScreen } from './RegisterScree'
+

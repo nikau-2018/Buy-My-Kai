@@ -21,10 +21,11 @@ function addUser (user, testDb) {
     })
 }
 
-function addProduce (product, testDb) {
+function addProduce (product, id, testDb) {
   const db = testDb || connection
   return db('products')
-    .where('id', )
+    .join('users', 'products.users_id', id) // foreign key that joins products table and users table
+    .where('id', product.id)
     .insert({
       name: product.name,
       price: product.price,
@@ -32,6 +33,7 @@ function addProduce (product, testDb) {
       description: product.description,
       category: product.category,
       organic: product.organic,
-      freerange: product.freerange
+      freerange: product.freerange,
+      users_id: id
     })
 }

@@ -13,7 +13,7 @@ function addUser (user, testDb) {
     .insert({
       name: user.name,
       email: user.email,
-      password: user.hash,
+      hash: user.hash,
       address: user.address,
       suburb: user.suburb,
       city: user.city,

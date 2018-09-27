@@ -63,7 +63,7 @@ function getProducts (userId, testDb) {
     .select()
 }
 
-// Get product by suburb.
+// Get product by name.
 function getProductByName (name, testDB) {
   const db = testDB || connection
   return db('products')

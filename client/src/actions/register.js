@@ -2,6 +2,7 @@ import request from 'axios'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 
 export const showError = (errorMessage) => {
   return {
@@ -13,6 +14,13 @@ export const showError = (errorMessage) => {
 export const registerPending = (errorMessage) => {
   return {
     type: REGISTER_PENDING
+  }
+}
+
+export const registerSuccessful = (user) => {
+  return {
+    type: REGISTER_SUCCESS,
+    user
   }
 }
 

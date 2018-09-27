@@ -1,5 +1,6 @@
 import {
   REGISTER_PENDING,
+  REGISTER_SUCCESS,
   SHOW_ERROR} from '../actions/register'
 
 const defaultState = {
@@ -15,6 +16,13 @@ export default function registerReducer (state = defaultState, {action, error, t
         ...state,
         error: null,
         pending: true
+      }
+      case REGISTER_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        pending: false,
+        user
       }
     case SHOW_ERROR:
       return {

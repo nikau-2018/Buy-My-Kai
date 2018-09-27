@@ -27,7 +27,7 @@ class Register extends React.Component {
 
   handleSeller () {
     this.setState({
-      isSeller: !this.state.isSeller
+      isSeller: !this.state.user.isSeller
     })
   }
 
@@ -36,8 +36,11 @@ class Register extends React.Component {
   }
 
   handleChange (e) {
+    e.preventDefault()
     this.setState({
+      user: {
       [e.target.name]: e.target.value
+      }
     })
   }
 
@@ -55,7 +58,7 @@ class Register extends React.Component {
     return (
       <div>
         <h1>Register</h1>
-        <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input><br/>
+        <input name='name' value={this.state.user.name} placeholder='Name' onChange={this.handleChange}></input><br/>
         <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input><br/>
         <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input><br/>
         <label>Are you you a seller?</label>

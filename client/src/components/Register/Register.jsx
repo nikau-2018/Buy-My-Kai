@@ -63,6 +63,7 @@ class Register extends React.Component {
             <input name='postcode' value={this.state.user.postcode} placeholder='City' onChange={this.handleChange}></input>
             <input name='description' value={this.state.user.description} placeholder='City' onChange={this.handleChange}></input>
             <input name='hours' value={this.state.user.hours} placeholder='Hours' onChange={this.handleChange}></input>
+
           </div>
           : <div></div>
         }

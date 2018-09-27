@@ -1,8 +1,11 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
+
+import Header from '../Header'
+import Footer from '../Footer'
 
 import './app.css'
-import LoginScreen from '../LoginScreen'
+import Home from '../Home'
 import Login from '../Login'
 import RegisterScreen from '../RegisterScreen'
 import AreaScreen from '../AreaScreen'
@@ -12,13 +15,17 @@ import ProfileScreen from '../ProfileScreen'
 export default class App extends Component {
   render () {
     return (
-      <div className="app">
-        <Route exact path='/' component={LoginScreen} />
-        <Route exact path='/Login' component={Login} />
-        <Route path='/register' component={RegisterScreen} />
-        <Route path='/neighbourhood' component={AreaScreen} />
-        <Route path='/neighbourhood/?query' component={Area} />
-        <Route path='/profile/:id' component={ProfileScreen} />
+      <div>
+        <Header />
+        <div className="app">
+          <Route exact path='/' component={Home} />
+          <Route exact path='/Login' component={Login} />
+          <Route path='/register' component={RegisterScreen} />
+          <Route path='/neighbourhood' component={AreaScreen} />
+          <Route path='/neighbourhood/?query' component={Area} />
+          <Route path='/profile/:id' component={ProfileScreen} />
+        </div>
+        <Footer />
       </div>
     )
   }

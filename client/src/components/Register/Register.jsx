@@ -73,7 +73,9 @@ class Register extends React.Component {
           </div>
           : <button onClick={this.handleClick}>Go</button>
         }
-        <button onClick={this.sendUser}>Submit</button>
+        <div>
+          {this.state.isSeller ? <button onClick={this.sendUser}>Submit</button> : <div></div>}
+        </div>
       </div>
     )
   }

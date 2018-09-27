@@ -3,11 +3,6 @@ import {Route} from 'react-router-dom'
 
 import './app.css'
 import Home from '../Home/Home'
-// import Login from '../Login'
-// import RegisterScreen from '../RegisterScreen'
-// import AreaScreen from '../AreaScreen'
-// import Area from '../Area'
-// import ProfileScreen from '../ProfileScreen'
 
 export default class App extends Component {
   render () {

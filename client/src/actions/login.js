@@ -1,5 +1,4 @@
 import request from 'axios'
-import { dispatch } from '../../../node_modules/rxjs/internal/observable/pairs';
 
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'

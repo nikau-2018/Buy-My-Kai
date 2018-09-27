@@ -15,12 +15,15 @@ function addUser (user, testDb) {
   return db('users')
     .insert({
       name: user.name,
+      isSeller: user.isSeller,
       email: user.email,
       hash: user.hash,
+      description: user.description,
       address: user.address,
       suburb: user.suburb,
       city: user.city,
-      postcode: user.postcode
+      postcode: user.postcode,
+      hours: user.hours
     })
 }
 

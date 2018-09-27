@@ -8,7 +8,9 @@ export default function Home (props) {
       <Link to="/login">
         <button>Login</button>
       </Link>
-      <Link to="/register"><button>Register</button></Link>
+      <Link to="/register">
+      <button>Register</button>
+      </Link>
     </div>
   )
 }

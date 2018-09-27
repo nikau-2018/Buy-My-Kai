@@ -22,6 +22,7 @@ export function postUser (user) {
     return request
       .post('/api/v1/register')
       .then(res => {
+        // eslint-disable-next-line no-console
         console.log('success')
       })
       .catch(err => {

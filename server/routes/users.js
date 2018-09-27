@@ -7,24 +7,28 @@
 
 // FILE DEPENDENCIES
 const express = require('express')
-const { addUser } = require('../db/db')
+const db = require('../db/db')
 
 const router = express.Router()
 
-// Route
+// 
+// POST ROUTES
+// 
+
+// Post new user.
 router.post(
   '/register',
   register
 )
 
-// POST ROUTES
+// Create new user record route function.
 function register (req, res) {
 
   // Get user data from the post request.
   const user = req.body
 
   // Perform the user record insertion.
-  addUser(user)
+  db.addUser(user)
     // Handle success.
     .then(id => {
       // Store the new users ID in local state.
@@ -62,7 +66,42 @@ function register (req, res) {
     })
 }
 
+// 
 // GET ROUTES
+// 
+
+// Get user record.
+router.get('/:id', getUser)
+
+// Get user by ID route function.
+function getUser (req, res) {
+  
+  // Get user ID.
+  const userId = Number(req.params.id)
+
+  // Query the DB.
+  db.getUser(userId)
+
+    // Handle success.
+    .then(user => {
+
+      // Send response.
+      res.status(200).json({
+        ok: true,
+        user
+      })
+    })
+
+    // Handle errors.
+    .catch(({ message }) => {
+
+      // Send error response.
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
+    })
+}
 
 // PUT ROUTES
 

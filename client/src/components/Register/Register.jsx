@@ -55,20 +55,20 @@ class Register extends React.Component {
     return (
       <div>
         <h1>Register</h1>
-        <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input>
-        <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input>
-        <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input>
+        <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input><br/>
+        <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input><br/>
+        <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input><br/>
         <label>Are you you a seller?</label>
-        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}></input>
+        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}></input><br/>
 
         {this.state.isSeller
           ? <div>
-            <input name='address' value={this.state.user.address} placeholder='Street address' onChange={this.handleChange}></input>
-            <input name='suburb' value={this.state.user.suburb} placeholder='Suburb' onChange={this.handleChange}></input>
-            <input name='city' value={this.state.user.city} placeholder='City' onChange={this.handleChange}></input>
-            <input name='postcode' value={this.state.user.postcode} placeholder='City' onChange={this.handleChange}></input>
-            <input name='description' value={this.state.user.description} placeholder='City' onChange={this.handleChange}></input>
-            <input name='hours' value={this.state.user.hours} placeholder='Hours' onChange={this.handleChange}></input>
+            <input name='address' value={this.state.user.address} placeholder='Street address' onChange={this.handleChange}></input><br/>
+            <input name='suburb' value={this.state.user.suburb} placeholder='Suburb' onChange={this.handleChange}></input><br/>
+            <input name='city' value={this.state.user.city} placeholder='City' onChange={this.handleChange}></input><br/>
+            <input name='postcode' value={this.state.user.postcode} placeholder='City' onChange={this.handleChange}></input><br/>
+            <input name='description' value={this.state.user.description} placeholder='City' onChange={this.handleChange}></input><br/>
+            <input name='hours' value={this.state.user.hours} placeholder='Hours' onChange={this.handleChange}></input><br/>
 
           </div>
           : <button onClick={this.handleClick}>Go</button>

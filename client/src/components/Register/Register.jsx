@@ -58,7 +58,7 @@ class Register extends React.Component {
         <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input>
         <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input>
         <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input>
-        <label for="seller">Are you a seller:</label>
+        <label>Are you you a seller?</label>
         <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}></input>
 
         {this.state.isSeller
@@ -79,4 +79,4 @@ class Register extends React.Component {
   }
 }
 
-export default connect(Register)
+export default connect()(Register)

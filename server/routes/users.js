@@ -14,8 +14,10 @@ const router = express.Router()
 // POST ROUTES
 
 router.post('/register', register)
+router.post('/login', login)
 
-router.post('/login', (req, res) => {
+// Checks the login against what is in the database using email and hash
+function login (req, res) {
   const {email, hash} = req.body
   db.getUser(email, hash)
   .then((user) => {
@@ -26,60 +28,60 @@ router.post('/login', (req, res) => {
   .catch(err => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
   })
-})
+}
 
-// Create new user record route function.
+// Create new user record route function
 function register (req, res) { 
   const user = req.body  
   db.addUser(user) 
-    .then(id => { 
-      res.locals.userId = id[0] 
-      ()
-      res.status(200).json({
-        ok: true,
-        message: 'User account was successfully created :)',
-        user
-      })
+  .then(id => { 
+    res.locals.userId = id[0] 
+    ()
+    res.status(200).json({
+      ok: true,
+      message: 'User account was successfully created :)',
+      user
     })
-    .catch(({ message }) => {
-      if (message.includes('UNIQUE constraint failed: users.username')) {
-        return res.status(400).json({
-          ok: false,
-          message: 'Username already exists.'
-        })
-      }
-      res.status(500).json({
+  })
+  .catch(({ message }) => {
+    if (message.includes('UNIQUE constraint failed: users.username')) {
+      return res.status(400).json({
         ok: false,
-        message: message
+        message: 'Username already exists.'
+        })
+    }
+    res.status(500).json({
+      ok: false,
+      message: message
       })
     })
 }
 
 // GET ROUTES
 
-// Get user records.
+// Get user records
 router.get('/:id', getUser)
 router.get('/', getSellerBySuburb)
 
-// Get user by ID route function.
+// Get user by ID route function
 function getUser (req, res) {
   const userId = Number(req.params.id)
   db.getUser(userId)
-    .then(user => {
-      if (user.isSeller) {
-        db.getSeller(userId)
-          .then(seller => {
-            res.status(200).json({
-              ok: true,
-              seller
-            })
+  .then(user => {
+    if (user.isSeller) {
+      db.getSeller(userId)
+      .then(seller => {
+        res.status(200).json({
+          ok: true,
+          seller
           })
-          .catch(({ message }) => {
-            res.status(500).json({
-              ok: false,
-              message: message
+        })
+      .catch(({ message }) => {
+        res.status(500).json({
+          ok: false,
+          message: message
             })
-          })
+        })
       } else {
         res.status(200).json({
           ok: true,
@@ -87,42 +89,37 @@ function getUser (req, res) {
         })
       }
     })
-    .catch(({ message }) => {
-      res.status(500).json({
-        ok: false,
-        message: message
-      })
+      .catch(({ message }) => {
+        res.status(500).json({
+          ok: false,
+          message: message
+        })
     })
 }
 
-// Get seller by suburb.
+// Get seller by suburb
 function getSellerBySuburb (req, res) {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
-    .then(results => {
-      res.status(200).json({
-        ok: true,
-        message: 'Sellers were found.',
-        results
-      })
-    })
-    .catch(({message}) => {
-      if (results.length === 0) {
-        res.status(401).json({
-          ok: false,
-          message: 'No users found.'
+  .then(results => {
+    res.status(200).json({
+      ok: true,
+      message: 'Sellers were found.',
+      results
         })
-      }
+    })
+  .catch(({message}) => {
+    if (results.length === 0) {
+      res.status(401).json({
+        ok: false,
+        message: 'No users found.'
+      })
+    }
       res.status(500).json({
         ok: false,
         message: message
       })
     })
-
 }
-
-// PUT ROUTES
-
-// DELETE ROUTES
 
 module.exports = router

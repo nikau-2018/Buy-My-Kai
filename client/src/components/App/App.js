@@ -21,7 +21,7 @@ export default class App extends Component {
         <Route path='/neighbourhood' component={AreaScreen} />
         <Route path='/neighbourhood/?query' component={Area} />
         <Route path='/profile/:id' component={Profile} />
-        <Route path='/profile/:id/addProduct' component={AddProduct}/> */}
+        <Route path='/profile/:id/addProduct' component={AddProduct}/>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import request from 'superagent'
+import request from 'axios'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'

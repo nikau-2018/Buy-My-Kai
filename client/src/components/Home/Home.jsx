@@ -9,7 +9,7 @@ export default function Home (props) {
         <button>Login</button>
       </Link>
       <Link to="/register">
-      <button>Register</button>
+        <button>Register</button>
       </Link>
     </div>
   )

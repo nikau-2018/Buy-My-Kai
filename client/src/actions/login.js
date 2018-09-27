@@ -16,14 +16,13 @@ export const loginSuc = user => ({
 
 export const loginReq = ({
   type: LOGIN_REQUEST
-
 })
 
-export const loginUser = (username, password) => {
+export const loginUser = (email, hash) => {
   return dispatch => {
     // dispatch(loginReq())
     return request
-      .post(`/api/v1/users/login`, {username, password}, getHeaders())
+      .post(`/api/v1/users/login`, {email, hash}, getHeaders())
       .then(res => {
         if (res.data.token) {
           setToken(res.data.token)
@@ -39,3 +38,4 @@ export const loginError = error => ({
   type: LOGIN_ERROR,
   error
 })
+

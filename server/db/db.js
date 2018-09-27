@@ -77,10 +77,10 @@ function getProductByName (name, testDB) {
 }
 
 // gets users information from the users and products table that we are joining where userId is equal to products.user_id
-function getUser (userId, testDb) {
+function getUser (email, hash, testDb) {
   const db = testDb || connection
   return db('users')
-    .where('users.id', userId)
+    .where('users.email', email).where('users.hash', hash)
     .first()
 }
 

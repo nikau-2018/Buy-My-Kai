@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
 
 import './app.css'
-import LoginScreen from '../LoginScreen/LoginScreen'
+import Home from '../Home/Home'
 // import Login from '../Login'
 // import RegisterScreen from '../RegisterScreen'
 // import AreaScreen from '../AreaScreen'
@@ -13,7 +13,7 @@ export default class App extends Component {
   render () {
     return (
       <div className="app">
-        <Route exact path='/' component={LoginScreen} />
+        <Route exact path='/' component={Home} />
         {/* <Route exact path='/login' component={Login} />
         <Route path='/register' component={RegisterScreen} />
         <Route path='/neighbourhood' component={AreaScreen} />

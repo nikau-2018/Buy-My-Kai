@@ -6,5 +6,4 @@ import loginReducers from './login'
 export default combineReducers({
   currentUser,
   loginReducers
-
 })

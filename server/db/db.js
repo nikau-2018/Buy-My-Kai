@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
   addUser,
-  addProduce
+  addProduce,
+  getProduce
 }
 
 function addUser (user, testDb) {
@@ -36,4 +37,10 @@ function addProduce (product, id, testDb) {
       freerange: product.freerange,
       users_id: id
     })
+}
+
+function getProduce (id, testDb) {
+  const db = testDb || connection
+  return db('products')
+    .join('users', 'prod')
 }

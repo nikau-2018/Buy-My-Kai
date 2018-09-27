@@ -27,7 +27,7 @@ class Register extends React.Component {
 
   handleSeller () {
     this.setState({
-      isSeller: true
+      isSeller: !this.state.isSeller
     })
   }
 

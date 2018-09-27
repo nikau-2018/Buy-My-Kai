@@ -14,5 +14,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('products') 
+  return knex.schema.dropTable('products')
 }

@@ -58,7 +58,8 @@ class Register extends React.Component {
         <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input>
         <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input>
         <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input>
-        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}>I am a seller</input>
+        <label for="seller">Are you a seller:</label>
+        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}></input>
 
         {this.state.isSeller
           ? <div>
@@ -72,7 +73,7 @@ class Register extends React.Component {
           </div>
           : <button onClick={this.handleClick}>Go</button>
         }
-        <button onClick={this.sendUser}>Submit</button>
+        <button onClick={this.sendUser}>Next</button>
       </div>
     )
   }

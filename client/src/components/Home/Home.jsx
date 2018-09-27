@@ -1,13 +1,17 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
-import Login from '../Login'
-
-export default class Home extends Component {
-  render () {
+export default function Home (props) {
     return (
-      <div className='container'>
-        <Login />
-      </div>
+        <div>
+        <h1>Hello</h1>
+        <span>Have you been here befour?  </span> 
+        <Link to="/login">
+         <button>Login</button>
+         </Link>
+         <Link to="/register">
+        <a>New member? Register!</a>
+         </Link>
+        </div>
     )
-  }
 }

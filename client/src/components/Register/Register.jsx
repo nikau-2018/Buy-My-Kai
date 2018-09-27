@@ -22,12 +22,17 @@ class Register extends React.Component {
     }
     this.handleSeller = this.handleSeller.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleSeller () {
     this.setState({
       isSeller: true
     })
+  }
+
+  handleClick () {
+    return <Redirect to='/profile' />
   }
 
   handleChange (e) {
@@ -43,7 +48,7 @@ class Register extends React.Component {
   render () {
     if (this.props.user) {
       return (
-        <Redirect to='/profile'/>
+        <Redirect to='/product'/>
       )
     }
 
@@ -65,7 +70,7 @@ class Register extends React.Component {
             <input name='hours' value={this.state.user.hours} placeholder='Hours' onChange={this.handleChange}></input>
 
           </div>
-          : <div></div>
+          : <button onClick={this.handleClick}>Go</button>
         }
         <button onClick={this.sendUser}>Submit</button>
       </div>

@@ -79,4 +79,4 @@ class Register extends React.Component {
   }
 }
 
-export default connect(Register)
+export default connect()(Register)

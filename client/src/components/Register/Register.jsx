@@ -58,7 +58,8 @@ class Register extends React.Component {
         <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input>
         <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input>
         <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input>
-        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}>I am a seller</input>
+        <label>Are you a seller?</label>
+        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}></input>
 
         {this.state.isSeller
           ? <div>
@@ -78,4 +79,11 @@ class Register extends React.Component {
   }
 }
 
-export default connect(Register)
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Register)
+

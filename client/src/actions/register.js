@@ -20,7 +20,7 @@ export function postUser (user) {
   return (dispatch) => {
     dispatch(registerPending())
     return request
-      .post('/api/v1/register')
+      .post('/api/v1/users/register')
       .then(res => {
         // eslint-disable-next-line no-console
         console.log('success')

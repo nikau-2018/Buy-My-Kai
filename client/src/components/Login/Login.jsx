@@ -34,7 +34,6 @@ class Login extends React.Component {
           </h1>
           <form>
             {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
-            {this.props.error}
             <p>
               Username:<br /><input type="text" name="username"  value={this.state.username} onChange={this.handleChange} placeholder="Enter your username..." /><br />
               Password:<br /><input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Enter your password..." />
@@ -52,8 +51,7 @@ class Login extends React.Component {
   const mapStateToProps = (state) => {
     return {
       user: state.user,
-      isLoggedIn: state.loginReducers.isLoggedIn,
-      error: state.loginReducers.error
+      isLoggedIn: state.loginReducers.isLoggedIn
   
     }
   }

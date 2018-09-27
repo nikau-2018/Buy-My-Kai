@@ -29,8 +29,10 @@ function register (req, res) {
 
   // Perform the user record insertion.
   db.addUser(user)
+
     // Handle success.
     .then(id => {
+
       // Store the new users ID in local state.
       res.locals.userId = id[0]
 
@@ -70,8 +72,9 @@ function register (req, res) {
 // GET ROUTES
 // 
 
-// Get user record.
+// Get user records.
 router.get('/:id', getUser)
+router.get('/', getSellerBySuburb)
 
 // Get user by ID route function.
 function getUser (req, res) {
@@ -85,11 +88,39 @@ function getUser (req, res) {
     // Handle success.
     .then(user => {
 
-      // Send response.
-      res.status(200).json({
-        ok: true,
-        user
-      })
+      // Check if the user is a seller.
+      if (user.isSeller) {
+
+        // Get the seller information.
+        db.getSeller(userId)
+
+          // Handle success.
+          .then(seller => {
+          
+            // Send response.
+            res.status(200).json({
+              ok: true,
+              seller
+            })
+          })
+
+          // Handle error.
+          .catch(({ message }) => {
+
+            // Send error response.
+            res.status(500).json({
+              ok: false,
+              message: message
+            })
+          })
+      } else {
+        
+        // Send response.
+        res.status(200).json({
+          ok: true,
+          user
+        })
+      }
     })
 
     // Handle errors.
@@ -101,6 +132,46 @@ function getUser (req, res) {
         message: message
       })
     })
+}
+
+// Get seller by suburb.
+function getSellerBySuburb (req, res) {
+
+  // Get the suburb from the request query.
+  const suburb = req.query.suburb
+
+  // Query the DB.
+  db.getSellerBySuburb(suburb)
+
+    // Handle success.
+    .then(results => {
+
+      // Send response.
+      res.status(200).json({
+        ok: true,
+        message: 'Sellers were found.',
+        results
+      })
+    })
+
+    // Handle error.
+    .catch(({message}) => {
+      
+      // If no users were found.
+      if (results.length === 0) {
+        res.status(401).json({
+          ok: false,
+          message: 'No users found.'
+        })
+      }
+
+      // Send error response.
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
+    })
+
 }
 
 // PUT ROUTES

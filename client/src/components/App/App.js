@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom'
 import './app.css'
 import Home from '../Home'
 import Login from '../Login/Login'
-import Register from '../Register/Register'
+// import Register from '../Register/Register'
 import AreaScreen from '../Area/AreaScreen'
 import Area from '../Area/Area'
 import Profile from '../Profile'
@@ -17,7 +17,7 @@ export default class App extends Component {
       <div className="app">
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        {/* <Route path='/register' component={Register} /> */}
         <Route path='/neighbourhood' component={AreaScreen} />
         <Route path='/neighbourhood/?query' component={Area} />
         <Route path='/profile/:id' component={Profile} />

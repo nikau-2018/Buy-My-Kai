@@ -9,7 +9,6 @@ exports.up = (knex, Promise) => {
     t.string('category')
     t.boolean('organic')
     t.boolean('freerange')
-    t.string('hours')
     t.integer('user_id').references('users.id')
   })
 }

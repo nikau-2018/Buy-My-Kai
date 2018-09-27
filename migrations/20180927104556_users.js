@@ -10,6 +10,8 @@ exports.up = (knex, Promise) => {
     t.string('address')
     t.string('suburb')
     t.integer('postcode')
+    t.string('description')
+    t.string('hours')
   })
 }
 

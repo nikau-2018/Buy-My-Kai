@@ -1,4 +1,4 @@
-import request from 'axios'
+import request from 'superagent'
 
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'

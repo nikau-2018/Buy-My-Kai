@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from ''
 
@@ -11,7 +11,7 @@ class Register extends React.Component {
         name: '',
         email: '',
         hash: '',
-        seller: false,
+        isSeller: false,
         address: '',
         suburb: '',
         city: '',
@@ -26,7 +26,7 @@ class Register extends React.Component {
 
   handleSeller () {
     this.setState({
-      seller: true
+      isSeller: true
     })
   }
 
@@ -41,22 +41,29 @@ class Register extends React.Component {
   }
 
   render () {
+    if (this.props.user) {
+      return (
+        <Redirect to='/profile'/>
+      )
+    }
+
     return (
       <div>
         <h1>Register</h1>
         <input name='name' value={this.state.user.name} placeholder='Full Name' onChange={this.handleChange}></input>
-        <input name='email' value={this.state.user.email} placeholder='Email'></input>
-        <input name='password' value={this.state.user.hash} placeholder='Enter a password'></input>
-        <input type='checkbox' name='seller' value={this.state.user.seller} onClick={this.handleSeller}>I am a seller</input>
+        <input name='email' value={this.state.user.email} placeholder='Email' onChange={this.handleChange}></input>
+        <input name='password' value={this.state.user.hash} placeholder='Enter a password' onChange={this.handleChange}></input>
+        <input type='checkbox' name='seller' value={this.state.user.isSeller} onClick={this.handleSeller} onChange={this.handleChange}>I am a seller</input>
 
-        {this.state.seller
+        {this.state.isSeller
           ? <div>
-            <input name='address' value={this.state.user.address} placeholder='Street address'></input>
-            <input name='suburb' value={this.state.user.suburb} placeholder='Suburb'></input>
-            <input name='city' value={this.state.user.city} placeholder='City'></input>
-            <input name='postcode' value={this.state.user.postcode} placeholder='City'></input>
-            <input name='description' value={this.state.user.description} placeholder='City'></input>
-            <input name='hours' value={this.state.user.hours} placeholder='Hours'></input>
+            <input name='address' value={this.state.user.address} placeholder='Street address' onChange={this.handleChange}></input>
+            <input name='suburb' value={this.state.user.suburb} placeholder='Suburb' onChange={this.handleChange}></input>
+            <input name='city' value={this.state.user.city} placeholder='City' onChange={this.handleChange}></input>
+            <input name='postcode' value={this.state.user.postcode} placeholder='City' onChange={this.handleChange}></input>
+            <input name='description' value={this.state.user.description} placeholder='City' onChange={this.handleChange}></input>
+            <input name='hours' value={this.state.user.hours} placeholder='Hours' onChange={this.handleChange}></input>
+
           </div>
           : <div></div>
         }

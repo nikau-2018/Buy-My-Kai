@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from ''
 
@@ -41,6 +41,12 @@ class Register extends React.Component {
   }
 
   render () {
+    if (this.props.user) {
+      return (
+        <Redirect to='/profile'/>
+      )
+    }
+
     return (
       <div>
         <h1>Register</h1>

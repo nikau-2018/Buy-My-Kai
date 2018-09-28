@@ -10,20 +10,46 @@ const express = require('express')
 const db = require('../db/db')
 
 const router = express.Router()
+
+// Auth
+// const verifyJwt = require('express-jwt')
+const {checkHash} = require('../auth/hash')
+const token = require('../auth/token')
  
 // POST ROUTES
 
-router.post('/register', register)
+router.post('/register', register, token.issue)
 router.post('/login', login)
 
 // Checks the login against what is in the database using email and hash
-function login (req, res) {
+function login (req, res, next) {
   const {email, hash} = req.body
   db.getUser(email, hash)
   .then((user) => {
-    res.status(200).json({user})
-    /* eslint-disable no-console */
-    console.log('Done')
+
+    // Check if user exists.
+    if (!user) {
+      return res.status(400).json({
+        ok: false,
+        error: 'That user does not exist.'
+      })
+    }
+
+    // Compare user input password with hash record.
+    const {hash, id} = user
+
+    checkHash(hash, hash)
+      .then(ok => {
+        if (!ok) {
+          return res.status(403).json({
+            ok: false,
+            error: 'Password incorrect.'
+          })
+        }
+
+        res.locals.userId = id
+        next()
+      })
   }) 
   .catch(err => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -31,16 +57,16 @@ function login (req, res) {
 }
 
 // Create new user record route function
-function register (req, res) { 
+function register (req, res, next) { 
   const user = req.body  
   db.addUser(user) 
   .then(id => { 
-    res.locals.userId = id[0] 
-    res.status(200).json({
-      ok: true,
-      message: 'User account was successfully created :)',
-      user
-    })
+
+    // Store the new users ID in local state.
+    res.locals.userId = id[0]
+
+    // Progress to the next middleware stack function.
+    next() 
   })
   .catch(({ message }) => {
     if (message.includes('UNIQUE constraint failed: users.username')) {

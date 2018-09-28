@@ -2,24 +2,24 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-import {getProfile} from '//action'
-import {addProduct} from '//action'
+import {getProfile} from '../../actions/profile'
+import {addProduct} from '../../actions/profile'
 
 class Profile extends React.Component {
   constructor (props) {
     super(props)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.dispatch(getProfile())
-}
+  }
 
   render () {
     const profile = this.props
     return (
       <div className='profile' >
         <div className='name'>
-          {profile.name}
+          <h3>Welcome,{profile.name}</h3>
         </div>
 
         <div className='email'>
@@ -51,7 +51,7 @@ class Profile extends React.Component {
         </div>
 
         <button className='addproduct'>
-          <Link to={'/addproduct'}>Add Product</Link>
+          <Link to={'/profile/:id/addproduct'}>Add Product</Link>
         </button >
 
       </div>

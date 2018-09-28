@@ -35,8 +35,8 @@ class Login extends React.Component {
         <form>
           {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
           <p>
-              <input type="text" name="email" value={this.state.username} onChange={this.handleChange} placeholder="Enter your username..." /><br />
-              <input type="password" name="hash" value={this.state.password} onChange={this.handleChange} placeholder="Enter your password..." />
+            <input type="text" name="email" value={this.state.username} onChange={this.handleChange} placeholder="Enter your username..." /><br />
+            <input type="password" name="hash" value={this.state.password} onChange={this.handleChange} placeholder="Enter your password..." />
           </p>
           <button onClick={this.handleSubmit}>Log in</button>
           <Link to="/">

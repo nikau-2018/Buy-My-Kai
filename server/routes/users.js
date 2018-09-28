@@ -10,11 +10,12 @@ const express = require('express')
 const db = require('../db/db')
 
 const router = express.Router()
+
 // Auth
 // const verifyJwt = require('express-jwt')
 const {checkHash} = require('../auth/hash')
 const token = require('../auth/token')
- 
+
 // POST ROUTES
 
 router.post('/register', register, token.issue)
@@ -25,9 +26,29 @@ function login (req, res, next) {
   const {email, hash} = req.body
   db.getUser(email, hash)
     .then((user) => {
-      res.status(200).json({user})
-      /* eslint-disable no-console */
-      console.log('Done')
+      // Check if user exists.
+      if (!user) {
+        return res.status(400).json({
+          ok: false,
+          error: 'That user does not exist.'
+        })
+      }
+
+      // Compare user input password with hash record.
+      const {hash, id} = user
+
+      checkHash(hash, hash)
+        .then(ok => {
+          if (!ok) {
+            return res.status(403).json({
+              ok: false,
+              error: 'Password incorrect.'
+            })
+          }
+
+          res.locals.userId = id
+          next()
+        })
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -35,70 +56,21 @@ function login (req, res, next) {
 }
 
 // Create new user record route function
-function register (req, res) {
+function register (req, res, next) {
   const user = req.body
   db.addUser(user)
     .then(id => {
+      // Store the new users ID in local state.
       res.locals.userId = id[0]
-      res.status(200).json({
-        ok: true,
-        message: 'User account was successfully created :)',
-        user
-      })
+
+      // Progress to the next middleware stack function.
+      next()
     })
-    .catch(({ message }) => {
+    .catch(({message}) => {
       if (message.includes('UNIQUE constraint failed: users.username')) {
         return res.status(400).json({
           ok: false,
           message: 'Username already exists.'
-  .then((user) => {
-
-    // Check if user exists.
-    if (!user) {
-      return res.status(400).json({
-        ok: false,
-        error: 'That user does not exist.'
-      })
-    }
-
-    // Compare user input password with hash record.
-    const {hash, id} = user
-
-    checkHash(hash, hash)
-      .then(ok => {
-        if (!ok) {
-          return res.status(403).json({
-            ok: false,
-            error: 'Password incorrect.'
-          })
-        }
-
-        res.locals.userId = id
-        next()
-      })
-  }) 
-  .catch(err => {
-    res.status(500).send('DATABASE ERROR: ' + err.message)
-  })
-}
-
-// Create new user record route function
-function register (req, res, next) { 
-  const user = req.body  
-  db.addUser(user) 
-  .then(id => { 
-
-    // Store the new users ID in local state.
-    res.locals.userId = id[0]
-
-    // Progress to the next middleware stack function.
-    next() 
-  })
-  .catch(({ message }) => {
-    if (message.includes('UNIQUE constraint failed: users.username')) {
-      return res.status(400).json({
-        ok: false,
-        message: 'Username already exists.'
         })
       }
       res.status(500).json({
@@ -112,7 +84,6 @@ function register (req, res, next) {
 
 // Get user records
 router.get('/:id', getUser)
-// router.get('/', getSellerBySuburb)
 
 // Get user by ID route function
 function getUser (req, res) {
@@ -127,7 +98,7 @@ function getUser (req, res) {
               seller
             })
           })
-          .catch(({ message }) => {
+          .catch(({message}) => {
             res.status(500).json({
               ok: false,
               message: message
@@ -140,19 +111,20 @@ function getUser (req, res) {
         })
       }
     })
-    .catch(({ message }) => {
+    .catch(({message}) => {
       res.status(500).json({
         ok: false,
         message: message
       })
     })
-} 
+}
 
 router.get('/', (req, res) => {
   const suburb = req.query.suburb
   console.log(suburb)
   db.getSellerBySuburb(suburb)
     .then(result => {
+      console.log('sellers found')
       res.json({result})
     })
     .catch(err => {

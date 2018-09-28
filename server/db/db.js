@@ -1,6 +1,7 @@
 const environment = process.env.NODE_ENV || 'development'
 const config = require('../../knexfile')[environment]
 const connection = require('knex')(config)
+const {generateHash} = require('../auth/hash')
 
 module.exports = {
   addUser,
@@ -16,18 +17,21 @@ module.exports = {
 // adds a new user to the database
 function addUser (user, testDb) {
   const db = testDb || connection
-  return db('users')
-    .insert({
-      name: user.name,
-      isSeller: user.isSeller,
-      email: user.email,
-      hash: user.hash,
-      description: user.description,
-      address: user.address,
-      suburb: user.suburb,
-      city: user.city,
-      postcode: user.postcode,
-      hours: user.hours
+  return generateHash(user.hash)
+    .then(hash => {
+      return db('users')
+        .insert({
+          name: user.name,
+          isSeller: user.isSeller,
+          email: user.email,
+          hash: hash,
+          description: user.description,
+          address: user.address,
+          suburb: user.suburb,
+          city: user.city,
+          postcode: user.postcode,
+          hours: user.hours
+        })
     })
 }
 

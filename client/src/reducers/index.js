@@ -4,7 +4,7 @@ import currentUser from './currentUser'
 import loginReducers from './login'
 import registerReducer from './register'
 import addproductReducer from './addproduct'
-import areaReducer from './areaReducer'
+import areaReducer from './area'
 
 export default combineReducers({
   currentUser,

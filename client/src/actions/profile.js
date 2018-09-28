@@ -28,7 +28,7 @@ export function getProfile (user) {
   return (dispatch) => {
     dispatch(profilePending())
     return request
-      .get(`/api/v1/users/profile/${user.id}`)
+      .get(`/api/v1/users/profile`)
       .then(res => {
         // eslint-disable-next-line no-console
         console.log('success')

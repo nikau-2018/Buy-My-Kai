@@ -29,8 +29,9 @@ export default function registerReducer (state = defaultState, {action, error, t
         ...state,
         error,
         pending: false,
-        user: null
+        user: false
       }
+
     default:
       return state
   }

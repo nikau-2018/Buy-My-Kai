@@ -17,10 +17,10 @@ export const registerPending = (errorMessage) => {
   }
 }
 
-export const registerSuccessful = (user) => {
+export const registerSuccess = user => {
   return {
     type: REGISTER_SUCCESS,
-    user
+    user: user
   }
 }
 
@@ -28,8 +28,11 @@ export function postUser (user) {
   return (dispatch) => {
     dispatch(registerPending())
     return request
-      .post('/api/v1/users/register')
+      .post('/api/v1/users/register', user)
       .then(res => {
+        // dispatch registerSuccess.
+        dispatch(registerSuccess(res.data.user))
+
         // eslint-disable-next-line no-console
         console.log('success')
       })

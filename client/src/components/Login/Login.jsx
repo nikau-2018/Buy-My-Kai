@@ -3,6 +3,9 @@ import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/login'
 
+import styles from './styles.css'
+import logo from '../Home/Logo.png'
+
 class Login extends React.Component {
   constructor (props) {
     super(props)
@@ -27,22 +30,35 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>
-            Log into <br />
-            Buy-My-Kai
-        </h1>
-        <form>
-          {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
-          <p>
-            <input type="text" name="email" value={this.state.username} onChange={this.handleChange} placeholder="Enter your username..." /><br />
-            <input type="password" name="hash" value={this.state.password} onChange={this.handleChange} placeholder="Enter your password..." />
-          </p>
-          <button onClick={this.handleSubmit}>Log in</button>
-          <Link to="/">
-            <button>Home</button>
-          </Link>
-        </form>
+      <div className="pure-img background">
+        <div className="home-container pure-u-1-1 pure-u-md-1-2">
+          <img className="pure-img logo" src={logo}/>
+
+          <form>
+            {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
+            <div className="row">
+              <div className="input-field col s12">
+                <input className="validate" type="text" name="email" value={this.state.username} onChange={this.handleChange}/>
+                <label htmlFor="email">email</label><br />
+              </div>
+              <div className="row">
+                <div className="input-field col s12">
+                  <input className="validate" type="password" name="hash" value={this.state.password} onChange={this.handleChange}/>
+                  <label htmlFor="password">password</label>
+                </div>
+              </div>
+            </div>
+
+            <div className="pure-u-1 pure-u-md-1-2">
+              <button className=' pure-button pure-button-active login' onClick={this.handleSubmit}>Log in</button>
+            </div>
+            <div className="pure-u-1 pure-u-md-1-2">
+              <Link to="/">
+                <button className=' pure-button pure-button-active login'>Home</button>
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

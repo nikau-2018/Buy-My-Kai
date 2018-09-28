@@ -1,7 +1,7 @@
 import {
-  REGISTER_PENDING,
-  REGISTER_SUCCESS,
-  SHOW_ERROR} from '../actions/register'
+  PROFILE_PENDING,
+  PROFILE_SUCCESS,
+  SHOW_ERROR} from '../actions/profile'
 
 const defaultState = {
   error: null,
@@ -9,15 +9,15 @@ const defaultState = {
   user: null
 }
 
-export default function registerReducer (state = defaultState, {action, error, type, user}) {
+export default function profileReducer (state = defaultState, {action, error, type, user}) {
   switch (type) {
-    case REGISTER_PENDING:
+    case PROFILE_PENDING:
       return {
         ...state,
         error: null,
         pending: true
       }
-    case REGISTER_SUCCESS:
+    case PROFILE_SUCCESS:
       return {
         ...state,
         error: null,
@@ -29,9 +29,8 @@ export default function registerReducer (state = defaultState, {action, error, t
         ...state,
         error,
         pending: false,
-        user: false
+        user: null
       }
-
     default:
       return state
   }

@@ -1,35 +1,35 @@
 import {
-  REGISTER_PENDING,
-  REGISTER_SUCCESS,
-  SHOW_ERROR} from '../actions/register'
+  AREA_PENDING,
+  AREA_SUCCESS,
+  SHOW_ERROR} from '../actions/area'
 
 const defaultState = {
   error: null,
   pending: false,
-  user: null
+  neighbourhood: null
 }
 
-export default function registerReducer (state = defaultState, {action, error, type, user}) {
+export default function areaReducer (state = defaultState, {action, error, type, neighbourhood}) {
   switch (type) {
-    case REGISTER_PENDING:
+    case AREA_PENDING:
       return {
         ...state,
         error: null,
         pending: true
       }
-    case REGISTER_SUCCESS:
+    case AREA_SUCCESS:
       return {
         ...state,
         error: null,
         pending: false,
-        user
+        neighbourhood
       }
     case SHOW_ERROR:
       return {
         ...state,
         error,
         pending: false,
-        user: false
+        neighbourhood: false
       }
 
     default:

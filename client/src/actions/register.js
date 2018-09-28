@@ -31,6 +31,7 @@ export function postUser (user) {
       .post('/api/v1/users/register', user)
       .then(res => {
         // dispatch registerSuccess.
+
         dispatch(registerSuccess(res.data.user))
 
         // eslint-disable-next-line no-console

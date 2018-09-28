@@ -1,12 +1,13 @@
 import React from 'react'
 // import {Redirect} from 'react-router-dom'
-import {sendNeighbourhood} from '../../actions/'
+import {sendNeighbourhood} from '../../actions/area'
+import {connect} from 'react-redux'
 
 class Area extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      neighbourhood: ''
+      suburb: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
@@ -27,7 +28,7 @@ class Area extends React.Component {
 
   sendNeighbourhood () {
     this.setState({
-      neighbourhood: this.state.neighbourhood
+      suburb: this.state.suburb
     })
     this.props.dispatch(sendNeighbourhood(this.state))
   }
@@ -36,10 +37,10 @@ class Area extends React.Component {
     return (
       <div>
         <h1>Search For Growers</h1>
-        <input type="text" name='neighbourhood' value={this.state.neighbourhood} placeholder='Suburb' onChange={this.handleChange} onKeyPress={this.handleKeyPress}/><br/>
+        <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} onKeyPress={this.handleKeyPress}/><br/>
       </div>
     )
   }
 }
 
-export default Area
+export default connect()(Area)

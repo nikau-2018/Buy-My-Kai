@@ -25,15 +25,15 @@ export const areaSuccess = suburb => {
 }
 
 export function sendNeighbourhood (suburb) {
+  console.log(suburb)
   return (dispatch) => {
     dispatch(areaPending())
     return request
-      .get(`/api/v1/users?suburb=${suburb}`)
+      .get(`/api/v1/users/?suburb=${suburb}`)
       .then(res => {
+        console.log(res)
         // dispatch areaSuccess.
-
-        dispatch(areaSuccess(res.data.area))
-
+        dispatch(areaSuccess(res.data.result[0]))
         // eslint-disable-next-line no-console
         console.log('success')
       })

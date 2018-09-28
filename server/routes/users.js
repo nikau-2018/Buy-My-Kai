@@ -60,7 +60,7 @@ function register (req, res) {
 
 // Get user records
 router.get('/:id', getUser)
-router.get('/', getSellerBySuburb)
+// router.get('/', getSellerBySuburb)
 
 // Get user by ID route function
 function getUser (req, res) {
@@ -96,29 +96,40 @@ function getUser (req, res) {
     })
 }
 
-// Get seller by suburb
-function getSellerBySuburb (req, res) {
+// // Get seller by suburb
+// function getSellerBySuburb (req, res) {
+//   const suburb = req.query.suburb
+//   db.getSellerBySuburb(suburb)
+//     .then(result => {
+//       res.status(200).json({
+//         ok: true,
+//         message: 'Sellers were found.',
+//         result
+//       })
+//     })
+//     .catch(({message}) => {
+//       if (result.length === 0) {
+//         res.status(401).json({
+//           ok: false,
+//           message: 'No users found.'
+//         })
+//       }
+//       res.status(500).json({
+//         ok: false,
+//         message: message
+//       })
+//     })
+// }
+
+router.get('/', (req, res) => {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
     .then(result => {
-      res.status(200).json({
-        ok: true,
-        message: 'Sellers were found.',
-        result
-      })
+      res.json({result})
     })
-    .catch(({message}) => {
-      if (res.length === 0) {
-        res.status(401).json({
-          ok: false,
-          message: 'No users found.'
-        })
-      }
-      res.status(500).json({
-        ok: false,
-        message: message
-      })
+    .catch(err => {
+      res.status(500).send('Database Error: ' + err.message)
     })
-}
+})
 
 module.exports = router

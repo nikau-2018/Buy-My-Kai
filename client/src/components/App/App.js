@@ -16,7 +16,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        <Route path='/neighbourhood/?query' component={Area} />
+        <Route path='/neighbourhood' component={Area} />
         <Route path='/profile/:id' component={Profile} />
         <Route path='/addproducts' component={Addproduct}/>
       </div>

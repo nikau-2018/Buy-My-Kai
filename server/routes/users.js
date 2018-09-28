@@ -36,7 +36,6 @@ function register (req, res) {
   db.addUser(user) 
   .then(id => { 
     res.locals.userId = id[0] 
-    ()
     res.status(200).json({
       ok: true,
       message: 'User account was successfully created :)',

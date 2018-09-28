@@ -27,7 +27,7 @@ class Register extends React.Component {
 
   handleSeller () {
     this.setState({
-      isSeller: !this.state.user.isSeller
+      isSeller: !this.state.isSeller
     })
   }
 
@@ -38,9 +38,7 @@ class Register extends React.Component {
   handleChange (e) {
     e.preventDefault()
     this.setState({
-      user: {
       [e.target.name]: e.target.value
-      }
     })
   }
 

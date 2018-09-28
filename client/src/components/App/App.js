@@ -13,7 +13,7 @@ import Addproduct from '../Product/Addproduct'
 export default class App extends Component {
   render () {
     return (
-      <div className="app">
+      <div className="app pure-g">
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

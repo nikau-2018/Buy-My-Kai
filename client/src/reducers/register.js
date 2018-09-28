@@ -29,7 +29,13 @@ export default function registerReducer (state = defaultState, {action, error, t
         ...state,
         error,
         pending: false,
-        user: null
+        user: false
+      }
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        pending: false,
+        user: true
       }
     default:
       return state

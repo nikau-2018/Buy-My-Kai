@@ -1,5 +1,5 @@
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 
-// import Profile from './Profile'
+import Profile from './Profile'
 
-// export default connect()(Profile)
+export default connect()(Profile)

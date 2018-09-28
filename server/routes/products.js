@@ -1,4 +1,4 @@
-/* 
+/*
   FILE: PRODUCTS.JS
   VER:  1.0.0
   DESC: Main routes file for product routes.
@@ -12,7 +12,6 @@ const db = require('../db/db')
 const router = express.Router()
 
 // POST ROUTES
-
 
 // Post new product
 router.post('/addproduct', addProduct)
@@ -39,7 +38,7 @@ function addProduct (req, res) {
 // GET ROUTES
 
 // Get product
-router.get('/:id',getProduct)
+router.get('/:id', getProduct)
 router.get('/', getProductByName)
 
 // Get a product by ID

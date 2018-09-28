@@ -123,6 +123,7 @@ function getUser (req, res) {
 
 router.get('/', (req, res) => {
   const suburb = req.query.suburb
+  console.log(suburb)
   db.getSellerBySuburb(suburb)
     .then(result => {
       res.json({result})

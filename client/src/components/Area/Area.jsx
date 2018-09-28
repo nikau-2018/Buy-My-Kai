@@ -10,13 +10,11 @@ class Area extends React.Component {
       suburb: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleKeyPress (target) {
-    if (target.charCode === 13) {
-      this.sendNeighbourhood()
-    }
+  handleClick () {
+    this.sendNeighbourhood(this.state.suburb)
   }
 
   handleChange (e) {
@@ -37,7 +35,8 @@ class Area extends React.Component {
     return (
       <div>
         <h1>Search For Growers</h1>
-        <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} onKeyPress={this.handleKeyPress}/><br/>
+        <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange}/><br/>
+        <button onClick={this.handleClick}>search</button>
       </div>
     )
   }

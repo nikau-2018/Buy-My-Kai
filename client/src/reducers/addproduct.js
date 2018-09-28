@@ -1,35 +1,35 @@
 import {
-  REGISTER_PENDING,
-  REGISTER_SUCCESS,
-  SHOW_ERROR} from '../actions/register'
+  PRODUCT_PENDING,
+  PRODUCT_SUCCESS,
+  SHOW_ERROR} from '../actions/products'
 
 const defaultState = {
   error: null,
   pending: false,
-  user: null
+  product: null
 }
 
-export default function registerReducer (state = defaultState, {action, error, type, user}) {
+export default function addproductReducer (state = defaultState, {action, error, type, product}) {
   switch (type) {
-    case REGISTER_PENDING:
+    case PRODUCT_PENDING:
       return {
         ...state,
         error: null,
         pending: true
       }
-    case REGISTER_SUCCESS:
+    case PRODUCT_SUCCESS:
       return {
         ...state,
         error: null,
         pending: false,
-        user
+        product
       }
     case SHOW_ERROR:
       return {
         ...state,
         error,
         pending: false,
-        user: null
+        product: null
       }
     default:
       return state

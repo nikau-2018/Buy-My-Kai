@@ -39,7 +39,7 @@ class Register extends React.Component {
     e.preventDefault()
     this.setState({
       user: {
-      [e.target.name]: e.target.value
+        [e.target.name]: e.target.value
       }
     })
   }

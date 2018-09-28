@@ -3,6 +3,9 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
 
+import styles from './styles.css'
+import logo from '../Home/Logo.png'
+
 class Register extends React.Component {
   constructor (props) {
     super(props)
@@ -17,7 +20,8 @@ class Register extends React.Component {
       postcode: '',
       description: '',
       hours: '',
-      success: false
+      success: false,
+      isClicked: false
     }
     this.handleSeller = this.handleSeller.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -27,7 +31,8 @@ class Register extends React.Component {
 
   handleSeller () {
     this.setState({
-      isSeller: !this.state.isSeller
+      isSeller: !this.state.isSeller,
+      isClicked: !this.state.isClicked
     })
   }
 
@@ -57,30 +62,96 @@ class Register extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Register</h1>
-        <input type="text" name='name' value={this.state.name} placeholder='Full Name' onChange={this.handleChange} /><br/>
-        <input type="text" name='email' value={this.state.email} placeholder='Email' onChange={this.handleChange} /><br/>
-        <input type="password" name='hash' value={this.state.hash} placeholder='Enter a password' onChange={this.handleChange} /><br/>
-        <label>Are you you a seller?</label>
-        <input type='checkbox' name='seller' value={this.state.isSeller} onClick={this.handleSeller} onChange={this.handleChange} /><br/>
+      <div className="pure-img background">
+        <div className="home-container pure-u-1-1 pure-u-md-1-2">
+          <img className="pure-img logo" src={logo}/>
 
-        {this.state.isSeller
-          ? <div>
-            <input type="text" name='address' value={this.state.address} placeholder='Street address' onChange={this.handleChange} /><br/>
-            <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} /><br/>
-            <input type="text" name='city' value={this.state.city} placeholder='City' onChange={this.handleChange} /><br/>
-            <input type="text" name='postcode' value={this.state.postcode} placeholder='Postcode' onChange={this.handleChange} /><br/>
-            <input type="text" name='description' value={this.state.description} placeholder='Description' onChange={this.handleChange} /><br/>
-            <input type="text" name='hours' value={this.state.hours} placeholder='Hours' onChange={this.handleChange} /><br/>
-
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="text" name='name' value={this.state.name} onChange={this.handleChange} />
+              <label htmlFor="name">name</label>
+            </div>
           </div>
-          : <button onClick={this.sendUser}>Go</button>
-        }
-        <div>
-          {this.state.isSeller ? <button onClick={this.sendUser}>Submit</button> : <div></div>}
+
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="text" name='email' value={this.state.email} onChange={this.handleChange} />
+              <label htmlFor="email">email</label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="password" name='hash' value={this.state.hash} onChange={this.handleChange} />
+              <label htmlFor="password">password</label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div>
+              <label>
+                <input type='checkbox' checked={this.state.isClicked} name='seller' value={this.state.isSeller} onClick={this.handleSeller} onChange={this.handleChange} />
+                <span>Are you a seller?</span>
+              </label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s12">
+              {this.state.isSeller
+                ? <div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='address' value={this.state.address} onChange={this.handleChange} />
+                      <label htmlFor="password">street</label>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='suburb' value={this.state.suburb} onChange={this.handleChange} />
+                      <label htmlFor="password">suburb</label>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='city' value={this.state.city} onChange={this.handleChange} />
+                      <label htmlFor="password">city</label>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='postcode' value={this.state.postcode} onChange={this.handleChange} />
+                      <label htmlFor="password">postcode</label>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='description' value={this.state.description} onChange={this.handleChange} />
+                      <label htmlFor="password">description</label>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input type="text" name='hours' value={this.state.hours} onChange={this.handleChange} />
+                      <label htmlFor="password">hours</label>
+                    </div>
+                  </div>
+
+                </div>
+                : <button className=' pure-button pure-button-active register' onClick={this.sendUser}>Go</button>
+              }
+            </div>
+          </div>
+          {this.state.isSeller ? <button className=' pure-button pure-button-active register' onClick={this.sendUser}>Submit</button> : <div></div>}
         </div>
       </div>
+
     )
   }
 }

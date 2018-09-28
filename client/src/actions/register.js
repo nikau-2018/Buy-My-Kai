@@ -30,6 +30,7 @@ export function postUser (user) {
     return request
       .post('/api/v1/users/register')
       .then(res => {
+        console.log(res)
         // eslint-disable-next-line no-console
         console.log('success')
       })

@@ -1,8 +1,8 @@
 import request from 'axios'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
-export const REGISTER_PENDING = 'REGISTER_PENDING'
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
+export const PROFILE_PENDING = 'PROFILE_PENDING'
+export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
 
 export const showError = (errorMessage) => {
   return {
@@ -11,24 +11,24 @@ export const showError = (errorMessage) => {
   }
 }
 
-export const registerPending = (errorMessage) => {
+export const profilePending = (errorMessage) => {
   return {
-    type: REGISTER_PENDING
+    type: PROFILE_PENDING
   }
 }
 
-export const registerSuccessful = (user) => {
+export const profileSuccessful = (user) => {
   return {
-    type: REGISTER_SUCCESS,
+    type: PROFILE_SUCCESS,
     user
   }
 }
 
-export function postUser (user) {
+export function getProfile (user) {
   return (dispatch) => {
-    dispatch(registerPending())
+    dispatch(profilePending())
     return request
-      .post('/api/v1/users/register')
+      .get(`/api/v1/users/profile/${user.id}`)
       .then(res => {
         // eslint-disable-next-line no-console
         console.log('success')

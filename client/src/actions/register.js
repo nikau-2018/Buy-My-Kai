@@ -30,7 +30,6 @@ export function postUser (user) {
     return request
       .post('/api/v1/users/register', user)
       .then(res => {
-        
         // dispatch registerSuccess.
         dispatch(registerSuccess(res.data.user))
 

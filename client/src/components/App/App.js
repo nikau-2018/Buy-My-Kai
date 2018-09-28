@@ -5,9 +5,8 @@ import './app.css'
 import Home from '../Home'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
-// import AreaScreen from '../Area/AreaScreen'
-// import Area from '../Area/Area'
-// import Profile from '../Profile'
+import Area from '../Area/Area'
+import Profile from '../Profile'
 import Addproduct from '../Product/Addproduct'
 
 export default class App extends Component {
@@ -17,10 +16,9 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        {/* <Route path='/neighbourhood' component={AreaScreen} /> */}
-        {/* <Route path='/neighbourhood/?query' component={Area} /> */}
-        {/* <Route path='/profile/:id' component={Profile} /> */}
+        <Route path='/neighbourhood' component={Area} />
         <Route path='/addproducts' component={Addproduct}/>
+        <Route path='/profile/:id' component={Profile} />
       </div>
     )
   }

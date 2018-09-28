@@ -65,7 +65,7 @@ function getProductByName (req, res) {
   const name = req.query.name
   db.getProductByName(name)
     .then(results => {
-      if (results.length == 0) {
+      if (res.length === 0) {
         res.status(400).json({
           ok: false,
           message: 'No products found.'

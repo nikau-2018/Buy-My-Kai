@@ -1,4 +1,4 @@
-/* 
+/*
   FILE: USERS.JS
   VER:  1.0.0
   DESC: Main routes file for user routes.
@@ -10,7 +10,7 @@ const express = require('express')
 const db = require('../db/db')
 
 const router = express.Router()
- 
+
 // POST ROUTES
 
 router.post('/register', register)
@@ -20,38 +20,38 @@ router.post('/login', login)
 function login (req, res) {
   const {email, hash} = req.body
   db.getUser(email, hash)
-  .then((user) => {
-    res.status(200).json({user})
-    /* eslint-disable no-console */
-    console.log('Done')
-  }) 
-  .catch(err => {
-    res.status(500).send('DATABASE ERROR: ' + err.message)
-  })
+    .then((user) => {
+      res.status(200).json({user})
+      /* eslint-disable no-console */
+      console.log('Done')
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
 }
 
 // Create new user record route function
-function register (req, res) { 
-  const user = req.body  
-  db.addUser(user) 
-  .then(id => { 
-    res.locals.userId = id[0] 
-    res.status(200).json({
-      ok: true,
-      message: 'User account was successfully created :)',
-      user
+function register (req, res) {
+  const user = req.body
+  db.addUser(user)
+    .then(id => {
+      res.locals.userId = id[0]
+      res.status(200).json({
+        ok: true,
+        message: 'User account was successfully created :)',
+        user
+      })
     })
-  })
-  .catch(({ message }) => {
-    if (message.includes('UNIQUE constraint failed: users.username')) {
-      return res.status(400).json({
-        ok: false,
-        message: 'Username already exists.'
+    .catch(({ message }) => {
+      if (message.includes('UNIQUE constraint failed: users.username')) {
+        return res.status(400).json({
+          ok: false,
+          message: 'Username already exists.'
         })
-    }
-    res.status(500).json({
-      ok: false,
-      message: message
+      }
+      res.status(500).json({
+        ok: false,
+        message: message
       })
     })
 }
@@ -66,21 +66,21 @@ router.get('/', getSellerBySuburb)
 function getUser (req, res) {
   const userId = Number(req.params.id)
   db.getUser(userId)
-  .then(user => {
-    if (user.isSeller) {
-      db.getSeller(userId)
-      .then(seller => {
-        res.status(200).json({
-          ok: true,
-          seller
-          })
-        })
-      .catch(({ message }) => {
-        res.status(500).json({
-          ok: false,
-          message: message
+    .then(user => {
+      if (user.isSeller) {
+        db.getSeller(userId)
+          .then(seller => {
+            res.status(200).json({
+              ok: true,
+              seller
             })
-        })
+          })
+          .catch(({ message }) => {
+            res.status(500).json({
+              ok: false,
+              message: message
+            })
+          })
       } else {
         res.status(200).json({
           ok: true,
@@ -88,11 +88,11 @@ function getUser (req, res) {
         })
       }
     })
-      .catch(({ message }) => {
-        res.status(500).json({
-          ok: false,
-          message: message
-        })
+    .catch(({ message }) => {
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
     })
 }
 
@@ -100,20 +100,20 @@ function getUser (req, res) {
 function getSellerBySuburb (req, res) {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
-  .then(results => {
-    res.status(200).json({
-      ok: true,
-      message: 'Sellers were found.',
-      results
-        })
-    })
-  .catch(({message}) => {
-    if (results.length === 0) {
-      res.status(401).json({
-        ok: false,
-        message: 'No users found.'
+    .then(result => {
+      res.status(200).json({
+        ok: true,
+        message: 'Sellers were found.',
+        result
       })
-    }
+    })
+    .catch(({message}) => {
+      if (res.length === 0) {
+        res.status(401).json({
+          ok: false,
+          message: 'No users found.'
+        })
+      }
       res.status(500).json({
         ok: false,
         message: message

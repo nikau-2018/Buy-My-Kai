@@ -38,9 +38,7 @@ class Register extends React.Component {
   handleChange (e) {
     e.preventDefault()
     this.setState({
-      user: {
       [e.target.name]: e.target.value
-      }
     })
   }
 

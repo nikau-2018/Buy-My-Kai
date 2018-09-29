@@ -3,8 +3,8 @@ import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/login'
 
-import styles from './styles.css'
-import logo from '../Home/Logo.png'
+import styles from '../../styles/styles.css'
+import logo from '../../images/Logo.png'
 
 class Login extends React.Component {
   constructor (props) {

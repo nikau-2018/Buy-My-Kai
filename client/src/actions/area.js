@@ -20,7 +20,7 @@ export const areaPending = (errorMessage) => {
 export const areaSuccess = suburb => {
   return {
     type: AREA_SUCCESS,
-    suburb
+    suburb: suburb
   }
 }
 
@@ -31,9 +31,9 @@ export function sendNeighbourhood ({suburb}) {
       .get(`/api/v1/users/?suburb=${suburb}`)
       .then(res => {
         // eslint-disable-next-line no-console
-        console.log(res.data.result[0])
+        // console.log(res.data.result)
         // dispatch areaSuccess.
-        dispatch(areaSuccess(res.data.result[0]))
+        dispatch(areaSuccess(res.data.result))
         // eslint-disable-next-line no-console
         console.log('success')
       })

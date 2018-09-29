@@ -1,4 +1,4 @@
-/* 
+/*
   FILE: USERS.JS
   VER:  1.0.0
   DESC: Main routes file for user routes.
@@ -72,10 +72,10 @@ function register (req, res, next) {
           ok: false,
           message: 'Username already exists.'
         })
-    }
-    res.status(500).json({
-      ok: false,
-      message: message
+      }
+      res.status(500).json({
+        ok: false,
+        message: message
       })
     })
 }
@@ -89,21 +89,21 @@ router.get('/:id', getUser)
 function getUser (req, res) {
   const userId = Number(req.params.id)
   db.getUser(userId)
-  .then(user => {
-    if (user.isSeller) {
-      db.getSeller(userId)
-      .then(seller => {
-        res.status(200).json({
-          ok: true,
-          seller
-          })
-          .catch(({message}) => {
-            res.status(500).json({
-              ok: false,
-              message: message
+    .then(user => {
+      if (user.isSeller) {
+        db.getSeller(userId)
+          .then(seller => {
+            res.status(200).json({
+              ok: true,
+              seller
             })
+              .catch(({message}) => {
+                res.status(500).json({
+                  ok: false,
+                  message: message
+                })
+              })
           })
-        })
       } else {
         res.status(200).json({
           ok: true,
@@ -120,25 +120,16 @@ function getUser (req, res) {
 }
 
 // Get seller by suburb
-function getSellerBySuburb (req, res) {
+router.get('/', (req, res) => {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
     .then(result => {
       console.log('sellers found')
       res.json({result})
     })
-  .catch(({message}) => {
-    if (results.length === 0) {
-      res.status(401).json({
-        ok: false,
-        message: 'No users found.'
-      })
-    }
-      res.status(500).json({
-        ok: false,
-        message: message
-      })
+    .catch(err => {
+      res.status(500).send('Database Error: ' + err.message)
     })
-}
+})
 
 module.exports = router

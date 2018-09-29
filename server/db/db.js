@@ -30,7 +30,9 @@ function addUser (user, testDb) {
           suburb: user.suburb,
           city: user.city,
           postcode: user.postcode,
-          hours: user.hours
+          hours: user.hours,
+          lat: user.lat,
+          long: user.long
         })
     })
 }

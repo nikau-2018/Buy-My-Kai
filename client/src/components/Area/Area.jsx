@@ -2,6 +2,7 @@ import React from 'react'
 // import {Redirect} from 'react-router-dom'
 import {sendNeighbourhood} from '../../actions/area'
 import {connect} from 'react-redux'
+import List from './List'
 
 class Area extends React.Component {
   constructor (props) {
@@ -25,19 +26,24 @@ class Area extends React.Component {
   }
 
   sendNeighbourhood () {
-    this.setState({
-      suburb: this.state.suburb
-    })
     this.props.dispatch(sendNeighbourhood(this.state))
+    // .then(setTimeout(this.setState({
+    //   ready: true
+    // }), 5500
+    // ))
   }
 
   render () {
+    // console.log('jsx:', this.props.growersList)
     return (
       <div>
         <h1>Search For Growers</h1>
         <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange}/><br/>
         <button onClick={this.handleClick}>search</button>
-        <p></p>
+        <div>{this.props.growersList && this.props.growersList.map(list =>
+          <List key={list.id} list={list}/>
+        )}
+        </div>
       </div>
     )
   }
@@ -45,7 +51,7 @@ class Area extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    suburb: state.suburb
+    growersList: state.areaReducer.growersList
   }
 }
 

@@ -26,7 +26,6 @@ class Register extends React.Component {
     }
     this.handleSeller = this.handleSeller.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
     this.sendUser = this.sendUser.bind(this)
   }
 
@@ -37,10 +36,6 @@ class Register extends React.Component {
     })
   }
 
-  handleClick () {
-    return <Redirect to='/profile' />
-  }
-
   handleChange (e) {
     e.preventDefault()
     this.setState({
@@ -49,24 +44,14 @@ class Register extends React.Component {
   }
 
   sendUser () {
-    this.setState({
-      success: !this.state.success
-    })
     this.props.dispatch(postUser(this.state))
-      .then(this.setState({
-        name: '',
-        email: '',
-        hash: '',
-        isSeller: false,
-        address: '',
-        suburb: '',
-        city: '',
-        postcode: '',
-        description: '',
-        hours: '',
-        success: false,
-        isClicked: false
-      }))
+      .then( res => {
+        if(res.status === 200) {
+          this.setState({
+            success: !this.state.success
+          })
+        }
+      })
   }
 
   render () {
@@ -170,13 +155,13 @@ class Register extends React.Component {
               {this.state.isSeller ? 
                 <Button 
                 className='btn btn--primary' 
-                onClick={this.sendUser}>Complete Sign Up</Button> : 
+                onClick={this.sendUser}>Go</Button> : 
                 
                 <Button 
                 className="btn btn--primary" 
                 onClick={this.sendUser}>Go</Button>
               }
-              {this.state.success && <Redirect to="/neighbourhood"/>}
+              {this.state.success && <Redirect to="/profile"/>}
             </div>
           
         </div>

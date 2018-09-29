@@ -19,7 +19,7 @@ const token = require('../auth/token')
 // POST ROUTES
 
 router.post('/register', register, token.issue)
-router.post('/login', login)
+router.post('/login', login, token.issue)
 
 // Checks the login against what is in the database using email and hash
 function login (req, res, next) {
@@ -50,8 +50,11 @@ function login (req, res, next) {
           next()
         })
     })
-    .catch(err => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+    .catch(() => {
+      res.status(500).json({
+        ok: false,
+        error: 'An unknown error occured.'
+      })
     })
 }
 

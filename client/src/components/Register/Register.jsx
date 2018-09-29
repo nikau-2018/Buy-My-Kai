@@ -46,6 +46,7 @@ class Register extends React.Component {
   sendUser () {
     this.props.dispatch(postUser(this.state))
       .then( res => {
+      
         // if(res.status === 200) {
           this.setState({
             success: !this.state.success

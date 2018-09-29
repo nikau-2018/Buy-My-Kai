@@ -45,7 +45,6 @@ export function postUser (user) {
       request
         .post('/api/v1/users/register', userWithCoordinates, getHeaders())
         .then(res => {
-          console.log(res)
           if (res.data.token) setToken(res.data.token)
         })
     })

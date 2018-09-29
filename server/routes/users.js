@@ -18,7 +18,7 @@ const token = require('../auth/token')
 
 // POST ROUTES
 
-router.post('/register', register, token.issue)
+router.post('/register', register)
 router.post('/login', login, token.issue)
 
 // Checks the login against what is in the database using email and hash
@@ -59,15 +59,21 @@ function login (req, res, next) {
 }
 
 // Create new user record route function
-function register (req, res, next) {
+function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
       // Store the new users ID in local state.
       res.locals.userId = id[0]
 
+      res.status(201).json({
+        ok: true,
+        user,
+        token: token.issue(res.locals.userId)
+      })
+
       // Progress to the next middleware stack function.
-      next()
+      // next()
     })
     .catch(({message}) => {
       if (message.includes('UNIQUE constraint failed: users.username')) {
@@ -86,11 +92,12 @@ function register (req, res, next) {
 // GET ROUTES
 
 // Get user records
-router.get('/:id', getUser)
+router.get('/', token.decode, getUser)
 
 // Get user by ID route function
 function getUser (req, res) {
-  const userId = Number(req.params.id)
+  const userId = res.locals.userId
+  console.log(userId)
   db.getUser(userId)
     .then(user => {
       if (user.isSeller) {

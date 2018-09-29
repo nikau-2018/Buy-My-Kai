@@ -9,28 +9,45 @@
 
 // FILE DEPENDENCIES
 const jwt = require('jsonwebtoken')
+const verifyJwt = require('express-jwt')
+const db = require('../db/db')
 
 // FILE EXPORTS
 module.exports = {
   issue,
-  createToken
+  createToken,
+  decode,
+  getSecret
 }
 
 // HELPER FUNCTIONS
 // Issue a JWT token.
-function issue (req, res) {
-  console.log(res.locals.userId)
-  res.json({
-    ok: true,
-    message: 'Authentication successful.',
+function issue (id, req, res) {
+  db.getUser(id)
+    .then(user => {
+      res.json({
+        ok: true,
+        message: 'Authentication successful.',
+        user,
 
-    // Call createToken helper function.
-    token: createToken(res.locals.userId)
-  })
+        // Call createToken helper function.
+        token: createToken(id)
+      })
+    })
 }
 
 // Create token
 function createToken (id) {
   // Generate token 
-  return jwt.sign({id}, "jlksjdklfjasdfoi3nfiwen", {expiresIn: '1d'})
+  return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '1d'})
+}
+
+function decode (req, res, next) {
+  verifyJwt({
+    secret: getSecret
+  })(req, res, next)
+}
+
+function getSecret (req, payload, done) {
+  done(null, process.env.JWT_SECRET)
 }

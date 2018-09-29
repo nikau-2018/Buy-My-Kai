@@ -37,7 +37,12 @@ class Area extends React.Component {
         <h1>Search For Growers</h1>
         <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange}/><br/>
         <button onClick={this.handleClick}>search</button>
-        <p></p>
+        {/* <div>{this.props.suburb.map((item, i) => {
+          return (
+            <p key={i}>{item}</p>
+          )
+        })}
+        </div> */}
       </div>
 
     )

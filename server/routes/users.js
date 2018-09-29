@@ -15,7 +15,7 @@ const router = express.Router()
 // const verifyJwt = require('express-jwt')
 const {checkHash} = require('../auth/hash')
 const token = require('../auth/token')
- 
+
 // POST ROUTES
 
 router.post('/register', register, token.issue)
@@ -25,54 +25,52 @@ router.post('/login', login)
 function login (req, res, next) {
   const {email, hash} = req.body
   db.getUser(email, hash)
-  .then((user) => {
+    .then((user) => {
+      // Check if user exists.
+      if (!user) {
+        return res.status(400).json({
+          ok: false,
+          error: 'That user does not exist.'
+        })
+      }
 
-    // Check if user exists.
-    if (!user) {
-      return res.status(400).json({
-        ok: false,
-        error: 'That user does not exist.'
-      })
-    }
+      // Compare user input password with hash record.
+      const {hash, id} = user
 
-    // Compare user input password with hash record.
-    const {hash, id} = user
+      checkHash(hash, hash)
+        .then(ok => {
+          if (!ok) {
+            return res.status(403).json({
+              ok: false,
+              error: 'Password incorrect.'
+            })
+          }
 
-    checkHash(hash, hash)
-      .then(ok => {
-        if (!ok) {
-          return res.status(403).json({
-            ok: false,
-            error: 'Password incorrect.'
-          })
-        }
-
-        res.locals.userId = id
-        next()
-      })
-  }) 
-  .catch(err => {
-    res.status(500).send('DATABASE ERROR: ' + err.message)
-  })
+          res.locals.userId = id
+          next()
+        })
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
 }
 
 // Create new user record route function
-function register (req, res, next) { 
-  const user = req.body  
-  db.addUser(user) 
-  .then(id => { 
+function register (req, res, next) {
+  const user = req.body
+  db.addUser(user)
+    .then(id => {
+      // Store the new users ID in local state.
+      res.locals.userId = id[0]
 
-    // Store the new users ID in local state.
-    res.locals.userId = id[0]
-
-    // Progress to the next middleware stack function.
-    next() 
-  })
-  .catch(({ message }) => {
-    if (message.includes('UNIQUE constraint failed: users.username')) {
-      return res.status(400).json({
-        ok: false,
-        message: 'Username already exists.'
+      // Progress to the next middleware stack function.
+      next()
+    })
+    .catch(({message}) => {
+      if (message.includes('UNIQUE constraint failed: users.username')) {
+        return res.status(400).json({
+          ok: false,
+          message: 'Username already exists.'
         })
     }
     res.status(500).json({
@@ -86,7 +84,6 @@ function register (req, res, next) {
 
 // Get user records
 router.get('/:id', getUser)
-router.get('/', getSellerBySuburb)
 
 // Get user by ID route function
 function getUser (req, res) {
@@ -100,12 +97,12 @@ function getUser (req, res) {
           ok: true,
           seller
           })
-        })
-      .catch(({ message }) => {
-        res.status(500).json({
-          ok: false,
-          message: message
+          .catch(({message}) => {
+            res.status(500).json({
+              ok: false,
+              message: message
             })
+          })
         })
       } else {
         res.status(200).json({
@@ -114,11 +111,11 @@ function getUser (req, res) {
         })
       }
     })
-      .catch(({ message }) => {
-        res.status(500).json({
-          ok: false,
-          message: message
-        })
+    .catch(({message}) => {
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
     })
 }
 
@@ -126,12 +123,9 @@ function getUser (req, res) {
 function getSellerBySuburb (req, res) {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
-  .then(results => {
-    res.status(200).json({
-      ok: true,
-      message: 'Sellers were found.',
-      results
-        })
+    .then(result => {
+      console.log('sellers found')
+      res.json({result})
     })
   .catch(({message}) => {
     if (results.length === 0) {

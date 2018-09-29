@@ -30,6 +30,7 @@ export function sendNeighbourhood ({suburb}) {
     return request
       .get(`/api/v1/users/?suburb=${suburb}`)
       .then(res => {
+        console.log(res.data.result[0])
         // dispatch areaSuccess.
         dispatch(areaSuccess(res.data.result[0]))
         // eslint-disable-next-line no-console

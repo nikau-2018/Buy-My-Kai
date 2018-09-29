@@ -33,18 +33,18 @@ class Login extends React.Component {
       <div className="pure-img background">
         <div className="home-container pure-u-1-1 pure-u-md-1-2">
           <img className="pure-img logo" src={logo}/>
-          
+
           <form>
             {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
             <div className="row">
               <div className="input-field col s12">
                 <input className="validate" type="text" name="email" value={this.state.username} onChange={this.handleChange}/>
-                <label for="email">email</label><br />
+                <label htmlFor="email">email</label><br />
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input className="validate" type="password" name="hash" value={this.state.password} onChange={this.handleChange}/>
-                  <label for="password">password</label>
+                  <label htmlFor="password">password</label>
                 </div>
               </div>
             </div>

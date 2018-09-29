@@ -17,11 +17,11 @@ export const areaPending = (errorMessage) => {
   }
 }
 
-export const areaSuccess = details => {
-  console.log('details', details)
+export const areaSuccess = growersList => {
+  console.log('growers: ', growersList)
   return {
     type: AREA_SUCCESS,
-    details: details
+    growersList: growersList
   }
 }
 

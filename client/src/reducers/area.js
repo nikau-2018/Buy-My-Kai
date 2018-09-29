@@ -6,10 +6,10 @@ import {
 const defaultState = {
   error: null,
   pending: false,
-  details: null
+  growersList: null
 }
 
-export default function areaReducer (state = defaultState, {action, error, type, details}) {
+export default function areaReducer (state = defaultState, {action, error, type, growersList}) {
   switch (type) {
     case AREA_PENDING:
       return {
@@ -21,14 +21,14 @@ export default function areaReducer (state = defaultState, {action, error, type,
       return {
         error: null,
         pending: false,
-        details
+        growersList
       }
     case SHOW_ERROR:
       return {
         ...state,
         error,
         pending: false,
-        details: null
+        growersList: null
       }
 
     default:

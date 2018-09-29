@@ -6,10 +6,10 @@ import {
 const defaultState = {
   error: null,
   pending: false,
-  suburb: null
+  details: null
 }
 
-export default function areaReducer (state = defaultState, {action, error, type, suburb}) {
+export default function areaReducer (state = defaultState, {action, error, type, details}) {
   switch (type) {
     case AREA_PENDING:
       return {
@@ -21,14 +21,14 @@ export default function areaReducer (state = defaultState, {action, error, type,
       return {
         error: null,
         pending: false,
-        suburb
+        details
       }
     case SHOW_ERROR:
       return {
         ...state,
         error,
         pending: false,
-        suburb: null
+        details: null
       }
 
     default:

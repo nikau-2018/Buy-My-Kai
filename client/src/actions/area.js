@@ -18,7 +18,6 @@ export const areaPending = (errorMessage) => {
 }
 
 export const areaSuccess = growersList => {
-  console.log('growers: ', growersList)
   return {
     type: AREA_SUCCESS,
     growersList: growersList

@@ -37,9 +37,17 @@ class Area extends React.Component {
         <h1>Search For Growers</h1>
         <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange}/><br/>
         <button onClick={this.handleClick}>search</button>
+        <p></p>
       </div>
+
     )
   }
 }
 
-export default connect()(Area)
+const mapStateToProps = (state) => {
+  return {
+    suburb: state.suburb
+  }
+}
+
+export default connect(mapStateToProps)(Area)

@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
 
-import styles from './styles.css'
+// import styles from './styles.css'
 import logo from '../Home/Logo.png'
 
 class Register extends React.Component {
@@ -55,12 +55,6 @@ class Register extends React.Component {
   }
 
   render () {
-    if (this.props.user) {
-      return (
-        <Redirect to='/product'/>
-      )
-    }
-
     return (
       <div className="pure-img background">
         <div className="home-container pure-u-1-1 pure-u-md-1-2">
@@ -90,7 +84,7 @@ class Register extends React.Component {
           <div className="row">
             <div>
               <label>
-                <input type='checkbox' checked={this.state.isClicked} name='seller' value={this.state.isSeller} onClick={this.handleSeller} onChange={this.handleChange} />
+                <input type='checkbox' name='seller' value={this.state.isSeller} onClick={this.handleSeller} onChange={this.handleChange} />
                 <span>Are you a seller?</span>
               </label>
             </div>
@@ -146,6 +140,7 @@ class Register extends React.Component {
                 </div>
                 : <button className=' pure-button pure-button-active register' onClick={this.sendUser}>Go</button>
               }
+              {this.state.success && <Redirect to="/neighbourhood"/>}
             </div>
           </div>
           {this.state.isSeller ? <button className=' pure-button pure-button-active register' onClick={this.sendUser}>Submit</button> : <div></div>}

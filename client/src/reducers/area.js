@@ -1,7 +1,7 @@
 import {
   AREA_PENDING,
   AREA_SUCCESS,
-  SHOW_ERROR } from '../actions/area'
+  SHOW_ERROR} from '../actions/area'
 
 const defaultState = {
   error: null,

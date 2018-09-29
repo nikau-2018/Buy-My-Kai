@@ -39,7 +39,6 @@ class Area extends React.Component {
         <button onClick={this.handleClick}>search</button>
         <p></p>
       </div>
-
     )
   }
 }

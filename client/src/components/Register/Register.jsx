@@ -70,12 +70,6 @@ class Register extends React.Component {
   }
 
   render () {
-    if (this.props.user) {
-      return (
-        <Redirect to='/product'/>
-      )
-    }
-
     return (
       <div className="pure-img background">
         <div className="register-container pure-u-1-1 pure-u-md-1-2">
@@ -182,6 +176,7 @@ class Register extends React.Component {
                 className="btn btn--primary" 
                 onClick={this.sendUser}>Go</Button>
               }
+              {this.state.success && <Redirect to="/neighbourhood"/>}
             </div>
           
         </div>

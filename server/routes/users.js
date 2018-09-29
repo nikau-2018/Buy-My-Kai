@@ -1,4 +1,4 @@
-/*
+/* 
   FILE: USERS.JS
   VER:  1.0.0
   DESC: Main routes file for user routes.
@@ -10,6 +10,7 @@ const express = require('express')
 const db = require('../db/db')
 
 const router = express.Router()
+
 // Auth
 // const verifyJwt = require('express-jwt')
 const {checkHash} = require('../auth/hash')
@@ -24,33 +25,6 @@ router.post('/login', login)
 function login (req, res, next) {
   const {email, hash} = req.body
   db.getUser(email, hash)
-    .then((user) => {
-      res.status(200).json({user})
-      /* eslint-disable no-console */
-      console.log('Done')
-    })
-    .catch(err => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
-    })
-}
-
-// Create new user record route function
-function register (req, res) {
-  const user = req.body
-  db.addUser(user)
-    .then(id => {
-      res.locals.userId = id[0]
-      res.status(200).json({
-        ok: true,
-        message: 'User account was successfully created :)',
-        user
-      })
-    })
-    .catch(({ message }) => {
-      if (message.includes('UNIQUE constraint failed: users.username')) {
-        return res.status(400).json({
-          ok: false,
-          message: 'Username already exists.'
   .then((user) => {
 
     // Check if user exists.
@@ -100,10 +74,10 @@ function register (req, res, next) {
         ok: false,
         message: 'Username already exists.'
         })
-      }
-      res.status(500).json({
-        ok: false,
-        message: message
+    }
+    res.status(500).json({
+      ok: false,
+      message: message
       })
     })
 }
@@ -112,27 +86,27 @@ function register (req, res, next) {
 
 // Get user records
 router.get('/:id', getUser)
-// router.get('/', getSellerBySuburb)
+router.get('/', getSellerBySuburb)
 
 // Get user by ID route function
 function getUser (req, res) {
   const userId = Number(req.params.id)
   db.getUser(userId)
-    .then(user => {
-      if (user.isSeller) {
-        db.getSeller(userId)
-          .then(seller => {
-            res.status(200).json({
-              ok: true,
-              seller
-            })
+  .then(user => {
+    if (user.isSeller) {
+      db.getSeller(userId)
+      .then(seller => {
+        res.status(200).json({
+          ok: true,
+          seller
           })
-          .catch(({ message }) => {
-            res.status(500).json({
-              ok: false,
-              message: message
+        })
+      .catch(({ message }) => {
+        res.status(500).json({
+          ok: false,
+          message: message
             })
-          })
+        })
       } else {
         res.status(200).json({
           ok: true,
@@ -140,24 +114,37 @@ function getUser (req, res) {
         })
       }
     })
-    .catch(({ message }) => {
+      .catch(({ message }) => {
+        res.status(500).json({
+          ok: false,
+          message: message
+        })
+    })
+}
+
+// Get seller by suburb
+function getSellerBySuburb (req, res) {
+  const suburb = req.query.suburb
+  db.getSellerBySuburb(suburb)
+  .then(results => {
+    res.status(200).json({
+      ok: true,
+      message: 'Sellers were found.',
+      results
+        })
+    })
+  .catch(({message}) => {
+    if (results.length === 0) {
+      res.status(401).json({
+        ok: false,
+        message: 'No users found.'
+      })
+    }
       res.status(500).json({
         ok: false,
         message: message
       })
     })
-} 
-
-router.get('/', (req, res) => {
-  const suburb = req.query.suburb
-  console.log(suburb)
-  db.getSellerBySuburb(suburb)
-    .then(result => {
-      res.json({result})
-    })
-    .catch(err => {
-      res.status(500).send('Database Error: ' + err.message)
-    })
-})
+}
 
 module.exports = router

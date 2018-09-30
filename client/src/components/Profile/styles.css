@@ -1,5 +1,13 @@
-.profile {
-  height: 350px !important;
-  margin: auto !important;
-  border: 1px solid red;
+.profile-container {
+  text-align: left;
+  background: none transparent;
+}
+ul, ul li {
+  list-style-type: none;
+}
+.profile-info {
+  border-top: 1px solid #444;
+  box-shadow: 0 -2px 0 #ffffff;
+  margin-top: 2rem;
+  padding-top: 2rem;
 }

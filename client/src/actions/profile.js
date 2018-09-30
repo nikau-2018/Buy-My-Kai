@@ -33,6 +33,14 @@ export function getProfile (user) {
     return request
       .get('/api/v1/users/', getHeaders())
       .then(res => {
+
+        if (res.data.token) {
+          setToken(res.data.token)
+        }
+
+        // Send user to the store.
+        dispatch(profileSuccess(res.data.user))
+
         // eslint-disable-next-line no-console
         console.log('success')
       })

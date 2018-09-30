@@ -36,15 +36,17 @@ class Login extends React.Component {
   }
 
   render () {
+    const {error, isLoggedIn} = this.props
     return (
       <div className="pure-img background">
+        { error ? <div className="toast-error">{ error.message }</div> : null }
         <div className="login-container pure-u-1-1 pure-u-md-1-2">
           <Link to='/'>
             <img className="pure-img logo" src={logo}/>
           </Link>
           <h2>Log in</h2>
           <div className="form-container pure-u-1">
-            {this.props.isLoggedIn ? <Redirect to="/profile"/> : null }
+            {isLoggedIn ? <Redirect to="/profile"/> : null }
             <TextField
               type="email"
               label="Email"
@@ -79,10 +81,9 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.loginReducers.isLoggedIn
-  }
-}
+const mapStateToProps = state => ({
+  isLoggedIn: state.loginReducer.isLoggedIn,
+  error: state.loginReducer.error
+})
 
 export default connect(mapStateToProps)(Login)

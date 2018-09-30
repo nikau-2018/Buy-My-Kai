@@ -1,6 +1,9 @@
 /* 
   Main Component CSS File
 */
+body {
+  background: #fafafa;
+}
 a {
   color: normal;
   text-decoration: none;
@@ -24,7 +27,8 @@ a {
 
 .home-container,
 .register-container,
-.login-container {
+.login-container,
+.profile-container {
   background: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
@@ -91,6 +95,20 @@ button.btn {
   color: gray !important;
   background: #eaeaea !important;
   border: 1px solid transparent !important;
+}
+
+.btn--fab {
+  background: rgba(0,0,0,.7) !important;
+  color: #fff !important;
+}
+
+/* FAB BUTTON LABEL */
+.fab-label--right {
+  margin-left: 1rem;
+}
+
+.fab-label--left {
+  margin-right: 1rem;
 }
 
 /* BUTTON ICONS */

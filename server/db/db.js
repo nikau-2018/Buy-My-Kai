@@ -116,6 +116,8 @@ function getSellerBySuburb (suburb, testDb) {
       id: 'users.id',
       name: 'users.name',
       email: 'users.email',
+      lat: 'users.lat',
+      long: 'users.long',
       description: 'users.description',
       hours: 'users.hours'
     })

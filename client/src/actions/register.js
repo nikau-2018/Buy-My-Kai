@@ -30,7 +30,7 @@ export function postUser (user) {
   return (dispatch) => {
     dispatch(registerPending())
     const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`
-    /* eslint-disable no-console */
+
     console.log(searchAddress)
 
     return getLatLng(searchAddress)
@@ -40,12 +40,14 @@ export function postUser (user) {
           lat,
           long
         }
-        console.log(userWithCoordinates)
+
         request.post('/api/v1/users/register', userWithCoordinates)
       })
       .then((result) => {
+        console.log(userWithCoordinates)
         console.log(result)
-      // dispatch(registerSuccess(result.data.user))
+        dispatch(registerSuccess(result.data.user))
+
       })
       .catch((err) => {
         dispatch(showError(err.message))

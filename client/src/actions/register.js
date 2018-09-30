@@ -1,10 +1,12 @@
 import request from 'axios'
+import {getHeaders} from '../utils/api'
+import {setToken} from '../utils/token'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 
-const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH';
+const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH'
 
 export const showError = (errorMessage) => {
   return {
@@ -27,34 +29,34 @@ export const registerSuccess = user => {
 }
 
 export function postUser (user) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(registerPending())
-    const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`;
-    console.log(searchAddress);
 
+    const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`
     return getLatLng(searchAddress)
-    .then(({ lat, lng: long}) => {
-      const userWithCoordinates = {
-        ...user,
-        lat,
-        long,
-      }
-      console.log(userWithCoordinates)
-      request.post('/api/v1/users/register', userWithCoordinates);
-    })
-    .then((result) => {
-      console.log(result)
-      // dispatch(registerSuccess(result.data.user))
-    })
-    .catch((err) => {
-      dispatch(showError(err.message))
-    })
+      .then(({lat, lng: long}) => {
+        const userWithCoordinates = {
+          ...user,
+          lat,
+          long
+        }
+        request
+          .post('/api/v1/users/register', userWithCoordinates, getHeaders())
+          .then(res => {
+            if (res.data.token) {
+              setToken(res.data.token)
+            }
+            dispatch(registerSuccess(res.data.user))
+          })
+      })
+      .catch((err) => {
+        dispatch(showError(err.message))
+      })
   }
 }
 
-
 export function getLatLng (address) {
-  return request.post(GEOCODING_PROVIDER_URL, { location: address })
+  return request.post(GEOCODING_PROVIDER_URL, {location: address})
     .then((response) => response.data.results[0].locations[0].latLng)
-    .catch((error) => console.log(error));
-};
+    .catch((error) => console.log(error))
+}

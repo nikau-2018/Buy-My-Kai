@@ -8,74 +8,86 @@
 // FILE DEPENDENCIES
 const express = require('express')
 const db = require('../db/db')
+const jwt = require('jsonwebtoken')
 
 const router = express.Router()
 
 // Auth
-// const verifyJwt = require('express-jwt')
+const verifyJwt = require('express-jwt')
 const {checkHash} = require('../auth/hash')
-const token = require('../auth/token')
+const {createToken} = require('../auth/token')
 
 // POST ROUTES
 
-router.post('/register', register, token.issue)
+router.post('/register', register)
 router.post('/login', login)
 
 // Checks the login against what is in the database using email and hash
-function login (req, res, next) {
-  const {email, hash} = req.body
-  db.getUser(email, hash)
-    .then((user) => {
+function login (req, res) {
+  const {email} = req.body
+  db.loginUser(email)
+    .then(user => {
+      const pwd = req.body.hash
+      
       // Check if user exists.
       if (!user) {
         return res.status(400).json({
           ok: false,
-          error: 'That user does not exist.'
+          message: 'That user does not exist.'
         })
-      }
+      } else {
 
-      // Compare user input password with hash record.
-      const {hash, id} = user
+        // Compare user input password with hash record.
+        const {hash, id} = user
 
-      checkHash(hash, hash)
+        checkHash(hash, pwd)
         .then(ok => {
           if (!ok) {
             return res.status(403).json({
               ok: false,
-              error: 'Password incorrect.'
+              message: 'Password incorrect.'
+            })
+          } else {
+            res.locals.userId = id
+            res.json({
+              user: user, 
+              token: createToken(id)
             })
           }
-
-          res.locals.userId = id
-          next()
         })
+      }
     })
-    .catch(err => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+
+    .catch(() => {
+      res.status(500).json({
+        ok: false,
+        message: 'An unknown error occured.'
+      })
     })
 }
 
 // Create new user record route function
-function register (req, res, next) {
+function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
-      // Store the new users ID in local state.
-      res.locals.userId = id[0]
-
-      // Progress to the next middleware stack function.
-      next()
+      res.status(201).json({
+        ok: true,
+        message: 'Account created successfully.',
+        user: user,
+        token: createToken(id[0])
+      })
     })
     .catch(({message}) => {
-      if (message.includes('UNIQUE constraint failed: users.username')) {
+      if (message.includes('UNIQUE constraint failed: users.email')) {
         return res.status(400).json({
           ok: false,
-          message: 'Username already exists.'
+          message: 'Email already exists.'
         })
       }
       res.status(500).json({
         ok: false,
-        message: message
+        message: 'An unknown error occured'
       })
     })
 }
@@ -83,40 +95,44 @@ function register (req, res, next) {
 // GET ROUTES
 
 // Get user records
-router.get('/:id', getUser)
+router.get(
+  '/', 
+  verifyJwt({ secret: process.env.JWT_SECRET }),
+  getUser
+)
 
 // Get user by ID route function
 function getUser (req, res) {
-  const userId = Number(req.params.id)
-  db.getUser(userId)
-    .then(user => {
-      if (user.isSeller) {
-        db.getSeller(userId)
-          .then(seller => {
-            res.status(200).json({
-              ok: true,
-              seller
-            })
-              .catch(({message}) => {
-                res.status(500).json({
-                  ok: false,
-                  message: message
-                })
-              })
+  const id = res.locals.userId
+  db.getUser(id)
+  .then(user => {
+    if (user.isSeller) {
+      db.getSellerls(id)
+        .then(seller => {
+          res.status(200).json({
+            ok: true,
+            seller
           })
-      } else {
-        res.status(200).json({
-          ok: true,
-          user
+            .catch(({message}) => {
+              res.status(500).json({
+                ok: false,
+                message: message
+              })
+            })
         })
-      }
-    })
-    .catch(({message}) => {
-      res.status(500).json({
-        ok: false,
-        message: message
+    } else {
+      res.status(200).json({
+        ok: true,
+        user
       })
+    }
+  })
+  .catch(({message}) => {
+    res.status(500).json({
+      ok: false,
+      message: message
     })
+  })
 }
 
 // Get seller by suburb
@@ -124,6 +140,7 @@ router.get('/', (req, res) => {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
     .then(result => {
+      /* eslint-disable no-console */
       console.log('sellers found')
       res.json({result})
     })

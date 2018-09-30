@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 // import {Redirect} from 'react-router-dom'
 import {sendNeighbourhood} from '../../actions/area'
 import {connect} from 'react-redux'
-import List from './List'
-import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
+// import List from './List'
+import {Map, TileLayer, CircleMarker, Marker, Popup} from 'react-leaflet'
 
 import './styles.css'
 
@@ -33,14 +33,11 @@ class Area extends React.Component {
 
   sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
-    // .then(setTimeout(this.setState({
-    //   ready: true
-    // }), 5500
-    // ))
   }
 
   render () {
     // console.log('jsx:', this.props.growersList)
+
     return (
       <div className='container'>
         <h1>Search For Growers</h1>
@@ -56,8 +53,10 @@ class Area extends React.Component {
               attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+
             <div className='marker'>
-              <Marker className='belmont' position={[-36.80506470, 174.78860850]}>
+
+              <CircleMarker className='belmont' center={[-36.80506470, 174.78860850]} fillColor="blue" radius={20}>
                 <Popup><button name='suburb'
                   onClick={this.handleClick} value='Belmont'>
                   <div>
@@ -65,8 +64,8 @@ class Area extends React.Component {
                     this.props.growersList.map(list =>
                       <li key={list.id}>{list.name}</li>
                     )}</div>Belmont</button></Popup>
-              </Marker>
-              <Marker className='takapuna' position={[-36.78792290, 174.76882070]}>
+              </CircleMarker>
+              <CircleMarker className='takapuna' center={[-36.78792290, 174.76882070]} fillColor="blue" radius={20}>
                 <Popup><button name='suburb'
                   onClick={this.handleClick} value='Belmont'>
                   <div>
@@ -74,7 +73,7 @@ class Area extends React.Component {
                     this.props.growersList.map(list =>
                       <li key={list.id}>{list.name}</li>
                     )}</div>Takapuna</button></Popup>
-              </Marker>
+              </CircleMarker>
               <Marker className='mteden' position={[-36.86983670, 174.77758010]}>
                 <Popup><button name='suburb'
                   onClick={this.handleClick} value='Belmont'>
@@ -107,5 +106,4 @@ const mapStateToProps = (state) => {
     growersList: state.areaReducer.growersList
   }
 }
-
 export default connect(mapStateToProps)(Area)

@@ -11,7 +11,8 @@ module.exports = {
   getProductByName,
   getUser,
   getSeller,
-  getSellerBySuburb
+  getSellerBySuburb,
+  loginUser
 }
 
 // adds a new user to the database
@@ -57,7 +58,7 @@ function addProduct (product, userId, testDb) {
 function getProductById (productId, testDb) {
   const db = testDb || connection
   return db('products')
-    .where('products.id', productId)
+    .where('products.product_id', productId)
     .first()
 }
 
@@ -70,8 +71,8 @@ function getProducts (userId, testDb) {
 }
 
 // Get product by name.
-function getProductByName (name, testDB) {
-  const db = testDB || connection
+function getProductByName (name, testDb) {
+  const db = testDb || connection
   return db('products')
     .where('products.product_name', name)
     .select({
@@ -83,10 +84,17 @@ function getProductByName (name, testDB) {
 }
 
 // gets users information from the users and products table that we are joining where userId is equal to products.user_id
-function getUser (email, hash, testDb) {
+function getUser (id, testDb) {
   const db = testDb || connection
   return db('users')
-    .where('users.email', email).where('users.hash', hash)
+    .where('users.id', id)
+    .first()
+}
+
+function loginUser (email, testDb) {
+  const db = testDb || connection
+  return db('users')
+    .where({email})
     .first()
 }
 

@@ -24,23 +24,14 @@ class Area extends React.Component {
     this.sendNeighbourhood(this.state.suburb)
   }
 
-  // handleChange (e) {
-  //   e.preventDefault()
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
 
   sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
-    // .then(setTimeout(this.setState({
-    //   ready: true
-    // }), 5500
-    // ))
   }
 
   render () {
-    // console.log('jsx:', this.props.growersList)
+    const growersList = this.props.growersList || []
+
     return (
       <div className='container'>
         <h1>Search For Growers</h1>
@@ -92,5 +83,5 @@ const mapStateToProps = (state) => {
     growersList: state.areaReducer.growersList
   }
 }
-
 export default connect(mapStateToProps)(Area)
+    

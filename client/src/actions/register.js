@@ -32,9 +32,8 @@ export const registerSuccess = user => {
 export function postUser (user) {
   return dispatch => {
     dispatch(registerPending())
-
+  
     const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`;
-
     return getLatLng(searchAddress)
     .then(({ lat, lng: long}) => {
       const userWithCoordinates = {
@@ -43,10 +42,13 @@ export function postUser (user) {
         long,
       }
       request
-        .post('/api/v1/users/register', userWithCoordinates, getHeaders())
-        .then(res => {
-          if (res.data.token) setToken(res.data.token)
-        })
+      .post('/api/v1/users/register', userWithCoordinates, getHeaders())
+      .then(res => {
+        if (res.data.token) {
+          setToken(res.data.token)
+        }
+        dispatch(registerSuccess(res.data.user))
+      })
     })
     .catch((err) => {
       dispatch(showError(err.message))

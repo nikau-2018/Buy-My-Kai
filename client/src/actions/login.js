@@ -11,7 +11,7 @@ export const loginPending = () => ({type: LOGIN_REQUEST})
 
 export const loginSuc = user => ({
   type: LOGIN_SUCCESS,
-  user
+  user: user
 })
 
 export const loginReq = ({
@@ -22,12 +22,11 @@ export const loginUser = (email, hash) => {
   return dispatch => {
     // dispatch(loginReq())
     return request
-      .post(`/api/v1/users/login`, {email, hash}, getHeaders())
+      .post('/api/v1/users/login', {email, hash}, getHeaders())
       .then(res => {
         if (res.data.token) {
           setToken(res.data.token)
-        }
-
+        } 
         dispatch(loginSuc(res.data.user))
       })
       .catch(({response}) => dispatch(loginError(response.data.error)))

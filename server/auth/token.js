@@ -22,18 +22,12 @@ module.exports = {
 
 // HELPER FUNCTIONS
 // Issue a JWT token.
-function issue (id, req, res) {
-  db.getUser(id)
-    .then(user => {
-      res.json({
-        ok: true,
-        message: 'Authentication successful.',
-        user,
-
-        // Call createToken helper function.
-        token: createToken(id)
-      })
-    })
+function issue (req, res) {
+  res.json({
+    ok: true,
+    message: 'Authentication successful.',
+    token: createToken(res.locals.userId)
+  })
 }
 
 // Create token

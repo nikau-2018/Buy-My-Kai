@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
 import {TextField, Button, Checkbox} from '@material-ui/core'
 
-import styles from '../../styles/styles.css'
+// import styles from '../../styles/styles.css'
 import logo from '../../images/Logo.png'
 
 class Register extends React.Component {

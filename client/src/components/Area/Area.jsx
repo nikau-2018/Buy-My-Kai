@@ -49,7 +49,7 @@ class Area extends React.Component {
 
             <div className='marker'>
 
-              <CircleMarker className='belmont' center={[-36.80506470, 174.78860850]} fillColor="blue" radius={20}>
+              <CircleMarker className='belmont' center={[-36.80506470, 174.78860850]} fillColor="blue" radius={30}>
                 <Popup><button name='suburb'
                   onClick={this.handleClick} value='Belmont'>
                   <div>
@@ -58,7 +58,7 @@ class Area extends React.Component {
                       <li key={list.id}>{list.name}</li>
                     )}</div>Belmont</button></Popup>
               </CircleMarker>
-              <CircleMarker className='takapuna' center={[-36.78792290, 174.76882070]} fillColor="blue" radius={20}>
+              <CircleMarker className='takapuna' center={[-36.78792290, 174.76882070]} fillColor="blue" radius={30}>
                 <Popup><button name='suburb'
                   onClick={this.handleClick} value='Belmont'>
                   <div>

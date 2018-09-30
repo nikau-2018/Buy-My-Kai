@@ -6,7 +6,7 @@ a {
   text-decoration: none;
 }
 .background {
-  background: url("../images/splash-bg.svg");
+  background: url("../images/background.svg");
   background-position: center;
   background-size: 70%;
   background-repeat: repeat;

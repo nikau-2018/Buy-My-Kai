@@ -67,17 +67,32 @@ class Area extends React.Component {
                     )}</div>Belmont</button></Popup>
               </Marker>
               <Marker className='takapuna' position={[-36.78792290, 174.76882070]}>
-                <Popup><button>Takapuna</button></Popup>
+                <Popup><button name='suburb'
+                  onClick={this.handleClick} value='Belmont'>
+                  <div>
+                    {this.props.growersList &&
+                    this.props.growersList.map(list =>
+                      <li key={list.id}>{list.name}</li>
+                    )}</div>Takapuna</button></Popup>
               </Marker>
               <Marker className='mteden' position={[-36.86983670, 174.77758010]}>
-                <Popup><button name='suburb' onClick={this.handleClick} value='Mt Eden'>
-                  <div>{this.props.growersList && this.props.growersList.map(list =>
-                    <p key={list.id}>{list.name}</p>
-                  )}</div></button>
+                <Popup><button name='suburb'
+                  onClick={this.handleClick} value='Belmont'>
+                  <div>
+                    {this.props.growersList &&
+                    this.props.growersList.map(list =>
+                      <li key={list.id}>{list.name}</li>
+                    )}</div>Mt Eden</button>
                 </Popup>
               </Marker>
               <Marker className='ponsonby' position={[-36.84877790, 174.73806630]}>
-                <Popup><button>Ponsonby</button></Popup>
+                <Popup><button name='suburb'
+                  onClick={this.handleClick} value='Belmont'>
+                  <div>
+                    {this.props.growersList &&
+                    this.props.growersList.map(list =>
+                      <li key={list.id}>{list.name}</li>
+                    )}</div>Ponsonby</button></Popup>
               </Marker>
             </div>
           </Map>

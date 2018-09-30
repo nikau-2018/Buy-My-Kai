@@ -69,11 +69,11 @@ class Area extends React.Component {
   }
 }
 
--36.848461, 174.763336
 
 const mapStateToProps = (state) => {
   return {
     growersList: state.areaReducer.growersList
   }
 }
+
 export default connect(mapStateToProps)(Area)

@@ -1,4 +1,4 @@
-.Leaflet {
+.leaflet-container {
+    height: 400px;
     width: 100%;
-    height: 100%;
-}
+  }

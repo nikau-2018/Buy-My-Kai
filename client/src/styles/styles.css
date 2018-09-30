@@ -1,4 +1,4 @@
-/* 
+/*
   Main Component CSS File
 */
 a {
@@ -6,26 +6,29 @@ a {
   text-decoration: none;
 }
 .background {
-  background: url("../images/background.svg");
-  background-position: center;
-  background-size: 70%;
-  background-repeat: repeat;
+  background: url("../images/apricot.jpg");
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(3px);
   min-height: 100vh;
-  height: 100%;
+  height: auto;
   width: 100vw;
   display:flex;
   align-items: center;
-}
+  }
 
 .logo {
-  width: 150px;
+  width: 450px;
   margin: auto;
 }
 
-.home-container,
-.register-container,
-.login-container {
-  background: rgba(255, 255, 255, 0.85);
+.container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,6 +36,7 @@ a {
   box-sizing: border-box;
   text-align: center;
   padding: 4rem 2rem;
+  filter: blur(-3px);
 }
 
 /* TYPOGRAPHY */
@@ -40,10 +44,14 @@ h2 {
   font-family: 'Permanent Marker', cursive;
   font-size: 2.5rem;
   padding-top: 5%;
+  color: white;
+  text-align: center;
 }
 
-.home-container p {
-  font-size: 1.4rem;
+p {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
   padding-bottom: 5%;
 }
 
@@ -51,6 +59,7 @@ h2 {
 button {
   background: none;
   border: none;
+  width: 100%;
 }
 
 .btn-group {
@@ -63,13 +72,13 @@ button.btn {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 1.4rem;
-  font-weight: 100;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: white;
   border: 1px solid transparent;
-  margin: 1rem auto;
-  padding: 1rem;
-  width: 70%;
+  margin: .5rem auto;
+  padding: .8rem;
+  width: 40%;
   -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
@@ -77,14 +86,11 @@ button.btn {
 }
 
 .btn--primary {
-  color: white !important;
-  background: #000 !important;
+  border: 2px solid white !important;
 }
 
 .btn--secondary {
-  background: rgb(212, 212, 212) !important;
-  color: #000 !important;
-  border: 1px solid rgb(212, 212, 212);
+  border: 2px solid white !important;
 }
 
 .btn[disabled] {

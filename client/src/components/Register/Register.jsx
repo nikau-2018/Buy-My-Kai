@@ -5,7 +5,7 @@ import {postUser} from '../../actions/register'
 import {TextField, Button, Checkbox} from '@material-ui/core'
 
 import styles from '../../styles/styles.css'
-import logo from '../../images/Logo.png'
+import logo from '../../images/logo-white.png'
 
 class Register extends React.Component {
   constructor (props) {

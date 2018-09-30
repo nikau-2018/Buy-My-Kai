@@ -7,7 +7,7 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 
-const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH';
+const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH'
 
 export const showError = (errorMessage) => {
   return {
@@ -56,9 +56,8 @@ export function postUser (user) {
   }
 }
 
-
 export function getLatLng (address) {
-  return request.post(GEOCODING_PROVIDER_URL, { location: address })
+  return request.post(GEOCODING_PROVIDER_URL, {location: address})
     .then((response) => response.data.results[0].locations[0].latLng)
-    .catch((error) => console.log(error));
-};
+    .catch((error) => console.log(error))
+}

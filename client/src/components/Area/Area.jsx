@@ -1,5 +1,4 @@
 import React from 'react'
-// import {Redirect} from 'react-router-dom'
 import {sendNeighbourhood} from '../../actions/area'
 import {connect} from 'react-redux'
 import List from './List'
@@ -27,14 +26,9 @@ class Area extends React.Component {
 
   sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
-    // .then(setTimeout(this.setState({
-    //   ready: true
-    // }), 5500
-    // ))
   }
 
   render () {
-    // console.log('jsx:', this.props.growersList)
     return (
       <div>
         <h1>Search For Growers</h1>

@@ -2,7 +2,7 @@ import React from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
-import { TextField, Button, Checkbox } from '@material-ui/core';
+import {TextField, Button, Checkbox} from '@material-ui/core'
 
 import styles from '../../styles/styles.css'
 import logo from '../../images/Logo.png'
@@ -100,52 +100,52 @@ class Register extends React.Component {
                   label="Street Address"
                   multiline
                   rowsMax="4"
-                  name='address' 
+                  name='address'
                   margin="normal"
-                  value={this.state.address} 
-                  onChange={this.handleChange} /><br />
-
-                <TextField 
-                  type="text" 
-                  name='suburb' 
-                  label="Suburb"
-                  margin="normal"
-                  value={this.state.suburb} 
-                  onChange={this.handleChange} /><br />
-
-                <TextField 
-                  type="text" 
-                  name='city' 
-                  label="City"
-                  margin="normal"
-                  value={this.state.city} 
+                  value={this.state.address}
                   onChange={this.handleChange} /><br />
 
                 <TextField
-                  type="text" 
-                  name='postcode' 
+                  type="text"
+                  name='suburb'
+                  label="Suburb"
+                  margin="normal"
+                  value={this.state.suburb}
+                  onChange={this.handleChange} /><br />
+
+                <TextField
+                  type="text"
+                  name='city'
+                  label="City"
+                  margin="normal"
+                  value={this.state.city}
+                  onChange={this.handleChange} /><br />
+
+                <TextField
+                  type="text"
+                  name='postcode'
                   label="Post Code"
                   margin="normal"
                   value={this.state.postcode}
                   onChange={this.handleChange} /><br />
 
-                  <TextField
-                    type="text"
-                    name='description' 
-                    multiline
-                    rowsMax="8"
-                    label="Description"
-                    margin="normal"
-                    value={this.state.description} 
-                    onChange={this.handleChange} /><br />
+                <TextField
+                  type="text"
+                  name='description'
+                  multiline
+                  rowsMax="8"
+                  label="Description"
+                  margin="normal"
+                  value={this.state.description}
+                  onChange={this.handleChange} /><br />
 
-                  <TextField
-                    type="text" 
-                    name='hours' 
-                    label="Hours"
-                    margin="normal"
-                    value={this.state.hours} 
-                    onChange={this.handleChange} /><br />
+                <TextField
+                  type="text"
+                  name='hours'
+                  label="Hours"
+                  margin="normal"
+                  value={this.state.hours}
+                  onChange={this.handleChange} /><br />
 
               </div>
               : <div></div>

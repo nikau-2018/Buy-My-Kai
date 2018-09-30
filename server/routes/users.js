@@ -140,6 +140,7 @@ router.get('/', (req, res) => {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
     .then(result => {
+      /* eslint-disable no-console */
       console.log('sellers found')
       res.json({result})
     })

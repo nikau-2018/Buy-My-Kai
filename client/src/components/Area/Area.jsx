@@ -37,36 +37,43 @@ class Area extends React.Component {
   }
 
   render() {
+    const growersList = this.props.growersList || [];
     // console.log('jsx:', this.props.growersList)
     return (
       <div>
         <h1>Search For Growers</h1>
         <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} /><br />
         <button onClick={this.handleClick}>search</button>
-        <div>{this.props.growersList && this.props.growersList.map(list =>
+        <div>{growersList.map(list =>
           <List key={list.id} list={list} />
-
         )}</div>
         <Map className="Leaflet" style={{ position: 'absolute' }} center={[-36.848461, 174.763336]} zoom={15}>
           <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[-36.848461, 174.763336]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
+          <div>{growersList.map(x => console.log(x, 33) ||
+            <Marker position={[x.id]}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-          </Marker>
+            </Marker>
+          )
+        }
+          )}
+
+          </div>
         </Map>
       </div>
     )
   }
 }
 
+-36.848461, 174.763336
+
 const mapStateToProps = (state) => {
   return {
     growersList: state.areaReducer.growersList
   }
 }
-
 export default connect(mapStateToProps)(Area)

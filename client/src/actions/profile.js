@@ -4,6 +4,9 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
 
+import {getHeaders} from '../utils/api'
+import {setToken} from '../utils/token'
+
 export const showError = (errorMessage) => {
   return {
     type: SHOW_ERROR,
@@ -28,7 +31,7 @@ export function getProfile (user) {
   return (dispatch) => {
     dispatch(profilePending())
     return request
-      .get(`/api/v1/users/profile`)
+      .get('/api/v1/users/', getHeaders())
       .then(res => {
         // eslint-disable-next-line no-console
         console.log('success')

@@ -28,7 +28,7 @@ export function sendNeighbourhood ({suburb}) {
   return (dispatch) => {
     dispatch(areaPending())
     return request
-      .get(`/api/v1/users/?suburb=${suburb}`)
+      .get(`/api/v1/users/?suburb=${suburb}`, getHeaders())
       .then(res => {
         // eslint-disable-next-line no-console
         console.log(res.data.result)

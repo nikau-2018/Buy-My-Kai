@@ -13,16 +13,22 @@ export default function Home (props) {
         <h2>Welcome!</h2>
         <p>Buy My Kai connects people <br/>
         through the food we grow in our backyard.</p>
-        <Link to="/login" className='btn btn--primary mdc-button'>
-          <button>
-            <i className="fas fa-sign-in-alt"></i>Login
-          </button>
-        </Link>
-        <Link to="/register" className='btn btn--secondary mdc-button'>
-          <button>
-            <i className="fas fa-user-plus"></i>Register
-          </button>
-        </Link>
+        <div className="btn-group pure-u-1">
+          <Link to="/login">
+            <Button 
+              className='btn btn--primary'>
+              <i className="fas fa-sign-in-alt"></i>
+              Login
+            </Button>
+          </Link>
+          <Link to="/register">
+            <Button 
+              className='btn btn--secondary'>
+              <i className="fas fa-user-plus"></i>
+              Register
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   )

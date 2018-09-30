@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 // import {Redirect} from 'react-router-dom'
 import {sendNeighbourhood} from '../../actions/area'
 import {connect} from 'react-redux'
@@ -24,19 +24,12 @@ class Area extends React.Component {
     this.sendNeighbourhood(this.state.suburb)
   }
 
-  // handleChange (e) {
-  //   e.preventDefault()
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
   sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
   }
 
   render () {
-    // console.log('jsx:', this.props.growersList)
+    // const growersList = this.props.growersList || []
 
     return (
       <div className='container'>

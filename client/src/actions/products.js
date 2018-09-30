@@ -28,7 +28,7 @@ export function sendProduct (product) {
   return (dispatch) => {
     dispatch(productPending())
     return request
-      .post('/api/v1/products/addproduct', product, getHeaders())
+      .post('/api/v1/products/addproduct', product)
       .then(res => {
         // eslint-disable-next-line no-console
         console.log(res)

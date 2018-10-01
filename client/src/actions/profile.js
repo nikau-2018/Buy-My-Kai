@@ -31,12 +31,8 @@ export function getProfile (user) {
   return (dispatch) => {
     dispatch(profilePending())
     return request
-      .get('/api/v1/users/', getHeaders())
+      .get('/api/v1/users/profile', getHeaders())
       .then(res => {
-
-        if (res.data.token) {
-          setToken(res.data.token)
-        }
 
         // Send user to the store.
         dispatch(profileSuccess(res.data.user))

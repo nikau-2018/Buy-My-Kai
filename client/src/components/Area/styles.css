@@ -1,5 +1,8 @@
 .leaflet-container {
-  margin: 5%;
-  height: 500px;
-  width: 500px;
+  height: 80vh;
+  width: 80vw;
+}
+
+.map {
+  padding: 10%;
 }

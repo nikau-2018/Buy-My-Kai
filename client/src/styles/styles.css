@@ -1,4 +1,4 @@
-/* 
+/*
   Main Component CSS File
 */
 body {
@@ -9,52 +9,91 @@ a {
   text-decoration: none;
 }
 .background {
-  background: url("../images/splash-bg.svg");
+  background: url("../images/apricot.jpg");
   background-position: center;
-  background-size: 70%;
-  background-repeat: repeat;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(3px) brightness(70%);
   min-height: 100vh;
   height: 100%;
   width: 100vw;
   display:flex;
   align-items: center;
-}
+
+  }
 
 .logo {
-  width: 150px;
+  width: 350px;
   margin: auto;
+  padding-top:30%;
 }
 
-.home-container,
-.register-container,
-.login-container,
-.profile-container {
-  background: rgba(255, 255, 255, 0.85);
+.container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem;
+  filter: blur(-3px);
 }
 
-/* TYPOGRAPHY */
-h2 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2.5rem;
-  padding-top: 5%;
+.pure-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5rem;
 }
 
-.home-container p {
-  font-size: 1.4rem;
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  padding-top: 3%;
+  color: white;
+  text-align: center;
+  letter-spacing: 6px;
+}
+
+p,
+.register-group {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
   padding-bottom: 5%;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.footer {
+  padding-top: 10%;
+}
+
+
+h5 {
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
 }
 
 /* CTA BUTTONS */
 button {
   background: none;
   border: none;
+  width: 100%;
+  letter-spacing: 3px;
 }
 
 .btn-group {
@@ -67,13 +106,14 @@ button.btn {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 1.4rem;
-  font-weight: 100;
-  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: white !important;
   border: 1px solid transparent;
-  margin: 1rem auto;
-  padding: 1rem;
-  width: 70%;
+  margin: .5rem auto;
+  padding: .8rem;
+  width: 40%;
   -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
@@ -81,21 +121,34 @@ button.btn {
 }
 
 .btn--primary {
-  color: white !important;
-  background: #000 !important;
+  background: #81b82f !important;
 }
 
 .btn--secondary {
-  background: rgb(212, 212, 212) !important;
-  color: #000 !important;
-  border: 1px solid rgb(212, 212, 212);
+  background: #659026 !important;
 }
 
-.btn[disabled] {
+.btn--nav {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+
+.pure-input-rounded {
+  margin: 2%;
+  font-size: 1.2rem;
+  color: rgb(70, 70, 70) !important;
+  font-family: 'Montserrat', sans-serif;
+  width: 67%;
+  filter: opacity(50%);
+}
+
+/* .btn[disabled] {
   color: gray !important;
   background: #eaeaea !important;
   border: 1px solid transparent !important;
-}
+} */
 
 .btn--fab {
   background: rgba(0,0,0,.7) !important;
@@ -117,9 +170,9 @@ button.btn {
 }
 
 .btn:hover {
-  color: rgba(0,0,0,.87) !important;
-  background: rgba(255,255,255,.9) !important;
-  border: 1px solid rgba(0,0,0,.87);
+  color:white !important;
+  background: transparent !important;
+  border: 1px solid white;
 }
 
 /* Form elements */
@@ -129,10 +182,16 @@ button.btn {
   justify-content: center;
 }
 
+/* .input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+} */
+
 [class*="MuiFormControl-root"] {
   width: 70%;
   margin: 2rem auto !important;
 }
+
 
 
 
@@ -142,8 +201,8 @@ button.btn {
 @media screen and (min-width: 768px) {
   .background {
     /* background: url("../images/splash-bg.svg"); */
-    background-size: 400px;
-    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
   }
   .home-container,
   .register-container,

@@ -14,8 +14,8 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/server/index.js",
-      "cwd": "${workspaceFolder}/server"
+      "program": "${workspaceRoot}/index.js",
+      "cwd": "${workspaceRoot}"
     }
   ]
 }

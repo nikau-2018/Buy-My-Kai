@@ -1,6 +1,5 @@
 import request from 'axios'
 
-import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
@@ -31,7 +30,7 @@ export const loginUser = (email, hash) => {
 
     // Make the request.
     return request
-      .post('/api/v1/users/login', {email, hash}, getHeaders())
+      .post('/api/v1/users/login', {email, hash})
 
       // Handle the response.
       .then(res => {
@@ -40,6 +39,7 @@ export const loginUser = (email, hash) => {
         }
         // Store the user data.
         dispatch(loginSuc(res.data.user))
+
       })
       .catch(err => dispatch(loginError(err.message)))
   }

@@ -1,15 +1,11 @@
 import {combineReducers} from 'redux'
 
-import currentUser from './currentUser'
-import loginReducer from './login'
-import registerReducer from './register'
+import currentUserReducer from './currentUser'
 import addproductReducer from './addproduct'
 import areaReducer from './area'
 
 export default combineReducers({
-  currentUser,
-  loginReducer,
-  registerReducer,
+  currentUserReducer,
   addproductReducer,
   areaReducer
 })

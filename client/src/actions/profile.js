@@ -3,35 +3,37 @@ import request from 'axios'
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
-export const SHOW_ERROR = 'SHOW_ERROR'
+export const PROFILE_ERROR = 'PROFILE_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
 
-export const showError = (errorMessage) => {
+export const profileError = (errorMessage) => {
   return {
-    type: SHOW_ERROR,
-    errorMessage: errorMessage
+    type: PROFILE_ERROR,
+    error: errorMessage
   }
 }
 
-export const profilePending = (errorMessage) => {
+export const profilePending = () => {
   return {
     type: PROFILE_PENDING
   }
 }
 
-export const profileSuccess = (user) => {
+export const profileSuccess = user => {
   return {
     type: PROFILE_SUCCESS,
     user
   }
 }
 
-export function getProfile (user) {
-  return (dispatch) => {
+export function getProfile () {
+
+  return dispatch => {
     dispatch(profilePending())
+    
     return request
-      .get('/api/v1/users/', getHeaders())
+      .get('/api/v1/users/profile', getHeaders())
       .then(res => {
         if (res.data.token) {
           setToken(res.data.token)
@@ -44,7 +46,7 @@ export function getProfile (user) {
         console.log('success')
       })
       .catch(err => {
-        dispatch(showError(err.message))
+        dispatch(profileError(err.message))
       })
   }
 }

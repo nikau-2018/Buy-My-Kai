@@ -103,7 +103,7 @@ class Register extends React.Component {
             </div>
             {
               this.state.isSeller
-                ? <div className="pure-form-register pure-u-1">
+                ? <div className="pure-form pure-u-1">
                   <div className='street-address'>
                     <input
                       type="text"
@@ -121,6 +121,7 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="Suburb"
+                      name='suburb'
                       margin="normal"
                       value={this.state.suburb}
                       onChange={this.handleChange} />
@@ -130,6 +131,7 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="city"
+                      name='city'
                       margin="normal"
                       value={this.state.city}
                       onChange={this.handleChange} />
@@ -139,6 +141,7 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="postcode"
+                      name='postcode'
                       margin="normal"
                       value={this.state.postcode}
                       onChange={this.handleChange} />
@@ -148,6 +151,7 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="Description"
+                      name='description'
                       margin="normal"
                       value={this.state.description}
                       onChange={this.handleChange} />
@@ -157,6 +161,7 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="Hours"
+                      name='hours'
                       margin="normal"
                       value={this.state.hours}
                       onChange={this.handleChange} />

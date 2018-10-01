@@ -45,6 +45,17 @@ a {
   filter: blur(-3px);
 }
 
+.pure-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5rem;
+}
+
 h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
@@ -117,6 +128,10 @@ button.btn {
 
 .btn--secondary {
   background: #659026 !important;
+}
+
+.btn--link {
+  background: transparent !important;
 }
 
 .pure-form {

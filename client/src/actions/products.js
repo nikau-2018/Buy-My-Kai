@@ -1,10 +1,10 @@
 import request from 'axios'
 
+import {getHeaders} from '../utils/api'
+
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const PRODUCT_PENDING = 'PRODUCT_PENDING'
 export const PRODUCT_SUCCESS = 'PRODUCT_SUCCESS'
-
-import {getHeaders} from '../utils/api'
 
 export const showError = (errorMessage) => {
   return {

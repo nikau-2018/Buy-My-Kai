@@ -195,6 +195,12 @@ class Register extends React.Component {
               </div>
             </div>
           </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
         </div>
       </div>
     )

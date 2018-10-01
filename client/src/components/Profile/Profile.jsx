@@ -1,13 +1,15 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {Button} from '@material-ui/core'
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 import Addproduct from '../Product/Addproduct'
 import '../../styles/styles.css'
 
+import Nav from '../Nav/Nav'
+
 class Profile extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       showForm: false
@@ -15,13 +17,13 @@ class Profile extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick () {
+  handleClick() {
     this.setState({
       showForm: !this.state.showForm
     })
   }
 
-  render () {
+  render() {
     const profile = this.props.user || {}
     return (
       <div className='profile'>
@@ -83,6 +85,12 @@ class Profile extends React.Component {
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
             :
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
           </div>
         </div>
       </div>

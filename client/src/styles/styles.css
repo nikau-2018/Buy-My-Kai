@@ -44,14 +44,13 @@ a {
 }
 
 .pure-menu {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 5rem;
+  padding: 3rem;
 }
 
 
@@ -73,10 +72,6 @@ p,
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
-}
-
-.footer {
-  padding-top: 10%;
 }
 
 

@@ -31,12 +31,20 @@ class Profile extends React.Component {
           {/* <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a> */}
           {/* <ul class="pure-menu-list"> */}
           <div className="btn-group pure-u-1">
-            <Link to="/neighbourhood">
+            <Link to="/login">
               <Button
                 className='btn btn--link'>
                 <i className="far fa-map fa-3x"></i>
               </Button>
             </Link>
+            <div className="btn-group pure-u-1">
+              <Link to="/neighbourhood">
+                <Button
+                  className='btn btn--link'>
+                  <i className="far fa-user fa-3x"></i>
+                </Button>
+              </Link>
+            </div>
             {/* <li class="pure-menu-item"><Button><i class="far fa-user fa-3x"></i></Button></li>
             <li class="pure-menu-item"><a href="/neighbourhood"><i class="far fa-map fa-3x"></i></a></li> */}
             {/* </ul> */}

@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
 import {TextField, Button, Checkbox} from '@material-ui/core'
 
-import logo from '../../images/Logo.png'
+import styles from '../../styles/styles.css'
+import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
   constructor (props) {
@@ -59,12 +60,16 @@ class Register extends React.Component {
 
   render () {
     return (
-      <div className="pure-img background">
-        <div className="register-container pure-u-1-1 pure-u-md-1-2">
+      <div className="home">
+        <div className="pure-img background"></div>
+        <div className="container pure-u-1-1 pure-u-md-1-2">
           <Link to='/'>
-            <img className="pure-img logo" src={logo}/>
+            <img className="pure-img logo" src={logo} />
           </Link>
-          <h2>Sign up</h2>
+          <h3>SIGN UP</h3>
+          <p>We just need to get a few details<br/>
+            from you to get you sign up <br/>
+            to the service.</p>
           <div className="pure-u-1">
             <TextField
               type="text"
@@ -164,14 +169,16 @@ class Register extends React.Component {
                 Go
               </Button><br />
 
-              {this.state.success && <Redirect to="/profile"/>}
-              <Link to="/login">
-                Already a member? Login
-              </Link>
+              {this.state.success && <Redirect to="/profile" />}
+              <div className="register-group pure-u-1">
+                <pp>Already a member?
+                  <Link className='btn-link' to="/login"> <u>Login</u></Link>
+                </pp>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 }

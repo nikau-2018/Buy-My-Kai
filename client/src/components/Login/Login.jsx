@@ -2,10 +2,10 @@ import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/login'
-import { TextField, Button } from '@material-ui/core';
+import {TextField, Button} from '@material-ui/core'
 
-import styles from '../../styles/styles.css'
-import logo from '../../images/Logo.png'
+import '../../styles/styles.css'
+import logo from '../../images/logo-4.png'
 
 class Login extends React.Component {
   constructor (props) {
@@ -38,23 +38,23 @@ class Login extends React.Component {
   render () {
     const {error, isLoggedIn} = this.props
     return (
-      <div className="pure-img background">
+      <div className="login">
+        <div className="pure-img background"></div>
         { error ? <div className="toast-error">{ error.message }</div> : null }
-        <div className="login-container pure-u-1-1 pure-u-md-1-2">
+        <div className="container pure-u-1-1 pure-u-md-1-2">
           <Link to='/'>
-            <img className="pure-img logo" src={logo}/>
+            <img className="pure-img logo" src={logo} />
           </Link>
-          <h2>Log in</h2>
+          <h3>LOG IN</h3>
           <div className="form-container pure-u-1">
             {isLoggedIn ? <Redirect to="/profile"/> : null }
-            <TextField
+            <TextField className="form-field"
               type="email"
               label="Email"
               name="email"
               margin="normal"
               value={this.state.email}
               onChange={this.handleChange} />
-
             <TextField
               type="password"
               label="Password"
@@ -64,19 +64,23 @@ class Login extends React.Component {
               onChange={this.handleChange} />
           </div>
 
-          <div>
-            <Button 
-              className='btn btn--primary' 
+          <div className="btn-group pure-u-1">
+            <Button
+              className='btn btn--primary'
               onClick={this.handleSubmit}
-              disabled={ this.state.disabled }>
-                Go
+              disabled={this.state.disabled}>
+              Go
             </Button><br />
-            <Link to="/register">
-              Not a member? Create an account.
-            </Link>
+
+            <div className="register-group pure-u-1">
+              <p>Not a member? Create an
+                <Link className='btn-link' to="/register"> <u>account</u></Link>
+              </p>
+            </div>
+
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 }

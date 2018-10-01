@@ -1,4 +1,4 @@
-/* 
+/*
   Main Component CSS File
 */
 body {
@@ -9,52 +9,92 @@ a {
   text-decoration: none;
 }
 .background {
-  background: url("../images/splash-bg.svg");
-  background-position: center;
-  background-size: 70%;
-  background-repeat: repeat;
+  background: url("../images/apricot.jpg");
+  background-position: center center;
+  position: absolute;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(3px) brightness(70%);
   min-height: 100vh;
-  height: 100%;
+  height: auto;
   width: 100vw;
   display:flex;
   align-items: center;
-}
+
+  }
 
 .logo {
-  width: 150px;
+  width: 350px;
   margin: auto;
+  padding-top:30%;
 }
 
-.home-container,
-.register-container,
-.login-container,
-.profile-container {
-  background: rgba(255, 255, 255, 0.85);
+.container,
+.container-login
+.container-register {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem;
+  filter: blur(-3px);
 }
 
 /* TYPOGRAPHY */
-h2 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2.5rem;
+/* h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bolder;
   padding-top: 5%;
+  padding-bottom: 5%;
+  color: white;
+  text-align: center;
+  letter-spacing: 8px;
+} */
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  padding-top: 3%;
+  color: white;
+  text-align: center;
+  letter-spacing: 6px;
 }
 
-.home-container p {
-  font-size: 1.4rem;
+p,
+.register-group,
+.btn-link {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
   padding-bottom: 5%;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.footer {
+  padding-top: 10%;
+}
+pp {
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
 }
 
 /* CTA BUTTONS */
 button {
   background: none;
   border: none;
+  width: 100%;
+  letter-spacing: 3px;
 }
 
 .btn-group {
@@ -67,13 +107,14 @@ button.btn {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  font-size: 1.4rem;
-  font-weight: 100;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
   color: white;
   border: 1px solid transparent;
-  margin: 1rem auto;
-  padding: 1rem;
-  width: 70%;
+  margin: .5rem auto;
+  padding: .8rem;
+  width: 40%;
   -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
@@ -81,14 +122,11 @@ button.btn {
 }
 
 .btn--primary {
-  color: white !important;
-  background: #000 !important;
+  background: #81b82f !important;
 }
 
 .btn--secondary {
-  background: rgb(212, 212, 212) !important;
-  color: #000 !important;
-  border: 1px solid rgb(212, 212, 212);
+  background: #659026 !important;
 }
 
 .btn[disabled] {
@@ -129,10 +167,15 @@ button.btn {
   justify-content: center;
 }
 
+.form__field::placeholder {
+  color: transparent;
+}
+
 [class*="MuiFormControl-root"] {
   width: 70%;
   margin: 2rem auto !important;
 }
+
 
 
 

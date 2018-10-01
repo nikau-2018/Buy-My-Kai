@@ -70,85 +70,97 @@ class Register extends React.Component {
           <p>We just need to get a few details<br />
             from you to get you sign up <br />
             to the service.</p>
-          <div className="pure-u-1">
-            <TextField
-              type="text"
-              label="Name"
-              name='name'
-              margin="normal"
-              value={this.state.name}
-              onChange={this.handleChange} /><br />
-
-            <TextField
-              type="email"
-              label="Email Address"
-              name='email'
-              margin="normal"
-              value={this.state.email}
-              onChange={this.handleChange} /><br />
-
-            <TextField
-              type="password"
-              label="Password"
-              name='hash'
-              margin="normal"
-              value={this.state.hash}
-              onChange={this.handleChange} /><br />
-
+          <div className="pure-form pure-u-1">
+            <div className='name'>
+              <input
+                type="text"
+                class="pure-input-rounded"
+                placeholder="Name"
+                name="name"
+                margin="normal"
+                value={this.state.name}
+                onChange={this.handleChange} />
+            </div>
+            <div className='email'>
+              <input
+                type="email"
+                class="pure-input-rounded"
+                placeholder="Email"
+                name="email"
+                margin="normal"
+                value={this.state.email}
+                onChange={this.handleChange} />
+            </div>
+            <div className='password'>
+              <input
+                type="password"
+                class="pure-input-rounded"
+                placeholder="Password"
+                name="hash"
+                margin="password"
+                value={this.state.hash}
+                onChange={this.handleChange} />
+            </div>
             {
               this.state.isSeller
-                ? <div>
-                  <TextField
-                    type="text"
-                    label="Street Address"
-                    multiline
-                    rowsMax="4"
-                    name='address'
-                    margin="normal"
-                    value={this.state.address}
-                    onChange={this.handleChange} /><br />
-
-                  <TextField
-                    type="text"
-                    name='suburb'
-                    label="Suburb"
-                    margin="normal"
-                    value={this.state.suburb}
-                    onChange={this.handleChange} /><br />
-
-                  <TextField
-                    type="text"
-                    name='city'
-                    label="City"
-                    margin="normal"
-                    value={this.state.city}
-                    onChange={this.handleChange} /><br />
-
-                  <TextField
-                    type="text"
-                    name='postcode'
-                    label="Post Code"
-                    margin="normal"
-                    value={this.state.postcode}
-                    onChange={this.handleChange} /><br />
-
-                  <TextField
-                    type="text"
-                    name='description'
-                    multiline
-                    rowsMax="8"
-                    label="Description"
-                    margin="normal"
-                    value={this.state.description}
-                    onChange={this.handleChange} /><br />
-
-                  <TextField
-                    type="text"
-                    name='hours'
-                    label="Hours"
-                    margin="normal"
-                    value={this.state.hours}
-                    onChange={this.handleChange} /><br />
+                ? <div className="pure-form pure-u-1">
+                  <div className='street-address'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="Street Address"
+                      multiline
+                      rowsMax="4"
+                      name='address'
+                      margin="normal"
+                      value={this.state.address}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='suburb'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="Suburb"
+                      margin="normal"
+                      value={this.state.suburb}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='city'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="city"
+                      margin="normal"
+                      value={this.state.city}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='postcode'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="postcode"
+                      margin="normal"
+                      value={this.state.postcode}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='description'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="Description"
+                      margin="normal"
+                      value={this.state.description}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='hours'>
+                    <input
+                      type="text"
+                      class="pure-input-rounded"
+                      placeholder="Hours"
+                      margin="normal"
+                      value={this.state.hours}
+                      onChange={this.handleChange} />
+                  </div>
 
                 </div>
                 : <div></div>
@@ -156,12 +168,12 @@ class Register extends React.Component {
             <div className="checkbox pure-u-1">
               <h5>Are you a seller?
               <Checkbox
-                type='checkbox'
-                checked={this.state.isClicked}
-                name='seller'
-                onClick={this.handleSeller}
-                onChange={this.handleChange} />
-              <label htmlFor="seller"></label></h5>
+                  type='checkbox'
+                  checked={this.state.isClicked}
+                  name='seller'
+                  onClick={this.handleSeller}
+                  onChange={this.handleChange} />
+                <label htmlFor="seller"></label></h5>
             </div>
             <div className="btn-group pure-u-1">
               <Button

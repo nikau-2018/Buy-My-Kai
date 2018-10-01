@@ -32,11 +32,7 @@ export default function Home (props) {
           </Link>
         </div>
         <div className='footer pure-u-1'>
-<<<<<<< HEAD
         <h5>Copyright © Buy My Kai 2018 Nikau</h5>
-=======
-          <p>Copyright © Buy My Kai 2018 Nikau</p>
->>>>>>> 4d30c5c3fc3e6fe19fa5a81204eaa37aa11408e1
         </div>
       </div>
     </div>

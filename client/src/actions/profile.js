@@ -1,7 +1,6 @@
 import request from 'axios'
 
 import {getHeaders} from '../utils/api'
-import {setToken} from '../utils/token'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
@@ -31,11 +30,8 @@ export function getProfile (user) {
   return (dispatch) => {
     dispatch(profilePending())
     return request
-      .get('/api/v1/users/', getHeaders())
+      .get('/api/v1/users/profile', getHeaders())
       .then(res => {
-        if (res.data.token) {
-          setToken(res.data.token)
-        }
 
         // Send user to the store.
         dispatch(profileSuccess(res.data.user))

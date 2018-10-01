@@ -31,7 +31,7 @@ export const loginUser = (email, hash) => {
 
     // Make the request.
     return request
-      .post('/api/v1/users/login', {email, hash}, getHeaders())
+      .post('/api/v1/users/login', {email, hash})
 
       // Handle the response.
       .then(res => {

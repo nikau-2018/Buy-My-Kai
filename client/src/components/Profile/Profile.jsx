@@ -52,7 +52,8 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.loginReducer.user
+  user: state.currentUserReducer.user,
+  pending: state.currentUserReducer.pending
 })
 
 export default connect(mapStateToProps)(Profile)

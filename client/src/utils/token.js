@@ -1,7 +1,14 @@
+const localStorage = global.window.localStorage
+const TOKEN = '_KAI_JWT'
+
 export function setToken (token) {
-    localStorage.setItem('_KAI_JWT', token)
+if (token) {
+        localStorage.setItem(TOKEN, token)
+    } else {
+        localStorage.removeItem(TOKEN)
+    }
 }
 
 export function getToken () {
-    return localStorage.getItem('_KAI_JWT')
+    return localStorage.getItem(TOKEN)
 }

@@ -19,14 +19,24 @@ const {createToken} = require('../auth/token')
 
 // POST ROUTES
 
-router.post('/register', register)
-router.post('/login', login)
+router.post(
+  '/register',
+  register
+)
+
+router.post(
+  '/login',
+  login
+)
 
 // Checks the login against what is in the database using email and hash
 function login (req, res) {
   const {email} = req.body
   db.loginUser(email)
     .then(user => {
+
+      res.locals.userId = user.id
+
       const pwd = req.body.hash
 
       // Check if user exists.
@@ -57,10 +67,11 @@ function login (req, res) {
       }
     })
 
-    .catch(() => {
+    .catch((err) => {
+      console.log('...', err)
       res.status(500).json({
         ok: false,
-        message: 'An unknown error occured.'
+        message: err.message
       })
     })
 }
@@ -70,6 +81,7 @@ function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
+      
       res.status(201).json({
         ok: true,
         message: 'Account created successfully.',
@@ -94,8 +106,8 @@ function register (req, res) {
 
 // Get user records
 router.get(
-  '/',
-  verifyJwt({secret: process.env.JWT_SECRET}),
+  '/profile', 
+  verifyJwt({ secret: process.env._KAI_JWT }),
   getUser
 )
 
@@ -136,7 +148,7 @@ function getUser (req, res) {
 // Get seller by suburb
 router.get(
   '/neighbourhood/',
-  verifyJwt({secret: process.env.JWT_SECRET}),
+  verifyJwt({ secret: process.env._KAI_JWT }),
   getSellerBySuburb
 )
 

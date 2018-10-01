@@ -8,13 +8,18 @@
 // FILE DEPENDENCIES
 const express = require('express')
 const db = require('../db/db')
+const verifyJwt = require('express-jwt')
 
 const router = express.Router()
 
 // POST ROUTES
 
 // Post new product
-router.post('/addproduct', addProduct)
+router.post(
+  '/addproduct',
+
+   addProduct
+  )
 
 // Create new product record route function
 function addProduct (req, res) {

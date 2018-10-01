@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
 
 import Addproduct from '../Product/Addproduct'
+import {getProfile} from '../../actions/profile'
 
 class Profile extends React.Component {
   constructor (props) {
@@ -17,6 +18,10 @@ class Profile extends React.Component {
     this.setState({
       showForm: !this.state.showForm
     })
+  }
+
+  componentDidMount () {
+    this.props.dispatch(getProfile())
   }
 
   render () {
@@ -65,7 +70,7 @@ class Profile extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.currentUserReducer.user,
   pending: state.currentUserReducer.pending
 })

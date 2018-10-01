@@ -18,7 +18,6 @@ const {checkHash} = require('../auth/hash')
 const {createToken} = require('../auth/token')
 
 // POST ROUTES
-
 router.post(
   '/register',
   register
@@ -34,8 +33,8 @@ function login (req, res) {
   const {email} = req.body
   db.loginUser(email)
     .then(user => {
-      res.locals.userId = user.id
 
+      // Save users password.
       const pwd = req.body.hash
 
       // Check if user exists.
@@ -56,7 +55,7 @@ function login (req, res) {
                 message: 'Password incorrect.'
               })
             } else {
-              res.locals.userId = id
+
               res.json({
                 user: user,
                 token: createToken(id)
@@ -67,7 +66,6 @@ function login (req, res) {
     })
 
     .catch((err) => {
-      console.log('...', err)
       res.status(500).json({
         ok: false,
         message: err.message
@@ -80,10 +78,11 @@ function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
+
       res.status(201).json({
         ok: true,
         message: 'Account created successfully.',
-        token: createToken(id[0])
+        token: createToken(id[0]),
       })
     })
     .catch(({message}) => {
@@ -111,14 +110,20 @@ router.get(
 
 // Get user by ID route function
 function getUser (req, res) {
-  const id = res.locals.userId
-  db.getUser(id)
+
+  // Get the users ID from the token.
+  const userId = req.user.id
+  db.getUser(userId)
     .then(user => {
-      if (user.isSeller) {
-        db.getSeller(id)
+
+      // Determine which user type to return.
+      switch (user) {
+        case user.isSeller:
+          return db.getSeller(userId)
           .then(seller => {
             res.status(200).json({
               ok: true,
+              token: createToken(seller.id),
               seller
             })
               .catch(({message}) => {
@@ -128,11 +133,13 @@ function getUser (req, res) {
                 })
               })
           })
-      } else {
-        res.status(200).json({
-          ok: true,
-          user
-        })
+
+        default:
+          return res.status(200).json({
+            ok: true,
+            token: createToken(userId),
+            user
+          })
       }
     })
     .catch(({message}) => {

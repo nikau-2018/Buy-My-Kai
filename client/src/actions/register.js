@@ -41,12 +41,12 @@ export function postUser (user) {
           long
         }
         request
-          .post('/api/v1/users/register', userWithCoordinates)
+          .post('/api/v1/users/register', userWithCoordinates, getHeaders())
           .then(res => {
-            console.log(res.data)
             if (res.data.token) {
               setToken(res.data.token)
             }
+
             dispatch(registerSuccess(userWithCoordinates))
           })
       })

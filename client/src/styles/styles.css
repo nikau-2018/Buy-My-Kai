@@ -31,9 +31,7 @@ a {
   padding-top:30%;
 }
 
-.container,
-.container-login
-.container-register {
+.container {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -68,8 +66,7 @@ h3 {
 }
 
 p,
-.register-group,
-.btn-link {
+.register-group {
   color: white;
   text-align: center;
   font-size: 1.2rem;
@@ -131,8 +128,10 @@ button.btn {
   background: #659026 !important;
 }
 
-.btn--link {
+.btn-nav {
   background: transparent !important;
+  margin: 3% !important;
+  color: white !important;
 }
 
 

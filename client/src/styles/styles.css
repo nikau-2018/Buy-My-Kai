@@ -1,6 +1,9 @@
 /*
   Main Component CSS File
 */
+body {
+  background: #fafafa;
+}
 a {
   color: normal;
   text-decoration: none;
@@ -130,6 +133,20 @@ button.btn {
   color: gray !important;
   background: #eaeaea !important;
   border: 1px solid transparent !important;
+}
+
+.btn--fab {
+  background: rgba(0,0,0,.7) !important;
+  color: #fff !important;
+}
+
+/* FAB BUTTON LABEL */
+.fab-label--right {
+  margin-left: 1rem;
+}
+
+.fab-label--left {
+  margin-right: 1rem;
 }
 
 /* BUTTON ICONS */

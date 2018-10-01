@@ -34,18 +34,20 @@ class Login extends React.Component {
     e.preventDefault()
     this.props.dispatch(loginUser(this.state.email, this.state.hash))
   }
-
-  render() {
+  
+  render () {
+    const {error, isLoggedIn} = this.props
     return (
       <div className="login">
         <div className="pure-img background"></div>
+        { error ? <div className="toast-error">{ error.message }</div> : null }
         <div className="container pure-u-1-1 pure-u-md-1-2">
           <Link to='/'>
             <img className="pure-img logo" src={logo} />
           </Link>
           <h3>LOG IN</h3>
           <div className="form-container pure-u-1">
-            {this.props.isLoggedIn ? <Redirect to="/profile" /> : null}
+            {isLoggedIn ? <Redirect to="/profile"/> : null }
             <TextField className="form-field"
               type="email"
               label="Email"
@@ -83,10 +85,9 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.loginReducers.isLoggedIn
-  }
-}
+const mapStateToProps = state => ({
+  isLoggedIn: state.loginReducer.isLoggedIn,
+  error: state.loginReducer.error
+})
 
 export default connect(mapStateToProps)(Login)

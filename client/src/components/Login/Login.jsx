@@ -77,7 +77,7 @@ class Login extends React.Component {
                 type="password"
                 class="pure-input-rounded"
                 placeholder="Password"
-                name="password"
+                name="hash"
                 margin="normal"
                 value={this.state.hash}
                 onChange={this.handleChange} />

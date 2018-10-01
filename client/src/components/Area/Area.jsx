@@ -61,10 +61,7 @@ class Area extends React.Component {
             <Marker key={id} position={[lat, long]}>
               <Popup>
                 <div>{name}</div>
-                <br/>
                 <div>{description}</div>
-                <br/>
-                <div>{hours}</div>
               </Popup>
             </Marker>
           ))}

@@ -30,7 +30,6 @@ function addUser (user, testDb) {
           address: user.address,
           suburb: user.suburb,
           city: user.city,
-          postcode: user.postcode,
           hours: user.hours,
           lat: user.lat,
           long: user.long
@@ -58,7 +57,7 @@ function addProduct (product, userId, testDb) {
 function getProductById (productId, testDb) {
   const db = testDb || connection
   return db('products')
-    .where('products.product_id', productId)
+    .where('id', productId)
     .first()
 }
 

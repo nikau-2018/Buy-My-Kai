@@ -116,7 +116,9 @@ class Register extends React.Component {
                       value={this.state.address}
                       onChange={this.handleChange} />
                   </div>
-                  <div className='suburb'>
+                  <div className='suburb'>>>>>>>> development
+10
+
                     <input
                       type="text"
                       class="pure-input-rounded"

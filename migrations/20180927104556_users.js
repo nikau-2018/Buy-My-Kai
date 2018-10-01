@@ -1,4 +1,3 @@
-
 exports.up = (knex, Promise) => {
   return knex.schema.createTable('users', t => {
     t.increments('id').primary()
@@ -11,7 +10,6 @@ exports.up = (knex, Promise) => {
     t.string('address')
     t.string('suburb')
     t.string('city')
-    t.integer('postcode')
     t.string('description')
     t.string('hours')
   })

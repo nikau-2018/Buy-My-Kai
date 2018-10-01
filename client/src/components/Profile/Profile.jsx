@@ -29,7 +29,7 @@ class Profile extends React.Component {
 
         <div className='container pure-u-1-1 pure-u-md-1-2'>
 
-          <div className="pure-form btn-group btn-nav">
+          <div className="btn--nav">
             <Link to="/profile">
               <Button>
                 <i className="far fa-user fa-3x"></i>

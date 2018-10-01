@@ -128,10 +128,10 @@ button.btn {
   background: #659026 !important;
 }
 
-.btn-nav {
-  background: transparent !important;
-  margin: 3% !important;
-  color: white !important;
+.btn--nav {
+  background: none;
+  border: none;
+  width: 100%;
 }
 
 

@@ -44,7 +44,7 @@ function addProduct (req, res) {
 // GET ROUTES
 
 // Get product
-router.get('/:id', getProduct)
+router.get('/', getProduct)
 router.get('/', getProductByName)
 
 // Get a product by ID

@@ -1,13 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Button} from '@material-ui/core'
+import {Link} from 'react-router-dom'
 
 import Addproduct from '../Product/Addproduct'
 import '../../styles/styles.css'
 
 class Profile extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       showForm: false
@@ -15,13 +15,13 @@ class Profile extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.setState({
       showForm: !this.state.showForm
     })
   }
 
-  render() {
+  render () {
     const profile = this.props.user || {}
     return (
       <div className='profile'>
@@ -68,6 +68,7 @@ class Profile extends React.Component {
                   <li><p><strong>Email:</strong> {profile.email}</p></li>
                   <li>
                     <Button
+                      onClick={this.handleClick}
                       className="btn--fab"
                       variant="extendedFab"
                     >
@@ -82,7 +83,7 @@ class Profile extends React.Component {
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
             :
-      </div>
+          </div>
         </div>
       </div>
     )

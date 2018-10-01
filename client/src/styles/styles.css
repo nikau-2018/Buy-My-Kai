@@ -1,24 +1,35 @@
 /* 
   Main Component CSS File
 */
-
+body {
+  background: #fafafa;
+}
+a {
+  color: normal;
+  text-decoration: none;
+}
 .background {
-  background: url("../images/background.png");
+  background: url("../images/splash-bg.svg");
   background-position: center;
-  background-size: cover;
-  height: 100vh;
+  background-size: 70%;
+  background-repeat: repeat;
+  min-height: 100vh;
+  height: 100%;
   width: 100vw;
   display:flex;
   align-items: center;
 }
 
 .logo {
-  width: 30%;
+  width: 150px;
+  margin: auto;
 }
 
 .home-container,
-.register-container {
-  /* position: fixed; */
+.register-container,
+.login-container,
+.profile-container {
+  background: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,18 +57,23 @@ button {
   border: none;
 }
 
-.btn {
+.btn-group {
+  display: flex;
+  flex-direction: column;
+}
+
+button.btn {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.4rem;
-  /* height: 3rem; */
+  font-weight: 100;
   color: white;
-  border: none;
-  margin: 3% auto;
+  border: 1px solid transparent;
+  margin: 1rem auto;
   padding: 1rem;
-  width: 100% !important;
+  width: 70%;
   -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
@@ -70,14 +86,34 @@ button {
 }
 
 .btn--secondary {
-  background: rgba(255, 255, 255, .8) !important;
+  background: rgb(212, 212, 212) !important;
   color: #000 !important;
-  border: #000;
+  border: 1px solid rgb(212, 212, 212);
+}
+
+.btn[disabled] {
+  color: gray !important;
+  background: #eaeaea !important;
+  border: 1px solid transparent !important;
+}
+
+.btn--fab {
+  background: rgba(0,0,0,.7) !important;
+  color: #fff !important;
+}
+
+/* FAB BUTTON LABEL */
+.fab-label--right {
+  margin-left: 1rem;
+}
+
+.fab-label--left {
+  margin-right: 1rem;
 }
 
 /* BUTTON ICONS */
-.btn > i.fas {
-  margin-right: 2rem !important;
+.btn i.fas {
+  margin-right: 1rem !important;
 }
 
 .btn:hover {
@@ -86,35 +122,76 @@ button {
   border: 1px solid rgba(0,0,0,.87);
 }
 
+/* Form elements */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[class*="MuiFormControl-root"] {
+  width: 70%;
+  margin: 2rem auto !important;
+}
 
 
 
 /* MEDIA QUERIES */
 
 /* TABLET */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .background {
-    background: url("../images/splash-bg.svg");
+    /* background: url("../images/splash-bg.svg"); */
+    background-size: 400px;
+    background-repeat: repeat;
   }
   .home-container,
-  .register-container {
+  .register-container,
+  .login-container {
     position: unset;
     margin: auto;
-    background: rgba(255, 255, 255, 0.9)
-    /* background: linear-gradient(
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, .5),
-    rgba(255, 255, 255, .9),
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, .5),
-    rgba(255, 255, 255, 0)); */
+    background: rgba(255, 255, 255, 0.95)
   }
+
+  /* CTA Buttons */
+  .btn-group {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  button.btn {
+    width: 250px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 988px) {
   .logo {
-    width: 200px;
-  }
-  .btn {
     width: 25%;
+  }
+
+  [class*="MuiFormControl-root"] {
+    width: 50%;
+  }
+
+  .btn-group {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button.btn {
+    margin: 1rem;
+    max-width: 200px;
+  }
+}
+
+/* LARGE DESKTOP */
+@media screen and (min-width: 1320px) {
+  .btn-group {
+    width: 75%;
+  }
+  button.btn {
+    max-width: 300px;
   }
 }

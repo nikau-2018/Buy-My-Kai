@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
 import {TextField, Button, Checkbox} from '@material-ui/core'
@@ -22,11 +22,11 @@ class Register extends React.Component {
       description: '',
       hours: '',
       success: false,
-      isClicked: false
+      isClicked: false,
+      disabled: true
     }
     this.handleSeller = this.handleSeller.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
     this.sendUser = this.sendUser.bind(this)
   }
 
@@ -37,74 +37,66 @@ class Register extends React.Component {
     })
   }
 
-  handleClick () {
-    return <Redirect to='/profile' />
-  }
-
   handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })
+    if (this.state.name && this.state.email && this.state.hash) {
+      this.setState({
+        disabled: false
+      })
+    }
   }
 
   sendUser () {
-    this.setState({
-      success: !this.state.success
-    })
     this.props.dispatch(postUser(this.state))
-      .then(this.setState({
-        name: '',
-        email: '',
-        hash: '',
-        isSeller: false,
-        address: '',
-        suburb: '',
-        city: '',
-        postcode: '',
-        description: '',
-        hours: '',
-        success: false,
-        isClicked: false
-      }))
+      .then( 
+          this.setState({
+            success: !this.state.success
+          })
+      )
   }
 
   render () {
     return (
       <div className="pure-img background">
         <div className="register-container pure-u-1-1 pure-u-md-1-2">
-          <img className="pure-img logo" src={logo}/>
+          <Link to='/'>
+            <img className="pure-img logo" src={logo}/>
+          </Link>
           <h2>Sign up</h2>
+          <div className="pure-u-1">
+            <TextField 
+              type="text" 
+              label="Name" 
+              name='name' 
+              margin="normal"
+              value={this.state.name} 
+              onChange={this.handleChange} /><br />
 
-          <TextField
-            type="text"
-            label="Name"
-            name='name'
-            margin="normal"
-            value={this.state.name}
-            onChange={this.handleChange} /><br />
+            <TextField 
+              type="email" 
+              label="Email Address" 
+              name='email' 
+              margin="normal"
+              value={this.state.email} 
+              onChange={this.handleChange} /><br />
 
-          <TextField
-            type="email"
-            label="Email Address"
-            name='email'
-            margin="normal"
-            value={this.state.email}
-            onChange={this.handleChange} /><br />
+            <TextField 
+              type="password" 
+              label="Password" 
+              name='hash' 
+              margin="normal"
+              value={this.state.hash} 
+              onChange={this.handleChange} /><br />
 
-          <TextField
-            type="password"
-            label="Password"
-            name='hash'
-            margin="normal"
-            value={this.state.hash}
-            onChange={this.handleChange} /><br />
-
-          {
-            this.state.isSeller
-              ? <div>
-                <TextField
-                  type="text"
+            {
+              this.state.isSeller
+              ? 
+              <div>
+                <TextField 
+                  type="text" 
                   label="Street Address"
                   multiline
                   rowsMax="4"
@@ -157,27 +149,29 @@ class Register extends React.Component {
 
               </div>
               : <div></div>
-          }
-          <div>
-            <Checkbox type='checkbox'
-              checked={this.state.isClicked}
-              name='seller'
-              onClick={this.handleSeller}
-              onChange={this.handleChange} />
-            <span>Are you a seller?</span>
-
-            {this.state.isSeller
-              ? <Button
-                className='btn btn--primary'
-                onClick={this.sendUser}>Complete Sign Up</Button>
-
-              : <Button
-                className="btn btn--primary"
-                onClick={this.sendUser}>Go</Button>
             }
-            {this.state.success && <Redirect to="/neighbourhood"/>}
-          </div>
+            <div>
+              <Checkbox 
+              type='checkbox' 
+              checked={this.state.isClicked} 
+              name='seller' 
+              onClick={this.handleSeller} 
+              onChange={this.handleChange} />
+              <label htmlFor="seller">Are you a seller?</label>
+              <br />
+              <Button 
+              className='btn btn--primary' 
+              disabled={this.state.disabled}
+              onClick={this.sendUser}>
+                Go
+              </Button><br />
 
+              {this.state.success && <Redirect to="/profile"/>}
+              <Link to="/login">
+                Already a member? Login
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/login'
+import { TextField, Button } from '@material-ui/core';
 
 import styles from '../../styles/styles.css'
 import logo from '../../images/Logo.png'
@@ -11,7 +12,8 @@ class Login extends React.Component {
     super(props)
     this.state = {
       email: '',
-      hash: ''
+      hash: '',
+      disabled: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,55 +23,67 @@ class Login extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    if (this.state.email && this.state.hash) {
+      this.setState({
+        disabled: false
+      })
+    }
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    this.props.dispatch(loginUser(this.state.username, this.state.password))
+    this.props.dispatch(loginUser(this.state.email, this.state.hash))
   }
 
   render () {
+    const {error, isLoggedIn} = this.props
     return (
       <div className="pure-img background">
-        <div className="home-container pure-u-1-1 pure-u-md-1-2">
-          <img className="pure-img logo" src={logo}/>
+        { error ? <div className="toast-error">{ error.message }</div> : null }
+        <div className="login-container pure-u-1-1 pure-u-md-1-2">
+          <Link to='/'>
+            <img className="pure-img logo" src={logo}/>
+          </Link>
+          <h2>Log in</h2>
+          <div className="form-container pure-u-1">
+            {isLoggedIn ? <Redirect to="/profile"/> : null }
+            <TextField
+              type="email"
+              label="Email"
+              name="email"
+              margin="normal"
+              value={this.state.email}
+              onChange={this.handleChange} />
 
-          <form>
-            {this.props.isLoggedIn ? <Redirect to="/home"/> : null }
-            <div className="row">
-              <div className="input-field col s12">
-                <input className="validate" type="text" name="email" value={this.state.username} onChange={this.handleChange}/>
-                <label htmlFor="email">email</label><br />
-              </div>
-              <div className="row">
-                <div className="input-field col s12">
-                  <input className="validate" type="password" name="hash" value={this.state.password} onChange={this.handleChange}/>
-                  <label htmlFor="password">password</label>
-                </div>
-              </div>
-            </div>
+            <TextField
+              type="password"
+              label="Password"
+              name="hash"
+              margin="normal"
+              value={this.state.hash}
+              onChange={this.handleChange} />
+          </div>
 
-            <div className="pure-u-1 pure-u-md-1-2">
-              <button className=' pure-button pure-button-active login' onClick={this.handleSubmit}>Log in</button>
-            </div>
-            <div className="pure-u-1 pure-u-md-1-2">
-              <Link to="/">
-                <button className=' pure-button pure-button-active login'>Home</button>
-              </Link>
-            </div>
-          </form>
+          <div>
+            <Button 
+              className='btn btn--primary' 
+              onClick={this.handleSubmit}
+              disabled={ this.state.disabled }>
+                Go
+            </Button><br />
+            <Link to="/register">
+              Not a member? Create an account.
+            </Link>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    isLoggedIn: state.loginReducers.isLoggedIn
-
-  }
-}
+const mapStateToProps = state => ({
+  isLoggedIn: state.loginReducer.isLoggedIn,
+  error: state.loginReducer.error
+})
 
 export default connect(mapStateToProps)(Login)

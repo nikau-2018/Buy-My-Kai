@@ -1,4 +1,6 @@
 import request from 'axios'
+import {getHeaders} from '../utils/api'
+import {setToken} from '../utils/token'
 
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'
@@ -19,20 +21,18 @@ export const registerPending = (errorMessage) => {
   }
 }
 
-export const registerSuccess = user => {
+export const registerSuccess = message => {
   return {
     type: REGISTER_SUCCESS,
-    user: user
+    message: message
   }
 }
 
 export function postUser (user) {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(registerPending())
-    const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`
-    /* eslint-disable no-console */
-    console.log(searchAddress)
 
+    const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`
     return getLatLng(searchAddress)
       .then(({lat, lng: long}) => {
         const userWithCoordinates = {
@@ -40,12 +40,14 @@ export function postUser (user) {
           lat,
           long
         }
-        console.log(userWithCoordinates)
-        request.post('/api/v1/users/register', userWithCoordinates)
-      })
-      .then((result) => {
-        console.log(result)
-      // dispatch(registerSuccess(result.data.user))
+        request
+          .post('/api/v1/users/register', userWithCoordinates, getHeaders())
+          .then(res => {
+            if (res.data.token) {
+              setToken(res.data.token)
+            }
+            dispatch(registerSuccess(res.data.message))
+          })
       })
       .catch((err) => {
         dispatch(showError(err.message))

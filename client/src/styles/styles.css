@@ -23,8 +23,9 @@ a {
   }
 
 .logo {
-  width: 450px;
+  width: 350px;
   margin: auto;
+  padding-top:30%;
 }
 
 .container,
@@ -40,22 +41,27 @@ a {
   padding: 5rem;
   filter: blur(-3px);
 }
-.content {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  margin-left: 20px;
-  margin-right: 20px;
-}
+
 /* TYPOGRAPHY */
-h2 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2.5rem;
+/* h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bolder;
   padding-top: 5%;
+  padding-bottom: 5%;
   color: white;
   text-align: center;
-  letter-spacing: 3px;
+  letter-spacing: 8px;
+} */
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  padding-top: 3%;
+  color: white;
+  text-align: center;
+  letter-spacing: 6px;
 }
 
 p,
@@ -63,9 +69,20 @@ p,
 .btn-link {
   color: white;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   padding-bottom: 5%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.footer {
+  padding-top: 10%;
+}
+pp {
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
 }
 
@@ -74,7 +91,6 @@ button {
   background: none;
   border: none;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
   letter-spacing: 3px;
 }
 
@@ -90,6 +106,7 @@ button.btn {
   box-sizing: border-box;
   font-size: 1rem;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
   color: white;
   border: 1px solid transparent;
   margin: .5rem auto;

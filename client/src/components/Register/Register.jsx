@@ -5,7 +5,7 @@ import { postUser } from '../../actions/register'
 import { TextField, Button, Checkbox } from '@material-ui/core'
 
 import styles from '../../styles/styles.css'
-import logo from '../../images/logo-white.png'
+import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
   constructor(props) {
@@ -66,9 +66,10 @@ class Register extends React.Component {
           <Link to='/'>
             <img className="pure-img logo" src={logo} />
           </Link>
-          <h2>Sign up</h2>
-          <p>We just need to get a few details from you<br/>
-          to get you sign up to the service.</p>
+          <h3>SIGN UP</h3>
+          <p>We just need to get a few details<br/>
+            from you to get you sign up <br/>
+            to the service.</p>
           <div className="pure-u-1">
             <TextField
               type="text"
@@ -171,9 +172,9 @@ class Register extends React.Component {
 
               {this.state.success && <Redirect to="/profile" />}
               <div className="register-group pure-u-1">
-              <p>Already a member?
+              <pp>Already a member?
                 <Link className='btn-link' to="/login"> <u>Login</u></Link>
-                </p>
+                </pp>
               </div>
             </div>
           </div>

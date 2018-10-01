@@ -5,7 +5,7 @@ import { loginUser } from '../../actions/login'
 import { TextField, Button } from '@material-ui/core';
 
 import styles from '../../styles/styles.css'
-import logo from '../../images/logo-white.png'
+import logo from '../../images/logo-4.png'
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Login extends React.Component {
           <Link to='/'>
             <img className="pure-img logo" src={logo} />
           </Link>
-          <h2>Log in</h2>
+          <h3>LOG IN</h3>
           <div className="form-container pure-u-1">
             {this.props.isLoggedIn ? <Redirect to="/profile" /> : null}
             <TextField className="form-field"

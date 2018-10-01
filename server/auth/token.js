@@ -1,4 +1,4 @@
-/* 
+/*
   FILE:   TOKEN
   VER:    1.0.0
   DESC:   Module to generate and issue a JWT token as middleware.
@@ -16,7 +16,6 @@ const db = require('../db/db')
 module.exports = {
   issue,
   createToken,
-  decode,
   getSecret
 }
 
@@ -32,16 +31,10 @@ function issue (req, res) {
 
 // Create token
 function createToken (id) {
-  // Generate token 
-  return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '1d'})
-}
-
-function decode (req, res, next) {
-  verifyJwt({
-    secret: getSecret
-  })(req, res, next)
+  // Generate token
+  return jwt.sign({id}, process.env._KAI_JWT, {expiresIn: '1d'})
 }
 
 function getSecret (req, payload, done) {
-  done(null, process.env.JWT_SECRET)
+  done(null, process.env._KAI_JWT)
 }

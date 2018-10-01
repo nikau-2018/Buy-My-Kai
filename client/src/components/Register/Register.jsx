@@ -171,11 +171,11 @@ class Register extends React.Component {
                 Go
               </Button>
               {this.state.success && <Redirect to="/profile" />}
-            </div>
-            <div className="register-group pure-u-1">
-              <pp>Already a member?
+              <div className="register-group pure-u-1">
+                <p>Already a member?
                   <Link className='btn-link' to="/login"> <u>Login</u></Link>
-              </pp>
+                </p>
+              </div>
             </div>
           </div>
         </div>

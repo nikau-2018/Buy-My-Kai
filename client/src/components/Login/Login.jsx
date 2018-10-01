@@ -106,8 +106,8 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.loginReducer.isLoggedIn,
-  error: state.loginReducer.error
+  isLoggedIn: state.currentUserReducer.isLoggedIn,
+  error: state.currentUserReducer.error
 })
 
 export default connect(mapStateToProps)(Login)

@@ -10,7 +10,7 @@ a {
 }
 .background {
   background: url("../images/apricot.jpg");
-  background-position: center center;
+  background-position: center;
   position: absolute;
   z-index: -1;
   background-size: cover;
@@ -18,7 +18,7 @@ a {
   background-attachment: fixed;
   filter: blur(3px) brightness(70%);
   min-height: 100vh;
-  height: auto;
+  height: 100%;
   width: 100vw;
   display:flex;
   align-items: center;
@@ -31,9 +31,7 @@ a {
   padding-top:30%;
 }
 
-.container,
-.container-login
-.container-register {
+.container {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -45,17 +43,17 @@ a {
   filter: blur(-3px);
 }
 
-/* TYPOGRAPHY */
-/* h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  font-weight: bolder;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  color: white;
+.pure-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   text-align: center;
-  letter-spacing: 8px;
-} */
+  padding: 5rem;
+}
+
 
 h3 {
   font-family: 'Montserrat', sans-serif;
@@ -68,8 +66,7 @@ h3 {
 }
 
 p,
-.register-group,
-.btn-link {
+.register-group {
   color: white;
   text-align: center;
   font-size: 1.2rem;
@@ -81,7 +78,9 @@ p,
 .footer {
   padding-top: 10%;
 }
-pp {
+
+
+h5 {
   color: white;
   text-align: center;
   font-size: 0.8rem;
@@ -110,7 +109,7 @@ button.btn {
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: white !important;
   border: 1px solid transparent;
   margin: .5rem auto;
   padding: .8rem;
@@ -129,11 +128,27 @@ button.btn {
   background: #659026 !important;
 }
 
-.btn[disabled] {
+.btn--nav {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+
+.pure-input-rounded {
+  margin: 2%;
+  font-size: 1.2rem;
+  color: rgb(70, 70, 70) !important;
+  font-family: 'Montserrat', sans-serif;
+  width: 67%;
+  filter: opacity(50%);
+}
+
+/* .btn[disabled] {
   color: gray !important;
   background: #eaeaea !important;
   border: 1px solid transparent !important;
-}
+} */
 
 .btn--fab {
   background: rgba(0,0,0,.7) !important;
@@ -155,9 +170,9 @@ button.btn {
 }
 
 .btn:hover {
-  color: rgba(0,0,0,.87) !important;
-  background: rgba(255,255,255,.9) !important;
-  border: 1px solid rgba(0,0,0,.87);
+  color:white !important;
+  background: transparent !important;
+  border: 1px solid white;
 }
 
 /* Form elements */
@@ -167,9 +182,10 @@ button.btn {
   justify-content: center;
 }
 
-.form__field::placeholder {
-  color: transparent;
-}
+/* .input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+} */
 
 [class*="MuiFormControl-root"] {
   width: 70%;
@@ -185,8 +201,8 @@ button.btn {
 @media screen and (min-width: 768px) {
   .background {
     /* background: url("../images/splash-bg.svg"); */
-    background-size: 400px;
-    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
   }
   .home-container,
   .register-container,

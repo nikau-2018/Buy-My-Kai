@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { postUser } from '../../actions/register'
 import { TextField, Button, Checkbox } from '@material-ui/core'
 
+import Nav from '../Nav/Nav'
+
 import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
@@ -109,16 +111,12 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="Street Address"
-                      multiline
-                      rowsMax="4"
                       name='address'
                       margin="normal"
                       value={this.state.address}
                       onChange={this.handleChange} />
                   </div>
-                  <div className='suburb'>>>>>>>> development
-10
-
+                  <div className='suburb'>
                     <input
                       type="text"
                       class="pure-input-rounded"
@@ -196,6 +194,12 @@ class Register extends React.Component {
                 </p>
               </div>
             </div>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
           </div>
         </div>
       </div>

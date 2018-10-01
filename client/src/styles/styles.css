@@ -56,6 +56,7 @@ a {
   padding: 5rem;
 }
 
+
 h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
@@ -134,10 +135,6 @@ button.btn {
   background: transparent !important;
 }
 
-.pure-form {
-  padding-top: 10%;
-  padding-bottom: 10%;
-}
 
 .pure-input-rounded {
   margin: 2%;

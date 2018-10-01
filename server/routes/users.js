@@ -28,7 +28,7 @@ function login (req, res) {
   db.loginUser(email)
     .then(user => {
       const pwd = req.body.hash
-      
+
       // Check if user exists.
       if (!user) {
         return res.status(400).json({
@@ -36,25 +36,24 @@ function login (req, res) {
           message: 'That user does not exist.'
         })
       } else {
-
         // Compare user input password with hash record.
         const {hash, id} = user
 
         checkHash(hash, pwd)
-        .then(ok => {
-          if (!ok) {
-            return res.status(403).json({
-              ok: false,
-              message: 'Password incorrect.'
-            })
-          } else {
-            res.locals.userId = id
-            res.json({
-              user: user, 
-              token: createToken(id)
-            })
-          }
-        })
+          .then(ok => {
+            if (!ok) {
+              return res.status(403).json({
+                ok: false,
+                message: 'Password incorrect.'
+              })
+            } else {
+              res.locals.userId = id
+              res.json({
+                user: user,
+                token: createToken(id)
+              })
+            }
+          })
       }
     })
 
@@ -95,8 +94,8 @@ function register (req, res) {
 
 // Get user records
 router.get(
-  '/', 
-  verifyJwt({ secret: process.env.JWT_SECRET }),
+  '/',
+  verifyJwt({secret: process.env.JWT_SECRET}),
   getUser
 )
 
@@ -104,40 +103,40 @@ router.get(
 function getUser (req, res) {
   const id = res.locals.userId
   db.getUser(id)
-  .then(user => {
-    if (user.isSeller) {
-      db.getSellerls(id)
-        .then(seller => {
-          res.status(200).json({
-            ok: true,
-            seller
-          })
-            .catch(({message}) => {
-              res.status(500).json({
-                ok: false,
-                message: message
-              })
+    .then(user => {
+      if (user.isSeller) {
+        db.getSeller(id)
+          .then(seller => {
+            res.status(200).json({
+              ok: true,
+              seller
             })
+              .catch(({message}) => {
+                res.status(500).json({
+                  ok: false,
+                  message: message
+                })
+              })
+          })
+      } else {
+        res.status(200).json({
+          ok: true,
+          user
         })
-    } else {
-      res.status(200).json({
-        ok: true,
-        user
-      })
-    }
-  })
-  .catch(({message}) => {
-    res.status(500).json({
-      ok: false,
-      message: message
+      }
     })
-  })
+    .catch(({message}) => {
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
+    })
 }
 
 // Get seller by suburb
 router.get(
   '/neighbourhood/',
-  verifyJwt({ secret: process.env.JWT_SECRET }),
+  verifyJwt({secret: process.env.JWT_SECRET}),
   getSellerBySuburb
 )
 

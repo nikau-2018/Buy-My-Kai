@@ -109,16 +109,12 @@ class Register extends React.Component {
                       type="text"
                       class="pure-input-rounded"
                       placeholder="Street Address"
-                      multiline
-                      rowsMax="4"
                       name='address'
                       margin="normal"
                       value={this.state.address}
                       onChange={this.handleChange} />
                   </div>
-                  <div className='suburb'>>>>>>>> development
-10
-
+                  <div className='suburb'>
                     <input
                       type="text"
                       class="pure-input-rounded"

@@ -10,7 +10,7 @@ a {
 }
 .background {
   background: url("../images/apricot.jpg");
-  background-position: center center;
+  background-position: center;
   position: absolute;
   z-index: -1;
   background-size: cover;
@@ -45,18 +45,6 @@ a {
   filter: blur(-3px);
 }
 
-/* TYPOGRAPHY */
-/* h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  font-weight: bolder;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  color: white;
-  text-align: center;
-  letter-spacing: 8px;
-} */
-
 h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
@@ -81,6 +69,8 @@ p,
 .footer {
   padding-top: 10%;
 }
+
+
 pp {
   color: white;
   text-align: center;
@@ -110,7 +100,7 @@ button.btn {
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: white !important;
   border: 1px solid transparent;
   margin: .5rem auto;
   padding: .8rem;
@@ -129,11 +119,11 @@ button.btn {
   background: #659026 !important;
 }
 
-.btn[disabled] {
+/* .btn[disabled] {
   color: gray !important;
   background: #eaeaea !important;
   border: 1px solid transparent !important;
-}
+} */
 
 .btn--fab {
   background: rgba(0,0,0,.7) !important;
@@ -167,9 +157,10 @@ button.btn {
   justify-content: center;
 }
 
-.form__field::placeholder {
-  color: transparent;
-}
+/* .input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+} */
 
 [class*="MuiFormControl-root"] {
   width: 70%;

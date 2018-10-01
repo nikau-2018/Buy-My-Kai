@@ -1,14 +1,14 @@
 import React from 'react'
-import {Redirect, Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {postUser} from '../../actions/register'
-import {TextField, Button, Checkbox} from '@material-ui/core'
+import { Redirect, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { postUser } from '../../actions/register'
+import { TextField, Button, Checkbox } from '@material-ui/core'
 
 import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       name: '',
@@ -30,14 +30,14 @@ class Register extends React.Component {
     this.sendUser = this.sendUser.bind(this)
   }
 
-  handleSeller () {
+  handleSeller() {
     this.setState({
       isSeller: !this.state.isSeller,
       isClicked: !this.state.isClicked
     })
   }
 
-  handleChange (e) {
+  handleChange(e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -49,7 +49,7 @@ class Register extends React.Component {
     }
   }
 
-  sendUser () {
+  sendUser() {
     this.props.dispatch(postUser(this.state))
       .then(
         this.setState({
@@ -58,7 +58,7 @@ class Register extends React.Component {
       )
   }
 
-  render () {
+  render() {
     return (
       <div className="home">
         <div className="pure-img background"></div>
@@ -67,8 +67,8 @@ class Register extends React.Component {
             <img className="pure-img logo" src={logo} />
           </Link>
           <h3>SIGN UP</h3>
-          <p>We just need to get a few details<br/>
-            from you to get you sign up <br/>
+          <p>We just need to get a few details<br />
+            from you to get you sign up <br />
             to the service.</p>
           <div className="pure-u-1">
             <TextField
@@ -153,32 +153,33 @@ class Register extends React.Component {
                 </div>
                 : <div></div>
             }
-            <div>
+            <div className="checkbox pure-u-1">
+              <pp>Are you a seller?</pp>
               <Checkbox
                 type='checkbox'
                 checked={this.state.isClicked}
                 name='seller'
                 onClick={this.handleSeller}
                 onChange={this.handleChange} />
-              <label htmlFor="seller">Are you a seller?</label>
-              <br />
+              <label htmlFor="seller"></label>
+            </div>
+            <div className="btn-group pure-u-1">
               <Button
                 className='btn btn--primary'
                 disabled={this.state.disabled}
                 onClick={this.sendUser}>
                 Go
-              </Button><br />
-
+              </Button>
               {this.state.success && <Redirect to="/profile" />}
-              <div className="register-group pure-u-1">
-                <pp>Already a member?
+            </div>
+            <div className="register-group pure-u-1">
+              <pp>Already a member?
                   <Link className='btn-link' to="/login"> <u>Login</u></Link>
-                </pp>
-              </div>
+              </pp>
             </div>
           </div>
         </div>
-      </div >
+      </div>
     )
   }
 }

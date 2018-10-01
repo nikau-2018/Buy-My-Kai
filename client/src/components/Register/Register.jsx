@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { postUser } from '../../actions/register'
 import { TextField, Button, Checkbox } from '@material-ui/core'
 
+import Nav from '../Nav/Nav'
+
 import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 

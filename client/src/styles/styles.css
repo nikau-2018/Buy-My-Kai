@@ -1,9 +1,7 @@
 /*
   Main Component CSS File
 */
-body {
-  background: #fafafa;
-}
+
 a {
   color: normal;
   text-decoration: none;
@@ -22,7 +20,9 @@ a {
   width: 100vw;
   display:flex;
   align-items: center;
-
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   }
 
 .logo {
@@ -195,9 +195,8 @@ button.btn {
 /* TABLET */
 @media screen and (min-width: 768px) {
   .background {
-    /* background: url("../images/splash-bg.svg"); */
     background-size: cover;
-    height: 100vh;
+    height: 100%;
   }
   .home-container,
   .register-container,

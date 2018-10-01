@@ -153,11 +153,7 @@ function getUser (req, res) {
 // Get seller by suburb
 router.get(
   '/neighbourhood/',
-<<<<<<< HEAD
   verifyJwt({ secret: process.env._KAI_JWT }),
-=======
-  verifyJwt({secret: process.env.JWT_SECRET}),
->>>>>>> a5e4fdaa57af62765738f5ada17d1a07acae0964
   getSellerBySuburb
 )
 

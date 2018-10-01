@@ -46,43 +46,59 @@ class Login extends React.Component {
             <img className="pure-img logo" src={logo} />
           </Link>
           <h3>LOG IN</h3>
-          <div className="form-container pure-u-1">
+          <div className="pure-form pure-u-1">
             {isLoggedIn ? <Redirect to="/profile" /> : null}
-            <div className='input-field col s12'>
-              <TextField
+            <div>
+              {/* <TextField
                 type="email"
                 label="Email"
                 name="email"
                 margin="normal"
                 value={this.state.email}
+                onChange={this.handleChange} /> */}
+              <input
+                type="email"
+                class="pure-input-rounded"
+                placeholder="Email"
+                name="email"
+                margin="normal"
+                value={this.state.email}
                 onChange={this.handleChange} />
-
-              <TextField
+            </div>
+            <div>
+              {/* <TextField
+                  type="password"
+                  label="Password"
+                  name="hash"
+                  margin="normal"
+                  value={this.state.hash}
+                  onChange={this.handleChange} /> */}
+              <input
                 type="password"
-                label="Password"
-                name="hash"
+                class="pure-input-rounded"
+                placeholder="Password"
+                name="password"
                 margin="normal"
                 value={this.state.hash}
                 onChange={this.handleChange} />
             </div>
-
-            <div className="btn-group pure-u-1">
-              <Button
-                className='btn btn--primary'
-                onClick={this.handleSubmit}
-                disabled={this.state.disabled}>
-                Go
-                </Button>
-            </div>
-
-            <div className="register-group pure-u-1">
-              <p>Not a member? Create an
-                <Link className='btn-link' to="/register"> <u>account</u></Link>
-              </p>
-            </div>
-
-
           </div>
+
+          <div className="btn-group pure-u-1">
+            <Button
+              className='btn btn--primary'
+              onClick={this.handleSubmit}
+              disabled={this.state.disabled}>
+              Go
+                </Button>
+          </div>
+
+          <div className="register-group pure-u-1">
+            <p>Not a member? Create an
+                <Link className='btn-link' to="/register"> <u>account</u></Link>
+            </p>
+          </div>
+
         </div>
       </div >
     )

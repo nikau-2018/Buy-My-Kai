@@ -154,14 +154,14 @@ class Register extends React.Component {
                 : <div></div>
             }
             <div className="checkbox pure-u-1">
-              <h5>Are you a seller?</h5>
+              <h5>Are you a seller?
               <Checkbox
                 type='checkbox'
                 checked={this.state.isClicked}
                 name='seller'
                 onClick={this.handleSeller}
                 onChange={this.handleChange} />
-              <label htmlFor="seller"></label>
+              <label htmlFor="seller"></label></h5>
             </div>
             <div className="btn-group pure-u-1">
               <Button

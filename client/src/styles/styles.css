@@ -119,6 +119,20 @@ button.btn {
   background: #659026 !important;
 }
 
+.pure-form {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.pure-input-rounded {
+  margin: 2%;
+  font-size: 1.2rem;
+  color: grey !important;
+  font-family: 'Montserrat', sans-serif;
+  width: 67%;
+  filter: opacity(50%);
+}
+
 /* .btn[disabled] {
   color: gray !important;
   background: #eaeaea !important;

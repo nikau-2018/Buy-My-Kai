@@ -72,10 +72,7 @@ class Profile extends React.Component {
                 </div>
                 : <div>
                   <li><p><strong>Email:</strong> {profile.email}</p></li>
-                  <li><<<<<<< profile
-99
- 
-27
+                  <li>  
                     <Button
                       onClick={this.handleClick}
                       className="btn--fab"

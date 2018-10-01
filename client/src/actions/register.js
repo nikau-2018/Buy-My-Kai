@@ -21,10 +21,10 @@ export const registerPending = (errorMessage) => {
   }
 }
 
-export const registerSuccess = user => {
+export const registerSuccess = message => {
   return {
     type: REGISTER_SUCCESS,
-    user: user
+    message: message
   }
 }
 
@@ -46,7 +46,7 @@ export function postUser (user) {
             if (res.data.token) {
               setToken(res.data.token)
             }
-            dispatch(registerSuccess(res.data.user))
+            dispatch(registerSuccess(res.data.message))
           })
       })
       .catch((err) => {

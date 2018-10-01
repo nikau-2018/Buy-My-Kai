@@ -74,7 +74,6 @@ function register (req, res) {
       res.status(201).json({
         ok: true,
         message: 'Account created successfully.',
-        user: user,
         token: createToken(id[0])
       })
     })
@@ -136,7 +135,13 @@ function getUser (req, res) {
 }
 
 // Get seller by suburb
-router.get('/', (req, res) => {
+router.get(
+  '/neighbourhood/',
+  verifyJwt({ secret: process.env.JWT_SECRET }),
+  getSellerBySuburb
+)
+
+function getSellerBySuburb (req, res) {
   const suburb = req.query.suburb
   db.getSellerBySuburb(suburb)
     .then(result => {
@@ -147,6 +152,6 @@ router.get('/', (req, res) => {
     .catch(err => {
       res.status(500).send('Database Error: ' + err.message)
     })
-})
+}
 
 module.exports = router

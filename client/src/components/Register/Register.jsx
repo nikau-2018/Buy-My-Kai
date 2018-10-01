@@ -103,7 +103,7 @@ class Register extends React.Component {
             </div>
             {
               this.state.isSeller
-                ? <div className="pure-form pure-u-1">
+                ? <div className="pure-form-register pure-u-1">
                   <div className='street-address'>
                     <input
                       type="text"

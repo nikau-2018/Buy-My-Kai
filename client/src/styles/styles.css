@@ -18,7 +18,7 @@ a {
   background-attachment: fixed;
   filter: blur(3px) brightness(70%);
   min-height: 100vh;
-  height: auto;
+  height: 100%;
   width: 100vw;
   display:flex;
   align-items: center;
@@ -127,7 +127,7 @@ button.btn {
 .pure-input-rounded {
   margin: 2%;
   font-size: 1.2rem;
-  color: grey !important;
+  color: rgb(70, 70, 70) !important;
   font-family: 'Montserrat', sans-serif;
   width: 67%;
   filter: opacity(50%);
@@ -190,8 +190,8 @@ button.btn {
 @media screen and (min-width: 768px) {
   .background {
     /* background: url("../images/splash-bg.svg"); */
-    background-size: 400px;
-    background-repeat: repeat;
+    background-size: cover;
+    height: 100vh;
   }
   .home-container,
   .register-container,

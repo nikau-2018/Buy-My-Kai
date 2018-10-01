@@ -1,5 +1,7 @@
 import request from 'axios'
 
+import {getHeaders} from '../utils/api'
+
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const PRODUCT_PENDING = 'PRODUCT_PENDING'
 export const PRODUCT_SUCCESS = 'PRODUCT_SUCCESS'
@@ -28,7 +30,7 @@ export function sendProduct (product) {
   return (dispatch) => {
     dispatch(productPending())
     return request
-      .post('/api/v1/products/addproduct', product)
+      .post('/api/v1/products/addproduct', product, getHeaders())
       .then(res => {
         // eslint-disable-next-line no-console
         console.log(res)

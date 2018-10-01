@@ -1,11 +1,12 @@
 import React from 'react'
-// import {Redirect} from 'react-router-dom'
 import {sendNeighbourhood} from '../../actions/area'
 import {connect} from 'react-redux'
-// import List from './List'
-import {Map, TileLayer, CircleMarker, Marker, Popup} from 'react-leaflet'
+import List from './List'
+import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
 
 import './styles.css'
+
+const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
   constructor (props) {
@@ -13,15 +14,19 @@ class Area extends React.Component {
     this.state = {
       suburb: ''
     }
-    // this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (e) {
+  handleClick () {
+    this.sendNeighbourhood(this.state.suburb)
+  }
+
+  handleChange (e) {
+    e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })
-    this.sendNeighbourhood(this.state.suburb)
   }
 
   sendNeighbourhood () {
@@ -29,66 +34,38 @@ class Area extends React.Component {
   }
 
   render () {
-    // const growersList = this.props.growersList || []
+    const growers = this.props.growersList || [] // short hand and checking if griwerList is undefinf we assined an empty array
+    const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
-      <div className='container'>
+      <div className="pure-u-1">
         <h1>Search For Growers</h1>
-        {/* <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} /><br /> */}
-        {/* <button onClick={this.handleClick}>search</button>
-        <div>{this.props.growersList && this.props.growersList.map(list =>
+        <input type="text" name='suburb' value={this.state.suburb} placeholder='Suburb' onChange={this.handleChange} /><br />
+        <button onClick={this.handleClick}>search</button>
+        <div>{growers.map(list =>
           <List key={list.id} list={list} />
-        )}</div> */}
-
-        <div className='map'>
-          <Map center={[-36.848461, 174.763336]} zoom={12}>
-            <TileLayer
-              attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-
-            <div className='marker'>
-
-              <CircleMarker className='belmont' center={[-36.80506470, 174.78860850]} fillColor="blue" radius={30}>
-                <Popup><button name='suburb'
-                  onClick={this.handleClick} value='Belmont'>
-                  <div>
-                    {this.props.growersList &&
-                    this.props.growersList.map(list =>
-                      <li key={list.id}>{list.name}</li>
-                    )}</div>Belmont</button></Popup>
-              </CircleMarker>
-              <CircleMarker className='takapuna' center={[-36.78792290, 174.76882070]} fillColor="blue" radius={30}>
-                <Popup><button name='suburb'
-                  onClick={this.handleClick} value='Belmont'>
-                  <div>
-                    {this.props.growersList &&
-                    this.props.growersList.map(list =>
-                      <li key={list.id}>{list.name}</li>
-                    )}</div>Takapuna</button></Popup>
-              </CircleMarker>
-              <Marker className='mteden' position={[-36.86983670, 174.77758010]}>
-                <Popup><button name='suburb'
-                  onClick={this.handleClick} value='Belmont'>
-                  <div>
-                    {this.props.growersList &&
-                    this.props.growersList.map(list =>
-                      <li key={list.id}>{list.name}</li>
-                    )}</div>Mt Eden</button>
-                </Popup>
-              </Marker>
-              <Marker className='ponsonby' position={[-36.84877790, 174.73806630]}>
-                <Popup><button name='suburb'
-                  onClick={this.handleClick} value='Belmont'>
-                  <div>
-                    {this.props.growersList &&
-                    this.props.growersList.map(list =>
-                      <li key={list.id}>{list.name}</li>
-                    )}</div>Ponsonby</button></Popup>
-              </Marker>
-            </div>
-          </Map>
-        </div>
+        )}</div>
+        <Map className="Leaflet" center={center} zoom={13}>
+          <TileLayer
+            attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {growers.length && growers.map(({
+            id,
+            lat,
+            long,
+            hours,
+            name,
+            description
+          }) => (
+            <Marker key={id} position={[lat, long]}>
+              <Popup>
+                <div>{name}</div>
+                <div>{description}</div>
+              </Popup>
+            </Marker>
+          ))}
+        </Map>
       </div>
     )
   }

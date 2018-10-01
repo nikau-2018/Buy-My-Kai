@@ -1,14 +1,14 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { postUser } from '../../actions/register'
-import { TextField, Button, Checkbox } from '@material-ui/core'
+import {Redirect, Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {postUser} from '../../actions/register'
+import {TextField, Button, Checkbox} from '@material-ui/core'
 
 import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
@@ -30,14 +30,14 @@ class Register extends React.Component {
     this.sendUser = this.sendUser.bind(this)
   }
 
-  handleSeller() {
+  handleSeller () {
     this.setState({
       isSeller: !this.state.isSeller,
       isClicked: !this.state.isClicked
     })
   }
 
-  handleChange(e) {
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -49,7 +49,7 @@ class Register extends React.Component {
     }
   }
 
-  sendUser() {
+  sendUser () {
     this.props.dispatch(postUser(this.state))
       .then(
         this.setState({
@@ -58,7 +58,7 @@ class Register extends React.Component {
       )
   }
 
-  render() {
+  render () {
     return (
       <div className="home">
         <div className="pure-img background"></div>
@@ -97,8 +97,7 @@ class Register extends React.Component {
 
             {
               this.state.isSeller
-                ?
-                <div>
+                ? <div>
                   <TextField
                     type="text"
                     label="Street Address"
@@ -172,8 +171,8 @@ class Register extends React.Component {
 
               {this.state.success && <Redirect to="/profile" />}
               <div className="register-group pure-u-1">
-              <pp>Already a member?
-                <Link className='btn-link' to="/login"> <u>Login</u></Link>
+                <pp>Already a member?
+                  <Link className='btn-link' to="/login"> <u>Login</u></Link>
                 </pp>
               </div>
             </div>

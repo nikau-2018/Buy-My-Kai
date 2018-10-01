@@ -8,31 +8,28 @@ const defaultState = {
   pending: false,
   user: null,
   isLoggedIn: false
-
 }
 
-export default function loginReducers (state = defaultState, { action, error, type, user, isLoggedIn }) {
-  switch (type) {
+export default function loginReducer (state = defaultState, action) {
+  switch (action.type) {
     case LOGIN_REQUEST:
       return {
         ...state,
         error: null,
         pending: true,
         isLoggedIn: false
-
       }
     case LOGIN_SUCCESS:
       return {
         ...state,
-        error: null,
         pending: false,
         isLoggedIn: true,
-        user
+        user: action.user
       }
     case LOGIN_ERROR:
       return {
         ...state,
-        error,
+        error: action.error,
         pending: false,
         isLoggedIn: false,
         user: null

@@ -4,6 +4,9 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 export const AREA_PENDING = 'AREA_PENDING'
 export const AREA_SUCCESS = 'AREA_SUCCESS'
 
+import {getHeaders} from '../utils/api'
+import {setToken} from '../utils/token'
+
 export const showError = (errorMessage) => {
   return {
     type: SHOW_ERROR,
@@ -28,8 +31,11 @@ export function sendNeighbourhood ({suburb}) {
   return (dispatch) => {
     dispatch(areaPending())
     return request
-      .get(`/api/v1/users/?suburb=${suburb}`)
+      .get(`/api/v1/users/neighbourhood/?suburb=${suburb}`, getHeaders())
       .then(res => {
+        if (res.data.token) {
+          setToken(res.data.token)
+        }
         // eslint-disable-next-line no-console
         console.log(res.data.result)
         // dispatch areaSuccess.

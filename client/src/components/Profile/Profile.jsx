@@ -1,41 +1,58 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Button} from '@material-ui/core'
 
-import {getProfile} from '../../actions/profile'
-import {addProduct} from '../../actions/profile'
-import styles from './styles.css'
+import Addproduct from '../Product/Addproduct'
 
 class Profile extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      showForm: false
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-  render() {
+  handleClick () {
+    this.setState({
+      showForm: !this.state.showForm
+    })
+  }
+
+  render () {
     const profile = this.props.user && this.props.user
     return (
-      <div className='profile pure-u-1-2'>
-        <h3>Welcome, {profile.name}</h3>
-        <ul>
-          <li><p>Email: {profile.email}</p></li>
-          <li><p>Description: {profile.description}</p></li>
-          <li><p>Address: {profile.address}</p></li>
-          <li><p>Suburb: {profile.suburb}</p></li>
-          <li><p>City: {profile.city}</p></li>
-          <li><p>Postcode: {profile.postcode}</p></li>
-          <li><p>Availability: {profile.hours}</p></li>
+      <div className='profile-container pure-u-1'>
+        <h2>Kia ora Grower</h2>
+        <h3>Thank you for registering with Buy My Kai to share your fruit and veg with your community!</h3>
+        <p>Here you will find your registered details, please make sure they are up to date as this is what
+          Eaters will be seeing when they search your area</p>
+        <ul className="profile-info pure-u-1">
+          <div>
+            <li><p><strong>Description:</strong><br /> {profile.description}</p></li>
+            <li><p><strong>Address:</strong> {profile.address}</p></li>
+            <li><p><strong>Suburb:</strong> {profile.suburb}</p></li>
+            <li><p><strong>City:</strong> {profile.city}</p></li>
+            <li><p><strong>Availability:</strong> {profile.hours}</p></li>
+          </div>
+          <div>
+            <li>
+              <Button
+                onClick={this.handleClick} className="btn--fab"
+                variant="extendedFab">Add Products</Button>
+            </li>
+          </div>
         </ul>
-  
-        <button className='addproduct'>
-          <Link to={'/profile/:id/addproduct'}>Add Product</Link>
-        </button >
+        <div>
+          {this.state.showForm ? <Addproduct /> : <div></div>}
+        </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.loginReducers.user
-    // user: state.registerReducer.user
-  }
-}
+const mapStateToProps = (state) => ({
+  user: state.loginReducer.user
+})
 
 export default connect(mapStateToProps)(Profile)

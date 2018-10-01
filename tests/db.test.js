@@ -4,7 +4,7 @@ const testEnv = require('./testEnvironment')
 let testDb = null
 
 test('test runner runs', () => {
-  expect(true).toBeTruthy
+  expect(true).toBeTruthy()
 })
 
 beforeEach(() => {
@@ -18,9 +18,21 @@ afterEach(() => {
 
 test('addUser adds a new user', () => {
   const expected = 13
+  const user = {name: 'Emma', hash: 'emma'}
+  return db.addUser(user, testDb)
+    .then(() => { return testDb('users').select() })
+    .then(results => {
+      const actual = results.length
+      expect(actual).toBe(expected)
+    })
+})
 
-  return db.addUser('Yup.', testDb)
-    .then(() => { return testDb('db').select() })
+test('add a product to the database', () => {
+  const expected = 13
+  const product = {productName: 'Banana'}
+  const userId = 11101
+  return db.addProduct(product, userId, testDb)
+    .then(() => { return testDb('products').select() })
     .then(results => {
       const actual = results.length
       expect(actual).toBe(expected)

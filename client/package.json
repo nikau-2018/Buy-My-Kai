@@ -88,5 +88,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "dependencies": {
+    "react-leaflet": "^2.0.1"
   }
 }

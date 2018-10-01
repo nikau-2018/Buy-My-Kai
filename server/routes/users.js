@@ -34,7 +34,6 @@ function login (req, res) {
   const {email} = req.body
   db.loginUser(email)
     .then(user => {
-
       res.locals.userId = user.id
 
       const pwd = req.body.hash
@@ -81,7 +80,6 @@ function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
-      
       res.status(201).json({
         ok: true,
         message: 'Account created successfully.',
@@ -106,8 +104,8 @@ function register (req, res) {
 
 // Get user records
 router.get(
-  '/profile', 
-  verifyJwt({ secret: process.env._KAI_JWT }),
+  '/profile',
+  verifyJwt({secret: process.env._KAI_JWT}),
   getUser
 )
 
@@ -148,7 +146,7 @@ function getUser (req, res) {
 // Get seller by suburb
 router.get(
   '/neighbourhood/',
-  verifyJwt({ secret: process.env._KAI_JWT }),
+  verifyJwt({secret: process.env._KAI_JWT}),
   getSellerBySuburb
 )
 

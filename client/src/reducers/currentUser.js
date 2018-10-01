@@ -1,7 +1,7 @@
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGIN_ERROR } from '../actions/login'
+  LOGIN_ERROR} from '../actions/login'
 
 import {
   REGISTER_PENDING,
@@ -67,6 +67,6 @@ export default function currentUserReducer (state = defaultState, action) {
       }
 
     default:
-    return state
+      return state
   }
 }

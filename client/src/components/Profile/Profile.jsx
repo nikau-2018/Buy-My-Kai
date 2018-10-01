@@ -20,7 +20,7 @@ class Profile extends React.Component {
   }
 
   render () {
-    const profile = this.props.user && this.props.user
+    const profile = this.props.user || {}
     return (
       <div className='profile-container pure-u-1'>
         <h2>Kia ora Grower</h2>
@@ -28,24 +28,38 @@ class Profile extends React.Component {
         <p>Here you will find your registered details, please make sure they are up to date as this is what
           Eaters will be seeing when they search your area</p>
         <ul className="profile-info pure-u-1">
-          <div>
-            <li><p><strong>Description:</strong><br /> {profile.description}</p></li>
-            <li><p><strong>Address:</strong> {profile.address}</p></li>
-            <li><p><strong>Suburb:</strong> {profile.suburb}</p></li>
-            <li><p><strong>City:</strong> {profile.city}</p></li>
-            <li><p><strong>Availability:</strong> {profile.hours}</p></li>
-          </div>
-          <div>
-            <li>
+          { profile.isSeller
+            ? <div>
+              <li><p><strong>Seller Information:</strong><br /> {profile.description}</p></li>
+              <li><p><strong>Address:</strong> {profile.address}</p></li>
+              <li><p><strong>Suburb:</strong> {profile.suburb}</p></li>
+              <li><p><strong>City:</strong> {profile.city}</p></li>
+              <li><p><strong>Postcode:</strong> {profile.postcode}</p></li>
+              <li><p><strong>Availability:</strong> {profile.hours}</p></li>
               <Button
-                onClick={this.handleClick} className="btn--fab"
-                variant="extendedFab">Add Products</Button>
-            </li>
-          </div>
+                className="btn--fab"
+                variant="extendedFab">
+                <i className="fas fa-plus"></i>
+              </Button >
+            </div>
+            : <div>
+              <li><p><strong>Email:</strong> {profile.email}</p></li>
+              <li>
+                <Button
+                  className="btn--fab"
+                  variant="extendedFab"
+                >
+                  <i className="fas fa-user-check"></i>
+                </Button>
+                <span className="fab-label--right">$$tart your own side hustle - Become a $eller today!</span>
+              </li>
+            </div>
+          }
         </ul>
         <div>
           {this.state.showForm ? <Addproduct /> : <div></div>}
         </div>
+        :
       </div>
     )
   }

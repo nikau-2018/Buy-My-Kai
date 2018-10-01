@@ -71,7 +71,7 @@ p,
 }
 
 
-pp {
+h5 {
   color: white;
   text-align: center;
   font-size: 0.8rem;
@@ -145,9 +145,9 @@ button.btn {
 }
 
 .btn:hover {
-  color: rgba(0,0,0,.87) !important;
-  background: rgba(255,255,255,.9) !important;
-  border: 1px solid rgba(0,0,0,.87);
+  color:white !important;
+  background: transparent !important;
+  border: 1px solid white;
 }
 
 /* Form elements */

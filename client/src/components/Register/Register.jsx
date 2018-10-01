@@ -154,7 +154,7 @@ class Register extends React.Component {
                 : <div></div>
             }
             <div className="checkbox pure-u-1">
-              <pp>Are you a seller?</pp>
+              <h5>Are you a seller?</h5>
               <Checkbox
                 type='checkbox'
                 checked={this.state.isClicked}

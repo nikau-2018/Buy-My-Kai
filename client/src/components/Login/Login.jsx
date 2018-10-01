@@ -58,7 +58,7 @@ class Login extends React.Component {
                 onChange={this.handleChange} /> */}
               <input
                 type="email"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Email"
                 name="email"
                 margin="normal"

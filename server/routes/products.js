@@ -17,14 +17,15 @@ const router = express.Router()
 // Post new product
 router.post(
   '/addproduct',
-
-   addProduct
-  )
+  verifyJwt({secret: process.env._KAI_JWT}),
+  addProduct
+)
 
 // Create new product record route function
 function addProduct (req, res) {
   const product = req.body
-  db.addProduct(product, 11102)
+  const userId = req.user.id
+  db.addProduct(product, userId)
     .then(id => {
       res.status(200).json({
         ok: true,

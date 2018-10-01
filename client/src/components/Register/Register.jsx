@@ -2,9 +2,9 @@ import React from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {postUser} from '../../actions/register'
-import {TextField, Button, Checkbox} from '@material-ui/core'
+import {Button, Checkbox} from '@material-ui/core'
 
-import styles from '../../styles/styles.css'
+import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
@@ -109,14 +109,13 @@ class Register extends React.Component {
                       type="text"
                       className="pure-input-rounded"
                       placeholder="Street Address"
-                      multiline
-                      rowsMax="4"
                       name='address'
                       margin="normal"
                       value={this.state.address}
                       onChange={this.handleChange} />
                   </div>
                   <div className='suburb'>
+
                     <input
                       type="text"
                       className="pure-input-rounded"

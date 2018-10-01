@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
-import styles from '../../styles/styles.css'
-
+import {connect} from 'react-redux'
+import {Button} from '@material-ui/core'
+import {Link} from 'react-router-dom'
+import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
@@ -65,6 +64,7 @@ class Profile extends React.Component {
                   <li><p><strong>Postcode:</strong> {profile.postcode}</p></li>
                   <li><p><strong>Availability:</strong> {profile.hours}</p></li>
                   <Button
+                    onClick={this.handleClick}
                     className="btn--fab"
                     variant="extendedFab">
                     <i className="fas fa-plus"></i>
@@ -72,9 +72,8 @@ class Profile extends React.Component {
                 </div>
                 : <div>
                   <li><p><strong>Email:</strong> {profile.email}</p></li>
-                  <li>  
+                  <li>
                     <Button
-                      onClick={this.handleClick}
                       className="btn--fab"
                       variant="extendedFab"
                     >
@@ -88,14 +87,12 @@ class Profile extends React.Component {
             <div>
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
-            :
           </div>
         </div>
       </div>
     )
   }
 }
- 
 
 const mapStateToProps = state => ({
   user: state.currentUserReducer.user,

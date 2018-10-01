@@ -2,9 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import styles from '../../styles/styles.css'
+
 
 import Addproduct from '../Product/Addproduct'
-import '../../styles/styles.css'
+import {getProfile} from '../../actions/profile'
 
 import Nav from '../Nav/Nav'
 
@@ -23,7 +25,11 @@ class Profile extends React.Component {
     })
   }
 
-  render() {
+  componentDidMount () {
+    this.props.dispatch(getProfile())
+  }
+
+  render () {
     const profile = this.props.user || {}
     return (
       <div className='profile'>
@@ -97,8 +103,9 @@ class Profile extends React.Component {
     )
   }
 }
+ 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   user: state.currentUserReducer.user,
   pending: state.currentUserReducer.pending
 })

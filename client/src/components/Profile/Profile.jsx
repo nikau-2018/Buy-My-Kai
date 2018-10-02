@@ -29,7 +29,6 @@ class Profile extends React.Component {
             : <Eater />
           }
         </div>
-        
         <div className='backtotop pure-u-1'>
           <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
         </div>

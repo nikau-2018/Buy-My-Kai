@@ -4,19 +4,15 @@ import {Button} from '@material-ui/core'
 // import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
 import {postUser} from '../../actions/register'
-import Nav from '../Nav/Nav'
 
 import {getProfile} from '../../actions/profile'
 
-class Grower extends React.Component {
+class BecomeGrower extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       showForm: false,
-      name: '',
-      email: '',
-      hash: '',
-      isSeller: false,
+      isSeller: true,
       address: '',
       suburb: '',
       city: '',
@@ -35,7 +31,7 @@ class Grower extends React.Component {
     this.props.dispatch(getProfile())
   }
 
-  handleChange (e) {Nav
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -46,47 +42,15 @@ class Grower extends React.Component {
     return (
     // Navigation
       <div className='profile'>
-        <h3>Edit Grower Profile</h3>
+        <h3>Become a Grower</h3>
 
         <div className="pure-form pure-u-1">
-          <div className='name'>
-            <input
-              type="text"
-              className="pure-input-rounded"
-              placeholder={this.props.user.name}
-              name="name"
-              margin="normal"
-              value={this.state.name}
-              onChange={this.handleChange} />
-          </div>
-
-          <div className='email'>
-            <input
-              type="email"
-              className="pure-input-rounded"
-              placeholder={this.props.user.email}
-              name="email"
-              margin="normal"
-              value={this.state.email}
-              onChange={this.handleChange} />
-          </div>
-
-          <div className='password'>
-            <input
-              type="password"
-              className="pure-input-rounded"
-              placeholder='******'
-              name="hash"
-              margin="password"
-              value={this.state.hash}
-              onChange={this.handleChange} />
-          </div>
 
           <div className='street-address'>
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder={this.props.user.address}
+              placeholder='address'
               name='address'
               margin="normal"
               value={this.state.address}
@@ -97,7 +61,7 @@ class Grower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder={this.props.user.suburb}
+              placeholder='suburb'
               name='suburb'
               margin="normal"
               value={this.state.suburb}
@@ -108,7 +72,7 @@ class Grower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder={this.props.user.city}
+              placeholder='city'
               name='city'
               margin="normal"
               onChange={this.handleChange} />
@@ -118,7 +82,7 @@ class Grower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder={this.props.user.description}
+              placeholder='description'
               name='description'
               margin="normal"
               value={this.state.description}
@@ -129,7 +93,7 @@ class Grower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder={this.props.user.hours}
+              placeholder='hours'
               name='hours'
               margin="normal"
               value={this.state.hours}
@@ -156,4 +120,4 @@ const mapStateToProps = state => ({
   product: state.addproductReducer.product
 })
 
-export default connect(mapStateToProps)(Grower)
+export default connect(mapStateToProps)(BecomeGrower)

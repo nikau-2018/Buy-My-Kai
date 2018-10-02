@@ -3,8 +3,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR} from '../actions/login'
 
-import { LOGOUT_SUCCESS } from '../actions/logout'
-
 import {
   REGISTER_PENDING,
   REGISTER_SUCCESS,
@@ -69,14 +67,6 @@ export default function currentUserReducer (state = defaultState, action) {
       return {
         ...state,
         error: action.error,
-        pending: false,
-        isLoggedIn: false,
-        user: null
-      }
-
-    case LOGOUT_SUCCESS:
-      return {
-        ...state,
         pending: false,
         isLoggedIn: false,
         user: null

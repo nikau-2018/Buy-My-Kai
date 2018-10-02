@@ -38,8 +38,15 @@ export function getProfile () {
           setToken(res.data.token)
         }
 
-        // Send user to the store.
-        dispatch(profileSuccess(res.data.user))
+        // Handle sellers and eaters separately.
+        if (res.data.user[0].isSeller) {
+          // Sellers are returned in arrays.
+          dispatch(profileSuccess(res.data.user[0]))
+        } else {
+          // Send user to the store.
+          dispatch(profileSuccess(res.data.user))
+        }
+        
 
         // eslint-disable-next-line no-console
         console.log('success')

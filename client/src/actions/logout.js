@@ -37,9 +37,7 @@ export const logoutUser = () => {
 
     // Dispatch to the store.
     dispatch(logoutSuc())
-
-    // Redirect the user to the homepage.
-    window.location.assign('/')
+      .then(window.location.assign('/'))
     
   }
 }

@@ -201,10 +201,7 @@ class Register extends React.Component {
               </div>
             </div>
             <div className='backtotop pure-u-1'>
-              <a href="#top"><p> Return to top <i className="fas fa-caret-up"></i></p></a>
-            </div>
-            <div className='nav-bar'>
-              <Nav />
+              <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
             </div>
           </div>
         </div>

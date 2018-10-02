@@ -91,7 +91,7 @@ class Area extends React.Component {
             </Map>
           </div>
           <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
+            <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
           </div>
         </div>
       </div>

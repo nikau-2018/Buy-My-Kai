@@ -6,7 +6,6 @@ import {Button, Checkbox} from '@material-ui/core'
 
 import '../../styles/styles.css'
 import Nav from '../Nav/Nav'
-
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
@@ -61,8 +60,8 @@ class Register extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className="pure-img background"></div>
+      <div className='register'>
+        <div className="pure-img background-register"></div>
 
         <div className="container pure-u-1">
           <Link to='/'>
@@ -179,7 +178,7 @@ class Register extends React.Component {
               </div>
               <div className="btn-group pure-u-1">
                 <Button
-                  className='btn btn-secondary'
+                  className='btn btn-primary'
                   disabled={this.state.disabled}
                   onClick={this.sendUser}>
                     Go

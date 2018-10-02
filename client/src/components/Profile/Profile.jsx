@@ -15,7 +15,7 @@ class Profile extends React.Component {
     return (
       <div className='container pure-u-1'>
 
-        <div className="pure-img background"></div>
+        <div className="pure-img background-profile"></div>
         <Link to='/'>
           <img className="pure-img logo-small" src={logo} />
         </Link>

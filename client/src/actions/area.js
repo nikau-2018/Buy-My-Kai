@@ -27,7 +27,7 @@ export const areaSuccess = growersList => {
   }
 }
 
-export function sendNeighbourhood ({suburb}) {
+export function sendNeighbourhood (suburb) {
   return (dispatch) => {
     dispatch(areaPending())
     return request

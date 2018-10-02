@@ -11,14 +11,16 @@ class Eater extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showForm: false
+      showForm: false,
+      isSeller: this.props.isSeller
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick () {
     this.setState({
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      isSeller: !this.state.isSeller
     })
   }
 

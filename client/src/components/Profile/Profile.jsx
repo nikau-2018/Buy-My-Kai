@@ -1,14 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
-import styles from '../../styles/styles.css'
+import {connect} from 'react-redux'
+import {Button} from '@material-ui/core'
+import {Link} from 'react-router-dom'
+import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
+import {getProducts} from '../../actions/products'
+
+import Nav from '../Nav/Nav'
 
 class Profile extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       showForm: false
@@ -16,7 +19,7 @@ class Profile extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.setState({
       showForm: !this.state.showForm
     })
@@ -27,8 +30,10 @@ class Profile extends React.Component {
   }
 
   render () {
+    // this.props.dispatch(getProducts())
     const profile = this.props.user || {}
     return (
+
       <div className='profile'>
         <div className="pure-img background"></div>
 
@@ -50,20 +55,24 @@ class Profile extends React.Component {
           <div className='profile-info pure-u-1-1 pure-u-md-1-2'>
             <h3>Kia ora Grower</h3>
             <h5>Thank you for registering with Buy My Kai <br />
-              to share your fruit and veg with your community!</h5>
-            <p>Here you will find your registered details, <br />
-              please make sure they are up to date as this is what<br />
-              Eaters will be seeing when they search your area</p>
+              we are excited to have you as part of our community!</h5>
+            <p>This is your profile page, here you'll find your registered details.<br/><br/>
+              Please make sure they are up to date as this is what
+              eaters will be seeing when they search your area on the map.</p>
             <ul className="profile-info pure-u-1">
               {profile.isSeller
                 ? <div>
-                  <li><p><strong>Seller Information:</strong><br /> {profile.description}</p></li>
-                  <li><p><strong>Address:</strong> {profile.address}</p></li>
-                  <li><p><strong>Suburb:</strong> {profile.suburb}</p></li>
-                  <li><p><strong>City:</strong> {profile.city}</p></li>
-                  <li><p><strong>Postcode:</strong> {profile.postcode}</p></li>
-                  <li><p><strong>Availability:</strong> {profile.hours}</p></li>
+                  <h5>description</h5><p>{profile.description}</p>
+                  <h5>address</h5><p>{profile.address}</p>
+                  <h5>suburb</h5><p>{profile.suburb}</p>
+                  <h5>city</h5><p>{profile.city}</p>
+                  <h5>availability</h5><p>{profile.hours}</p>
+                  <h5>my products</h5>
+                  <p>{this.props.product && this.props.product.map(product =>
+                    <p key={product.id}>{product.product_name}<br/>{product.price}: {product.quantity}</p>
+                  )}</p>
                   <Button
+                    onClick={this.handleClick}
                     className="btn--fab"
                     variant="extendedFab">
                     <i className="fas fa-plus"></i>
@@ -86,8 +95,13 @@ class Profile extends React.Component {
             <div>
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
-            :
-      </div>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
         </div>
       </div>
     )
@@ -96,7 +110,8 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.currentUserReducer.user,
-  pending: state.currentUserReducer.pending
+  pending: state.currentUserReducer.pending,
+  product: state.addproductReducer.product
 })
 
 export default connect(mapStateToProps)(Profile)

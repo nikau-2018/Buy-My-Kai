@@ -17,14 +17,15 @@ const router = express.Router()
 // Post new product
 router.post(
   '/addproduct',
-
-   addProduct
-  )
+  verifyJwt({secret: process.env._KAI_JWT}),
+  addProduct
+)
 
 // Create new product record route function
 function addProduct (req, res) {
   const product = req.body
-  db.addProduct(product, 11102)
+  const userId = req.user.id
+  db.addProduct(product, userId)
     .then(id => {
       res.status(200).json({
         ok: true,
@@ -43,18 +44,21 @@ function addProduct (req, res) {
 // GET ROUTES
 
 // Get product
-router.get('/:id', getProduct)
+router.get('/',
+  verifyJwt({secret: process.env._KAI_JWT}),
+  getProducts)
+
 router.get('/', getProductByName)
 
 // Get a product by ID
-function getProduct (req, res) {
-  const productId = Number(req.params.id)
-  db.getProductById(productId)
-    .then(product => {
+function getProducts (req, res) {
+  const userId = req.user.id
+  db.getProductByUserId(userId)
+    .then(products => {
       res.status(200).json({
         ok: true,
-        message: 'Product was retrieved.',
-        product
+        message: 'Products have been retrieved.',
+        products
       })
     })
     .catch(({message}) => {

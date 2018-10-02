@@ -12,7 +12,8 @@ class Addproduct extends React.Component {
       quantity: '',
       productDescription: '',
       organic: false,
-      freerange: false
+      freerange: false,
+      productSubmitted: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleOrganic = this.handleOrganic.bind(this)
@@ -40,6 +41,9 @@ class Addproduct extends React.Component {
 
   handleSubmit () {
     this.props.dispatch(sendProduct(this.state))
+    this.setState({
+      productSubmitted: !this.state.productSubmitted
+    })
   }
 
   render () {
@@ -55,6 +59,8 @@ class Addproduct extends React.Component {
         <label>Free-Range</label>
         <input type='checkbox' name='freerange' value={this.state.freerange} onClick={this.handleFreerange}></input><br/>
         <button onClick={this.handleSubmit}>Add</button>
+        <div>{this.state.productSubmitted ? <p>Successfully added</p> : <div></div>}</div>
+
       </div>
     )
   }

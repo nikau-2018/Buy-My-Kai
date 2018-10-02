@@ -1,9 +1,7 @@
 /*
   Main Component CSS File
 */
-body {
-  background: #fafafa;
-}
+
 a {
   color: normal;
   text-decoration: none;
@@ -22,7 +20,9 @@ a {
   width: 100vw;
   display:flex;
   align-items: center;
-
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   }
 
 .logo {
@@ -44,14 +44,13 @@ a {
 }
 
 .pure-menu {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 5rem;
+  padding: 3rem;
 }
 
 
@@ -63,29 +62,28 @@ h3 {
   color: white;
   text-align: center;
   letter-spacing: 6px;
+  text-align: left !important;
 }
 
 p,
 .register-group {
-  color: white;
+  color: black;
   text-align: center;
   font-size: 1.2rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
-}
-
-.footer {
-  padding-top: 10%;
+  text-align: left !important;
 }
 
 
 h5 {
-  color: white;
+  color: black;
   text-align: center;
   font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  text-align: left !important;
 }
 
 /* CTA BUTTONS */
@@ -200,9 +198,8 @@ button.btn {
 /* TABLET */
 @media screen and (min-width: 768px) {
   .background {
-    /* background: url("../images/splash-bg.svg"); */
     background-size: cover;
-    height: 100vh;
+    height: 100%;
   }
   .home-container,
   .register-container,

@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from '@material-ui/core'
 
+import Nav from '../Nav/Nav'
+
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
@@ -32,7 +34,10 @@ export default function Home (props) {
           </Link>
         </div>
         <div className='footer pure-u-1'>
-        <h5>Copyright © Buy My Kai 2018 Nikau</h5>
+          <h5>Copyright © Buy My Kai 2018 Nikau</h5>
+        </div>
+        <div className='nav-bar'>
+          <Nav />
         </div>
       </div>
     </div>

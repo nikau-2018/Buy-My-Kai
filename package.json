@@ -36,6 +36,7 @@
     "preinstall": "yarn install:client",
     "server:dev": "nodemon index",
     "server:prod": "node index",
-    "start": "yarn --silent message && yarn server:prod"
+    "start": "yarn --silent message && yarn server:prod",
+    "test": "jest"
   }
 }

@@ -5,8 +5,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "build": "node scripts/build.js"
   },
   "devDependencies": {
     "autoprefixer": "7.1.6",
@@ -89,5 +88,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "dependencies": {
+    "react-leaflet": "^2.0.1"
   }
 }

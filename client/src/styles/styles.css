@@ -105,7 +105,7 @@ a {
   }
 
 .logo {
-  width: 40%;;
+  width: 60%;
   margin: auto;
   padding-top:30%;
 }
@@ -151,25 +151,27 @@ h3 {
   color: white;
   text-align: center;
   letter-spacing: 6px;
+  text-align: left !important;
 }
 
-p,
-.register-group {
+p {
   color: white;
   text-align: center;
   font-size: 1.2rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  text-align: left !important;
 }
 
 
 h5 {
-  color: white;
+  color:white;
   text-align: center;
   font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  text-align: left !important;
 }
 
 /* CTA BUTTONS */

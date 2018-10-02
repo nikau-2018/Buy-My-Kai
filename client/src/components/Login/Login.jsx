@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { loginUser } from '../../actions/login'
-import { TextField, Button } from '@material-ui/core'
+import {Link, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {loginUser} from '../../actions/login'
+import {Button} from '@material-ui/core'
 
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
@@ -10,7 +10,7 @@ import logo from '../../images/logo-4.png'
 import Nav from '../Nav/Nav'
 
 class Login extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: '',
@@ -21,7 +21,7 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -32,13 +32,13 @@ class Login extends React.Component {
     }
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     this.props.dispatch(loginUser(this.state.email, this.state.hash))
   }
 
-  render() {
-    const { error, isLoggedIn } = this.props
+  render () {
+    const {error, isLoggedIn} = this.props
     return (
       <div className="login">
         <div className="pure-img background"></div>
@@ -66,7 +66,7 @@ class Login extends React.Component {
             <div>
               <input
                 type="password"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Password"
                 name="hash"
                 margin="normal"
@@ -81,12 +81,12 @@ class Login extends React.Component {
               onClick={this.handleSubmit}
               disabled={this.state.disabled}>
               Go
-                </Button>
+            </Button>
           </div>
 
           <div className="register-group pure-u-1">
             <p>Not a member? Create an
-                <Link className='btn-link' to="/register"> <u>account</u></Link>
+              <Link className='btn-link' to="/register"> <u>account</u></Link>
             </p>
           </div>
 

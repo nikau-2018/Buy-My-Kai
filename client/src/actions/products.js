@@ -42,3 +42,19 @@ export function sendProduct (product) {
       })
   }
 }
+
+export function getProducts () {
+  return dispatch => {
+    dispatch(productPending())
+    return request
+      .get('/api/v1/products/', getHeaders())
+      .then(res => {
+        dispatch(productSuccessful(res.data.products))
+        // eslint-disable-next-line no-console
+        console.log('getting your products')
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}

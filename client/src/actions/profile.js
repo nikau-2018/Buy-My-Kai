@@ -28,10 +28,9 @@ export const profileSuccess = user => {
 }
 
 export function getProfile () {
-
   return dispatch => {
     dispatch(profilePending())
-    
+
     return request
       .get('/api/v1/users/profile', getHeaders())
       .then(res => {

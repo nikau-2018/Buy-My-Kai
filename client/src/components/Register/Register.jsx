@@ -1,16 +1,15 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { postUser } from '../../actions/register'
-import { TextField, Button, Checkbox } from '@material-ui/core'
+import {Redirect, Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {postUser} from '../../actions/register'
+import {Button, Checkbox} from '@material-ui/core'
 
+import '../../styles/styles.css'
 import Nav from '../Nav/Nav'
-
-import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
@@ -20,7 +19,6 @@ class Register extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      postcode: '',
       description: '',
       hours: '',
       success: false,
@@ -32,14 +30,14 @@ class Register extends React.Component {
     this.sendUser = this.sendUser.bind(this)
   }
 
-  handleSeller() {
+  handleSeller () {
     this.setState({
       isSeller: !this.state.isSeller,
       isClicked: !this.state.isClicked
     })
   }
 
-  handleChange(e) {
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -51,7 +49,7 @@ class Register extends React.Component {
     }
   }
 
-  sendUser() {
+  sendUser () {
     this.props.dispatch(postUser(this.state))
       .then(
         this.setState({
@@ -60,20 +58,18 @@ class Register extends React.Component {
       )
   }
 
-  render() {
+  render () {
     return (
-      <div>
+      <div className='register'>
         <div className="pure-img background"></div>
-
-        <div className="home">
-          <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+        <div className='container pure-u-1-1 pure-u-md-1-2'>
+        <Link to='/'>
+            <img className="pure-img logo-small" src={logo} />
           </Link>
-          <div className='nav-bar'>
+        <div className='nav-bar'>
             <Nav />
           </div>
-
-            <div className="container pure-u-1-1 pure-u-md-1-2">
+            <div className="register-info pure-u-1-1 pure-u-md-1-2">
               <h3>SIGN UP</h3>
               <p>We just need to get a few details<br />
                 from you to get you sign up <br />

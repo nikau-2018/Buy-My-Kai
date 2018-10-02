@@ -6,7 +6,6 @@ import { Button } from '@material-ui/core'
 import { logoutUser } from '../../actions/logout'
 
 const Logout = (props) => {
-console.log(props)
   return (
     <div>
       <Button
@@ -16,7 +15,7 @@ console.log(props)
       >
         <i className="fas fa-sign-out-alt"></i>Log out
       </Button>
-      { <Redirect to="/" /> }
+      <Redirect to="/" />
     </div>
   )
 }

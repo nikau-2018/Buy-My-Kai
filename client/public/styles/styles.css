@@ -1,0 +1,136 @@
+/* 
+  Main Component CSS File
+*/
+
+.background {
+  background: url("../images/background.png");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display:flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30%;
+}
+
+.home-container,
+.register-container {
+  /* position: fixed; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5rem;
+  padding-top: 5%;
+}
+
+.home-container p {
+  font-size: 1.4rem;
+  padding-bottom: 5%;
+}
+
+/* CTA BUTTONS */
+button {
+  background: none;
+  border: none;
+}
+
+.btn {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  /* height: 3rem; */
+  color: white;
+  border: none;
+  margin: 3% auto;
+  padding: 1rem;
+  width: 100% !important;
+  -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+  -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+  -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+  transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
+}
+
+.btn--primary {
+  color: white !important;
+  background: #000 !important;
+}
+
+.btn--secondary {
+  background: rgba(255, 255, 255, .8) !important;
+  color: #000 !important;
+  border: #000;
+}
+
+/* BUTTON ICONS */
+.btn > i.fas {
+  margin-right: 2rem !important;
+}
+
+.btn:hover {
+  color: rgba(0,0,0,.87) !important;
+  background: rgba(255,255,255,.9) !important;
+  border: 1px solid rgba(0,0,0,.87);
+}
+
+
+.map, .leaflet-container {
+  height: 500px;
+  width: 500px;
+  margin: 0;
+  padding: 0;
+}
+
+.map { 
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.leaflet-container { 
+  height: 500px; 
+  width: 500px;
+  position: relative;
+  overflow: auto;
+}
+
+/* MEDIA QUERIES */
+
+/* TABLET */
+@media screen and (min-width: 600px) {
+  .background {
+    background: url("../images/splash-bg.svg");
+  }
+  .home-container,
+  .register-container {
+    position: unset;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9)
+    /* background: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, .5),
+    rgba(255, 255, 255, .9),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, .5),
+    rgba(255, 255, 255, 0)); */
+  }
+  .logo {
+    width: 200px;
+  }
+  .btn {
+    width: 25%;
+  }
+}

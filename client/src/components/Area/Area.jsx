@@ -9,11 +9,12 @@ import '../../styles/styles.css'
 import './styles.css'
 
 import Nav from '../Nav/Nav'
+import logo from '../../images/logo-4.png'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       suburb: ''
@@ -22,46 +23,51 @@ class Area extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.sendNeighbourhood(this.state.suburb)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  sendNeighbourhood() {
+  sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
   }
 
-  render() {
+  render () {
     const growers = this.props.growersList || [] // short hand and checking if griwerList is undefinf we assined an empty array
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
       <div className="home">
         <div className="pure-img background"></div>
-        <div className="container pure-u-1-1 pure-u-md-1-2">
+        <div className="container pure-u-1">
+          <Link to='/'>
+            <img className="pure-img logo-small" src={logo} />
+          </Link>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
           <h3>Search For Growers</h3>
           <div className="pure-form pure-u-1">
             <input
               type="text"
-              class="pure-input-rounded"
+              className="pure-input-rounded"
               placeholder="Suburb"
               name='suburb'
               margin="normal"
               value={this.state.suburb}
-              placeholder='Suburb'
-              onChange={this.handleChange} /><br />
-            <button className="btn btn--primary" onClick={this.handleClick}>search</button>
+              onChange={this.handleChange} /><br/>
+            <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
             <div>{growers.map(list =>
               <List key={list.id} list={list} />
             )}</div>
           </div>
-          <div className="map pure-u-1-1 pure-u-md-1-2">
+          <div className="map">
             <Map className="Leaflet" center={center} zoom={13}>
               <TileLayer
                 attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -75,20 +81,17 @@ class Area extends React.Component {
                 name,
                 description
               }) => (
-                  <Marker key={id} position={[lat, long]}>
-                    <Popup>
-                      <div>{name}</div>
-                      <div>{description}</div>
-                    </Popup>
-                  </Marker>
-                ))}
+                <Marker key={id} position={[lat, long]}>
+                  <Popup>
+                    <div>{name}</div>
+                    <div>{description}</div>
+                  </Popup>
+                </Marker>
+              ))}
             </Map>
           </div>
           <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
-          </div>
-          <div className='nav-bar'>
-            <Nav />
+            <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
           </div>
         </div>
       </div>

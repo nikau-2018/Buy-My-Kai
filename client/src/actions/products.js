@@ -34,6 +34,7 @@ export function sendProduct (product) {
       .then(res => {
         // eslint-disable-next-line no-console
         console.log(res)
+        dispatch(getProducts())
         // eslint-disable-next-line no-console
         console.log('success')
       })

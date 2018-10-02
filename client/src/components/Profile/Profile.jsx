@@ -6,22 +6,24 @@ import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
-import {getProducts} from '../../actions/products'
+// import {getProducts} from '../../actions/products'
 
-import Nav from '../Nav/Nav'
+// import RegisterSeller from ''
 
 class Profile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showForm: false
+      showForm: false,
+      isSeller: false
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick () {
     this.setState({
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      isSeller: !this.state.isSeller
     })
   }
 
@@ -79,16 +81,15 @@ class Profile extends React.Component {
                   </Button >
                 </div>
                 : <div>
-                  <li><p><strong>Email:</strong> {profile.email}</p></li>
-                  <li>
-                    <Button
-                      className="btn--fab"
-                      variant="extendedFab"
-                    >
-                      <i className="fas fa-user-check"></i>
-                    </Button>
-                    <span className="fab-label--right">$$tart your own side hustle - Become a $eller today!</span>
-                  </li>
+                  <p><strong>Email:</strong> {profile.email}</p>
+                  <Button
+                    className="btn--fab"
+                    variant="extendedFab"
+                    onClick={this.handleClick}
+                  >
+                    <i className="fas fa-user-check"></i>
+                  </Button>
+                  <span className="fab-label--right">Click here to become a grower?</span>
                 </div>
               }
             </ul>
@@ -96,11 +97,12 @@ class Profile extends React.Component {
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
           </div>
-          <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
+          <div>
+            {/* {this.state.isSeller ? <RegisterSeller /> : <div></div>} */}
+          </div>
+          <div className='backtotop  pure-u-1'>            <a href="#top">Return to top</a>
           </div>
           <div className='nav-bar'>
-            <Nav />
           </div>
         </div>
       </div>

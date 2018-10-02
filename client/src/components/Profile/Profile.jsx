@@ -34,22 +34,13 @@ class Profile extends React.Component {
     return (
       <div className='profile'>
         <div className="pure-img background"></div>
-
         <div className='container pure-u-1-1 pure-u-md-1-2'>
-
-          <div className="btn--nav">
-            <Link to="/profile">
-              <Button>
-                <i className="far fa-user fa-3x"></i>
-              </Button>
-            </Link>
-            <Link to="/neighbourhood">
-              <Button>
-                <i className="far fa-map fa-3x"></i>
-              </Button>
-            </Link>
+        <Link to='/'>
+            <img className="pure-img logo-small" src={logo} />
+          </Link>
+        <div className='nav-bar'>
+            <Nav />
           </div>
-
           <div className='profile-info pure-u-1-1 pure-u-md-1-2'>
             <h3>Kia ora Grower</h3>
             <h5>Thank you for registering with Buy My Kai <br />

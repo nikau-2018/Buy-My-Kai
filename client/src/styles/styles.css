@@ -31,6 +31,12 @@ a {
   padding-top:30%;
 }
 
+.logo-small {
+  width: 150px;
+  margin: auto;
+  margin-left: 3%;
+}
+
 .container {
   position: absolute;
   display: flex;

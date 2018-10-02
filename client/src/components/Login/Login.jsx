@@ -7,6 +7,8 @@ import { TextField, Button } from '@material-ui/core'
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
+import Nav from '../Nav/Nav'
+
 class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -45,6 +47,9 @@ class Login extends React.Component {
           <Link to='/'>
             <img className="pure-img logo" src={logo} />
           </Link>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
           <h3>LOG IN</h3>
           <div className="pure-form pure-u-1">
             {isLoggedIn ? <Redirect to="/profile" /> : null}

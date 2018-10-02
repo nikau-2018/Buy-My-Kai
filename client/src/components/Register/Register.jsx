@@ -65,9 +65,16 @@ class Register extends React.Component {
       <div className="home">
         <div className="pure-img background"></div>
         <div className="container pure-u-1-1 pure-u-md-1-2">
-          <Link to='/'>
-            <img className="pure-img logo" src={logo} />
-          </Link>
+
+          <div className="pure-u-1-3">
+            <Link to='/'>
+              <img className="pure-img logo-small" src={logo} />
+            </Link>
+            <div className='nav-bar'>
+              <Nav />
+            </div>
+          </div>
+
           <h3>SIGN UP</h3>
           <p>We just need to get a few details<br />
             from you to get you sign up <br />
@@ -196,7 +203,7 @@ class Register extends React.Component {
             </div>
           </div>
           <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
+            <a href="#top"><p> Return to top <i class="fas fa-caret-up"></i></p></a>
           </div>
           <div className='nav-bar'>
             <Nav />

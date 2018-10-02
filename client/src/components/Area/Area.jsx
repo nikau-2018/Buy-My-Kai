@@ -45,6 +45,12 @@ class Area extends React.Component {
       <div className="home">
         <div className="pure-img background"></div>
         <div className="container pure-u-1-1 pure-u-md-1-2">
+                  <Link to='/'>
+            <img className="pure-img logo-small" src={logo} />
+          </Link>
+        <div className='nav-bar'>
+            <Nav />
+          </div>
           <h3>Search For Growers</h3>
           <div className="pure-form pure-u-1">
             <input
@@ -86,9 +92,6 @@ class Area extends React.Component {
           </div>
           <div className='backtotop  pure-u-1'>
             <a href="#top">Return to top</a>
-          </div>
-          <div className='nav-bar'>
-            <Nav />
           </div>
         </div>
       </div>

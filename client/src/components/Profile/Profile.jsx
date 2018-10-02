@@ -8,8 +8,10 @@ import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
 import {getProducts} from '../../actions/products'
 
+import Nav from '../Nav/Nav'
+
 class Profile extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       showForm: false
@@ -17,7 +19,7 @@ class Profile extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick () {
+  handleClick() {
     this.setState({
       showForm: !this.state.showForm
     })
@@ -92,6 +94,12 @@ class Profile extends React.Component {
             <div>
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
           </div>
         </div>
       </div>

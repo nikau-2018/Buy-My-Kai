@@ -5,6 +5,7 @@ import {postUser} from '../../actions/register'
 import {Button, Checkbox} from '@material-ui/core'
 
 import '../../styles/styles.css'
+
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
@@ -106,8 +107,10 @@ class Register extends React.Component {
                   <div className='street-address'>
                     <input
                       type="text"
+
                       className="pure-input-rounded"
                       placeholder="street address"
+
                       name='address'
                       margin="normal"
                       value={this.state.address}
@@ -182,6 +185,12 @@ class Register extends React.Component {
                 </p>
               </div>
             </div>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
           </div>
         </div>
       </div>

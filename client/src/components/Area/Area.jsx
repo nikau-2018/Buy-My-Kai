@@ -1,12 +1,14 @@
 import React from 'react'
 import { sendNeighbourhood } from '../../actions/area'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import List from './List'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import '../../styles/styles.css'
-
 import './styles.css'
+
+import Nav from '../Nav/Nav'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
@@ -81,6 +83,12 @@ class Area extends React.Component {
                   </Marker>
                 ))}
             </Map>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top">Return to top</a>
+          </div>
+          <div className='nav-bar'>
+            <Nav />
           </div>
         </div>
       </div>

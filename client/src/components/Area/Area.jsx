@@ -1,9 +1,9 @@
 import React from 'react'
-import { sendNeighbourhood } from '../../actions/area'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {sendNeighbourhood} from '../../actions/area'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import List from './List'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
 
 import '../../styles/styles.css'
 import './styles.css'
@@ -39,7 +39,7 @@ class Area extends React.Component {
   }
 
   render () {
-    const growers = this.props.growersList || [] // short hand and checking if griwerList is undefinf we assined an empty array
+    const growers = this.props.growersList || [] // short hand and checking if growerList is undefined we assign an empty array
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (

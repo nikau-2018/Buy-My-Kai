@@ -59,3 +59,19 @@ export function getProducts () {
       })
   }
 }
+
+export function deleteProduct (productId) {
+  return dispatch => {
+    dispatch(productPending())
+    return request
+      .delete(`/api/v1/products/${productId}`, getHeaders())
+      .then(res => {
+        dispatch(productSuccessful(res.data.products))
+        // eslint-disable-next-line no-console
+        console.log('deleting your products')
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}

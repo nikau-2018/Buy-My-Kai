@@ -3,6 +3,8 @@ import request from 'axios'
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
+import {getProducts} from './products'
+
 export const PROFILE_ERROR = 'PROFILE_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
@@ -42,6 +44,7 @@ export function getProfile () {
 
         // Send user to the store.
         dispatch(profileSuccess(res.data.user))
+        dispatch(getProducts())
 
         // eslint-disable-next-line no-console
         console.log('success')

@@ -13,7 +13,8 @@ module.exports = {
   getSeller,
   getSellerBySuburb,
   loginUser,
-  editUser
+  editUser,
+  deleteProductByUser
 }
 
 // adds a new user to the database
@@ -137,4 +138,11 @@ function editUser (userId, user, testDb) {
       lat: user.lat,
       long: user.long
     })
+}
+
+function deleteProductByUser (productId, testDb) {
+  const db = testDb || connection
+  return db('products')
+    .where('id', productId)
+    .del()
 }

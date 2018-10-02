@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 
 import './app.css'
 import Home from '../Home'
@@ -8,11 +8,13 @@ import Register from '../Register/Register'
 import Area from '../Area/Area'
 import Profile from '../Profile'
 import Addproduct from '../Product/Addproduct'
+import Logout from '../Logout/Logout'
 
 export default class App extends Component {
   render () {
     return (
       <div className="app pure-g">
+        <Logout />
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

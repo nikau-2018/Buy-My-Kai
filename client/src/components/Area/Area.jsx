@@ -1,15 +1,23 @@
-import React from 'react'
-import { sendNeighbourhood } from '../../actions/area'
-import { connect } from 'react-redux'
-import List from './List'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Button } from '@material-ui/core';
+import React from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { sendNeighbourhood } from '../../actions/area';
 import { mapDraw } from '../../actions/mapDraw';
+
+import MapDrawer from '../MapDrawer/MapDrawer';
+import Nav from '../Nav/Nav';
+import List from './List';
+
+import logo from '../../images/logo-4.png';
 import '../../styles/styles.css';
+
 import './styles.css';
 
-import Nav from '../Nav/Nav';
-import MapDrawer from '../MapDrawer/MapDrawer'
+
+
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 

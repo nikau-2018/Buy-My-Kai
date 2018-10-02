@@ -25,6 +25,7 @@ router.post(
 function addProduct (req, res) {
   const product = req.body
   const userId = req.user.id
+  console.log(req.user)
   db.addProduct(product, userId)
     .then(id => {
       res.status(200).json({

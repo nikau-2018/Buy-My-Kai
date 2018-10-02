@@ -1,7 +1,7 @@
 import {
   AREA_PENDING,
   AREA_SUCCESS,
-  SHOW_ERROR} from '../actions/area'
+  AREA_ERROR} from '../actions/area'
 
 const defaultState = {
   error: null,
@@ -23,7 +23,7 @@ export default function areaReducer (state = defaultState, {action, error, type,
         pending: false,
         growersList
       }
-    case SHOW_ERROR:
+    case AREA_ERROR:
       return {
         ...state,
         error,

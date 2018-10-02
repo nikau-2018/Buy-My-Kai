@@ -6,7 +6,7 @@ import {
 import {
   REGISTER_PENDING,
   REGISTER_SUCCESS,
-  SHOW_ERROR} from '../actions/register'
+  REGISTER_ERROR} from '../actions/register'
 
 import {
   PROFILE_PENDING,
@@ -64,7 +64,7 @@ export default function currentUserReducer (state = defaultState, action) {
         user: action.user
       }
 
-    case SHOW_ERROR:
+    case REGISTER_ERROR:
       return {
         ...state,
         error: action.err,

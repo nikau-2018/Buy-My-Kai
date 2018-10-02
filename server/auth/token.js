@@ -35,6 +35,6 @@ function createToken (id) {
   return jwt.sign({id}, process.env._KAI_JWT, {expiresIn: '1d'})
 }
 
-function getSecret (req, payload, done) {
+function getSecret (done) {
   done(null, process.env._KAI_JWT)
 }

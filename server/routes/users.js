@@ -54,6 +54,7 @@ function login (req, res) {
                 message: 'Password incorrect.'
               })
             } else {
+              res.locals.userId = id
               res.json({
                 user: user,
                 token: createToken(id)

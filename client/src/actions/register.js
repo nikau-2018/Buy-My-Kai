@@ -2,15 +2,15 @@ import request from 'axios'
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
-export const SHOW_ERROR = 'SHOW_ERROR'
+export const REGISTER_ERROR = 'REGISTER_ERROR'
 export const REGISTER_PENDING = 'REGISTER_PENDING'
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 
 const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH'
 
-export const showError = (errorMessage) => {
+export const registerError = (errorMessage) => {
   return {
-    type: SHOW_ERROR,
+    type: REGISTER_ERROR,
     errorMessage: errorMessage
   }
 }
@@ -51,7 +51,7 @@ export function postUser (user) {
           })
       })
       .catch((err) => {
-        dispatch(showError(err.message))
+        dispatch(registerError(err.message))
       })
   }
 }

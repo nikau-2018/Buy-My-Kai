@@ -62,7 +62,7 @@ class Area extends React.Component {
               margin="normal"
               value={this.state.suburb}
               onChange={this.handleChange} /><br/>
-            <button className="btn btn--search" onClick={this.handleClick}>SEARCH</button>
+            <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
             <div>{growers.map(list =>
               <List key={list.id} list={list} />
             )}</div>

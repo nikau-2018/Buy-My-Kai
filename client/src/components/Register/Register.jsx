@@ -187,7 +187,7 @@ class Register extends React.Component {
               </div>
               <div className="btn-group pure-u-1">
                 <Button
-                  className='btn btn--secondary'
+                  className='btn btn-secondary'
                   disabled={this.state.disabled}
                   onClick={this.sendUser}>
                     Go

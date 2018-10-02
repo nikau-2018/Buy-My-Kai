@@ -3,10 +3,7 @@ import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
 // import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
-import {postUser} from '../../actions/register'
-import Nav from '../Nav/Nav'
-
-import {getProfile} from '../../actions/profile'
+import {editUser, getProfile} from '../../actions/profile'
 
 class Grower extends React.Component {
   constructor (props) {
@@ -28,14 +25,14 @@ class Grower extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(postUser(this.state))
+    this.props.dispatch(editUser(this.state))
   }
 
   componentDidMount () {
     this.props.dispatch(getProfile())
   }
 
-  handleChange (e) {Nav
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -57,28 +54,6 @@ class Grower extends React.Component {
               name="name"
               margin="normal"
               value={this.state.name}
-              onChange={this.handleChange} />
-          </div>
-
-          <div className='email'>
-            <input
-              type="email"
-              className="pure-input-rounded"
-              placeholder={this.props.user.email}
-              name="email"
-              margin="normal"
-              value={this.state.email}
-              onChange={this.handleChange} />
-          </div>
-
-          <div className='password'>
-            <input
-              type="password"
-              className="pure-input-rounded"
-              placeholder='******'
-              name="hash"
-              margin="password"
-              value={this.state.hash}
               onChange={this.handleChange} />
           </div>
 

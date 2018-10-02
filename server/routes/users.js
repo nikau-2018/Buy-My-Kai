@@ -166,4 +166,24 @@ function getSellerBySuburb (req, res) {
     })
 }
 
+router.put(
+  '/edit',
+  verifyJwt({secret: process.env._KAI_JWT}),
+  editUserById
+)
+
+function editUserById (req, res) {
+  const user = req.body
+  const userId = req.user.id
+  db.editUser(userId, user)
+    .then(user => {
+      /* eslint-disable no-console */
+      console.log('sending back edited user')
+      res.json({user})
+    })
+    .catch(err => {
+      res.status(500).send('Database Error: ' + err.message)
+    })
+}
+
 module.exports = router

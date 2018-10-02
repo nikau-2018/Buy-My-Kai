@@ -12,7 +12,8 @@ module.exports = {
   getUser,
   getSeller,
   getSellerBySuburb,
-  loginUser
+  loginUser,
+  editUser
 }
 
 // adds a new user to the database
@@ -119,5 +120,21 @@ function getSellerBySuburb (suburb, testDb) {
       long: 'users.long',
       description: 'users.description',
       hours: 'users.hours'
+    })
+}
+
+function editUser (userId, user, testDb) {
+  const db = testDb || connection
+  return db('users')
+    .where('id', userId)
+    .update({
+      name: user.name,
+      description: user.description,
+      address: user.address,
+      suburb: user.suburb,
+      city: user.city,
+      hours: user.hours,
+      lat: user.lat,
+      long: user.long
     })
 }

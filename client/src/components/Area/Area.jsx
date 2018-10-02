@@ -1,15 +1,15 @@
 import React from 'react'
 import { sendNeighbourhood } from '../../actions/area'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import List from './List'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Button } from '@material-ui/core';
 import { mapDraw } from '../../actions/mapDraw';
 import '../../styles/styles.css';
 import './styles.css';
 
 import Nav from '../Nav/Nav';
-import MapDraw from '../Drawer/MapDraw'
+import MapDrawer from '../MapDrawer/MapDrawer'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
@@ -43,7 +43,7 @@ class Area extends React.Component {
 
     return (
       <div className="home">
-        <MapDraw />
+        <MapDrawer />
         <div className="pure-img background"></div>
         <div className="container pure-u-1-1 pure-u-md-1-2">
           <h3>Search For Growers</h3>

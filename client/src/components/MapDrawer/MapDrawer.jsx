@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Button } from '@material-ui/core';
-import mapDraw from '../../actions/mapDraw';
+import { mapDraw } from '../../actions/mapDraw';
 
 const styles = {
   list: {
@@ -17,28 +18,27 @@ const styles = {
   },
 };
 
-const MapDrawer = ({ classes, isOpen }) => (
+const MapDrawer = ({ isOpen, toggleDrawer }) => (
   <Drawer open={isOpen}>
     <div>
       <h1>Hi, I'm Drawer :3</h1>
-      <Button onClick={() => this.toggleDrawer(false)}>
+      <Button onClick={() => toggleDrawer()}>
         Close
     </Button>
     </div>
   </Drawer>
 )
 
-MapDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+const mapStateToProps = (state) => ({
+  isOpen: state.mapDrawer.isOpen,
+});
 
-
-const mapStateToProps = (state) => {
-  return {
-    isOpen: state.mapDrawReducer.isOpen
-  }
-}
+const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    toggleDrawer: mapDraw,
+  }, dispatch)
+);
 
 const StyledDrower = withStyles(styles)(MapDrawer);
 
-export default connect(mapStateToProps)(StyledDrower);
+export default connect(mapStateToProps, mapDispatchToProps)(StyledDrower);

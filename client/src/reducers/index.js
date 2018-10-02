@@ -9,5 +9,5 @@ export default combineReducers({
   currentUserReducer,
   addproductReducer,
   areaReducer,
-  mapDrawReducer
+  mapDrawer: mapDrawReducer,
 })

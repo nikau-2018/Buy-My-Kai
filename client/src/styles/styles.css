@@ -165,6 +165,7 @@ footer {
 .map  {
   position: relative;
   justify-content: center;
+  margin: 1%;
 }
 
 h3 {
@@ -247,9 +248,6 @@ button.btn {
   background: #659026 !important;
 }
 
-.btn-search {
-  margin: 0% !important;
-}
 
 .btn--nav {
   background: none;

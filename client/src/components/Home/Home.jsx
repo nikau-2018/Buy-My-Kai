@@ -18,14 +18,14 @@ export default function Home (props) {
         <div className="btn-group pure-u-1">
           <Link to="/login">
             <Button
-              className='btn btn--primary'>
+              className='btn btn-primary'>
               <i className="fas fa-sign-in-alt"></i>
               Login
             </Button>
           </Link>
           <Link to="/register">
             <Button
-              className='btn btn--secondary'>
+              className='btn btn-secondary'>
               <i className="fas fa-user-plus"></i>
               Register
             </Button>

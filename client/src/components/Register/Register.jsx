@@ -5,6 +5,7 @@ import {postUser} from '../../actions/register'
 import {Button, Checkbox} from '@material-ui/core'
 
 import '../../styles/styles.css'
+import Nav from '../Nav/Nav'
 
 import logo from '../../images/logo-4.png'
 
@@ -63,16 +64,16 @@ class Register extends React.Component {
       <div>
         <div className="pure-img background"></div>
 
-        <div className="home">
+        <div className="container pure-u-1">
           <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+            <img className="pure-img logo-small" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
 
-          <div className="container pure-u-1-1 pure-u-md-1-2">
-            <h3>SIGN UP</h3>
+          <div className="register pure-u-1">
+            <h3>REGISTER</h3>
             <p>We just need to get a few details<br />
                 from you to get you sign up <br />
                 to the service.</p>
@@ -186,20 +187,20 @@ class Register extends React.Component {
               </div>
               <div className="btn-group pure-u-1">
                 <Button
-                  className='btn btn--primary'
+                  className='btn btn--secondary'
                   disabled={this.state.disabled}
                   onClick={this.sendUser}>
                     Go
                 </Button>
                 {this.state.success && <Redirect to="/profile" />}
                 <div className="register-group pure-u-1">
-                  <p>Already a member?
+                  <h5>Already a member?
                     <Link className='btn-link' to="/login"> <u>Login</u></Link>
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
-            <div className='backtotop  pure-u-1'>
+            <div className='backtotop pure-u-1'>
               <a href="#top"><p> Return to top <i className="fas fa-caret-up"></i></p></a>
             </div>
             <div className='nav-bar'>

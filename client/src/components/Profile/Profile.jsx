@@ -35,23 +35,23 @@ class Profile extends React.Component {
     const profile = this.props.user || {}
     return (
 
-      <div className='profile'>
+      <div>
         <div className="pure-img background"></div>
-        <div className='container pure-u-1-1 pure-u-md-1-2'>
-        <Link to='/'>
+        <div className='container pure-u-1'>
+          <Link to='/'>
             <img className="pure-img logo-small" src={logo} />
           </Link>
-        <div className='nav-bar'>
+          <div className='nav-bar'>
             <Nav />
           </div>
-          <div className='profile-info pure-u-1-1 pure-u-md-1-2'>
+          <div className='profile pure-u-1'>
             <h3>Kia ora Grower</h3>
-            <h5>Thank you for registering with Buy My Kai <br />
-              we are excited to have you as part of our community!</h5>
-            <p>This is your profile page, here you'll find your registered details.<br/><br/>
+            <p>Thank you for registering with Buy My Kai <br />
+              we are excited to have you as part of our community!</p>
+            <p>This is your profile page, here you'll find your registered details.<br/>
               Please make sure they are up to date as this is what
               eaters will be seeing when they search your area on the map.</p>
-            <ul className="profile-info pure-u-1">
+            <ul className="profile pure-u-1">
               {profile.isSeller
                 ? <div>
                   <h5>description</h5><p>{profile.description}</p>
@@ -88,8 +88,8 @@ class Profile extends React.Component {
               {this.state.showForm ? <Addproduct /> : <div></div>}
             </div>
           </div>
-          <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
+          <div className='backtotop pure-u-1'>
+            <a href="#top"><h5>Return to top</h5></a>
           </div>
           <div className='nav-bar'>
             <Nav />

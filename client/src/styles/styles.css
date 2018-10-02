@@ -2,10 +2,22 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  [class*="col-"] {
-    width: 100%;
+  .body {
+    background: url("../images/apricot.jpg");
+  }
+  .background {
+    background-size: cover;
+    height: 100%;
+  }
+  .home-container,
+  .register-container,
+  .login-container {
+    position: unset;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95)
   }
 }
+
 
 /* Small devices (portrait tablets and large phones, 600px and up)
 @media only screen and (min-width: 600px) {...}  */
@@ -50,7 +62,7 @@
 
   button.btn {
     margin: 1rem;
-    max-width: 200px;
+    max-width: 100%;
   }
 }
 
@@ -63,7 +75,7 @@
     width: 75%;
   }
   button.btn {
-    max-width: 300px;
+    max-width: 150%;
   }
 }
 
@@ -87,6 +99,7 @@ a {
 }
 .background {
   background: url("../images/apricot.jpg");
+  background-color: grey;
   background-position: center;
   position: absolute;
   z-index: -1;
@@ -105,27 +118,30 @@ a {
   }
 
 .logo {
-  width: 40%;;
+  width: 40%;
   margin: auto;
-  padding-top:30%;
+  padding-top:5%;
 }
 
 .logo-small {
   width: 25%;
   margin: auto;
-  padding: 5%;
 }
 
 .container {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center ;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 5rem;
+  padding: 7rem;
   filter: blur(-3px);
+}
+
+footer {
+  align-items: center;
 }
 
 .pure-menu {
@@ -135,7 +151,15 @@ a {
   align-items: center;
   box-sizing: border-box;
   text-align: center;
-  padding: 3rem;
+  padding: 1rem;
+  
+}
+
+.pure-menu-link {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  margin: 3%;
 }
 
 .map  {
@@ -147,32 +171,31 @@ h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: bolder;
-  padding-top: 3%;
   color: white;
   text-align: center;
   letter-spacing: 6px;
-  text-align: left !important;
 }
 
 p,
 .register-group {
-  color: black;
+  color: white;
   text-align: center;
   font-size: 1.2rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
-  text-align: left !important;
 }
 
-
 h5 {
-  color: black;
+  color: white;
   text-align: center;
   font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
-  text-align: left !important;
+}
+
+.backtotop {
+  margin: 3%;
 }
 
 /* CTA BUTTONS */
@@ -200,19 +223,32 @@ button.btn {
   border: 1px solid transparent;
   margin: .5rem auto;
   padding: .8rem;
-  width: 40%;
+  width: 30%;
   -webkit-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -moz-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   -o-transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
   transition: color .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out;
 }
 
-.btn--primary {
-  background: #81b82f !important;
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover, {
+  color:white !important;
+  background: transparent !important;
+  border: 1px solid white;
 }
 
-.btn--secondary {
+.btn-primary {
+  background: #81b82f !important;
+
+}
+
+.btn-secondary {
   background: #659026 !important;
+}
+
+.btn-search {
+  margin: 0% !important;
 }
 
 .btn--nav {
@@ -223,11 +259,10 @@ button.btn {
 
 
 .pure-input-rounded {
-  margin: 2%;
+  margin: 1%;
   font-size: 1.2rem;
   color: rgb(70, 70, 70) !important;
   font-family: 'Montserrat', sans-serif;
-  width: 67%;
   filter: opacity(50%);
 }
 
@@ -256,11 +291,7 @@ button.btn {
   margin-right: 1rem !important;
 }
 
-.btn:hover {
-  color:white !important;
-  background: transparent !important;
-  border: 1px solid white;
-}
+
 
 /* Form elements */
 .form-container {

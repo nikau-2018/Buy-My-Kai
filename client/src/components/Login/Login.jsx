@@ -40,18 +40,19 @@ class Login extends React.Component {
   render () {
     const {error, isLoggedIn} = this.props
     return (
-      <div className="login">
+      <div>
         <div className="pure-img background"></div>
         {error ? <div className="toast-error">{error.message}</div> : null}
-        <div className="container pure-u-1-1 pure-u-md-1-2">
+
+        <div className="container pure-u-1">
           <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+            <img className="pure-img logo-small" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
-          <h3>LOG IN</h3>
           <div className="pure-form pure-u-1">
+            <h3>LOG IN</h3>
             {isLoggedIn ? <Redirect to="/profile" /> : null}
             <div>
               <input
@@ -77,7 +78,7 @@ class Login extends React.Component {
 
           <div className="btn-group pure-u-1">
             <Button
-              className='btn btn--primary'
+              className='btn btn-secondary'
               onClick={this.handleSubmit}
               disabled={this.state.disabled}>
               Go
@@ -85,9 +86,9 @@ class Login extends React.Component {
           </div>
 
           <div className="register-group pure-u-1">
-            <p>Not a member? Create an
+            <h5>Not a member? Create an
               <Link className='btn-link' to="/register"> <u>account</u></Link>
-            </p>
+            </h5>
           </div>
 
         </div>

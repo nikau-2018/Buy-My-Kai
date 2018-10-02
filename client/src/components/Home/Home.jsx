@@ -9,7 +9,7 @@ export default function Home (props) {
   return (
     <div className="home">
       <div className="pure-img background"></div>
-      <div className="container pure-u-1-1 pure-u-md-1-2">
+      <div className="container pure-u-1">
         <img className="pure-img logo" src={logo} />
         <h3>WELCOME !</h3>
         <p>Buy My Kai connects people <br />

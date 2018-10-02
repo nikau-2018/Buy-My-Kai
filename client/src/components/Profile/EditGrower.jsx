@@ -11,9 +11,19 @@ class Grower extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showForm: false
+      showForm: false,
+      name: '',
+      email: '',
+      hash: '',
+      isSeller: false,
+      address: '',
+      suburb: '',
+      city: '',
+      description: '',
+      hours: ''
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleClick () {
@@ -29,11 +39,6 @@ class Grower extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    if (this.state.name && this.state.email && this.state.hash) {
-      this.setState({
-        disabled: false
-      })
-    }
   }
 
   render () {

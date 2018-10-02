@@ -1,3 +1,12 @@
+html,
+body {
+  height:100%;
+}
+
+body {
+  min-height: 100%;
+}
+
 /* MEDIA QUERIES */
 
 /* Extra small devices (phones, 600px and down) */
@@ -97,7 +106,8 @@ a {
   color: normal;
   text-decoration: none;
 }
-.background {
+
+.background-home {
   background: url("../images/apricot.jpg");
   background-color: grey;
   background-position: center;
@@ -116,6 +126,86 @@ a {
   -moz-background-size: cover;
   -o-background-size: cover;
   }
+
+  .background-login {
+    background: url("../images/avocado.jpg");
+    background-color: grey;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(3px) brightness(70%);
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    }
+
+    .background-register {
+      background: url("../images/delicious.jpg");
+      background-color: grey;
+      background-position: center;
+      position: absolute;
+      z-index: -1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      filter: blur(3px) brightness(70%);
+      min-height: 100vh;
+      height: 100%;
+      width: 100vw;
+      display:flex;
+      align-items: center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      }
+
+    .background-profile {
+      background: url("../images/tea.jpg");
+      background-color: grey;
+      background-position: center;
+      position: absolute;
+      z-index: -1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      filter: blur(3px) brightness(70%);
+      min-height: 100vh;
+      height: 100%;
+      width: 100vw;
+      display:flex;
+      align-items: center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      }
+
+      .background-area {
+        background: url("../images/fruits.jpg");
+        background-color: grey;
+        background-position: center;
+        position: absolute;
+        z-index: -1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        filter: blur(3px) brightness(70%);
+        min-height: 100vh;
+        height: 100%;
+        width: 100vw;
+        display:flex;
+        align-items: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        }
 
 .logo {
   width: 40%;
@@ -152,7 +242,7 @@ footer {
   box-sizing: border-box;
   text-align: center;
   padding: 1rem;
-  
+
 }
 
 .pure-menu-link {
@@ -181,7 +271,7 @@ p,
 .register-group {
   color: white;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
@@ -262,6 +352,7 @@ button.btn {
   color: rgb(70, 70, 70) !important;
   font-family: 'Montserrat', sans-serif;
   filter: opacity(50%);
+  width: 35%;
 }
 
 /* .btn[disabled] {

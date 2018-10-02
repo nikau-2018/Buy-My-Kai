@@ -63,7 +63,11 @@ class Grower extends React.Component {
                 <h5>availability</h5><p>{profile.hours}</p>
                 <h5>my products</h5>
                 <p>{this.props.product && this.props.product.map(product =>
-                  <p key={product.id}>{product.product_name}<br/>{product.price}: {product.quantity}</p>
+                  <div key={product.id}>{product.product_name}<br/>{product.price}: {product.quantity}
+                    <button value={product.id}>Delete</button>
+                    <button value={product.id}>Edit</button>
+                  </div>
+
                 )}</p>
                 <Button
                   onClick={this.handleClick}

@@ -112,29 +112,29 @@ function getUser (req, res) {
   db.getUser(userId)
     .then(user => {
       // Determine which user type to return.
-      switch (user) {
-        case user.isSeller:
+      switch (user.isSeller) {
+        case 1:
           return db.getSeller(userId)
-            .then(seller => {
+            .then(user => {
               res.status(200).json({
                 ok: true,
-                token: createToken(seller.id),
-                seller
+                token: createToken(user.id),
+                user
               })
-                .catch(({message}) => {
-                  res.status(500).json({
-                    ok: false,
-                    message: message
-                  })
-                })
+            })
+            .catch(({message}) => {
+              res.status(500).json({
+                ok: false,
+                message: message
+              })
             })
 
         default:
-          return res.status(200).json({
-            ok: true,
-            token: createToken(userId),
-            user
-          })
+            return res.status(200).json({
+              ok: true,
+              token: createToken(userId),
+              user
+            })
       }
     })
     .catch(({message}) => {

@@ -23,15 +23,12 @@ class Profile extends React.Component {
     })
   }
 
-  componentDidUpdate () {
-    this.props.dispatch(getProducts())
-  }
-
   componentDidMount () {
     this.props.dispatch(getProfile())
   }
 
   render () {
+    this.props.dispatch(getProducts())
     const profile = this.props.user || {}
     return (
       <div className='profile'>
@@ -67,10 +64,10 @@ class Profile extends React.Component {
                   <h5>suburb</h5><p>{profile.suburb}</p>
                   <h5>city</h5><p>{profile.city}</p>
                   <h5>availability</h5><p>{profile.hours}</p>
-                  <p>{this.props.product ? <h5>my products</h5> : <div></div>}
-                    {this.props.product && this.props.product.map(product =>
-                      <p key={product.id}>{product.product_name}{product.product_name}</p>
-                    )}</p>
+                  <h5>my products</h5>
+                  <p>{this.props.product && this.props.product.map(product =>
+                    <p key={product.id}>{product.product_name}<br/>{product.price}: {product.quantity}</p>
+                  )}</p>
                   <Button
                     onClick={this.handleClick}
                     className="btn--fab"

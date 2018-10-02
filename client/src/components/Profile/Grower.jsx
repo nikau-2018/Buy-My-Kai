@@ -6,6 +6,7 @@ import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
+import {deleteProduct} from '../../actions/products'
 
 import EditGrower from '../Profile/EditGrower'
 
@@ -18,6 +19,7 @@ class Grower extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleClick () {
@@ -30,6 +32,11 @@ class Grower extends React.Component {
     this.setState({
       editForm: !this.state.editForm
     })
+  }
+
+  handleDelete (e) {
+    console.log(e.target.value)
+    this.props.dispatch(deleteProduct(e.target.value))
   }
 
   componentDidMount () {
@@ -64,8 +71,7 @@ class Grower extends React.Component {
                 <h5>my products</h5>
                 <p>{this.props.product && this.props.product.map(product =>
                   <div key={product.id}>{product.product_name}<br/>{product.price}: {product.quantity}
-                    <button value={product.id}>Delete</button>
-                    <button value={product.id}>Edit</button>
+                    <button onClick={this.handleDelete} value={product.id}>Delete</button>
                   </div>
 
                 )}</p>

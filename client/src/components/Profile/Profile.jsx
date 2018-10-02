@@ -6,6 +6,7 @@ import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
+import {getProducts} from '../../actions/products'
 
 class Profile extends React.Component {
   constructor (props) {
@@ -24,6 +25,7 @@ class Profile extends React.Component {
 
   componentDidMount () {
     this.props.dispatch(getProfile())
+    this.props.dispatch(getProducts())
   }
 
   render () {
@@ -57,12 +59,15 @@ class Profile extends React.Component {
             <ul className="profile-info pure-u-1">
               {profile.isSeller
                 ? <div>
-                  <li><p><strong>Seller Information:</strong><br /> {profile.description}</p></li>
-                  <li><p><strong>Address:</strong> {profile.address}</p></li>
-                  <li><p><strong>Suburb:</strong> {profile.suburb}</p></li>
-                  <li><p><strong>City:</strong> {profile.city}</p></li>
-                  <li><p><strong>Postcode:</strong> {profile.postcode}</p></li>
-                  <li><p><strong>Availability:</strong> {profile.hours}</p></li>
+                  <p>{profile.description}</p>
+                  <p>{profile.address}</p>
+                  <p>{profile.suburb}</p>
+                  <p>{profile.city}</p>
+                  <p>{profile.postcode}</p>
+                  <p>{profile.hours}</p>
+                  <p><strong>My Products:</strong><br/><br/>{this.props.product && this.props.product.map(product =>
+                    <p key={product.id}>{product.product_name}</p>
+                  )}</p>
                   <Button
                     onClick={this.handleClick}
                     className="btn--fab"
@@ -96,7 +101,8 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.currentUserReducer.user,
-  pending: state.currentUserReducer.pending
+  pending: state.currentUserReducer.pending,
+  product: state.addproductReducer.product
 })
 
 export default connect(mapStateToProps)(Profile)

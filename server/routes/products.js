@@ -44,18 +44,21 @@ function addProduct (req, res) {
 // GET ROUTES
 
 // Get product
-router.get('/', getProduct)
+router.get('/',
+  verifyJwt({secret: process.env._KAI_JWT}),
+  getProducts)
+
 router.get('/', getProductByName)
 
 // Get a product by ID
-function getProduct (req, res) {
-  const productId = Number(req.params.id)
-  db.getProductById(productId)
-    .then(product => {
+function getProducts (req, res) {
+  const userId = req.user.id
+  db.getProductByUserId(userId)
+    .then(products => {
       res.status(200).json({
         ok: true,
-        message: 'Product was retrieved.',
-        product
+        message: 'Products have been retrieved.',
+        products
       })
     })
     .catch(({message}) => {

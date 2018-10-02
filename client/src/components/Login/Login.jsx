@@ -37,8 +37,8 @@ class Login extends React.Component {
     this.props.dispatch(loginUser(this.state.email, this.state.hash))
   }
 
-  render () {
-    const {error, isLoggedIn} = this.props
+  render() {
+    const { error, isLoggedisOpenIn } = this.props
     return (
       <div>
         <div className="pure-img background"></div>

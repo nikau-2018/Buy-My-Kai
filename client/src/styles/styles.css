@@ -1,3 +1,82 @@
+/* MEDIA QUERIES */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)
+@media only screen and (min-width: 600px) {...}  */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .body {
+    background: url("../images/apricot.jpg");
+  }
+  .background {
+    background-size: cover;
+    height: 100%;
+  }
+  .home-container,
+  .register-container,
+  .login-container {
+    position: unset;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95)
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .body {
+    background: url("../images/apricot.jpg");
+  }
+
+  .logo {
+    width: 25%;
+  }
+
+  [class*="MuiFormControl-root"] {
+    width: 50%;
+  }
+
+  .btn-group {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  button.btn {
+    margin: 1rem;
+    max-width: 200px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .body {
+    background: url("../images/apricot.jpg");
+  }
+  .btn-group {
+    width: 75%;
+  }
+  button.btn {
+    max-width: 300px;
+  }
+}
+
+  /* CTA Buttons */
+  .btn-group {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  button.btn {
+    width: 200%;
+  }
+
 /*
   Main Component CSS File
 */
@@ -26,19 +105,19 @@ a {
   }
 
 .logo {
-  width: 350px;
+  width: 40%;;
   margin: auto;
   padding-top:30%;
 }
 
 .logo-small {
-  width: 150px;
+  width: 25%;
   margin: auto;
-  margin-left: 3%;
+  padding: 5%;
 }
 
 .container {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,6 +138,10 @@ a {
   padding: 3rem;
 }
 
+.map  {
+  position: relative;
+  justify-content: center;
+}
 
 h3 {
   font-family: 'Montserrat', sans-serif;
@@ -196,61 +279,3 @@ button.btn {
 
 
 
-/* MEDIA QUERIES */
-
-/* TABLET */
-@media screen and (min-width: 768px) {
-  .background {
-    background-size: cover;
-    height: 100%;
-  }
-  .home-container,
-  .register-container,
-  .login-container {
-    position: unset;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.95)
-  }
-
-  /* CTA Buttons */
-  .btn-group {
-    width: 100%;
-    justify-content: space-evenly;
-  }
-
-  button.btn {
-    width: 250px;
-  }
-}
-
-/* DESKTOP */
-@media screen and (min-width: 988px) {
-  .logo {
-    width: 25%;
-  }
-
-  [class*="MuiFormControl-root"] {
-    width: 50%;
-  }
-
-  .btn-group {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  button.btn {
-    margin: 1rem;
-    max-width: 200px;
-  }
-}
-
-/* LARGE DESKTOP */
-@media screen and (min-width: 1320px) {
-  .btn-group {
-    width: 75%;
-  }
-  button.btn {
-    max-width: 300px;
-  }
-}

@@ -54,13 +54,6 @@ class Login extends React.Component {
           <div className="pure-form pure-u-1">
             {isLoggedIn ? <Redirect to="/profile" /> : null}
             <div>
-              {/* <TextField
-                type="email"
-                label="Email"
-                name="email"
-                margin="normal"
-                value={this.state.email}
-                onChange={this.handleChange} /> */}
               <input
                 type="email"
                 className="pure-input-rounded"
@@ -71,13 +64,6 @@ class Login extends React.Component {
                 onChange={this.handleChange} />
             </div>
             <div>
-              {/* <TextField
-                  type="password"
-                  label="Password"
-                  name="hash"
-                  margin="normal"
-                  value={this.state.hash}
-                  onChange={this.handleChange} /> */}
               <input
                 type="password"
                 class="pure-input-rounded"

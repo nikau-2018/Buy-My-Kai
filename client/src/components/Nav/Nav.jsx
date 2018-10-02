@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 // import logo-simple from '../../images/favicon.ico'
 
 export default function Nav (props) {

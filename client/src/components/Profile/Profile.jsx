@@ -9,6 +9,7 @@ import Addproduct from '../Product/Addproduct'
 import {getProfile} from '../../actions/profile'
 
 import Nav from '../Nav/Nav'
+import logo from '../../images/logo-4.png'
 
 class Profile extends React.Component {
   constructor(props) {

@@ -9,6 +9,7 @@ import '../../styles/styles.css'
 import './styles.css'
 
 import Nav from '../Nav/Nav'
+import logo from '../../images/logo-4.png'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
@@ -67,7 +68,7 @@ class Area extends React.Component {
               <List key={list.id} list={list} />
             )}</div>
           </div>
-          <div className="map pure-u-1-1 pure-u-md-1-2">
+          <div className="map">
             <Map className="Leaflet" center={center} zoom={13}>
               <TileLayer
                 attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"

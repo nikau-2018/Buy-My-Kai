@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from '@material-ui/core'
+import {Link} from 'react-router-dom'
+import {Button} from '@material-ui/core'
 
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
-export default function Home(props) {
+export default function Home (props) {
   return (
     <div className="home">
       <div className="pure-img background"></div>

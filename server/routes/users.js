@@ -33,7 +33,6 @@ function login (req, res) {
   const {email} = req.body
   db.loginUser(email)
     .then(user => {
-
       // Save users password.
       const pwd = req.body.hash
 
@@ -55,7 +54,6 @@ function login (req, res) {
                 message: 'Password incorrect.'
               })
             } else {
-
               res.json({
                 user: user,
                 token: createToken(id)
@@ -78,11 +76,10 @@ function register (req, res) {
   const user = req.body
   db.addUser(user)
     .then(id => {
-
       res.status(201).json({
         ok: true,
         message: 'Account created successfully.',
-        token: createToken(id[0]),
+        token: createToken(id[0])
       })
     })
     .catch(({message}) => {
@@ -110,29 +107,27 @@ router.get(
 
 // Get user by ID route function
 function getUser (req, res) {
-
   // Get the users ID from the token.
   const userId = req.user.id
   db.getUser(userId)
     .then(user => {
-
       // Determine which user type to return.
       switch (user) {
         case user.isSeller:
           return db.getSeller(userId)
-          .then(seller => {
-            res.status(200).json({
-              ok: true,
-              token: createToken(seller.id),
-              seller
-            })
-              .catch(({message}) => {
-                res.status(500).json({
-                  ok: false,
-                  message: message
-                })
+            .then(seller => {
+              res.status(200).json({
+                ok: true,
+                token: createToken(seller.id),
+                seller
               })
-          })
+                .catch(({message}) => {
+                  res.status(500).json({
+                    ok: false,
+                    message: message
+                  })
+                })
+            })
 
         default:
           return res.status(200).json({

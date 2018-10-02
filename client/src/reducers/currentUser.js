@@ -1,17 +1,17 @@
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGIN_ERROR } from '../actions/login'
+  LOGIN_ERROR} from '../actions/login'
 
 import {
   REGISTER_PENDING,
   REGISTER_SUCCESS,
-  SHOW_ERROR } from '../actions/register'
+  SHOW_ERROR} from '../actions/register'
 
 import {
   PROFILE_PENDING,
   PROFILE_SUCCESS,
-  PROFILE_ERROR } from '../actions/profile'
+  PROFILE_ERROR} from '../actions/profile'
 
 const defaultState = {
   error: null,

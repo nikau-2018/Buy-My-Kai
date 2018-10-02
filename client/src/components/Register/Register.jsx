@@ -76,7 +76,7 @@ class Register extends React.Component {
             <div className='name'>
               <input
                 type="text"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Name"
                 name="name"
                 margin="normal"
@@ -86,7 +86,7 @@ class Register extends React.Component {
             <div className='email'>
               <input
                 type="email"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Email"
                 name="email"
                 margin="normal"
@@ -96,7 +96,7 @@ class Register extends React.Component {
             <div className='password'>
               <input
                 type="password"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Password"
                 name="hash"
                 margin="password"
@@ -109,7 +109,7 @@ class Register extends React.Component {
                   <div className='street-address'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="Street Address"
                       name='address'
                       margin="normal"
@@ -119,7 +119,7 @@ class Register extends React.Component {
                   <div className='suburb'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="Suburb"
                       name='suburb'
                       margin="normal"
@@ -129,7 +129,7 @@ class Register extends React.Component {
                   <div className='city'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="city"
                       name='city'
                       margin="normal"
@@ -139,7 +139,7 @@ class Register extends React.Component {
                   <div className='postcode'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="postcode"
                       name='postcode'
                       margin="normal"
@@ -149,7 +149,7 @@ class Register extends React.Component {
                   <div className='description'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="Description"
                       name='description'
                       margin="normal"
@@ -159,7 +159,7 @@ class Register extends React.Component {
                   <div className='hours'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="Hours"
                       name='hours'
                       margin="normal"

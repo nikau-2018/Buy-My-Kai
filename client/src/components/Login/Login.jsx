@@ -36,7 +36,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { error, isLoggedIn } = this.props
+    const { error, isLoggedisOpenIn } = this.props
     return (
       <div className="login">
         <div className="pure-img background"></div>
@@ -75,7 +75,7 @@ class Login extends React.Component {
                   onChange={this.handleChange} /> */}
               <input
                 type="password"
-                class="pure-input-rounded"
+                className="pure-input-rounded"
                 placeholder="Password"
                 name="hash"
                 margin="normal"

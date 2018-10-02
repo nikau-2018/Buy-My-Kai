@@ -4,29 +4,25 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import List from './List'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import { mapDraw } from '../../actions/mapDraw';
+import '../../styles/styles.css';
+import './styles.css';
 
-import '../../styles/styles.css'
-import './styles.css'
-
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
+import MapDraw from '../Drawer/MapDraw'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      suburb: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+  state = {
+    suburb: ''
   }
 
-  handleClick() {
+  handleClick = () => {
     this.sendNeighbourhood(this.state.suburb)
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -34,22 +30,27 @@ class Area extends React.Component {
   }
 
   sendNeighbourhood() {
-    this.props.dispatch(sendNeighbourhood(this.state))
+    this.props.dispatch(sendNeighbourhood(this.state.suburb))
+  }
+
+  openDrawer = () => {
+    this.props.dispatch(mapDraw())
   }
 
   render() {
-    const growers = this.props.growersList || [] // short hand and checking if griwerList is undefinf we assined an empty array
+    const growers = this.props.growersList || [] // short hand and chmapDrowif griwerList is undefinf we assined an empty array
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
       <div className="home">
+        <MapDraw />
         <div className="pure-img background"></div>
         <div className="container pure-u-1-1 pure-u-md-1-2">
           <h3>Search For Growers</h3>
           <div className="pure-form pure-u-1">
             <input
               type="text"
-              class="pure-input-rounded"
+              className="pure-input-rounded"
               placeholder="Suburb"
               name='suburb'
               margin="normal"
@@ -79,6 +80,7 @@ class Area extends React.Component {
                     <Popup>
                       <div>{name}</div>
                       <div>{description}</div>
+                      <Button onClick={this.openDrawer}>More info</Button>
                     </Popup>
                   </Marker>
                 ))}
@@ -98,7 +100,7 @@ class Area extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    growersList: state.areaReducer.growersList
+    growersList: state.areaReducer.growersList,
   }
 }
 export default connect(mapStateToProps)(Area)

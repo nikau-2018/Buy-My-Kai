@@ -77,6 +77,7 @@ class Register extends React.Component {
             <p>We just need to get a few details<br />
                 from you to get you sign up <br />
                 to the service.</p>
+
             <div className="pure-form pure-u-1">
               <div className='name'>
                 <input
@@ -141,16 +142,7 @@ class Register extends React.Component {
                         value={this.state.city}
                         onChange={this.handleChange} />
                     </div>
-                    <div className='postcode'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="postcode"
-                        name='postcode'
-                        margin="normal"
-                        value={this.state.postcode}
-                        onChange={this.handleChange} />
-                    </div>
+
                     <div className='description'>
                       <input
                         type="text"

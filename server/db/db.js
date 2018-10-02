@@ -6,7 +6,7 @@ const {generateHash} = require('../auth/hash')
 module.exports = {
   addUser,
   addProduct,
-  getProductById,
+  getProductByUserId,
   getProducts,
   getProductByName,
   getUser,
@@ -54,11 +54,11 @@ function addProduct (product, userId, testDb) {
 }
 
 // Get a product by ID.
-function getProductById (productId, testDb) {
+function getProductByUserId (userId, testDb) {
   const db = testDb || connection
   return db('products')
-    .where('id', productId)
-    .first()
+    .where('user_id', userId)
+    .select()
 }
 
 // gets products from the database using usersId

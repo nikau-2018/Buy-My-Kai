@@ -1,16 +1,15 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { postUser } from '../../actions/register'
-import { TextField, Button, Checkbox } from '@material-ui/core'
+import {Redirect, Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {postUser} from '../../actions/register'
+import {Button, Checkbox} from '@material-ui/core'
 
-import Nav from '../Nav/Nav'
+import '../../styles/styles.css'
 
-import styles from '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
@@ -20,7 +19,6 @@ class Register extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      postcode: '',
       description: '',
       hours: '',
       success: false,
@@ -32,14 +30,14 @@ class Register extends React.Component {
     this.sendUser = this.sendUser.bind(this)
   }
 
-  handleSeller() {
+  handleSeller () {
     this.setState({
       isSeller: !this.state.isSeller,
       isClicked: !this.state.isClicked
     })
   }
 
-  handleChange(e) {
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
@@ -51,7 +49,7 @@ class Register extends React.Component {
     }
   }
 
-  sendUser() {
+  sendUser () {
     this.props.dispatch(postUser(this.state))
       .then(
         this.setState({
@@ -60,7 +58,7 @@ class Register extends React.Component {
       )
   }
 
-  render() {
+  render () {
     return (
       <div className="home">
         <div className="pure-img background"></div>
@@ -76,8 +74,8 @@ class Register extends React.Component {
             <div className='name'>
               <input
                 type="text"
-                class="pure-input-rounded"
-                placeholder="Name"
+                className="pure-input-rounded"
+                placeholder="name"
                 name="name"
                 margin="normal"
                 value={this.state.name}
@@ -86,8 +84,8 @@ class Register extends React.Component {
             <div className='email'>
               <input
                 type="email"
-                class="pure-input-rounded"
-                placeholder="Email"
+                className="pure-input-rounded"
+                placeholder="email"
                 name="email"
                 margin="normal"
                 value={this.state.email}
@@ -96,8 +94,8 @@ class Register extends React.Component {
             <div className='password'>
               <input
                 type="password"
-                class="pure-input-rounded"
-                placeholder="Password"
+                className="pure-input-rounded"
+                placeholder="password"
                 name="hash"
                 margin="password"
                 value={this.state.hash}
@@ -109,18 +107,21 @@ class Register extends React.Component {
                   <div className='street-address'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
-                      placeholder="Street Address"
+
+                      className="pure-input-rounded"
+                      placeholder="street address"
+
                       name='address'
                       margin="normal"
                       value={this.state.address}
                       onChange={this.handleChange} />
                   </div>
                   <div className='suburb'>
+
                     <input
                       type="text"
-                      class="pure-input-rounded"
-                      placeholder="Suburb"
+                      className="pure-input-rounded"
+                      placeholder="suburb"
                       name='suburb'
                       margin="normal"
                       value={this.state.suburb}
@@ -129,28 +130,18 @@ class Register extends React.Component {
                   <div className='city'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
+                      className="pure-input-rounded"
                       placeholder="city"
                       name='city'
                       margin="normal"
                       value={this.state.city}
                       onChange={this.handleChange} />
                   </div>
-                  <div className='postcode'>
-                    <input
-                      type="text"
-                      class="pure-input-rounded"
-                      placeholder="postcode"
-                      name='postcode'
-                      margin="normal"
-                      value={this.state.postcode}
-                      onChange={this.handleChange} />
-                  </div>
                   <div className='description'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
-                      placeholder="Description"
+                      className="pure-input-rounded"
+                      placeholder="description"
                       name='description'
                       margin="normal"
                       value={this.state.description}
@@ -159,8 +150,8 @@ class Register extends React.Component {
                   <div className='hours'>
                     <input
                       type="text"
-                      class="pure-input-rounded"
-                      placeholder="Hours"
+                      className="pure-input-rounded"
+                      placeholder="hours"
                       name='hours'
                       margin="normal"
                       value={this.state.hours}
@@ -172,7 +163,7 @@ class Register extends React.Component {
             }
             <div className="checkbox pure-u-1">
               <h5>Are you a seller?
-              <Checkbox
+                <Checkbox
                   type='checkbox'
                   checked={this.state.isClicked}
                   name='seller'

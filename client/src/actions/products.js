@@ -34,8 +34,25 @@ export function sendProduct (product) {
       .then(res => {
         // eslint-disable-next-line no-console
         console.log(res)
+        dispatch(getProducts())
         // eslint-disable-next-line no-console
         console.log('success')
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
+}
+
+export function getProducts () {
+  return dispatch => {
+    dispatch(productPending())
+    return request
+      .get('/api/v1/products/', getHeaders())
+      .then(res => {
+        dispatch(productSuccessful(res.data.products))
+        // eslint-disable-next-line no-console
+        console.log('getting your products')
       })
       .catch(err => {
         dispatch(showError(err.message))

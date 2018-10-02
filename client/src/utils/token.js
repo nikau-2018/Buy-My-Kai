@@ -4,8 +4,6 @@ const TOKEN = '_KAI_JWT'
 export function setToken (token) {
   if (token) {
     localStorage.setItem(TOKEN, token)
-  } else {
-    localStorage.removeItem(TOKEN)
   }
 }
 

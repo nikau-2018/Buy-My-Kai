@@ -11,6 +11,7 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
+    "grunt-pure-grids": "^1.0.2",
     "jsonwebtoken": "^8.3.0",
     "knex": "^0.15.2",
     "libsodium-wrappers": "^0.7.3",

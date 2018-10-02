@@ -45,7 +45,13 @@ class Area extends React.Component {
       <div className="home">
         <MapDrawer />
         <div className="pure-img background"></div>
-        <div className="container pure-u-1-1 pure-u-md-1-2">
+        <div className="container pure-u-1">
+          <Link to='/'>
+            <img className="pure-img logo-small" src={logo} />
+          </Link>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
           <h3>Search For Growers</h3>
           <div className="pure-form pure-u-1">
             <input
@@ -55,14 +61,13 @@ class Area extends React.Component {
               name='suburb'
               margin="normal"
               value={this.state.suburb}
-              placeholder='Suburb'
-              onChange={this.handleChange} /><br />
-            <button className="btn btn--primary" onClick={this.handleClick}>search</button>
+              onChange={this.handleChange} /><br/>
+            <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
             <div>{growers.map(list =>
               <List key={list.id} list={list} />
             )}</div>
           </div>
-          <div className="map pure-u-1-1 pure-u-md-1-2">
+          <div className="map">
             <Map className="Leaflet" center={center} zoom={13}>
               <TileLayer
                 attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -87,10 +92,7 @@ class Area extends React.Component {
             </Map>
           </div>
           <div className='backtotop  pure-u-1'>
-            <a href="#top">Return to top</a>
-          </div>
-          <div className='nav-bar'>
-            <Nav />
+            <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
           </div>
         </div>
       </div>

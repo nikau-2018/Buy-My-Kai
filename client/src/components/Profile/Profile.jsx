@@ -11,7 +11,7 @@ import {getProducts} from '../../actions/products'
 import Nav from '../Nav/Nav'
 
 class Profile extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       showForm: false
@@ -19,7 +19,7 @@ class Profile extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.setState({
       showForm: !this.state.showForm
     })
@@ -30,9 +30,10 @@ class Profile extends React.Component {
   }
 
   render () {
-    this.props.dispatch(getProducts())
+    // this.props.dispatch(getProducts())
     const profile = this.props.user || {}
     return (
+
       <div className='profile'>
         <div className="pure-img background"></div>
 

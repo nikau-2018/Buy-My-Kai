@@ -190,7 +190,7 @@ class Register extends React.Component {
             <a href="#top">Return to top</a>
           </div>
           <div className='nav-bar'>
-            <Nav />
+            {/* <Nav /> */}
           </div>
         </div>
       </div>

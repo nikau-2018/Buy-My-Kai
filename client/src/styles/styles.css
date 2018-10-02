@@ -63,16 +63,18 @@ h3 {
   color: white;
   text-align: center;
   letter-spacing: 6px;
+  text-align: left !important;
 }
 
 p,
 .register-group {
-  color: white;
+  color: black;
   text-align: center;
   font-size: 1.2rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  text-align: left !important;
 }
 
 .footer {
@@ -81,11 +83,12 @@ p,
 
 
 h5 {
-  color: white;
+  color: black;
   text-align: center;
   font-size: 0.8rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  text-align: left !important;
 }
 
 /* CTA BUTTONS */

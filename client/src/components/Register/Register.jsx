@@ -18,7 +18,6 @@ class Register extends React.Component {
       address: '',
       suburb: '',
       city: '',
-      postcode: '',
       description: '',
       hours: '',
       success: false,
@@ -75,7 +74,7 @@ class Register extends React.Component {
               <input
                 type="text"
                 className="pure-input-rounded"
-                placeholder="Name"
+                placeholder="name"
                 name="name"
                 margin="normal"
                 value={this.state.name}
@@ -85,7 +84,7 @@ class Register extends React.Component {
               <input
                 type="email"
                 className="pure-input-rounded"
-                placeholder="Email"
+                placeholder="email"
                 name="email"
                 margin="normal"
                 value={this.state.email}
@@ -95,7 +94,7 @@ class Register extends React.Component {
               <input
                 type="password"
                 className="pure-input-rounded"
-                placeholder="Password"
+                placeholder="password"
                 name="hash"
                 margin="password"
                 value={this.state.hash}
@@ -108,7 +107,7 @@ class Register extends React.Component {
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Street Address"
+                      placeholder="street address"
                       name='address'
                       margin="normal"
                       value={this.state.address}
@@ -119,7 +118,7 @@ class Register extends React.Component {
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Suburb"
+                      placeholder="suburb"
                       name='suburb'
                       margin="normal"
                       value={this.state.suburb}
@@ -135,21 +134,11 @@ class Register extends React.Component {
                       value={this.state.city}
                       onChange={this.handleChange} />
                   </div>
-                  <div className='postcode'>
-                    <input
-                      type="text"
-                      className="pure-input-rounded"
-                      placeholder="postcode"
-                      name='postcode'
-                      margin="normal"
-                      value={this.state.postcode}
-                      onChange={this.handleChange} />
-                  </div>
                   <div className='description'>
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Description"
+                      placeholder="description"
                       name='description'
                       margin="normal"
                       value={this.state.description}
@@ -159,7 +148,7 @@ class Register extends React.Component {
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Hours"
+                      placeholder="hours"
                       name='hours'
                       margin="normal"
                       value={this.state.hours}

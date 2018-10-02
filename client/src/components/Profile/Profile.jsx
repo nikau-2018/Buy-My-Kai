@@ -23,9 +23,12 @@ class Profile extends React.Component {
     })
   }
 
+  componentDidUpdate () {
+    this.props.dispatch(getProducts())
+  }
+
   componentDidMount () {
     this.props.dispatch(getProfile())
-    this.props.dispatch(getProducts())
   }
 
   render () {
@@ -52,22 +55,22 @@ class Profile extends React.Component {
           <div className='profile-info pure-u-1-1 pure-u-md-1-2'>
             <h3>Kia ora Grower</h3>
             <h5>Thank you for registering with Buy My Kai <br />
-              to share your fruit and veg with your community!</h5>
-            <p>Here you will find your registered details, <br />
-              please make sure they are up to date as this is what<br />
-              Eaters will be seeing when they search your area</p>
+              we are excited to have you as part of our community!</h5>
+            <p>This is your profile page, here you'll find your registered details.<br/><br/>
+              Please make sure they are up to date as this is what
+              eaters will be seeing when they search your area on the map.</p>
             <ul className="profile-info pure-u-1">
               {profile.isSeller
                 ? <div>
-                  <p>{profile.description}</p>
-                  <p>{profile.address}</p>
-                  <p>{profile.suburb}</p>
-                  <p>{profile.city}</p>
-                  <p>{profile.postcode}</p>
-                  <p>{profile.hours}</p>
-                  <p><strong>My Products:</strong><br/><br/>{this.props.product && this.props.product.map(product =>
-                    <p key={product.id}>{product.product_name}</p>
-                  )}</p>
+                  <h5>description</h5><p>{profile.description}</p>
+                  <h5>address</h5><p>{profile.address}</p>
+                  <h5>suburb</h5><p>{profile.suburb}</p>
+                  <h5>city</h5><p>{profile.city}</p>
+                  <h5>availability</h5><p>{profile.hours}</p>
+                  <p>{this.props.product ? <h5>my products</h5> : <div></div>}
+                    {this.props.product && this.props.product.map(product =>
+                      <p key={product.id}>{product.product_name}{product.product_name}</p>
+                    )}</p>
                   <Button
                     onClick={this.handleClick}
                     className="btn--fab"

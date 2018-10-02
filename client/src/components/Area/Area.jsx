@@ -1,9 +1,9 @@
 import React from 'react'
-import { sendNeighbourhood } from '../../actions/area'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import {sendNeighbourhood} from '../../actions/area'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import List from './List'
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
+import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
 
 import '../../styles/styles.css'
 import './styles.css'
@@ -13,7 +13,7 @@ import Nav from '../Nav/Nav'
 const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       suburb: ''
@@ -22,23 +22,23 @@ class Area extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.sendNeighbourhood(this.state.suburb)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })
   }
 
-  sendNeighbourhood() {
+  sendNeighbourhood () {
     this.props.dispatch(sendNeighbourhood(this.state))
   }
 
-  render() {
-    const growers = this.props.growersList || [] // short hand and checking if griwerList is undefinf we assined an empty array
+  render () {
+    const growers = this.props.growersList || [] // short hand and checking if growerList is undefined we assign an empty array
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
@@ -49,12 +49,11 @@ class Area extends React.Component {
           <div className="pure-form pure-u-1">
             <input
               type="text"
-              class="pure-input-rounded"
+              className="pure-input-rounded"
               placeholder="Suburb"
               name='suburb'
               margin="normal"
               value={this.state.suburb}
-              placeholder='Suburb'
               onChange={this.handleChange} /><br />
             <button className="btn btn--primary" onClick={this.handleClick}>search</button>
             <div>{growers.map(list =>
@@ -75,13 +74,13 @@ class Area extends React.Component {
                 name,
                 description
               }) => (
-                  <Marker key={id} position={[lat, long]}>
-                    <Popup>
-                      <div>{name}</div>
-                      <div>{description}</div>
-                    </Popup>
-                  </Marker>
-                ))}
+                <Marker key={id} position={[lat, long]}>
+                  <Popup>
+                    <div>{name}</div>
+                    <div>{description}</div>
+                  </Popup>
+                </Marker>
+              ))}
             </Map>
           </div>
           <div className='backtotop  pure-u-1'>

@@ -58,6 +58,7 @@ class Grower extends React.Component {
               Please make sure they are up to date as this is what
               eaters will be seeing when they search your area on the map.</p>
             <ul className="profile-info pure-u-1">
+              <button>Edit</button>
               <div>
                 <h5>name</h5><p>{profile.name}</p>
                 <h5>email</h5><p>{profile.email}</p>

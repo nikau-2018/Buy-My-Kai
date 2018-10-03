@@ -91,9 +91,9 @@ li {
   .pure-input-rounded {
     margin: .8rem auto;
     font-size: 1.2rem;
-    color: rgb(70, 70, 70) !important;
+    color: black !important;
     font-family: 'Montserrat', sans-serif;
-    filter: opacity(50%);
+    filter: opacity(75%);
     width: 80%;
   }
 /* } */
@@ -106,10 +106,6 @@ li {
 @media only screen and (min-width: 768px) {
   .app {
     align-items: flex-start;
-  }
-
-  h5 {
-    text-align: left;
   }
 
   h4 {
@@ -372,13 +368,11 @@ button.btn {
 
 .btn-primary {
   background: #81b82f !important;
-  filter: opacity(80%);
 
 }
 
 .btn-secondary {
   background: #659026 !important;
-  filter: opacity(80%);
 }
 
 .btn-third {
@@ -386,7 +380,6 @@ button.btn {
   font-size: .7rem !important;
   margin: 0;
   width: 50% !important;
-  filter: opacity(80%);
 }
 
 .btn-forth {

@@ -5,7 +5,7 @@ export const MAPDRAW_SUCCESS = 'MAPDRAW_SUCCESS'
 
 // Success dispatch function.
 export const mapdrawSuccess = () => ({
-  type: MAPDRAW_SUCCESS,
+  type: MAPDRAW_SUCCESS
 })
 
 // Export dispatch function.

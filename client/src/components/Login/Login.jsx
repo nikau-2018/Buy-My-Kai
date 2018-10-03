@@ -38,7 +38,7 @@ class Login extends React.Component {
   }
 
   render () {
-    const {error, isLoggedisOpenIn} = this.props
+    const {error, isLoggedIn} = this.props
     return (
       <div>
         <div className="pure-img background"></div>

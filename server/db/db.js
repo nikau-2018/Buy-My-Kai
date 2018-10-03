@@ -68,7 +68,7 @@ function getProductByUserId (userId, testDb) {
 function getProducts (userId, testDb) {
   const db = testDb || connection
   return db('products')
-    .where('products.users_id', userId)
+    .where('products.user_id', userId)
     .select()
 }
 

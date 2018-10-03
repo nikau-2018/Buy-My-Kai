@@ -50,7 +50,7 @@ class Addproduct extends React.Component {
     return (
       <div>
         <div className='container pure-u-1'>
-          <h5>Add a Product</h5>
+          {/* <h5>Add a Product</h5> */}
           <div className="pure-form pure-u-1">
             <div className='productname'>
               <input
@@ -88,8 +88,8 @@ class Addproduct extends React.Component {
             </div>
             <label>Organic</label>
             <input
+              className="checkbox pure-input-rounded pure-u-1"
               type='checkbox'
-              className="pure-input-rounded"
               name='organic'
               value={this.state.organic}
               onClick={this.handleOrganic}></input><br/>
@@ -100,7 +100,7 @@ class Addproduct extends React.Component {
               name='freerange'
               value={this.state.freerange}
               onClick={this.handleFreerange}></input><br/>
-            <button onClick={this.handleSubmit}>Add</button>
+            <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
             <div>{this.state.productSubmitted ? <p>Successfully added</p> : <div></div>}</div>
           </div>
         </div>

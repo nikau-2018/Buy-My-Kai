@@ -88,9 +88,9 @@ class Login extends React.Component {
           </div>
 
           <div className="register-group pure-u-1">
-            <h5>Not a member? Create an
+            <h4>Not a member? Create an
               <Link className='btn-link' to="/register"> <u>account</u></Link>
-            </h5>
+            </h4>
           </div>
 
         </div>

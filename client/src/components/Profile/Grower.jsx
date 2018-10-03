@@ -55,10 +55,10 @@ class Grower extends React.Component {
 
               <h2>Kia ora Grower</h2>
 
-              <div className="pure-u-1">
+              <div className="pure-u-1-2">
                 <h5>Thank you for registering with Buy My Kai</h5>
-                <h5>We are excited to have you as part of our community!</h5>
-                <h5>This is your profile page, here you'll find your registered details.<br/>
+                <h5>We are excited to have you as part of our community !</h5>
+                <h5>This is your profile page, here you will find your registered details.<br/>
               Please make sure they are up to date as this is what
               eaters will be seeing when they search your area on the map.</h5>
               </div><br/>
@@ -73,8 +73,8 @@ class Grower extends React.Component {
                 <p><i className="fas fa-shopping-cart fa-2x"></i><br/><br/>
                   <span>
                     {this.props.product && this.props.product.map(product =>
-                      <div key={product.id}><li>{product.product_name}<br/>Price: {product.price} / Quantity: {product.quantity}</li>
-                        {/* <Button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</Button> */}
+                      <div key={product.id}><li><b>{product.product_name}</b><br/>Price: {product.price}<br/>Quantity: {product.quantity}</li>
+                        <Button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</Button>
                       </div>
                     )}
                   </span></p>

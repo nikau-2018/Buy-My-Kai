@@ -37,6 +37,10 @@ p {
   padding-left: 1.5rem;
   padding: 1rem
 }
+
+li {
+  margin:5%;
+}
   .body {
     background: url("../images/apricot.jpg");
   }
@@ -379,10 +383,10 @@ button.btn {
 
 .btn-third {
   background: #659026 !important;
-  border: 1px solid white !important;
   font-size: .7rem !important;
   margin: 0;
   width: 50% !important;
+  filter: opacity(80%);
 }
 
 .btn-forth {

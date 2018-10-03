@@ -35,7 +35,6 @@ class Grower extends React.Component {
   }
 
   handleDelete (e) {
-    console.log(e.target.value)
     this.props.dispatch(deleteProduct(e.target.value))
   }
 

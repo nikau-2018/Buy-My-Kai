@@ -67,6 +67,7 @@ export function deleteProduct (productId) {
       .delete(`/api/v1/products/${productId}`, getHeaders())
       .then(res => {
         dispatch(productSuccessful(res.data.products))
+        dispatch(getProducts())
         // eslint-disable-next-line no-console
         console.log('deleting your products')
       })

@@ -3,7 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {sendProduct} from '../../actions/products'
 
-class Addproduct extends React.Component {
+export class Addproduct extends React.Component {
   constructor (props) {
     super(props)
     this.state = {

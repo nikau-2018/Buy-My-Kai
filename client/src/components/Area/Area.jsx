@@ -84,7 +84,7 @@ class Area extends React.Component {
                 name='suburb'
                 margin="normal"
                 value={this.state.suburb}
-                onChange={this.handleChange} /><br/>
+                onChange={this.handleChange} />
               <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
             </div>
             <div className="map">

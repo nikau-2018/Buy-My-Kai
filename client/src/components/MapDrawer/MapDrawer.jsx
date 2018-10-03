@@ -25,8 +25,12 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
       <p>{user && user.name}</p>
       <p>{user && user.email} </p>
       <p>{user && user.description}</p>
-      <p>{user && user.hours}</p>
-      <p>{user && user.product_description}</p>  
+      <p>Availability: {user && user.hours}</p>
+      <p>Products: {user && user.product_name}</p>
+      <p>{user && user.product_description}</p>
+      <p>Price: {user && user.organic}</p>
+      <p>Quantity: {user && user.product_quantity}</p>
+      <p>{user && user.organic}</p>
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close
@@ -37,9 +41,10 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
 
 const mapStateToProps = (state) => {
   const id = state.selectedUser
+  console.log(id)
   let user = null
   if (id) {
-    user = state.areaReducer.growersList.find(grower => grower.id === id)
+    user = state.areaReducer.growersList.find(grower => grower.user_id === id)
   }
   return {
     isOpen: state.mapDrawer.isOpen,

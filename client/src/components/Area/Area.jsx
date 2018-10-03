@@ -81,9 +81,6 @@ class Area extends React.Component {
               value={this.state.suburb}
               onChange={this.handleChange} /><br/>
             <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
-            <div>{growers.map(list =>
-              <List key={list.id} list={list} />
-            )}</div>
           </div>
           <div className="map">
             <Map className="Leaflet" center={center} zoom={13}>

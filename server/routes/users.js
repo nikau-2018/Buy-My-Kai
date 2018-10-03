@@ -113,14 +113,14 @@ function getUser (req, res) {
   db.getUser(userId)
     .then(user => {
       // Determine which user type to return.
-      switch (user.isSeller) {
-        case 1:
+      switch (user) {
+        case user.isSeller:
           return db.getSeller(userId)
-            .then(user => {
+            .then(seller => {
               res.status(200).json({
                 ok: true,
-                token: createToken(user.id),
-                user
+                token: createToken(seller.id),
+                seller
               })
             })
             .catch(({message}) => {

@@ -42,21 +42,9 @@ export function getProfile () {
         if (res.data.token) {
           setToken(res.data.token)
         }
-
-        // Handle sellers and eaters separately.
-        if (res.data.user[0].isSeller) {
-          // Sellers are returned in arrays.
-          dispatch(profileSuccess(res.data.user[0]))
-        } else {
-          // Send user to the store.
           dispatch(profileSuccess(res.data.user))
-        }
-        
-        // Send user to the store.
-        dispatch(profileSuccess(res.data.user))
-        dispatch(getProducts())
-
-        // eslint-disable-next-line no-console
+          dispatch(getProducts())
+         // eslint-disable-next-line no-console
         console.log('success')
       })
       .catch(err => {
@@ -83,7 +71,6 @@ export function editUser (user) {
             if (res.data.token) {
               setToken(res.data.token)
             }
-
             dispatch(profileSuccess(userWithCoordinates))
           })
       })

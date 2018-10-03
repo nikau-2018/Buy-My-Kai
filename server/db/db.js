@@ -14,7 +14,8 @@ module.exports = {
   getSellerBySuburb,
   loginUser,
   editUser,
-  deleteProductByUser
+  deleteProductByUser,
+  addGrower
 }
 
 // adds a new user to the database
@@ -145,4 +146,23 @@ function deleteProductByUser (productId, testDb) {
   return db('products')
     .where('id', productId)
     .del()
+}
+
+// become a grower
+function addGrower (user, userId, testDb) {
+  const db = testDb || connection
+  return db('users')
+    .where('id', userId)
+    .insert({
+      address: user.address,
+      suburb: user.suburb,
+      city: user.city,
+      description: user.description,
+      hours: user.hours,
+      lat: user.lat,
+      long: user.long
+    })
+    .update({
+      isSeller: user.isSeller
+    })
 }

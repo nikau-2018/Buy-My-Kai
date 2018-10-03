@@ -28,6 +28,11 @@ router.post(
   login
 )
 
+router.put(
+  '/becomegrower',
+  becomeGrower
+)
+
 // Checks the login against what is in the database using email and hash
 function login (req, res) {
   const {email} = req.body
@@ -62,7 +67,6 @@ function login (req, res) {
           })
       }
     })
-
     .catch((err) => {
       res.status(500).json({
         ok: false,
@@ -179,6 +183,24 @@ function editUserById (req, res) {
       /* eslint-disable no-console */
       console.log('sending back edited user')
       res.json({user})
+    })
+    .catch(err => {
+      res.status(500).send('Database Error: ' + err.message)
+    })
+}
+
+// Become a grower
+function becomeGrower (req, res) {
+  const user = req.body
+  const userId = req.body.id
+  console.log(req.body)
+  db.addGrower(user, userId)
+    .then(id => {
+      res.status(201).json({
+        ok: true,
+        message: 'Grower account created successfully.',
+        user
+      })
     })
     .catch(err => {
       res.status(500).send('Database Error: ' + err.message)

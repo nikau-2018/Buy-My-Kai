@@ -38,19 +38,21 @@ class Login extends React.Component {
   }
 
   render () {
-    const {error, isLoggedisOpenIn} = this.props
+    const {error, isLoggedIn} = this.props
     return (
-      <div>
-        <div className="pure-img background-login"></div>
-        {error ? <div className="toast-error">{error.message}</div> : null}
-
-        <div className="container pure-u-1">
+      <div className="login">
+        <div className="header">
           <Link to='/'>
-            <img className="pure-img logo-small" src={logo} />
+            <img className="pure-img logo" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
+        </div>
+        <div className="pure-img background-login"></div>
+        {error ? <div className="toast-error">{error.message}</div> : null}
+
+        <div className="container pure-u-1">
           <div className="pure-form pure-u-1">
             <h3>LOG IN</h3>
             {isLoggedIn ? <Redirect to="/profile" /> : null}

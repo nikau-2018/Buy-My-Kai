@@ -8,9 +8,13 @@ import logo from '../../images/logo-4.png'
 export default function Home (props) {
   return (
     <div className="home">
+    <div className="header">
+      <Link to='/'>
+        <img className="pure-img logo" src={logo} />
+      </Link>
+    </div>
       <div className="pure-img background-home"></div>
       <div className="container pure-u-1">
-        <img className="pure-img logo" src={logo} />
         <h3>WELCOME !</h3>
         <p>Buy My Kai connects people <br />
           through the food we grow <br />

@@ -13,24 +13,27 @@ class Profile extends React.Component {
   render () {
     const profile = this.props.user || ''
     return (
-      <div className='container pure-u-1'>
-
-        <div className="pure-img background-profile"></div>
-        <Link to='/'>
-          <img className="pure-img logo-small" src={logo} />
-        </Link>
-        <div className='nav-bar'>
-          <Nav />
+      <div className="profile">
+        <div className="header">
+          <Link to='/'>
+            <img className="pure-img logo" src={logo} />
+          </Link>
+          <div className='nav-bar'>
+            <Nav />
+          </div>
         </div>
+        <div className='container pure-u-1'>
+          <div className="pure-img background-profile"></div>
 
-        <div className='grower-eater'>
-          {profile.isSeller
-            ? <Grower />
-            : <Eater />
-          }
-        </div>
-        <div className='backtotop pure-u-1'>
-          <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
+          <div className='grower-eater'>
+            {profile.isSeller
+              ? <Grower />
+              : <Eater />
+            }
+          </div>
+          <div className='backtotop pure-u-1'>
+            <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
+          </div>
         </div>
       </div>
     )

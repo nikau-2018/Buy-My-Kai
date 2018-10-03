@@ -1,18 +1,42 @@
 html,
 body {
   height:100%;
+  min-height: 100%;
 }
 
-body {
+.app {
+  height: 100vh;
   min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.app > div {
+  margin: 0 auto;
 }
 
 /* MEDIA QUERIES */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 767px) { */
   .body {
     background: url("../images/apricot.jpg");
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile .header > a {
+    width: 35%;
+    margin: auto;
+  }
+  .logo {
+    width: 40%;
+    margin: 0;
+  }
+  .home .logo {
+    width: 40%;
+    margin: auto;
   }
   .background {
     background-size: cover;
@@ -25,7 +49,18 @@ body {
     margin: auto;
     background: rgba(255, 255, 255, 0.95)
   }
-}
+  a.btn-link {
+    color: #fff !important;
+  }
+  .pure-input-rounded {
+    margin: .8rem auto;
+    font-size: 1.2rem;
+    color: rgb(70, 70, 70) !important;
+    font-family: 'Montserrat', sans-serif;
+    filter: opacity(50%);
+    width: 80%;
+  }
+/* } */
 
 
 /* Small devices (portrait tablets and large phones, 600px and up)
@@ -33,12 +68,54 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .app {
+    align-items: flex-start;
+  }
+  .home,
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
   .body {
     background: url("../images/apricot.jpg");
   }
   .background {
     background-size: cover;
     height: 100%;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .header > a {
+    width: 70%;
+  }
+  .home .logo,
+  .login .logo {
+    margin: auto;
+  }
+
+  /* Profile header */
+  .profile .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .profile .header > a {
+    display: block;
+    height: 70px;
+    margin: 0 4rem;
+  }
+  .profile .nav-bar {
+    width: auto;
+    padding-top: 1rem;
+  }
+
+  .container {
+    padding: 3rem;
   }
   .home-container,
   .register-container,
@@ -47,16 +124,15 @@ body {
     margin: auto;
     background: rgba(255, 255, 255, 0.95)
   }
+  .pure-input-rounded {
+    width: 400px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .body {
     background: url("../images/apricot.jpg");
-  }
-
-  .logo {
-    width: 25%;
   }
 
   [class*="MuiFormControl-root"] {
@@ -88,15 +164,15 @@ body {
   }
 }
 
-  /* CTA Buttons */
-  .btn-group {
-    width: 100%;
-    justify-content: space-evenly;
-  }
+/* CTA Buttons */
+.btn-group {
+  width: 100%;
+  justify-content: space-evenly;
+}
 
-  button.btn {
-    width: 200%;
-  }
+button.btn {
+  width: 200%;
+}
 
 /*
   Main Component CSS File
@@ -107,13 +183,22 @@ a {
   text-decoration: none;
 }
 
-.background-home {
+.background-home,
+.background-login,
+.background-register,
+.background-profile,
+.background-area {
   background: url("../images/apricot.jpg");
   background-color: grey;
   background-position: center;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
   z-index: -1;
-  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   filter: blur(3px) brightness(70%);
@@ -122,112 +207,28 @@ a {
   width: 100vw;
   display:flex;
   align-items: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  }
-
-  .background-login {
-    background: url("../images/avocado.jpg");
-    background-color: grey;
-    background-position: center;
-    position: absolute;
-    z-index: -1;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: blur(3px) brightness(70%);
-    min-height: 100vh;
-    height: 100%;
-    width: 100vw;
-    display:flex;
-    align-items: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    }
-
-    .background-register {
-      background: url("../images/delicious.jpg");
-      background-color: grey;
-      background-position: center;
-      position: absolute;
-      z-index: -1;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      filter: blur(3px) brightness(70%);
-      min-height: 100vh;
-      height: 100%;
-      width: 100vw;
-      display:flex;
-      align-items: center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      }
-
-    .background-profile {
-      background: url("../images/tea.jpg");
-      background-color: grey;
-      background-position: center;
-      position: absolute;
-      z-index: -1;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      filter: blur(3px) brightness(70%);
-      min-height: 100vh;
-      height: 100%;
-      width: 100vw;
-      display:flex;
-      align-items: center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      }
-
-      .background-area {
-        background: url("../images/fruits.jpg");
-        background-color: grey;
-        background-position: center;
-        position: absolute;
-        z-index: -1;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        filter: blur(3px) brightness(70%);
-        min-height: 100vh;
-        height: 100%;
-        width: 100vw;
-        display:flex;
-        align-items: center;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        }
-
-.logo {
-  width: 40%;
-  margin: auto;
-  padding-top:5%;
 }
+
+.background-login {
+  background: url("../images/avocado.jpg");
+}
+
+.background-register {
+  background: url("../images/delicious.jpg");
+}
+
+.background-profile {
+  background: url("../images/tea.jpg");
+}
+
+.background-area {
+  background: url("../images/fruits.jpg");
+}
+
 
 .logo-small {
-  width: 25%;
+  width: auto;
   margin: auto;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center ;
-  align-items: center;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 7rem;
-  filter: blur(-3px);
 }
 
 footer {
@@ -346,14 +347,6 @@ button.btn {
 }
 
 
-.pure-input-rounded {
-  margin: 1%;
-  font-size: 1.2rem;
-  color: rgb(70, 70, 70) !important;
-  font-family: 'Montserrat', sans-serif;
-  filter: opacity(50%);
-  width: 35%;
-}
 
 /* .btn[disabled] {
   color: gray !important;
@@ -399,6 +392,15 @@ button.btn {
   margin: 2rem auto !important;
 }
 
-
-
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 3rem;
+  margin: 0;
+}
 

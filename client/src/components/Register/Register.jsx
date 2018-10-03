@@ -71,7 +71,7 @@ class Register extends React.Component {
             <Nav />
           </div>
 
-          <div className="register pure-u-1">
+          <div className="pure-u-1">
             <h3>REGISTER</h3>
             <p>We just need to get a few details<br />
                 from you to get you sign up <br />

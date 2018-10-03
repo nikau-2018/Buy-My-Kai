@@ -159,10 +159,12 @@ router.get(
 
 function getSellerBySuburb (req, res) {
   const suburb = req.query.suburb
+  // const userId = req.user.id
   db.getSellerBySuburb(suburb)
+    // .then(db.getProducts(userId)
     .then(result => {
       /* eslint-disable no-console */
-      console.log('sellers found')
+      console.log(result)
       res.json({result})
     })
     .catch(err => {

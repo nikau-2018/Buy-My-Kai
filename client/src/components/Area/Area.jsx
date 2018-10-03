@@ -83,9 +83,6 @@ class Area extends React.Component {
               value={this.state.suburb}
               onChange={this.handleChange} /><br/>
             <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
-            <div>{growers.map(list =>
-              <List key={list.id} list={list} />
-            )}</div>
           </div>
           <div className="map">
             <Map className="Leaflet" center={center} zoom={13}>
@@ -94,7 +91,7 @@ class Area extends React.Component {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               {growers.length && growers.map(({
-                id,
+                user_id,
                 lat,
                 long,
                 hours,
@@ -102,12 +99,12 @@ class Area extends React.Component {
                 description,
                 email
               }) => (
-                  <Marker onClick={() => this.handleUser(id)} key={id} position={[lat, long]}>
+                  <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
                     <Popup>
                       <div>{name}</div>
                       {/* <div>{description}</div> */}
-                      <div>{id}</div>
-                      <Button value={id} onClick={this.openDrawer}>More info</Button>
+                      <div>{user_id}</div>
+                      <Button value={user_id} onClick={this.openDrawer}>More info</Button>
                     </Popup>
                   </Marker>
                 ))}

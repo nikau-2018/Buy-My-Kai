@@ -24,7 +24,7 @@ class BecomeGrower extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(postUser(this.state))
+    this.props.dispatch(becomeGrower(this.state))
   }
 
   componentDidMount () {
@@ -105,8 +105,7 @@ class BecomeGrower extends React.Component {
         <Button
           onClick={this.handleClick}
           className="btn--fab"
-          variant="extendedFab">
-          <i className="fas fa-plus"></i>
+          variant="extendedFab">Submit
         </Button >
 
       </div>

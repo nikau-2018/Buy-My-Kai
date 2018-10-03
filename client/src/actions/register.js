@@ -61,3 +61,31 @@ export function getLatLng (address) {
     .then((response) => response.data.results[0].locations[0].latLng)
     .catch((error) => console.log(error))
 }
+
+export function becomeGrower (user, id) {
+  return dispatch => {
+    dispatch(registerPending())
+
+    const searchAddress = `${user.address} ${user.suburb} ${user.city} New Zealand`
+    return getLatLng(searchAddress)
+      .then(({lat, lng: long}) => {
+        const userWithCoordinates = {
+          ...user,
+          id,
+          lat,
+          long
+        }
+        request
+          .put('/api/v1/users/becomegrower', userWithCoordinates, getHeaders())
+          .then(res => {
+            if (res.data.token) {
+              setToken(res.data.token)
+            }
+            dispatch(registerSuccess(userWithCoordinates))
+          })
+      })
+      .catch((err) => {
+        dispatch(showError(err.message))
+      })
+  }
+}

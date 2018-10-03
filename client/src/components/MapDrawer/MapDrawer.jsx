@@ -1,44 +1,57 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import { Button } from '@material-ui/core';
-import { mapDraw } from '../../actions/mapDraw';
+import React from 'react'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {withStyles} from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import Divider from '@material-ui/core/Divider'
+import {Button} from '@material-ui/core'
+import {mapDraw} from '../../actions/mapDraw'
 
 const styles = {
   list: {
-    width: 250,
+    width: 250
   },
   fullList: {
-    width: 'auto',
-  },
-};
+    width: 'auto'
+  }
+}
 
-const MapDrawer = ({ isOpen, toggleDrawer }) => (
+const MapDrawer = ({isOpen, toggleDrawer, user}) => (
   <Drawer open={isOpen}>
     <div>
-      <h1>Hi, I'm Drawer :3</h1>
+      <h1>Grower Profile</h1>
+      <p>{user && user.name}</p>
+      <p>{user && user.email} </p>
+      <p>{user && user.description}</p>
+      <p>{user && user.hours}</p>
+      <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close
-    </Button>
+      </Button>
     </div>
   </Drawer>
 )
 
-const mapStateToProps = (state) => ({
-  isOpen: state.mapDrawer.isOpen,
-});
+const mapStateToProps = (state) => {
+  const id = state.selectedUser
+  let user = null
+  if (id) {
+    user = state.areaReducer.growersList.find(grower => grower.id === id)
+  }
+  return {
+    isOpen: state.mapDrawer.isOpen,
+    user
+  }
+}
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    toggleDrawer: mapDraw,
+    toggleDrawer: mapDraw
   }, dispatch)
-);
+)
 
-const StyledDrower = withStyles(styles)(MapDrawer);
+const StyledDrower = withStyles(styles)(MapDrawer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(StyledDrower);
+export default connect(mapStateToProps, mapDispatchToProps)(StyledDrower)

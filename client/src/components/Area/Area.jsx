@@ -10,6 +10,7 @@ import { mapDraw } from '../../actions/mapDraw';
 import MapDrawer from '../MapDrawer/MapDrawer';
 import Nav from '../Nav/Nav';
 import List from './List';
+import {selectUser} from '../../actions/userprofile'
 
 import logo from '../../images/logo-4.png';
 import '../../styles/styles.css';
@@ -17,13 +18,17 @@ import '../../styles/styles.css';
 import './styles.css';
 
 
-
-
 const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
-  state = {
-    suburb: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      suburb: ''
+    }
+    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.openDrawer = this.openDrawer.bind(this)
   }
 
   handleClick = () => {
@@ -43,6 +48,11 @@ class Area extends React.Component {
 
   openDrawer = () => {
     this.props.dispatch(mapDraw())
+  }
+
+  handleUser (id) {
+    console.log(id)
+    this.props.dispatch(selectUser(id))
   }
 
   render() {
@@ -87,13 +97,15 @@ class Area extends React.Component {
                 long,
                 hours,
                 name,
-                description
+                description,
+                email
               }) => (
-                  <Marker key={id} position={[lat, long]}>
+                  <Marker onClick={() => this.handleUser(id)} key={id} position={[lat, long]}>
                     <Popup>
                       <div>{name}</div>
-                      <div>{description}</div>
-                      <Button onClick={this.openDrawer}>More info</Button>
+                      {/* <div>{description}</div> */}
+                      <div>{id}</div>
+                      <Button value={id} onClick={this.openDrawer}>More info</Button>
                     </Popup>
                   </Marker>
                 ))}

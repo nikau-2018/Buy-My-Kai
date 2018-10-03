@@ -8,6 +8,7 @@ import {getProducts} from './products'
 export const PROFILE_ERROR = 'PROFILE_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
+export const USER_PROFILE = 'USER_PROFILE'
 
 const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH'
 

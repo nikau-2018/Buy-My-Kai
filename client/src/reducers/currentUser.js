@@ -22,7 +22,6 @@ const defaultState = {
 
 export default function currentUserReducer (state = defaultState, action) {
   switch (action.type) {
-
     case LOGIN_REQUEST:
       return {
         ...state,
@@ -72,7 +71,7 @@ export default function currentUserReducer (state = defaultState, action) {
         user: null
       }
 
-      case PROFILE_PENDING:
+    case PROFILE_PENDING:
       return {
         ...state,
         error: null,

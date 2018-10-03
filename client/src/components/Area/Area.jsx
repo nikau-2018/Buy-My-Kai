@@ -52,7 +52,7 @@ class Area extends React.Component {
 
   handleUser (id) {
     console.log(id)
-    this.props.dispatch(`selectUser`(id))
+    this.props.dispatch(selectUser(id))
   }
 
   render() {

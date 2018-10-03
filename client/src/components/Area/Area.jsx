@@ -61,6 +61,7 @@ class Area extends React.Component {
 
     return (
       <div className="profile">
+      <MapDrawer />
         <div className="header">
           <Link to='/'>
             <img className="pure-img logo" src={logo} />

@@ -20,17 +20,19 @@ const styles = {
 
 const MapDrawer = ({isOpen, toggleDrawer, user}) => (
   <Drawer open={isOpen}>
-    <div>
+    <div className="mapDraw">
       <h1>Grower Profile</h1>
-      <p>{user && user.name}</p>
-      <p>{user && user.email} </p>
-      <p>{user && user.description}</p>
+      <p>User: {user && user.name}</p>
+      <p>Email: {user && user.email} </p>
+      <p>Bio: {user && user.description}</p>
       <p>Availability: {user && user.hours}</p>
-      <p>Products: {user && user.product_name}</p>
-      <p>{user && user.product_description}</p>
+      <Divider />
+      <h3>Products</h3>
+      <p>Item: {user && user.product_name}</p>
+      <p>Description: {user && user.product_description}</p>
       <p>Price: {user && user.organic}</p>
-      <p>Quantity: {user && user.product_quantity}</p>
-      <p>{user && user.organic}</p>
+      <p>Quantity: {user && user.quantity}</p>
+      <p>Organic: {user && user.organic ? 'Yip!' : 'Nah'}</p>
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close
@@ -57,6 +59,6 @@ const mapDispatchToProps = (dispatch) => (
   }, dispatch)
 )
 
-const StyledDrower = withStyles(styles)(MapDrawer)
+// const StyledDrower = withStyles(styles)(MapDrawer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(StyledDrower)
+export default connect(mapStateToProps, mapDispatchToProps)(MapDrawer)

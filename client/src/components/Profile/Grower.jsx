@@ -66,7 +66,7 @@ class Grower extends React.Component {
                 <Button className='btn btn-third' onClick={this.handleEdit}>Edit</Button>
                 <h5><i className="fas fa-user fa-2x"></i><br/><br/><span>{profile.name}</span></h5><br/>
                 <h5><i className="fas fa-envelope fa-2x"></i><br/><br/><span>{profile.email}</span></h5><br/>
-                <h5><i className="far fa-smile fa-2x"></i><br/><br/><span>{profile.description}</span></h5><br/>
+                <h5><i className="far fa-smile fa-2x" ></i><br/><br/><span className="desc-grower">{profile.description}</span></h5><br/>
                 <h5><i className="fas fa-home fa-2x"></i><br/><br/><span>{profile.address}</span><br/><span>{profile.suburb}</span><br/><span>{profile.city}</span><br/></h5><br/>
                 <h5><i className="fas fa-clock fa-2x"></i><br/><br/><span>{profile.hours}</span></h5><br/>
                 <h5><i className="fas fa-shopping-cart fa-2x"></i>

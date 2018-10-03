@@ -446,4 +446,6 @@ button.btn {
   margin: 2rem auto !important;
 }
 
-
+.desc-grower {
+  display: inline-block
+}

@@ -20,18 +20,21 @@ body {
 /* Extra small devices (phones, 600px and down) */
 /* @media only screen and (max-width: 767px) { */
 
-h5, p {
+h4, h5, p {
   color: white;
   text-align: center;
-  font-size: 1rem;
+  font-size: .9rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+}
+
+h4 {
+  font-size: 1rem;
 }
 
 p {
   font-size: .9rem;
   padding-left: 1.5rem;
-  border: 1px solid white;
   padding: 1rem
 }
   .body {
@@ -42,6 +45,7 @@ p {
     display: flex;
     flex-direction: column;
   }
+
   .profile .header > a {
     width: 35%;
     margin: auto;
@@ -104,6 +108,11 @@ p {
     text-align: left;
   }
 
+  h4 {
+    font-size: .7rem;
+    text-align: center;
+  }
+
   .home,
   .login {
     display: flex;
@@ -128,7 +137,8 @@ p {
     width: 70%;
   }
   .home .logo,
-  .login .logo {
+  .login .logo,
+  .register .logo {
     margin: auto;
   }
 
@@ -147,9 +157,9 @@ p {
     padding-top: 1rem;
   }
 
+
   .container {
     padding: 3rem;
-    text-align: left;
   }
   .home-container,
   .register-container,
@@ -293,9 +303,9 @@ footer {
   margin: 1%;
 }
 
-h3 {
+h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   color: white;
   text-align: center;
@@ -358,13 +368,28 @@ button.btn {
 
 .btn-primary {
   background: #81b82f !important;
+  filter: opacity(80%);
 
 }
 
 .btn-secondary {
   background: #659026 !important;
+  filter: opacity(80%);
 }
 
+.btn-third {
+  background: #659026 !important;
+  border: 1px solid white !important;
+  font-size: .7rem !important;
+  margin: 0;
+}
+
+.btn-forth {
+  background: transparent !important;
+  border: 1px solid white !important;
+  font-size: .7rem !important;
+  margin: 0;
+}
 
 .btn--nav {
   background: none;
@@ -407,11 +432,6 @@ button.btn {
   flex-direction: column;
   justify-content: center;
 }
-
-/* .input-field input[type=text]:focus {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-} */
 
 [class*="MuiFormControl-root"] {
   width: 70%;

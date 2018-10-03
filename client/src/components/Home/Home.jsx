@@ -8,17 +8,17 @@ import logo from '../../images/logo-4.png'
 export default function Home (props) {
   return (
     <div className="home">
-    <div className="header">
-      <Link to='/'>
-        <img className="pure-img logo" src={logo} />
-      </Link>
-    </div>
+      <div className="header">
+        <Link to='/'>
+          <img className="pure-img logo" src={logo} />
+        </Link>
+      </div>
       <div className="pure-img background-home"></div>
       <div className="container pure-u-1">
-        <h3>WELCOME !</h3>
-        <p>Buy My Kai connects people <br />
+        <h2>WELCOME !</h2>
+        <h4>Buy My Kai connects people <br />
           through the food we grow <br />
-          in our backyard </p>
+          in our backyard </h4>
         <div className="btn-group pure-u-1">
           <Link to="/login">
             <Button
@@ -35,8 +35,8 @@ export default function Home (props) {
             </Button>
           </Link>
         </div>
-        <div className='footer pure-u-1'>
-          <h5>Copyright © Buy My Kai 2018 Nikau</h5>
+        <div className='pure-u-1'>
+          <h4>Copyright © Buy My Kai 2018 Nikau</h4>
         </div>
       </div>
     </div>

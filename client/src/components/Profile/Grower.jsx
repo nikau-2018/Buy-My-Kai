@@ -48,52 +48,48 @@ class Grower extends React.Component {
     const profile = this.props.user || {}
     return (
     // Navigation
-      <div>
-        {this.state.editForm ? <EditGrower />
-          : <div className='profile'>
+      <div className="grower">
+        <div className="container pure-u-1">
+          {this.state.editForm ? <EditGrower />
+            : <div className='profile'>
 
-            <h3>Kia ora Grower</h3>
+              <h2>Kia ora Grower</h2>
 
-            <ul className="profile-info pure-u-1">
               <div className="pure-u-1">
-                <h5>Thank you for registering with Buy My Kai <br />
-              we are excited to have you as part of our community!</h5>
-                <h5>This is your profile page, here you'll find your registered details.<br/><br/>
+                <h5>Thank you for registering with Buy My Kai</h5>
+                <h5>We are excited to have you as part of our community!</h5>
+                <h5>This is your profile page, here you'll find your registered details.<br/>
               Please make sure they are up to date as this is what
               eaters will be seeing when they search your area on the map.</h5>
               </div><br/>
+
               <div className="pure-form pure-u-1">
                 {/* <Button onClick={this.handleEdit}>Edit</Button> */}
-                <h5>Name</h5><p>{profile.name}</p>
-                <h5>Email</h5><p>{profile.email}</p>
-                <h5>Description</h5><p>{profile.description}</p>
-                <h5>Address</h5><p>{profile.address}</p>
-                <h5>Suburb</h5><p>{profile.suburb}</p>
-                <h5>City</h5><p>{profile.city}</p>
-                <h5>Availability</h5><p>{profile.hours}</p>
-                <h5>My products</h5>
-                <p>{this.props.product && this.props.product.map(product =>
-                  <div key={product.id}>{product.product_name} / Price: {product.price} / Quantity: {product.quantity}<button onClick={this.handleDelete} value={product.id}>Delete</button>
-                  </div>
-                )}</p>
-                <Button
-                  onClick={this.handleClick}
-                  className="btn--fab"
-                  variant="extendedFab">
-                  <i className="fas fa-plus"></i>
-                </Button >
+                <p><i className="fas fa-user"></i><span>{profile.name}</span></p>
+                <p><i className="fas fa-envelope"></i><span>{profile.email}</span></p>
+                <p><i className="fas fa-comment"></i><span>{profile.description}</span></p>
+                <p><i className="fas fa-home"></i><span>{profile.address}</span>,<span>{profile.suburb}</span><span>{profile.city}</span></p>
+                <p><i className="fas fa-clock"></i><span>{profile.hours}</span></p>
+                <p><i className="fas fa-shopping-cart"></i></p>
+                <p>
+                  {this.props.product && this.props.product.map(product =>
+                    <div key={product.id}>{product.product_name} / Price: {product.price} / Quantity: {product.quantity}<br/>
+                      <button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</button>
+                    </div>
+                  )}
+                  <Button className='btn btn-third'
+                    onClick={this.handleClick}>Add Products
+                  </Button >
+                </p>
               </div>
-            </ul>
-
-            {/* Add Products Component Render */}
-            <div className='add-product pure-u-1'>
-              {this.state.showForm ? <Addproduct /> : <div></div>}
+              <div className='add-product pure-u-1'>
+                {this.state.showForm ? <Addproduct /> : <div></div>}
+              </div>
             </div>
 
-          </div>
-        }
+          }
+        </div>
       </div>
-
     )
   }
 }

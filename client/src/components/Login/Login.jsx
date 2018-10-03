@@ -54,7 +54,7 @@ class Login extends React.Component {
 
         <div className="container pure-u-1">
           <div className="pure-form pure-u-1">
-            <h3>LOG IN</h3>
+            <h2>LOG IN</h2>
             {isLoggedIn ? <Redirect to="/profile" /> : null}
             <div>
               <input

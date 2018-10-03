@@ -69,7 +69,7 @@ class Area extends React.Component {
           <div className='nav-bar'>
             <Nav />
           </div>
-          <h3>Search For Growers</h3>
+          <h2>Search For Growers</h2>
           <div className="pure-form pure-u-1">
             <input
               type="text"

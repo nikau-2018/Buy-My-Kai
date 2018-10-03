@@ -37,10 +37,10 @@ class Eater extends React.Component {
         {this.state.showForm ? <BecomeGrower />
 
           : <div className='profile'>
-            <h3>Kia ora Eater</h3>
-            {/* <h5>Thank you for registering with Buy My Kai <br />
+            <h2>Kia ora Eater</h2>
+            <h5>Thank you for registering with Buy My Kai <br />
               we are excited to have you as part of our community!</h5>
-            <p>How to use the App</p> */}
+            {/* <h5>How to use the App</h5> */}
             <div className="profile-info pure-u-1">
               <div>
                 <h5>email</h5><p>{profile.email}</p>

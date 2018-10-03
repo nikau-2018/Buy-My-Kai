@@ -19,13 +19,28 @@ body {
 
 /* Extra small devices (phones, 600px and down) */
 /* @media only screen and (max-width: 767px) { */
+
+h5, p {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 0.8rem;
+  padding-left: 1.5rem;
+}
   .body {
     background: url("../images/apricot.jpg");
   }
+  
   .header {
     display: flex;
     flex-direction: column;
   }
+  
   .profile .header > a {
     width: 35%;
     margin: auto;
@@ -49,6 +64,18 @@ body {
     margin: auto;
     background: rgba(255, 255, 255, 0.95)
   }
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3rem;
+    margin: 0;
+  }
+  
   a.btn-link {
     color: #fff !important;
   }
@@ -71,6 +98,11 @@ body {
   .app {
     align-items: flex-start;
   }
+
+  h5, p {
+    text-align: left;
+  }
+
   .home,
   .login {
     display: flex;
@@ -116,6 +148,7 @@ body {
 
   .container {
     padding: 3rem;
+    text-align: left;
   }
   .home-container,
   .register-container,
@@ -268,7 +301,6 @@ h3 {
   letter-spacing: 6px;
 }
 
-p,
 .register-group {
   color: white;
   text-align: center;
@@ -278,13 +310,6 @@ p,
   letter-spacing: 1px;
 }
 
-h5 {
-  color: white;
-  text-align: center;
-  font-size: 0.8rem;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
 
 .backtotop {
   margin: 3%;
@@ -392,15 +417,4 @@ button.btn {
   margin: 2rem auto !important;
 }
 
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center ;
-  align-items: center;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 3rem;
-  margin: 0;
-}
 

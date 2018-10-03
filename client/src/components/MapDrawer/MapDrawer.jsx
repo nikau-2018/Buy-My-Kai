@@ -41,7 +41,6 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
 
 const mapStateToProps = (state) => {
   const id = state.selectedUser
-  console.log(id)
   let user = null
   if (id) {
     user = state.areaReducer.growersList.find(grower => grower.user_id === id)

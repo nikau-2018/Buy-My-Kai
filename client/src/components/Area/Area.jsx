@@ -17,6 +17,8 @@ import '../../styles/styles.css';
 
 import './styles.css';
 
+import fruit from '../ShowMap/marker-images/Fruit.png'
+
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
@@ -98,14 +100,13 @@ class Area extends React.Component {
                 hours,
                 name,
                 description,
-                email
+                email, 
+                category
               }) => (
                   <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
                     <Popup>
-                      <div>{name}</div>
-                      {/* <div>{description}</div> */}
-                      <div>{user_id}</div>
-                      <Button value={user_id} onClick={this.openDrawer}>More info</Button>
+                      {console.log(category)}
+                      <Button value={user_id} onClick={this.openDrawer}><img src={fruit}/></Button>
                     </Popup>
                   </Marker>
                 ))}
@@ -127,3 +128,5 @@ const mapStateToProps = (state) => {
   }
 }
 export default connect(mapStateToProps)(Area)
+
+ {/* `../ShowMap/marker-images/${category}.png` */}

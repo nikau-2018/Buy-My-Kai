@@ -52,7 +52,7 @@ class Area extends React.Component {
 
   handleUser (id) {
     console.log(id)
-    this.props.dispatch(`selectUser`(id))
+    this.props.dispatch(selectUser(id))
   }
 
   render() {
@@ -92,7 +92,7 @@ class Area extends React.Component {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               {growers.length && growers.map(({
-                id,
+                user_id,
                 lat,
                 long,
                 hours,
@@ -100,12 +100,12 @@ class Area extends React.Component {
                 description,
                 email
               }) => (
-                  <Marker onClick={() => this.handleUser(id)} key={id} position={[lat, long]}>
+                  <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
                     <Popup>
                       <div>{name}</div>
                       {/* <div>{description}</div> */}
-                      <div>{id}</div>
-                      <Button value={id} onClick={this.openDrawer}>More info</Button>
+                      <div>{user_id}</div>
+                      <Button value={user_id} onClick={this.openDrawer}>More info</Button>
                     </Popup>
                   </Marker>
                 ))}

@@ -8,7 +8,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR'
 
 export const loginPending = () => ({type: LOGIN_REQUEST})
 
-export const loginReq = () =>({
+export const loginReq = () => ({
   type: LOGIN_REQUEST
 })
 

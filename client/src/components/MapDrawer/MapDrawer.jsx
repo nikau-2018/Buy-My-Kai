@@ -26,6 +26,7 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
       <p>{user && user.email} </p>
       <p>{user && user.description}</p>
       <p>{user && user.hours}</p>
+      <p>{user && user.product_description}</p>  
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close

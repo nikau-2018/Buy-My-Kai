@@ -29,8 +29,10 @@ h5, p {
 }
 
 p {
-  font-size: 0.8rem;
+  font-size: .9rem;
   padding-left: 1.5rem;
+  border: 1px solid white;
+  padding: 1rem
 }
   .body {
     background: url("../images/apricot.jpg");
@@ -40,7 +42,6 @@ p {
     display: flex;
     flex-direction: column;
   }
-  
   .profile .header > a {
     width: 35%;
     margin: auto;

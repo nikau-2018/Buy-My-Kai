@@ -52,7 +52,7 @@ p {
   .home .logo {
     width: 40%;
     margin: auto;
-  }
+  }  
   .background {
     background-size: cover;
     height: 100%;
@@ -75,7 +75,7 @@ p {
     padding: 3rem;
     margin: 0;
   }
-  
+
   a.btn-link {
     color: #fff !important;
   }

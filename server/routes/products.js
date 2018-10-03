@@ -51,6 +51,8 @@ router.get('/',
 
 router.get('/', getProductByName)
 
+router.delete('/:id', deleteProduct)
+
 // Get a product by ID
 function getProducts (req, res) {
   const userId = req.user.id
@@ -87,6 +89,25 @@ function getProductByName (req, res) {
           results
         })
       }
+    })
+    .catch(({message}) => {
+      res.status(500).json({
+        ok: false,
+        message: message
+      })
+    })
+}
+
+// Delete a product by IDproductId
+function deleteProduct (req, res) {
+  const productId = req.params.id
+  console.log(productId)
+  db.deleteProductByUser(productId)
+    .then(products => {
+      res.status(200).json({
+        ok: true,
+        message: 'Product has been deleted.'
+      })
     })
     .catch(({message}) => {
       res.status(500).json({

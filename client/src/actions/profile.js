@@ -3,9 +3,12 @@ import request from 'axios'
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
+import {getProducts} from './products'
+
 export const PROFILE_ERROR = 'PROFILE_ERROR'
 export const PROFILE_PENDING = 'PROFILE_PENDING'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
+export const USER_PROFILE = 'USER_PROFILE'
 
 const GEOCODING_PROVIDER_URL = 'http://www.mapquestapi.com/geocoding/v1/address?key=4d6Splj1DnO9rnsmLbDkjAuyqmExW4KH'
 
@@ -49,6 +52,9 @@ export function getProfile () {
           dispatch(profileSuccess(res.data.user))
         }
         
+        // Send user to the store.
+        dispatch(profileSuccess(res.data.user))
+        dispatch(getProducts())
 
         // eslint-disable-next-line no-console
         console.log('success')

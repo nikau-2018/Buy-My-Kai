@@ -22,17 +22,26 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
   <Drawer open={isOpen}>
     <div className="mapDraw">
       <h1>Grower Profile</h1>
-      <p>User: {user && user.name}</p>
-      <p>Email: {user && user.email} </p>
-      <p>Bio: {user && user.description}</p>
-      <p>Availability: {user && user.hours}</p>
+      <p>User: <br/>
+        {user && user.name}</p>
+      <p>Email: <br/>
+        {user && user.email} </p>
+      <p>Bio: <br/>
+        {user && user.description}</p>
+      <p>Availability:<br/>
+        {user && user.hours}</p>
       <Divider />
       <h3>Products</h3>
-      <p>Item: {user && user.product_name}</p>
-      <p>Description: {user && user.product_description}</p>
-      <p>Price: {user && user.organic}</p>
-      <p>Quantity: {user && user.quantity}</p>
-      <p>Organic: {user && user.organic ? 'Yip!' : 'Nah'}</p>
+      <p>Item: <br/>
+        {user && user.product_name}</p>
+      <p>Description: <br/>
+        {user && user.product_description}</p>
+      <p>Price: <br/>
+        {user && user.organic}</p>
+      <p>Quantity: <br/>
+        {user && user.quantity}</p>
+      <p>Organic: <br/>
+        {user && user.organic ? 'Yip!' : 'Nah'}</p>
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close

@@ -63,7 +63,7 @@ class Grower extends React.Component {
               </div><br/>
 
               <div className="pure-u-1">
-                {/* <Button onClick={this.handleEdit}>Edit</Button> */}
+                <Button className='btn btn-third' onClick={this.handleEdit}>Edit</Button>
                 <h5><i className="fas fa-user fa-2x"></i><br/><br/><span>{profile.name}</span></h5><br/>
                 <h5><i className="fas fa-envelope fa-2x"></i><br/><br/><span>{profile.email}</span></h5><br/>
                 <h5><i className="far fa-smile fa-2x"></i><br/><br/><span>{profile.description}</span></h5><br/>

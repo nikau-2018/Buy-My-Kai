@@ -101,6 +101,10 @@ li {
   padding: 2rem;
   background: rgba(255,255,255, .9) !important;
 }
+span[class^='MuiCheckbox-root'] {
+color: white !important;
+}
+
 .mapDraw p {
   color: rgb(70, 70, 70);
   text-align: left;
@@ -150,6 +154,7 @@ li {
     margin: auto;
   }
 
+
   /* Profile header */
   .profile .header {
     flex-direction: row;
@@ -176,6 +181,14 @@ li {
   }
   .pure-input-rounded {
     width: 400px;
+  }
+  .btn-group {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  button .btn {
+    margin:auto;
   }
   .MuiPaper-root-52{
     width: 25% !important;

@@ -80,7 +80,7 @@ class Login extends React.Component {
 
           <div className="btn-group pure-u-1">
             <Button
-              className='btn btn-primary'
+              className='btn btn-secondary'
               onClick={this.handleSubmit}
               disabled={this.state.disabled}>
               Go

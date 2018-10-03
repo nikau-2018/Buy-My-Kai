@@ -175,19 +175,17 @@ class Register extends React.Component {
                   onChange={this.handleChange} />
                 <label htmlFor="seller"></label></h4>
             </div>
-            <div className="btn-group pure-u-1">
-              <Button
-                className='btn btn-primary'
-                disabled={this.state.disabled}
-                onClick={this.sendUser}>
+            <Button
+              className='btn btn-primary'
+              disabled={this.state.disabled}
+              onClick={this.sendUser}>
                     Go
-              </Button>
-              {this.state.success && <Redirect to="/profile" />}
-              <div className="pure-u-1">
-                <h4>Already a member?
-                  <Link className='btn-link' to="/login"> <u>Login</u></Link>
-                </h4>
-              </div>
+            </Button>
+            {this.state.success && <Redirect to="/profile" />}
+            <div className="pure-u-1">
+              <h4>Already a member?
+                <Link className='btn-link' to="/login"> <u>Login</u></Link>
+              </h4>
             </div>
           </div>
           <div className='pure-u-1'>

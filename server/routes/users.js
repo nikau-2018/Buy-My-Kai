@@ -59,6 +59,7 @@ function login (req, res) {
                 message: 'Password incorrect.'
               })
             } else {
+              res.locals.userId = id
               res.json({
                 user: user,
                 token: createToken(id)
@@ -125,20 +126,20 @@ function getUser (req, res) {
                 token: createToken(seller.id),
                 seller
               })
-                .catch(({message}) => {
-                  res.status(500).json({
-                    ok: false,
-                    message: message
-                  })
-                })
+            })
+            .catch(({message}) => {
+              res.status(500).json({
+                ok: false,
+                message: message
+              })
             })
 
         default:
-          return res.status(200).json({
-            ok: true,
-            token: createToken(userId),
-            user
-          })
+            return res.status(200).json({
+              ok: true,
+              token: createToken(userId),
+              user
+            })
       }
     })
     .catch(({message}) => {

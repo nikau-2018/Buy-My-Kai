@@ -60,17 +60,19 @@ class Area extends React.Component {
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
-      <div className="home">
-        <MapDrawer />
-        <div className="pure-img background"></div>
-        <div className="container pure-u-1">
+      <div className="profile">
+        <div className="header">
           <Link to='/'>
-            <img className="pure-img logo-small" src={logo} />
+            <img className="pure-img logo" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
-          <h3>Search For Growers</h3>
+        </div>
+        <div className='container pure-u-1'>
+          <div className="pure-img background-profile"></div>
+          <div className="pure-form pure-u-1">
+          <h2>Search For Growers</h2>
           <div className="pure-form pure-u-1">
             <input
               type="text"
@@ -115,6 +117,7 @@ class Area extends React.Component {
             <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
           </div>
         </div>
+      </div>
       </div>
     )
   }

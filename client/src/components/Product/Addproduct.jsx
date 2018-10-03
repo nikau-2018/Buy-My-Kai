@@ -49,18 +49,61 @@ class Addproduct extends React.Component {
   render () {
     return (
       <div>
-        <h1>Add a Product</h1>
-        <input name='productName'value={this.state.productName} placeholder='product name' onChange={this.handleChange}></input>
-        <input name='price'value={this.state.price} placeholder='price' onChange={this.handleChange}></input>
-        <input name='quantity'value={this.state.quantity} placeholder='quantity' onChange={this.handleChange}></input>
-        <input name='productDescription'value={this.state.description} placeholder='description' onChange={this.handleChange}></input><br />
-        <label>Organic</label>
-        <input type='checkbox' name='organic' value={this.state.organic} onClick={this.handleOrganic}></input><br/>
-        <label>Free-Range</label>
-        <input type='checkbox' name='freerange' value={this.state.freerange} onClick={this.handleFreerange}></input><br/>
-        <button onClick={this.handleSubmit}>Add</button>
-        <div>{this.state.productSubmitted ? <p>Successfully added</p> : <div></div>}</div>
-
+        <div className='container pure-u-1'>
+          {/* <h5>Add a Product</h5> */}
+          <div className="pure-form pure-u-1">
+            <div className='productname'>
+              <input
+                type="text"
+                className="pure-input-rounded"
+                name='productName'
+                value={this.state.productName}
+                placeholder='Product name'
+                onChange={this.handleChange}></input>
+            </div>
+            <div className='price'>
+              <input
+                type="text"
+                className="pure-input-rounded"
+                name='price'
+                value={this.state.price}
+                placeholder='Price'
+                onChange={this.handleChange}></input>
+            </div>
+            <div className='price'>
+              <input
+                name='quantity'
+                className="pure-input-rounded"
+                value={this.state.quantity}
+                placeholder='quantity'
+                onChange={this.handleChange}></input>
+            </div>
+            <div className='price'>
+              <input
+                name='productDescription'
+                className="pure-input-rounded"
+                value={this.state.description}
+                placeholder='description'
+                onChange={this.handleChange}></input><br />
+            </div>
+            <label>Organic</label>
+            <input
+              className="checkbox pure-input-rounded pure-u-1"
+              type='checkbox'
+              name='organic'
+              value={this.state.organic}
+              onClick={this.handleOrganic}></input><br/>
+            <label>Free-Range</label>
+            <input
+              type='checkbox'
+              className="pure-input-rounded"
+              name='freerange'
+              value={this.state.freerange}
+              onClick={this.handleFreerange}></input><br/>
+            <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
+            <div>{this.state.productSubmitted ? <p>Successfully added</p> : <div></div>}</div>
+          </div>
+        </div>
       </div>
     )
   }

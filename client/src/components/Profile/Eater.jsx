@@ -37,19 +37,21 @@ class Eater extends React.Component {
         {this.state.showForm ? <BecomeGrower />
 
           : <div className='profile'>
-            <h3>Kia ora Eater</h3>
+
+            <h2>Kia ora Eater</h2>
+
             <h5>Thank you for registering with Buy My Kai <br />
               we are excited to have you as part of our community!</h5>
-            <p>How to use the App</p>
+            {/* <h5>How to use the App</h5> */}
             <div className="profile-info pure-u-1">
               <div>
-                <h5>email</h5><p>{profile.email}</p>
+                <p><i className="fas fa-envelope"></i><span>{profile.email}</span></p>
                 {/* <Button
                 className="btn--fab"
                 variant="extendedFab">
                 <i className="fas fa-user-check"></i>
               </Button> */}
-                <span className="pure-u-1 fab-label--right">
+                <span className="pure-u-1">
                   <h5>Wanna become a grower? <Button onClick={this.handleClick}>Click here</Button></h5></span>
               </div>
             </div>

@@ -1,10 +1,67 @@
+html,
+body {
+  height:100%;
+  min-height: 100%;
+}
+
+.app {
+  height: 100vh;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.app > div {
+  margin: 0 auto;
+}
+
 /* MEDIA QUERIES */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 767px) { */
+
+h4, h5, p {
+  color: white;
+  text-align: center;
+  font-size: .9rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: .9rem;
+  padding-left: 1.5rem;
+  padding: 1rem
+}
+
+li {
+  margin:5%;
+}
   .body {
     background: url("../images/apricot.jpg");
   }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile .header > a {
+    width: 35%;
+    margin: auto;
+  }
+  .logo {
+    width: 40%;
+    margin: 0;
+  }
+  .home .logo {
+    width: 40%;
+    margin: auto;
+  }  
   .background {
     background-size: cover;
     height: 100%;
@@ -16,7 +73,30 @@
     margin: auto;
     background: rgba(255, 255, 255, 0.95)
   }
-}
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3rem;
+    margin: 0;
+  }
+
+  a.btn-link {
+    color: #fff !important;
+  }
+  .pure-input-rounded {
+    margin: .8rem auto;
+    font-size: 1.2rem;
+    color: rgb(70, 70, 70) !important;
+    font-family: 'Montserrat', sans-serif;
+    filter: opacity(50%);
+    width: 80%;
+  }
+/* } */
 
 
 /* Small devices (portrait tablets and large phones, 600px and up)
@@ -24,12 +104,66 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .app {
+    align-items: flex-start;
+  }
+
+  h5 {
+    text-align: left;
+  }
+
+  h4 {
+    font-size: .7rem;
+    text-align: center;
+  }
+
+  .home,
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
   .body {
     background: url("../images/apricot.jpg");
   }
   .background {
     background-size: cover;
     height: 100%;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .header > a {
+    width: 70%;
+  }
+  .home .logo,
+  .login .logo,
+  .register .logo {
+    margin: auto;
+  }
+
+  /* Profile header */
+  .profile .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .profile .header > a {
+    display: block;
+    height: 70px;
+    margin: 0 4rem;
+  }
+  .profile .nav-bar {
+    width: auto;
+    padding-top: 1rem;
+  }
+
+
+  .container {
+    padding: 3rem;
   }
   .home-container,
   .register-container,
@@ -38,16 +172,15 @@
     margin: auto;
     background: rgba(255, 255, 255, 0.95)
   }
+  .pure-input-rounded {
+    width: 400px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .body {
     background: url("../images/apricot.jpg");
-  }
-
-  .logo {
-    width: 25%;
   }
 
   [class*="MuiFormControl-root"] {
@@ -79,15 +212,15 @@
   }
 }
 
-  /* CTA Buttons */
-  .btn-group {
-    width: 100%;
-    justify-content: space-evenly;
-  }
+/* CTA Buttons */
+.btn-group {
+  width: 100%;
+  justify-content: space-evenly;
+}
 
-  button.btn {
-    width: 200%;
-  }
+button.btn {
+  width: 200%;
+}
 
 /*
   Main Component CSS File
@@ -97,13 +230,23 @@ a {
   color: normal;
   text-decoration: none;
 }
-.background {
+
+.background-home,
+.background-login,
+.background-register,
+.background-profile,
+.background-area {
   background: url("../images/apricot.jpg");
   background-color: grey;
   background-position: center;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
   z-index: -1;
-  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
   filter: blur(3px) brightness(70%);
@@ -112,32 +255,28 @@ a {
   width: 100vw;
   display:flex;
   align-items: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  }
-
-.logo {
-  width: 40%;
-  margin: auto;
-  padding-top:5%;
 }
+
+.background-login {
+  background: url("../images/avocado.jpg");
+}
+
+.background-register {
+  background: url("../images/delicious.jpg");
+}
+
+.background-profile {
+  background: url("../images/tea.jpg");
+}
+
+.background-area {
+  background: url("../images/fruits.jpg");
+}
+
 
 .logo-small {
-  width: 25%;
+  width: auto;
   margin: auto;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center ;
-  align-items: center;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 7rem;
-  filter: blur(-3px);
 }
 
 footer {
@@ -152,7 +291,7 @@ footer {
   box-sizing: border-box;
   text-align: center;
   padding: 1rem;
-  
+
 }
 
 .pure-menu-link {
@@ -168,32 +307,24 @@ footer {
   margin: 1%;
 }
 
-h3 {
+h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   color: white;
   text-align: center;
   letter-spacing: 6px;
 }
 
-p,
 .register-group {
   color: white;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-bottom: 5%;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
 }
 
-h5 {
-  color: white;
-  text-align: center;
-  font-size: 0.8rem;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
 
 .backtotop {
   margin: 3%;
@@ -241,13 +372,30 @@ button.btn {
 
 .btn-primary {
   background: #81b82f !important;
+  filter: opacity(80%);
 
 }
 
 .btn-secondary {
   background: #659026 !important;
+  filter: opacity(80%);
 }
 
+.btn-third {
+  background: #659026 !important;
+  font-size: .7rem !important;
+  margin: 0;
+  width: 50% !important;
+  filter: opacity(80%);
+}
+
+.btn-forth {
+  background: transparent !important;
+  border: 1px solid white !important;
+  font-size: .7rem !important;
+  margin: 0;
+  width: 100%;
+}
 
 .btn--nav {
   background: none;
@@ -256,13 +404,6 @@ button.btn {
 }
 
 
-.pure-input-rounded {
-  margin: 1%;
-  font-size: 1.2rem;
-  color: rgb(70, 70, 70) !important;
-  font-family: 'Montserrat', sans-serif;
-  filter: opacity(50%);
-}
 
 /* .btn[disabled] {
   color: gray !important;
@@ -298,16 +439,9 @@ button.btn {
   justify-content: center;
 }
 
-/* .input-field input[type=text]:focus {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-} */
-
 [class*="MuiFormControl-root"] {
   width: 70%;
   margin: 2rem auto !important;
 }
-
-
 
 

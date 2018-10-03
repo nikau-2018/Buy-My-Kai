@@ -6,7 +6,6 @@ import {Button, Checkbox} from '@material-ui/core'
 
 import '../../styles/styles.css'
 import Nav from '../Nav/Nav'
-
 import logo from '../../images/logo-4.png'
 
 class Register extends React.Component {
@@ -61,140 +60,138 @@ class Register extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className="pure-img background"></div>
-
-        <div className="container pure-u-1">
+      <div className='register'>
+        <div className="header">
           <Link to='/'>
-            <img className="pure-img logo-small" src={logo} />
+            <img className="pure-img logo" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
-
-          <div className="register pure-u-1">
-            <h3>REGISTER</h3>
-            <p>We just need to get a few details<br />
+        </div>
+        <div className="pure-img background-register"></div>
+        <div className="container pure-u-1">
+          <h2>REGISTER</h2>
+          <h4>We just need to get a few details<br />
                 from you to get you sign up <br />
-                to the service.</p>
+                to the service.</h4>
 
-            <div className="pure-form pure-u-1">
-              <div className='name'>
-                <input
-                  type="text"
-                  className="pure-input-rounded"
-                  placeholder="Name"
-                  name="name"
-                  margin="normal"
-                  value={this.state.name}
-                  onChange={this.handleChange} />
-              </div>
-              <div className='email'>
-                <input
-                  type="email"
-                  className="pure-input-rounded"
-                  placeholder="Email"
-                  name="email"
-                  margin="normal"
-                  value={this.state.email}
-                  onChange={this.handleChange} />
-              </div>
-              <div className='password'>
-                <input
-                  type="password"
-                  className="pure-input-rounded"
-                  placeholder="Password"
-                  name="hash"
-                  margin="password"
-                  value={this.state.hash}
-                  onChange={this.handleChange} />
-              </div>
-              {
-                this.state.isSeller
-                  ? <div className="pure-form pure-u-1">
-                    <div className='street-address'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="Street Address"
-                        name='address'
-                        margin="normal"
-                        value={this.state.address}
-                        onChange={this.handleChange} />
-                    </div>
-                    <div className='suburb'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="Suburb"
-                        name='suburb'
-                        margin="normal"
-                        value={this.state.suburb}
-                        onChange={this.handleChange} />
-                    </div>
-                    <div className='city'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="city"
-                        name='city'
-                        margin="normal"
-                        value={this.state.city}
-                        onChange={this.handleChange} />
-                    </div>
-
-                    <div className='description'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="Description"
-                        name='description'
-                        margin="normal"
-                        value={this.state.description}
-                        onChange={this.handleChange} />
-                    </div>
-                    <div className='hours'>
-                      <input
-                        type="text"
-                        className="pure-input-rounded"
-                        placeholder="Hours"
-                        name='hours'
-                        margin="normal"
-                        value={this.state.hours}
-                        onChange={this.handleChange} />
-                    </div>
-
+          <div className="pure-form pure-u-1">
+            <div className='name'>
+              <input
+                type="text"
+                className="pure-input-rounded"
+                placeholder="Name"
+                name="name"
+                margin="normal"
+                value={this.state.name}
+                onChange={this.handleChange} />
+            </div>
+            <div className='email'>
+              <input
+                type="email"
+                className="pure-input-rounded"
+                placeholder="Email"
+                name="email"
+                margin="normal"
+                value={this.state.email}
+                onChange={this.handleChange} />
+            </div>
+            <div className='password'>
+              <input
+                type="password"
+                className="pure-input-rounded"
+                placeholder="Password"
+                name="hash"
+                margin="password"
+                value={this.state.hash}
+                onChange={this.handleChange} />
+            </div>
+            {
+              this.state.isSeller
+                ? <div className="pure-form pure-u-1">
+                  <div className='street-address'>
+                    <input
+                      type="text"
+                      className="pure-input-rounded"
+                      placeholder="Street Address"
+                      name='address'
+                      margin="normal"
+                      value={this.state.address}
+                      onChange={this.handleChange} />
                   </div>
-                  : <div></div>
-              }
-              <div className="checkbox pure-u-1">
-                <h5>Are you a seller?
-                  <Checkbox
-                    type='checkbox'
-                    checked={this.state.isClicked}
-                    name='seller'
-                    onClick={this.handleSeller}
-                    onChange={this.handleChange} />
-                  <label htmlFor="seller"></label></h5>
-              </div>
-              <div className="btn-group pure-u-1">
-                <Button
-                  className='btn btn-secondary'
-                  disabled={this.state.disabled}
-                  onClick={this.sendUser}>
-                    Go
-                </Button>
-                {this.state.success && <Redirect to="/profile" />}
-                <div className="register-group pure-u-1">
-                  <h5>Already a member?
-                    <Link className='btn-link' to="/login"> <u>Login</u></Link>
-                  </h5>
+                  <div className='suburb'>
+                    <input
+                      type="text"
+                      className="pure-input-rounded"
+                      placeholder="Suburb"
+                      name='suburb'
+                      margin="normal"
+                      value={this.state.suburb}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='city'>
+                    <input
+                      type="text"
+                      className="pure-input-rounded"
+                      placeholder="city"
+                      name='city'
+                      margin="normal"
+                      value={this.state.city}
+                      onChange={this.handleChange} />
+                  </div>
+
+                  <div className='description'>
+                    <input
+                      type="text"
+                      className="pure-input-rounded"
+                      placeholder="Description"
+                      name='description'
+                      margin="normal"
+                      value={this.state.description}
+                      onChange={this.handleChange} />
+                  </div>
+                  <div className='hours'>
+                    <input
+                      type="text"
+                      className="pure-input-rounded"
+                      placeholder="Hours"
+                      name='hours'
+                      margin="normal"
+                      value={this.state.hours}
+                      onChange={this.handleChange} />
+                  </div>
+
                 </div>
+                : <div></div>
+            }
+            <div className="checkbox pure-u-1">
+              <h4>Are you a seller?
+                <Checkbox
+                  type='checkbox'
+                  checked={this.state.isClicked}
+                  name='seller'
+                  onClick={this.handleSeller}
+                  onChange={this.handleChange} />
+                <label htmlFor="seller"></label></h4>
+            </div>
+            <div className="btn-group pure-u-1">
+              <Button
+                className='btn btn-primary'
+                disabled={this.state.disabled}
+                onClick={this.sendUser}>
+                    Go
+              </Button>
+              {this.state.success && <Redirect to="/profile" />}
+              <div className="pure-u-1">
+                <h4>Already a member?
+                  <Link className='btn-link' to="/login"> <u>Login</u></Link>
+                </h4>
               </div>
             </div>
-            <div className='backtotop pure-u-1'>
-              <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
-            </div>
+          </div>
+          <div className='pure-u-1'>
+            <a href="#top"><h4> Return to top <i className="fas fa-caret-up"></i></h4></a>
           </div>
         </div>
       </div>

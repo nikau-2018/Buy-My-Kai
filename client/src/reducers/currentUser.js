@@ -6,7 +6,7 @@ import {
 import {
   REGISTER_PENDING,
   REGISTER_SUCCESS,
-  SHOW_ERROR} from '../actions/register'
+  REGISTER_ERROR} from '../actions/register'
 
 import {
   PROFILE_PENDING,
@@ -22,30 +22,6 @@ const defaultState = {
 
 export default function currentUserReducer (state = defaultState, action) {
   switch (action.type) {
-    case PROFILE_PENDING:
-      return {
-        ...state,
-        error: null,
-        pending: true,
-        isLoggedIn: false
-      }
-
-    case PROFILE_SUCCESS:
-      return {
-        ...state,
-        error: null,
-        pending: false,
-        isLoggedIn: true,
-        user: action.user
-      }
-
-    case PROFILE_ERROR:
-      return {
-        ...state,
-        error: action.error,
-        pending: false,
-        isLoggedIn: false
-      }
 
     case LOGIN_REQUEST:
       return {
@@ -88,12 +64,37 @@ export default function currentUserReducer (state = defaultState, action) {
         user: action.user
       }
 
-    case SHOW_ERROR:
+    case REGISTER_ERROR:
       return {
         ...state,
         error: action.err,
         pending: false,
         user: null
+      }
+
+      case PROFILE_PENDING:
+      return {
+        ...state,
+        error: null,
+        pending: true,
+        isLoggedIn: false
+      }
+
+    case PROFILE_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        pending: false,
+        isLoggedIn: true,
+        user: action.user
+      }
+
+    case PROFILE_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        pending: false,
+        isLoggedIn: false
       }
 
     default:

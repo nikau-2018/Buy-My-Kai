@@ -1,15 +1,15 @@
 import request from 'axios'
 
-export const SHOW_ERROR = 'SHOW_ERROR'
+export const AREA_ERROR = 'AREA_ERROR'
 export const AREA_PENDING = 'AREA_PENDING'
 export const AREA_SUCCESS = 'AREA_SUCCESS'
 
 import {getHeaders} from '../utils/api'
 import {setToken} from '../utils/token'
 
-export const showError = (errorMessage) => {
+export const areaError = (errorMessage) => {
   return {
-    type: SHOW_ERROR,
+    type: AREA_ERROR,
     errorMessage: errorMessage
   }
 }
@@ -44,7 +44,7 @@ export function sendNeighbourhood (suburb) {
         console.log('success')
       })
       .catch(err => {
-        dispatch(showError(err.message))
+        dispatch(areaError(err.message))
       })
   }
 }

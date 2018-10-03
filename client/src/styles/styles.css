@@ -446,5 +446,6 @@ button.btn {
 }
 
 .desc-grower {
+  width: 50%;
   display: inline-block
 }

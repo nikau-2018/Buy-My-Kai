@@ -85,7 +85,7 @@ class Area extends React.Component {
                 margin="normal"
                 value={this.state.suburb}
                 onChange={this.handleChange} />
-              <button className="btn btn-secondary" onClick={this.handleClick}>SEARCH</button>
+              <button className="btn btn-primary" onClick={this.handleClick}>SEARCH</button>
             </div>
             <div className="map">
               <Map className="Leaflet" center={center} zoom={13}>
@@ -105,7 +105,6 @@ class Area extends React.Component {
                 }) => (
                   <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
                     <Popup>
-                      {console.log(category)}
                       <Button value={user_id} onClick={this.openDrawer}><img src={fruit}/></Button>
                     </Popup>
                   </Marker>

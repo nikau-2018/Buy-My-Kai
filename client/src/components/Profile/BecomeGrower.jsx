@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
 // import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
-import {postUser} from '../../actions/register'
+import {becomeGrower} from '../../actions/register'
 
 import {getProfile} from '../../actions/profile'
 
@@ -24,7 +24,7 @@ class BecomeGrower extends React.Component {
   }
 
   handleClick () {
-    this.props.dispatch(becomeGrower(this.state))
+    this.props.dispatch(becomeGrower(this.state, this.props.user.id))
   }
 
   componentDidMount () {

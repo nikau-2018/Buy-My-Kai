@@ -41,8 +41,8 @@ class BecomeGrower extends React.Component {
   render () {
     return (
     // Navigation
-      <div className='profile'>
-        <h3>Become a Grower</h3>
+      <div className="container pure-u-1">
+        <h2>Become a Grower</h2>
 
         <div className="pure-form pure-u-1">
 
@@ -104,8 +104,7 @@ class BecomeGrower extends React.Component {
 
         <Button
           onClick={this.handleClick}
-          className="btn--fab"
-          variant="extendedFab">Submit
+          className='btn btn-third'>Submit
         </Button >
 
       </div>

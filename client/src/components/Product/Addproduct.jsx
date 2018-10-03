@@ -84,16 +84,16 @@ export class Addproduct extends React.Component {
                 className="pure-input-rounded"
                 value={this.state.description}
                 placeholder='description'
-                onChange={this.handleChange}></input><br />
+                onChange={this.handleChange}></input>
             </div>
-            <label>Organic</label>
+            <h5>Organic</h5>
             <input
               className="checkbox pure-input-rounded pure-u-1"
               type='checkbox'
               name='organic'
               value={this.state.organic}
-              onClick={this.handleOrganic}></input><br/>
-            <label>Free-Range</label>
+              onClick={this.handleOrganic}></input>
+            <h5>Free-Range</h5>
             <input
               type='checkbox'
               className="pure-input-rounded"
@@ -101,7 +101,7 @@ export class Addproduct extends React.Component {
               value={this.state.freerange}
               onClick={this.handleFreerange}></input><br/>
             <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
-            <div>{this.state.productSubmitted ? <p>Successfully added</p> : <div></div>}</div>
+            <div>{this.state.productSubmitted ? <h5>Successfully added</h5> : <div></div>}</div>
           </div>
         </div>
       </div>

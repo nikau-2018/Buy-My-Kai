@@ -15,10 +15,6 @@ body {
   margin: 0 auto;
 }
 
-/* MEDIA QUERIES */
-
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 767px) { */
 
 h4, h5, p {
   color: white;
@@ -96,7 +92,19 @@ li {
     filter: opacity(50%);
     width: 80%;
   }
-/* } */
+[class^='MuiPaper-root'] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 30% !important;
+  padding: 2rem;
+  background: rgba(255,255,255, .9) !important;
+}
+.mapDraw p {
+  color: rgb(70, 70, 70);
+  text-align: left;
+}
 
 
 /* Small devices (portrait tablets and large phones, 600px and up)
@@ -160,8 +168,6 @@ li {
     width: auto;
     padding-top: 1rem;
   }
-
-
   .container {
     padding: 3rem;
   }
@@ -174,6 +180,9 @@ li {
   }
   .pure-input-rounded {
     width: 400px;
+  }
+  .MuiPaper-root-52{
+    width: 25% !important;
   }
 }
 

@@ -60,7 +60,7 @@ class Area extends React.Component {
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
-      <div className="home">
+      <div className="area">
         <div className="pure-img background-area"></div>
         <div className="container pure-u-1">
           <Link to='/'>

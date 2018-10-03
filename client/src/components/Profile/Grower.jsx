@@ -63,24 +63,24 @@ class Grower extends React.Component {
               eaters will be seeing when they search your area on the map.</h5>
               </div><br/>
 
-              <div className="pure-form pure-u-1">
+              <div className="pure-u-1-2">
                 {/* <Button onClick={this.handleEdit}>Edit</Button> */}
-                <p><i className="fas fa-user"></i><span>{profile.name}</span></p>
-                <p><i className="fas fa-envelope"></i><span>{profile.email}</span></p>
-                <p><i className="fas fa-comment"></i><span>{profile.description}</span></p>
-                <p><i className="fas fa-home"></i><span>{profile.address}</span>,<span>{profile.suburb}</span><span>{profile.city}</span></p>
-                <p><i className="fas fa-clock"></i><span>{profile.hours}</span></p>
-                <p><i className="fas fa-shopping-cart"></i></p>
-                <p>
-                  {this.props.product && this.props.product.map(product =>
-                    <div key={product.id}>{product.product_name} / Price: {product.price} / Quantity: {product.quantity}<br/>
-                      <button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</button>
-                    </div>
-                  )}
-                  <Button className='btn btn-third'
-                    onClick={this.handleClick}>Add Products
-                  </Button >
-                </p>
+                <p><i className="fas fa-user fa-2x"></i><br/><br/><span>{profile.name}</span></p>
+                <p><i className="fas fa-envelope fa-2x"></i><br/><br/><span>{profile.email}</span></p>
+                <p><i className="fas fa-comment fa-2x"></i><br/><br/><span>{profile.description}</span></p>
+                <p><i className="fas fa-home fa-2x"></i><br/><br/><span>{profile.address}</span><br/><span>{profile.suburb}</span><br/><span>{profile.city}</span></p>
+                <p><i className="fas fa-clock fa-2x"></i><br/><br/><span>{profile.hours}</span></p>
+                <p><i className="fas fa-shopping-cart fa-2x"></i><br/><br/>
+                  <span>
+                    {this.props.product && this.props.product.map(product =>
+                      <div key={product.id}><li>{product.product_name}<br/>Price: {product.price} / Quantity: {product.quantity}</li>
+                        {/* <Button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</Button> */}
+                      </div>
+                    )}
+                  </span></p>
+                <Button className='btn btn-third'
+                  onClick={this.handleClick}><i className="fas fa-plus"></i>Add Products
+                </Button >
               </div>
               <div className='add-product pure-u-1'>
                 {this.state.showForm ? <Addproduct /> : <div></div>}

@@ -190,7 +190,7 @@ class Register extends React.Component {
               </div>
             </div>
           </div>
-          <div className='backtotop pure-u-1'>
+          <div className='pure-u-1'>
             <a href="#top"><h4> Return to top <i className="fas fa-caret-up"></i></h4></a>
           </div>
         </div>

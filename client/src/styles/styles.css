@@ -104,7 +104,7 @@ p {
     align-items: flex-start;
   }
 
-  h5, p {
+  h5 {
     text-align: left;
   }
 
@@ -382,6 +382,7 @@ button.btn {
   border: 1px solid white !important;
   font-size: .7rem !important;
   margin: 0;
+  width: 50% !important;
 }
 
 .btn-forth {
@@ -389,6 +390,7 @@ button.btn {
   border: 1px solid white !important;
   font-size: .7rem !important;
   margin: 0;
+  width: 100%;
 }
 
 .btn--nav {

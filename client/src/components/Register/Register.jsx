@@ -166,7 +166,7 @@ class Register extends React.Component {
                 : <div></div>
             }
             <div className="checkbox pure-u-1">
-              <h4>Are you a seller?
+              <h4>Are you a Grower?
                 <Checkbox
                   type='checkbox'
                   checked={this.state.isClicked}
@@ -175,7 +175,7 @@ class Register extends React.Component {
                   onChange={this.handleChange} />
                 <label htmlFor="seller"></label></h4>
             </div>
-            <div className="btn-group pure-u-1">
+            
               <Button
                 className='btn btn-primary'
                 disabled={this.state.disabled}
@@ -188,7 +188,6 @@ class Register extends React.Component {
                   <Link className='btn-link' to="/login"> <u>Login</u></Link>
                 </h4>
               </div>
-            </div>
           </div>
           <div className='pure-u-1'>
             <a href="#top"><h4> Return to top <i className="fas fa-caret-up"></i></h4></a>

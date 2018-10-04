@@ -87,20 +87,6 @@ exports.seed = (knex, Promise) => {
           long: '174.79537',
           name: 'Douglas Carter',
           suburb: 'Devonport'
-        },
-        {
-          address: '80 Eversleigh Road',
-          city: 'Auckland',
-          description: 'Software Developer, I enjoy growing chillis',
-          email: 'zaine@gmail.com',
-          hash: '$argon2id$v=19$m=8,t=2,p=1$IWxo6dfptwfugPTtozJ8zQ$XkeW9Jwp/ct0OsrOJfU6FzrIF52ZX64Wt1L6mphcyCg',
-          hours: 'Saturday 12pm - 3pm',
-          id: '11107',
-          isSeller: '1',
-          lat: '-36.8056',
-          long: '174.78251',
-          name: 'Zaine Kingi',
-          suburb: 'Belmont'
         }
       ])
     })

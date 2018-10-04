@@ -80,17 +80,6 @@ exports.seed = (knex, Promise) => {
           product_name: 'Peaches',
           quantity: '30 peaches',
           user_id: '11106'
-        },
-        {
-          category: '',
-          freerange: '0',
-          id: '33308',
-          organic: '0',
-          price: '$3 for 3',
-          product_description: 'Hot!',
-          product_name: 'Birds Eye Chilis',
-          quantity: '15 chillis',
-          user_id: '11107'
         }
       ])
     })

@@ -101,6 +101,23 @@ li {
   padding: 2rem;
   background: rgba(255,255,255, .9) !important;
 }
+/* Checkbox styles */
+.organic {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.organic h5 {
+  line-height: 2rem;
+  margin: 0;
+}
+.organic input.checkbox {
+  width: 250px;
+}
+
 .mapDraw p {
   color: rgb(70, 70, 70);
   text-align: left;
@@ -446,3 +463,11 @@ button.btn {
 }
 
 
+.product {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 0;
+  padding-top: 1em;
+}

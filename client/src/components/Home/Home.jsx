@@ -35,9 +35,6 @@ export default function Home (props) {
             </Button>
           </Link>
         </div>
-        <div className='pure-u-1'>
-          <h4>Copyright © Buy My Kai 2018 Nikau</h4>
-        </div>
       </div>
     </div>
   )

@@ -48,44 +48,44 @@ export class Addproduct extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className='container pure-u-1'>
-          {/* <h5>Add a Product</h5> */}
-          <div className="pure-form pure-u-1">
-            <div className='productname'>
-              <input
-                type="text"
-                className="pure-input-rounded"
-                name='productName'
-                value={this.state.productName}
-                placeholder='Product name'
-                onChange={this.handleChange}></input>
-            </div>
-            <div className='price'>
-              <input
-                type="text"
-                className="pure-input-rounded"
-                name='price'
-                value={this.state.price}
-                placeholder='Price'
-                onChange={this.handleChange}></input>
-            </div>
-            <div className='price'>
-              <input
-                name='quantity'
-                className="pure-input-rounded"
-                value={this.state.quantity}
-                placeholder='quantity'
-                onChange={this.handleChange}></input>
-            </div>
-            <div className='price'>
-              <input
-                name='productDescription'
-                className="pure-input-rounded"
-                value={this.state.description}
-                placeholder='description'
-                onChange={this.handleChange}></input>
-            </div>
+      <div className='container pure-u-1'>
+        {/* <h5>Add a Product</h5> */}
+        <div className="pure-form pure-u-1">
+          <div className='productname'>
+            <input
+              type="text"
+              className="pure-input-rounded"
+              name='productName'
+              value={this.state.productName}
+              placeholder='Product name'
+              onChange={this.handleChange}></input>
+          </div>
+          <div className='price'>
+            <input
+              type="text"
+              className="pure-input-rounded"
+              name='price'
+              value={this.state.price}
+              placeholder='Price'
+              onChange={this.handleChange}></input>
+          </div>
+          <div className='price'>
+            <input
+              name='quantity'
+              className="pure-input-rounded"
+              value={this.state.quantity}
+              placeholder='Quantity'
+              onChange={this.handleChange}></input>
+          </div>
+          <div className='price'>
+            <input
+              name='productDescription'
+              className="pure-input-rounded"
+              value={this.state.description}
+              placeholder='Description'
+              onChange={this.handleChange}></input>
+          </div>
+          <div className="organic">
             <h5>Organic</h5>
             <input
               className="checkbox pure-input-rounded pure-u-1"
@@ -93,16 +93,10 @@ export class Addproduct extends React.Component {
               name='organic'
               value={this.state.organic}
               onClick={this.handleOrganic}></input>
-            <h5>Free-Range</h5>
-            <input
-              type='checkbox'
-              className="pure-input-rounded"
-              name='freerange'
-              value={this.state.freerange}
-              onClick={this.handleFreerange}></input><br/>
-            <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
-            <div>{this.state.productSubmitted ? <h5>Successfully added</h5> : <div></div>}</div>
           </div>
+
+          <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
+          <div>{this.state.productSubmitted ? <h5>Successfully added</h5> : <div></div>}</div>
         </div>
       </div>
     )

@@ -101,12 +101,12 @@ class Area extends React.Component {
                   name,
                   description,
                   email,
-                  category
+                  category,
+                  product_name
                 }) => (
                   <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
                     <Popup>
-                      {console.log(category)}
-                      <Button value={user_id} onClick={this.openDrawer}><img src={fruit}/></Button>
+                      <Button value={user_id} onClick={this.openDrawer}>{product_name}</Button>
                     </Popup>
                   </Marker>
                 ))}

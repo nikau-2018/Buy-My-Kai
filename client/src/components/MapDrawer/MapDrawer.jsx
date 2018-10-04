@@ -30,9 +30,9 @@ const MapDrawer = ({isOpen, toggleDrawer, user}) => (
       <h3>Products</h3>
       <p>Item: {user && user.product_name}</p>
       <p>Description: {user && user.product_description}</p>
-      <p>Price: {user && user.organic}</p>
+      <p>Price: {user && user.price}</p>
       <p>Quantity: {user && user.quantity}</p>
-      <p>Organic: {user && user.organic ? 'Yip!' : 'Nah'}</p>
+      <p>Organic: {user && user.organic ? 'Yes' : 'No'}</p>
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
         Close

@@ -99,15 +99,15 @@ test('one more user login', () => {
     })
 })
 
-test('this person live in Belmont', () => {
-  const expected = 1
-  const suburb = {userSuburb: 'Mt Eden'}
-  const userId = 11107
+// test('this person live in Belmont', () => {
+//   const expected = 1
+//   const suburb = 'Hauraki'
+//   const userId = 11101
 
-  return db.getSellerBySuburb(suburb, userId, testDb)
-    .then(() => { return testDb('users').select() })
-    .then(results => {
-      const actual = results.suburb
-      expect(actual).toBe(expected)
-    })
-})
+//   return db.getSellerBySuburb(suburb, userId, testDb)
+//     .then(() => { return testDb('users').select() })
+//     .then(results => {
+//       const actual = results.suburb
+//       expect(actual).toBe(expected)
+//     })
+// })

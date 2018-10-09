@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
-// import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
 
 import Addproduct from '../Product/Addproduct'
@@ -43,7 +42,6 @@ class Grower extends React.Component {
   }
 
   render () {
-    // this.props.dispatch(getProducts())
     const profile = this.props.user || {}
     return (
     // Navigation
@@ -56,10 +54,11 @@ class Grower extends React.Component {
 
               <div className="pure-u-1">
                 <h5>Thank you for registering with Buy My Kai<br/>
-                We are excited to have you as part of our community !</h5>
-                {/* <h5>This is your profile page, here you will find your registered details.<br/>
-              Please make sure they are up to date as this is what
-              eaters will be seeing when they search your area on the map.</h5> */}
+                We are excited to have you as part of our community!</h5>
+                <h5>This is your profile page. Where you can edit your details and add products.
+                    Please make sure they are up to date as this is what
+                    Eaters will be seeing when they search your area on the map. If you scroll down you'll see the Add Products button. Once you're happy with your profile click on Map in the navigation bar to see who else is growing in your area.
+                </h5>
               </div><br/>
 
               <div className="pure-u-1">
@@ -69,10 +68,10 @@ class Grower extends React.Component {
                 <h5><i className="far fa-smile fa-2x" ></i><br/><br/><span className="desc-grower">{profile.description}</span></h5><br/>
                 <h5><i className="fas fa-home fa-2x"></i><br/><br/><span>{profile.address}</span><br/><span>{profile.suburb}</span><br/><span>{profile.city}</span><br/></h5><br/>
                 <h5><i className="fas fa-clock fa-2x"></i><br/><br/><span>{profile.hours}</span></h5><br/>
-                <h5><i className="fas fa-shopping-cart fa-2x"></i>
+                <h5><i className="fas fa-shopping-cart fa-2x"></i><br/><br />
                   <div>
                     {this.props.product && this.props.product.map(product =>
-                      <div key={product.id}><li><b>{product.product_name}</b><br/>Price: {product.price}<br/>Quantity: {product.quantity}</li>
+                      <div className = "products" key={product.id}>{product.product_name}<br/>Price: {product.price}<br/>Quantity: {product.quantity}<br/><br />
                         <Button className='btn btn-forth' onClick={this.handleDelete} value={product.id}>Delete</Button>
                       </div>
                     )}
@@ -85,7 +84,6 @@ class Grower extends React.Component {
                 {this.state.showForm ? <Addproduct /> : <div></div>}
               </div>
             </div>
-
           }
         </div>
       </div>

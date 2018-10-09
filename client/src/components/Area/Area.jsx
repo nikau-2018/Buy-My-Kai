@@ -9,15 +9,12 @@ import {mapDraw} from '../../actions/mapDraw'
 
 import MapDrawer from '../MapDrawer/MapDrawer'
 import Nav from '../Nav/Nav'
-import List from './List'
 import {selectUser} from '../../actions/userprofile'
 
 import logo from '../../images/logo-4.png'
 import '../../styles/styles.css'
 
 import './styles.css'
-
-import fruit from '../ShowMap/marker-images/Fruit.png'
 
 const DEFAULT_CENTER = [-36.848, 174.763]
 
@@ -58,7 +55,7 @@ class Area extends React.Component {
   }
 
   render () {
-    const growers = this.props.growersList || [] // short hand and chmapDrowif griwerList is undefinf we assined an empty array
+    const growers = this.props.growersList || []
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
@@ -72,9 +69,9 @@ class Area extends React.Component {
             <Nav />
           </div>
         </div>
-        <div className='container pure-u-1'>
+        <div className="container pure-u-5-5">
           <div className="pure-img background-profile"></div>
-          <div className="pure-form pure-u-1">
+          <div className="pure-form pure-u-5-5">
             <h2>Search For Growers</h2>
             <div className="pure-form pure-u-1">
               <input
@@ -86,35 +83,34 @@ class Area extends React.Component {
                 value={this.state.suburb}
                 onChange={this.handleChange} />
               <button className="btn btn-primary" onClick={this.handleClick}>SEARCH</button>
-            </div>
-            <div className="map">
-              <Map className="Leaflet" center={center} zoom={13}>
-                <TileLayer
-                  attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {growers.length && growers.map(({
-                  user_id,
-                  lat,
-                  long,
-                  hours,
-                  name,
-                  description,
-                  email,
-                  category,
-                  product_name
-                }) => (
-                  <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
-                    <Popup>
-                      <Button value={user_id} onClick={this.openDrawer}>{product_name}</Button>
-                    </Popup>
-                  </Marker>
-                ))}
-              </Map>
-            </div>
-            <div className='backtotop  pure-u-1'>
-              <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
-            </div>
+            </div></div>
+          <div className="map">
+            <Map className="Leaflet" center={center} zoom={13}>
+              <TileLayer
+                attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {growers.length && growers.map(({
+                user_id,
+                lat,
+                long,
+                hours,
+                name,
+                description,
+                email,
+                category,
+                product_name
+              }) => (
+                <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
+                  <Popup>
+                    <Button value={user_id} onClick={this.openDrawer}>{product_name}</Button>
+                  </Popup>
+                </Marker>
+              ))}
+            </Map>
+          </div>
+          <div className='backtotop  pure-u-1'>
+            <a href="#top"><h5> Return to top <i className="fas fa-caret-up"></i></h5></a>
           </div>
         </div>
       </div>

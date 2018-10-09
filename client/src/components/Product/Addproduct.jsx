@@ -2,6 +2,7 @@ import React from 'react'
 // import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {sendProduct} from '../../actions/products'
+import {Button} from '@material-ui/core'
 
 export class Addproduct extends React.Component {
   constructor (props) {
@@ -49,7 +50,6 @@ export class Addproduct extends React.Component {
   render () {
     return (
       <div className='container pure-u-1'>
-        {/* <h5>Add a Product</h5> */}
         <div className="pure-form pure-u-1">
           <div className='productname'>
             <input
@@ -78,26 +78,26 @@ export class Addproduct extends React.Component {
               onChange={this.handleChange}></input>
           </div>
           <div className='price'>
-            <input
+            <textarea
               name='productDescription'
               className="pure-input-rounded"
               value={this.state.description}
               placeholder='Description'
-              onChange={this.handleChange}></input>
+              onChange={this.handleChange}/>
           </div>
           <div className="organic">
             <h5>Organic</h5>
             <input
-              className="checkbox pure-input-rounded pure-u-1"
+              className="checkbox"
               type='checkbox'
               name='organic'
               value={this.state.organic}
               onClick={this.handleOrganic}></input>
           </div>
-
-          <button className='btn btn-third' onClick={this.handleSubmit}>Add</button>
-          <div>{this.state.productSubmitted ? <h5>Successfully added</h5> : <div></div>}</div>
         </div>
+
+        <Button className='btn btn-third' onClick={this.handleSubmit}>Done</Button>
+        <div>{this.state.productSubmitted ? <h5>Successfully added</h5> : <div></div>}</div>
       </div>
     )
   }

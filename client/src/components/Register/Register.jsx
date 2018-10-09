@@ -72,9 +72,11 @@ class Register extends React.Component {
         <div className="pure-img background-register"></div>
         <div className="container pure-u-1">
           <h2>REGISTER</h2>
-          <h4>We just need to get a few details<br />
-                from you to get you sign up <br />
-                to the service.</h4>
+          <h5>
+            If you have a green thumb and would like to share your produce with the community you can signup as a Grower and list what produce you would like to sell or trade. If you're a foodie and on the hunt for local and fresh produce you can signup as an Eater and search for Growers in your neighbourhood.</h5>
+          <h5>
+          Once you've finished filling out your details below, the Go button will take you to your profile.
+          </h5>
 
           <div className="pure-form pure-u-1">
             <div className='name'>
@@ -134,7 +136,7 @@ class Register extends React.Component {
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="city"
+                      placeholder="City"
                       name='city'
                       margin="normal"
                       value={this.state.city}
@@ -142,10 +144,10 @@ class Register extends React.Component {
                   </div>
 
                   <div className='description'>
-                    <input
+                    <textarea
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Description"
+                      placeholder="Description e.g. Green thumb passionate about sustainable living"
                       name='description'
                       margin="normal"
                       value={this.state.description}
@@ -155,7 +157,7 @@ class Register extends React.Component {
                     <input
                       type="text"
                       className="pure-input-rounded"
-                      placeholder="Hours"
+                      placeholder="Availability e.g. Sundays 9am-12pm"
                       name='hours'
                       margin="normal"
                       value={this.state.hours}
@@ -166,14 +168,14 @@ class Register extends React.Component {
                 : <div></div>
             }
             <div className="checkbox pure-u-1">
-              <h4>Are you a Grower?
+              <h5>Are you a Grower?
                 <Checkbox
                   type='checkbox'
                   checked={this.state.isClicked}
                   name='seller'
                   onClick={this.handleSeller}
                   onChange={this.handleChange} />
-                <label htmlFor="seller"></label></h4>
+                <label htmlFor="seller"></label></h5>
             </div>
 
             <Button
@@ -182,6 +184,7 @@ class Register extends React.Component {
               onClick={this.sendUser}>
                     Go
             </Button>
+
             {this.state.success && <Redirect to="/profile" />}
             <div className="pure-u-1">
               <h4>Already a member?

@@ -19,7 +19,7 @@ body {
 h4, h5, p {
   color: white;
   text-align: center;
-  font-size: .9rem;
+  font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
 }
@@ -67,7 +67,7 @@ li {
   .login-container {
     position: unset;
     margin: auto;
-    background: rgba(255, 255, 255, 0.95)
+    background: rgba(255, 255, 255, 0.95);
   }
   .container {
     position: relative;
@@ -103,19 +103,16 @@ li {
 }
 /* Checkbox styles */
 .organic {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 1rem auto;
-  padding: 1rem;
+  margin: 3rem auto;
+  padding-right: 6rem;
 }
 .organic h5 {
-  line-height: 2rem;
-  margin: 0;
-}
-.organic input.checkbox {
-  width: 250px;
+  line-height: 1rem;
+  margin: auto;
 }
 
 .mapDraw p {
@@ -123,9 +120,6 @@ li {
   text-align: left;
 }
 
-
-/* Small devices (portrait tablets and large phones, 600px and up)
-@media only screen and (min-width: 600px) {...}  */
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -143,6 +137,7 @@ li {
     display: flex;
     flex-direction: column;
     align-self: center;
+    width: 50%;
   }
   .body {
     background: url("../images/apricot.jpg");
@@ -183,7 +178,8 @@ li {
   }
   .container {
     padding: 3rem;
-  }
+    text-align: center;
+}
   .home-container,
   .register-container,
   .login-container {
@@ -325,7 +321,8 @@ footer {
 
 .map  {
   position: relative;
-  justify-content: center;
+  justify-content: left;
+  width: 100% !important;
 }
 
 h2 {
@@ -393,7 +390,6 @@ button.btn {
 
 .btn-primary {
   background: #81b82f !important;
-
 }
 
 .btn-secondary {
@@ -402,7 +398,7 @@ button.btn {
 
 .btn-third {
   background: #659026 !important;
-  font-size: .7rem !important;
+  font-size: .6rem !important;
   margin: 0;
   width: 50% !important;
 }
@@ -470,4 +466,25 @@ button.btn {
   font-size: 1.5em;
   line-height: 0;
   padding-top: 1em;
+}
+
+.products {
+  align-content: center;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.profile {
+  width: 70%;
+}
+
+.register {
+  width: 50%;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  position: relative;
+  justify-content: center;
 }

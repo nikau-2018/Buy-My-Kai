@@ -79,7 +79,7 @@ class BecomeGrower extends React.Component {
           </div>
 
           <div className='description'>
-            <input
+            <textarea
               type="text"
               className="pure-input-rounded"
               placeholder='description'

@@ -15,10 +15,9 @@ export default function Home (props) {
       </div>
       <div className="pure-img background-home"></div>
       <div className="container pure-u-1">
-        <h2>WELCOME !</h2>
-        <h4>Buy My Kai connects people <br />
-          through the food we grow <br />
-          in our backyard </h4>
+        <h2>Kia ora!</h2>
+        <h5>Thank you for visiting us, we are a group of foodies who wanted to create a platform for humans in our community to buy, sell and trade the fruit and veg in their backyard.</h5>
+        <h5>Wanna get involved? Head to the registration page to get setup</h5>
         <div className="btn-group pure-u-1">
           <Link to="/login">
             <Button

@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
-// import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
 import {editUser, getProfile} from '../../actions/profile'
 
@@ -90,7 +89,7 @@ class Grower extends React.Component {
           </div>
 
           <div className='description'>
-            <input
+            <textarea
               type="text"
               className="pure-input-rounded"
               placeholder={this.props.user.description}

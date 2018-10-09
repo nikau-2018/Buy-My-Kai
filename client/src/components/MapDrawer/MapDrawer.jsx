@@ -9,25 +9,20 @@ import {mapDraw} from '../../actions/mapDraw'
 const MapDrawer = ({isOpen, toggleDrawer, user}) => (
   <Drawer open={isOpen}>
     <div className="mapDraw">
-      <h1>Grower Profile</h1>
-      <p>User: <br/>
-        {user && user.name}</p>
-      <p>Email: <br/>
-        {user && user.email} </p>
-      <p>Bio: <br/>
-        {user && user.description}</p>
-      <p>Availability:<br/>
-        {user && user.hours}</p>
-      <Divider />
-      <h3>Products</h3>
-      <p>Item: {user && user.product_name}</p>
-      <p>Description: {user && user.product_description}</p>
+      <h1><i className="fas fa-user fa-1x"></i></h1>
+      <p>{user && user.name}</p>
+      <p>{user && user.email} </p>
+      <p>{user && user.description}</p>
+      <p>Available on {user && user.hours}</p>
+      <h1><i className="fas fa-shopping-cart fa-1x"></i></h1>
+      <p>{user && user.product_name}</p>
+      <p>{user && user.product_description}</p>
       <p>Price: {user && user.price}</p>
       <p>Quantity: {user && user.quantity}</p>
-      <p>Organic: {user && user.organic ? 'Yes' : 'No'}</p>
+      <p>Organic: {user && user.organic ? 'Yep!' : 'No'}</p>
       <Divider/>
       <Button onClick={() => toggleDrawer()}>
-        Close
+        Back To Map
       </Button>
     </div>
   </Drawer>

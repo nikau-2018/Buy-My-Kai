@@ -24,6 +24,15 @@ h4, h5, p {
   letter-spacing: 1px;
 }
 
+h1 {
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  padding-top: 6px;
+}
+
 h4 {
   font-size: 1.2rem;
 }
@@ -31,7 +40,7 @@ h4 {
 p {
   font-size: .9rem;
   padding-left: 1.5rem;
-  padding: 1rem
+  padding: 1rem;
 }
 
 li {
@@ -50,10 +59,12 @@ li {
     width: 35%;
     margin: auto;
   }
+
   .logo {
     width: 40%;
     margin: 0;
   }
+
   .home .logo {
     width: 40%;
     margin: auto;
@@ -69,6 +80,7 @@ li {
     margin: auto;
     background: rgba(255, 255, 255, 0.95);
   }
+
   .container {
     position: relative;
     display: flex;
@@ -97,9 +109,9 @@ li {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
-  width: 30% !important;
+  width: 25% !important;
   padding: 2rem;
-  background: rgba(255,255,255, .9) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
 }
 /* Checkbox styles */
 .organic {
@@ -117,7 +129,9 @@ li {
 
 .mapDraw p {
   color: rgb(70, 70, 70);
-  text-align: left;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
 }
 
 
@@ -321,8 +335,8 @@ footer {
 
 .map  {
   position: relative;
-  justify-content: left;
-  width: 100% !important;
+  justify-content: center;
+  width: 100%;
 }
 
 h2 {
@@ -483,8 +497,38 @@ button.btn {
   width: 50%;
 }
 
-.leaflet-container {
-  width: 100% !important;
-  position: relative;
-  justify-content: center;
+.area {
+  width: 100%;
+}
+
+.area .nav-bar {
+  width: auto;
+  padding-top: 1rem;
+  padding-right: 100px;
+  padding-top: 0;
+}
+
+.header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.area-logo {
+  width: 17%;
+  padding-left: 160px;
+}
+
+
+.area .header > a {
+  display: block;
+  height: -70px;
+  margin: 0 4rem;
+}
+.area .nav-bar {
+  width: auto;
+  padding-top: 1rem;
+}
+
+.fas fa-user fa-1x {
+  padding-right: 2px;
 }

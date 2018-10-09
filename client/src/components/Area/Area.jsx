@@ -16,6 +16,8 @@ import '../../styles/styles.css'
 
 import './styles.css'
 
+// const customMarker = L.icon({iconUrl: require('../ShowMap/marker-images/marker-icon-2x-vege.png')})
+
 const DEFAULT_CENTER = [-36.848, 174.763]
 
 class Area extends React.Component {
@@ -59,19 +61,19 @@ class Area extends React.Component {
     const center = growers.length ? [growers[0].lat, growers[0].long] : DEFAULT_CENTER
 
     return (
-      <div className="profile">
+      <div className="area">
         <MapDrawer />
         <div className="header">
           <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+            <img className="pure-img area-logo" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />
           </div>
         </div>
-        <div className="container pure-u-5-5">
+        <div className="container pure-u-1">
           <div className="pure-img background-profile"></div>
-          <div className="pure-form pure-u-5-5">
+          <div className="pure-form pure-u-1">
             <h2>Search For Growers</h2>
             <div className="pure-form pure-u-1">
               <input

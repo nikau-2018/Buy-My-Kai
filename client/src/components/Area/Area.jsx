@@ -33,6 +33,9 @@ class Area extends React.Component {
 
   handleClick () {
     this.sendNeighbourhood(this.state.suburb)
+    this.setState({
+      suburb: ''
+    })
   }
 
   handleChange (e) {
@@ -51,8 +54,6 @@ class Area extends React.Component {
   }
 
   handleUser (id) {
-    // eslint-disable-next-line no-console
-    console.log(id)
     this.props.dispatch(selectUser(id))
   }
 

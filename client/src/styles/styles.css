@@ -565,3 +565,16 @@ button.btn {
   padding-left: 110px;
   margin: 20px;
 }
+
+.popupMap {
+  width: 140px;
+  height: 50px;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(250, 250, 250, 0.8) !important;
+}
+
+.popupButton {
+  background: transparent;
+}

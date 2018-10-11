@@ -85,7 +85,7 @@ export class Addproduct extends React.Component {
             <textarea
               name='productDescription'
               className="pure-input-rounded"
-              value={this.state.description}
+              value={this.state.productDescription}
               placeholder='Description'
               onChange={this.handleChange}/>
           </div>

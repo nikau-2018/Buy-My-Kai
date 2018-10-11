@@ -105,8 +105,8 @@ class Area extends React.Component {
                 product_name
               }) => (
                 <Marker onClick={() => this.handleUser(user_id)} key={user_id} position={[lat, long]}>
-                  <Popup>
-                    <Button value={user_id} onClick={this.openDrawer}>{product_name}</Button>
+                  <Popup className="popupMap">
+                    <Button className="popupButton" value={user_id} onClick={this.openDrawer}>{product_name}</Button>
                   </Popup>
                 </Marker>
               ))}

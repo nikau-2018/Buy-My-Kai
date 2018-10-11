@@ -79,7 +79,7 @@ class Area extends React.Component {
               <input
                 type="text"
                 className="pure-input-rounded"
-                placeholder="Suburb"
+                placeholder="Suburb e.g. Belmont"
                 name='suburb'
                 margin="normal"
                 value={this.state.suburb}

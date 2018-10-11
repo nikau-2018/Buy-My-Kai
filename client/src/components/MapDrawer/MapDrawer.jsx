@@ -8,12 +8,13 @@ import {mapDraw} from '../../actions/mapDraw'
 
 const MapDrawer = ({isOpen, toggleDrawer, user}) => (
   <Drawer open={isOpen}>
-    <div className="mapDraw">
+    <div className="mapDrawTop">
       <h1><i className="fas fa-user fa-1x"></i></h1>
       <p>{user && user.name}</p>
       <p>{user && user.email} </p>
       <p>{user && user.description}</p>
-      <p>Available on {user && user.hours}</p>
+      <p>Available on {user && user.hours}</p></div>
+    <div className="mapDrawBottom">
       <h1><i className="fas fa-shopping-cart fa-1x"></i></h1>
       <p>{user && user.product_name}</p>
       <p>{user && user.product_description}</p>

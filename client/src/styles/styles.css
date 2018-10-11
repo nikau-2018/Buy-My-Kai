@@ -110,8 +110,8 @@ li {
   -o-box-sizing: border-box;
   box-sizing: border-box;
   width: 25% !important;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.8) !important;
+  padding: 1rem;
+  background: rgba(185, 185, 185, 0.8) !important;
 }
 /* Checkbox styles */
 .organic {
@@ -127,11 +127,33 @@ li {
   margin: auto;
 }
 
-.mapDraw p {
+.mapDrawTop {
   color: rgb(70, 70, 70);
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
+  background: rgba(212, 212, 212, 0.8) !important;
+  border-radius: 15px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.mapDrawTop p {
+  color: black;
+}
+
+.mapDrawBottom {
+  color: rgb(70, 70, 70);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  background: rgba(212, 212, 212, 0.8) !important;
+  border-radius: 15px;
+  margin: 0;
+}
+
+.mapDrawBottom p {
+  color: black;
 }
 
 

@@ -43,7 +43,11 @@ export class Addproduct extends React.Component {
   handleSubmit () {
     this.props.dispatch(sendProduct(this.state))
     this.setState({
-      productSubmitted: !this.state.productSubmitted
+      productSubmitted: !this.state.productSubmitted,
+      productName: '',
+      price: '',
+      quantity: '',
+      productDescription: ''
     })
   }
 

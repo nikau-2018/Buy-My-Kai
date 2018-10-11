@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
-import '../../styles/styles.css'
 import {editUser, getProfile} from '../../actions/profile'
 
 class Grower extends React.Component {
@@ -9,15 +8,15 @@ class Grower extends React.Component {
     super(props)
     this.state = {
       showForm: false,
-      name: '',
-      email: '',
+      name: this.props.user.name,
+      email: this.props.user.email,
       hash: '',
       isSeller: false,
-      address: '',
-      suburb: '',
-      city: '',
-      description: '',
-      hours: ''
+      address: this.props.user.address,
+      suburb: this.props.user.suburb,
+      city: this.props.user.city,
+      description: this.props.user.description,
+      hours: this.props.user.hours
     }
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)

@@ -42,10 +42,8 @@ export function getProfile () {
         if (res.data.token) {
           setToken(res.data.token)
         }
-          dispatch(profileSuccess(res.data.user))
-          dispatch(getProducts())
-         // eslint-disable-next-line no-console
-        console.log('success')
+        dispatch(profileSuccess(res.data.user))
+        dispatch(getProducts())
       })
       .catch(err => {
         dispatch(profileError(err.message))

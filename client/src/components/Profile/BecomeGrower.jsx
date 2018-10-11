@@ -50,7 +50,7 @@ class BecomeGrower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder='address'
+              placeholder="Address"
               name='address'
               margin="normal"
               value={this.state.address}
@@ -61,7 +61,7 @@ class BecomeGrower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder='suburb'
+              placeholder="Suburb"
               name='suburb'
               margin="normal"
               value={this.state.suburb}
@@ -72,7 +72,7 @@ class BecomeGrower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder='city'
+              placeholder="City"
               name='city'
               margin="normal"
               onChange={this.handleChange} />
@@ -82,7 +82,7 @@ class BecomeGrower extends React.Component {
             <textarea
               type="text"
               className="pure-input-rounded"
-              placeholder='description'
+              placeholder="Description"
               name='description'
               margin="normal"
               value={this.state.description}
@@ -93,7 +93,7 @@ class BecomeGrower extends React.Component {
             <input
               type="text"
               className="pure-input-rounded"
-              placeholder='hours'
+              placeholder="Hours"
               name='hours'
               margin="normal"
               value={this.state.hours}

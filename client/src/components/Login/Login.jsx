@@ -43,7 +43,7 @@ class Login extends React.Component {
       <div className="login">
         <div className="header">
           <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+            <img className="logo-login" src={logo} />
           </Link>
           <div className='nav-bar'>
             <Nav />

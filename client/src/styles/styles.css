@@ -532,3 +532,14 @@ button.btn {
 .fas fa-user fa-1x {
   padding-right: 2px;
 }
+
+.logo-login {
+  padding-left: 210px;
+  width: 50%;
+}
+
+.eater {
+  width: 70%;
+  padding-left: 110px;
+  margin: 20px;
+}

@@ -10,7 +10,7 @@ export default function Home (props) {
     <div className="home">
       <div className="header">
         <Link to='/'>
-          <img className="pure-img logo" src={logo} />
+          <img className="logo-login" src={logo} />
         </Link>
       </div>
       <div className="pure-img background-home"></div>

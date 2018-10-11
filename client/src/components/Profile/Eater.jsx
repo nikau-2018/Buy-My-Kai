@@ -35,24 +35,19 @@ class Eater extends React.Component {
     // Navigation
       <div>
         {this.state.showForm ? <BecomeGrower />
-
-          : <div className='profile'>
-
-            <h2>Kia ora Eater</h2>
-            <div className="pure-u-1">
-              <h5>Thank you for registering with Buy My Kai <br />
-              We are excited to have you as part of our community!</h5>
-              {/* <h5>How to use the App</h5> */}
+          : <div className="eater">
+            <div className="container pure-u-1">
+              <h2>Kia ora Eater</h2>
               <div className="pure-u-1">
-                <h5><i className="fas fa-envelope fa-2x"></i><br/><br/><span>{profile.email}</span></h5><br/>                {/* <Button
-                className="btn--fab"
-                variant="extendedFab">
-                <i className="fas fa-user-check"></i>
-              </Button> */}
-                <span className="pure-u-1">
-                  <h5>Wanna become a grower?</h5>
-                  <Button className='btn btn-third' onClick={this.handleClick}>Click here</Button></span>
-              </div>
+                <p>Thank you for registering with Buy My Kai<br/>
+                We are excited to have you as part of our community!</p>
+                <p>This is your profile page. Because you've signed up as an Eater you won't see much on your profile. Head to the map in your menu and check out some Growers in your area.</p>
+                <h5>How to use the map</h5>
+                <p>When you see a product you're keen on, click the marker and then product in the popup, this will pull up their profile on the left of your screen. Best way to contact Growers is through their email address which you'll find on their profile. Enjoy!
+                </p></div>
+              <span className="pure-u-1">
+                <p>Wanna become a Grower? It's super easy! Just click the button below</p>
+                <Button className='btn btn-third' onClick={this.handleClick}>Become a Grower</Button></span>
             </div>
           </div>
         }

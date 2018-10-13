@@ -159,3 +159,15 @@ test('gets a growers profile information and products using their id', () => {
       expect(actual).toEqual(expected)
     })
 })
+
+test('edit an existing user in the database', () => {
+  const expected = ['Sundays all day']
+  const user = {hours: 'Sundays all day'}
+  const userId = 11105
+  return db.editUser(userId, user, testDb)
+    .then(() => { return testDb('users').select().where('users.id', userId) })
+    .then(results => {
+      const actual = results.map(result => result.hours)
+      expect(actual).toEqual(expected)
+    })
+})

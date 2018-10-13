@@ -17,7 +17,7 @@ afterEach(() => {
 })
 
 test('addUser adds a new user', () => {
-  const expected = 7
+  const expected = 8
   const user = {name: 'Emma', hash: 'emma'}
   return db.addUser(user, testDb)
     .then(() => { return testDb('users').select() })
@@ -200,6 +200,20 @@ test('gets a product by name', () => {
     .then(() => { return testDb('products').where('products.product_name', name).select() })
     .then(results => {
       const actual = results
+      expect(actual).toEqual(expected)
+    })
+})
+
+test('eater can become a grower', () => {
+  const expected = [1]
+  const user = {
+    isSeller: '1'
+  }
+  const userId = 11107
+  return db.addGrower(user, userId, testDb)
+    .then(() => { return testDb('users').where('id', userId).select() })
+    .then(results => {
+      const actual = results.map(results => results.isSeller)
       expect(actual).toEqual(expected)
     })
 })

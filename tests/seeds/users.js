@@ -87,6 +87,20 @@ exports.seed = (knex, Promise) => {
           long: '174.79537',
           name: 'Douglas Carter',
           suburb: 'Devonport'
+        },
+        {
+          address: '111 Great North Road',
+          city: 'Auckland',
+          description: 'Retired, gardening enthusiast!',
+          email: 'garfield@hotmail.com',
+          hash: '$argon2id$v=19$m=8,t=2,p=1$xPreqEgvkiJZ0SnQ1oQ6Iw$ITkFpH/8pw+jGVNiV9Viop25LKqDjUl0VhNDqxg3S+w',
+          hours: 'Thursday Mornings',
+          id: '11107',
+          isSeller: '0',
+          lat: '-36.82742',
+          long: '174.79537',
+          name: 'Garfield',
+          suburb: 'Grey Lynn'
         }
       ])
     })

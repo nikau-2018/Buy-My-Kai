@@ -182,3 +182,24 @@ test('deletes a product in the database', () => {
       expect(actual).toEqual(expected)
     })
 })
+
+test('gets a product by name', () => {
+  const expected = [
+    {id: 33301,
+      product_name: 'Orange',
+      price: 'Free',
+      quantity: '50',
+      product_description: 'Juicy ripe for the picking, easy peel oranges from the sunny Northshore.',
+      category: 'Fruit',
+      organic: 1,
+      freerange: 0,
+      user_id: 11101}
+  ]
+  const name = 'Orange'
+  return db.getProductByName(name, testDb)
+    .then(() => { return testDb('products').where('products.product_name', name).select() })
+    .then(results => {
+      const actual = results
+      expect(actual).toEqual(expected)
+    })
+})

@@ -114,17 +114,6 @@ function getSellerBySuburb (suburb, testDb) {
   const db = testDb || connection
   return db('users')
     .join('products', 'users.id', 'products.user_id')
-    // .where('users.id', userId)
-    // .where('users.id', 'products.user_id')
-    // .select({
-    //   id: 'users.id',
-    //   name: 'users.name',
-    //   email: 'users.email',
-    //   lat: 'users.lat',
-    //   long: 'users.long',
-    //   description: 'users.description',
-    //   hours: 'users.hours'
-    // })
     .where('users.suburb', suburb)
     .select()
 }

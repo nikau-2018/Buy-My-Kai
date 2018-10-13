@@ -171,3 +171,14 @@ test('edit an existing user in the database', () => {
       expect(actual).toEqual(expected)
     })
 })
+
+test('deletes a product in the database', () => {
+  const expected = 11
+  const productId = 33301
+  return db.deleteProductById(productId, testDb)
+    .then(() => { return testDb('products').select() })
+    .then(results => {
+      const actual = results.length
+      expect(actual).toEqual(expected)
+    })
+})

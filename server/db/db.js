@@ -14,7 +14,7 @@ module.exports = {
   getSellerBySuburb,
   loginUser,
   editUser,
-  deleteProductByUser,
+  deleteProductById,
   addGrower
 }
 
@@ -134,7 +134,7 @@ function editUser (userId, user, testDb) {
     })
 }
 
-function deleteProductByUser (productId, testDb) {
+function deleteProductById (productId, testDb) {
   const db = testDb || connection
   return db('products')
     .where('id', productId)

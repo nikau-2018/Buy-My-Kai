@@ -18,7 +18,6 @@ module.exports = {
   addGrower
 }
 
-// adds a new user to the database
 function addUser (user, testDb) {
   const db = testDb || connection
   return generateHash(user.hash)
@@ -40,7 +39,6 @@ function addUser (user, testDb) {
     })
 }
 
-// adds a product to the database
 function addProduct (product, userId, testDb) {
   const db = testDb || connection
   return db('products')
@@ -56,7 +54,6 @@ function addProduct (product, userId, testDb) {
     })
 }
 
-// Get a product by ID.
 function getProductByUserId (userId, testDb) {
   const db = testDb || connection
   return db('products')
@@ -64,7 +61,6 @@ function getProductByUserId (userId, testDb) {
     .select()
 }
 
-// gets products from the database using usersId
 function getProducts (userId, testDb) {
   const db = testDb || connection
   return db('products')
@@ -72,7 +68,6 @@ function getProducts (userId, testDb) {
     .select()
 }
 
-// Get product by name.
 function getProductByName (name, testDb) {
   const db = testDb || connection
   return db('products')
@@ -85,7 +80,6 @@ function getProductByName (name, testDb) {
     })
 }
 
-// gets users information from the users and products table that we are joining where userId is equal to products.user_id
 function getUser (id, testDb) {
   const db = testDb || connection
   return db('users')
@@ -100,7 +94,6 @@ function loginUser (email, testDb) {
     .first()
 }
 
-// Get a sellers profile information.
 function getSeller (userId, testDb) {
   const db = testDb || connection
   return db('users')
@@ -109,7 +102,6 @@ function getSeller (userId, testDb) {
     .select()
 }
 
-// Get seller by suburb.
 function getSellerBySuburb (suburb, testDb) {
   const db = testDb || connection
   return db('users')
@@ -141,7 +133,6 @@ function deleteProductById (productId, testDb) {
     .del()
 }
 
-// become a grower
 function addGrower (user, userId, testDb) {
   const db = testDb || connection
   return db('users')

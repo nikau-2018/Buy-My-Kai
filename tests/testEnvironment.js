@@ -8,7 +8,6 @@ module.exports = {
 }
 
 function getTestDb () {
-  // return a new db connection
   return knex(config)
 }
 

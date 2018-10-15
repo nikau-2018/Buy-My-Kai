@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Button} from '@material-ui/core'
+import AboutUs from '../Nav/Aboutus'
 
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
@@ -8,6 +9,9 @@ import logo from '../../images/logo-4.png'
 export default function Home (props) {
   return (
     <div className="home">
+      <div className='nav-bar'>
+        <AboutUs />
+      </div>
       <div className="header">
         <Link to='/'>
           <img className="logo-login" src={logo} />

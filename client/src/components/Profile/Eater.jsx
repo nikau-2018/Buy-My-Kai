@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from '@material-ui/core'
-// import {Link} from 'react-router-dom'
 import '../../styles/styles.css'
 import BecomeGrower from './BecomeGrower'
 
@@ -29,10 +28,8 @@ class Eater extends React.Component {
   }
 
   render () {
-    // this.props.dispatch(getProducts())
     const profile = this.props.user || {}
     return (
-    // Navigation
       <div>
         {this.state.showForm ? <BecomeGrower />
           : <div className="eater">

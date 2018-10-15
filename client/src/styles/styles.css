@@ -46,7 +46,8 @@ p {
 li {
   margin:5%;
 }
-  .body {
+
+.body {
     background: url("../images/apricot.jpg");
   }
   
@@ -69,6 +70,7 @@ li {
     width: 40%;
     margin: auto;
   }  
+
   .background {
     background-size: cover;
     height: 100%;
@@ -355,6 +357,9 @@ footer {
   margin: 3%;
 }
 
+.pure-menu-list {
+  padding-left: 100%;
+}
 .map  {
   position: relative;
   justify-content: center;

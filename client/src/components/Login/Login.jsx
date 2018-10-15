@@ -40,14 +40,12 @@ class Login extends React.Component {
   render () {
     const {error, isLoggedIn} = this.props
     return (
+
       <div className="login">
         <div className="header">
           <Link to='/'>
             <img className="logo-login" src={logo} />
           </Link>
-          <div className='nav-bar'>
-            <Nav />
-          </div>
         </div>
         <div className="pure-img background-login"></div>
         {error ? <div className="toast-error">{error.message}</div> : null}

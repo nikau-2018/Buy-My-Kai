@@ -61,10 +61,11 @@ li {
     margin: auto;
   }
 
-  .logo {
+  .logo-profile {
     width: 40%;
-    margin: 0;
+    margin: 0 1rem; 
   }
+
 
   .home .logo {
     width: 40%;
@@ -210,7 +211,7 @@ li {
     height: 70px;
     margin: 0 4rem;
   }
-  .profile .nav-bar {
+  .profile {
     width: auto;
     padding-top: 1rem;
   }
@@ -358,8 +359,9 @@ footer {
 }
 
 .pure-menu-list {
-  padding-left: 100%;
+  padding-left: 40%;
 }
+
 .map  {
   position: relative;
   justify-content: center;
@@ -541,19 +543,28 @@ button.btn {
 }
 
 .area-logo {
-  width: 17%;
+  width: 35%;
   padding-left: 110px;
+  margin: 0 4rem;
 }
-
 
 .area .header > a {
   display: block;
   height: -70px;
   margin: 0 4rem;
 }
+
 .area .nav-bar {
   width: auto;
   padding-top: 1rem;
+  margin: 0 4rem; 
+  margin-left: 2rem;
+}
+
+.nav-bar-profile {
+  width: auto;
+  padding-top: 1rem;
+  margin: 0 4rem; 
 }
 
 .fas fa-user fa-1x {

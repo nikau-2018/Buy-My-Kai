@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Route} from 'react-router-dom'
 
 import './app.css'
 import Home from '../Home'
@@ -8,6 +8,7 @@ import Register from '../Register/Register'
 import Area from '../Area/Area'
 import Profile from '../Profile'
 import Addproduct from '../Product/Addproduct'
+import Team from '../About/Team'
 
 export default class App extends Component {
   render () {
@@ -19,6 +20,7 @@ export default class App extends Component {
         <Route path='/neighbourhood' component={Area} />
         <Route path='/addproducts' component={Addproduct}/>
         <Route path='/profile' component={Profile} />
+        <Route path='/about' component={Team}/>
       </div>
     )
   }

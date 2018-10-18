@@ -7,8 +7,6 @@ import {Button} from '@material-ui/core'
 import '../../styles/styles.css'
 import logo from '../../images/logo-4.png'
 
-import Nav from '../Nav/Nav'
-
 class Login extends React.Component {
   constructor (props) {
     super(props)

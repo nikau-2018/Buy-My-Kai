@@ -16,9 +16,9 @@ class Profile extends React.Component {
       <div className="profile">
         <div className="header">
           <Link to='/'>
-            <img className="pure-img logo" src={logo} />
+            <img className="pure-img logo-profile" src={logo} />
           </Link>
-          <div className='nav-bar'>
+          <div className='nav-bar-profile'>
             <Nav />
           </div>
         </div>

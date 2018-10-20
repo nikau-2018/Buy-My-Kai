@@ -296,6 +296,7 @@ a {
 .background-login,
 .background-register,
 .background-profile,
+.background-about,
 .background-area {
   background: url("../images/apricot.jpg");
   background-color: grey;
@@ -334,10 +335,18 @@ a {
   background: url("../images/fruits.jpg");
 }
 
+.background-about {
+  background: url("../images/fruits.jpg");
+}
 
 .logo-small {
   width: auto;
   margin: auto;
+}
+
+.logo-about {
+  width: 30%;
+  margin-left: 57%
 }
 
 footer {

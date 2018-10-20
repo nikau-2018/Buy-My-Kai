@@ -68,7 +68,7 @@ class Area extends React.Component {
           <Link to='/'>
             <img className="pure-img area-logo" src={logo} />
           </Link>
-          <div className='nav-bar'>
+          <div className="nav-bar">
             <Nav />
           </div>
         </div>

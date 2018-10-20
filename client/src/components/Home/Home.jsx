@@ -9,7 +9,7 @@ import logo from '../../images/logo-4.png'
 export default function Home (props) {
   return (
     <div className="home">
-      <div className='nav-bar'>
+      <div className="nav-bar-home">
         <AboutUs />
       </div>
       <div className="header">
